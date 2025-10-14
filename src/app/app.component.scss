@@ -1,0 +1,18 @@
+// src/app/app.component.scss
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; // Nimmt verfügbaren Platz zwischen Header und Footer
+  padding-top: 70px; // Offset für Fixed Header (Desktop)
+  display: flex;
+  flex-direction: column;
+  
+  @media (max-width: 768px) {
+    padding-top: 60px; // Kleinerer Offset auf Mobile
+  }
+}

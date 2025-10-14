@@ -1,0 +1,42 @@
+<!-- src/app/shared/components/footer/footer.component.html -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>DNG GmbH</h3>
+        <p>Dachdeckermeisterbetrieb</p>
+        <p>Ihr Partner für alle Dacharbeiten<br>im Raum Nahe Glan</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Kontakt</h3>
+        <p>
+          📍 [Ihre Adresse]<br>
+          📞 <a href="tel:+49XXXXXXXXXX">+49 (0) XXX XXXXXX</a><br>
+          ✉️ <a href="mailto:info@dng-gmbh.de">info&#64;dng-gmbh.de</a>
+        </p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Leistungen</h3>
+        <ul>
+          <li><a routerLink="/leistungen/dachsanierung">Dachsanierung</a></li>
+          <li><a routerLink="/leistungen/dachfenster">Dachfenster</a></li>
+          <li><a routerLink="/leistungen/pv-anlagen">PV-Anlagen</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Rechtliches</h3>
+        <ul>
+          <li><a routerLink="/impressum">Impressum</a></li>
+          <li><a routerLink="/datenschutz">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {{ currentYear }} DNG GmbH. Alle Rechte vorbehalten.</p>
+    </div>
+  </div>
+</footer>

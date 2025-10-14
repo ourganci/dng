@@ -1,0 +1,39 @@
+<!-- src/app/shared/components/header/header.component.html -->
+<header class="site-header">
+  <div class="container">
+    <nav class="main-nav">
+      <a routerLink="/" class="logo">
+        <strong>DNG GmbH</strong>
+      </a>
+      
+      <ul class="nav-menu">
+        @for (item of menuItems; track item.route) {
+          <li class="nav-item">
+            <a 
+              [routerLink]="item.route" 
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: item.route === '/'}"
+              class="nav-link">
+              {{ item.label }}
+            </a>
+            
+            @if (item.submenu) {
+              <ul class="submenu">
+                @for (sub of item.submenu; track sub.route) {
+                  <li>
+                    <a 
+                      [routerLink]="sub.route" 
+                      routerLinkActive="active"
+                      class="submenu-link">
+                      {{ sub.label }}
+                    </a>
+                  </li>
+                }
+              </ul>
+            }
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

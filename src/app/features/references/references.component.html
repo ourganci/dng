@@ -1,0 +1,75 @@
+<!-- src/app/features/references/references.component.html -->
+<div class="references-page">
+  <section class="references-header">
+    <div class="container">
+      <h1>Unsere Referenzen</h1>
+      <p class="lead">
+        Überzeugen Sie sich von unserer Arbeit. Hier finden Sie eine Auswahl unserer erfolgreich abgeschlossenen Projekte.
+      </p>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <div class="container">
+      <h2>Unsere Projekte</h2>
+      
+      @for (project of projects; track project.title) {
+        <article class="project-card">
+          <div class="project-info">
+            <h3>{{ project.title }}</h3>
+            <div class="project-meta">
+              <span class="meta-item">📍 {{ project.location }}</span>
+              <span class="meta-item">📅 {{ project.year }}</span>
+              <span class="meta-item">🔨 {{ project.service }}</span>
+            </div>
+            <p class="project-description">{{ project.description }}</p>
+          </div>
+          
+          <div class="project-images">
+            <div class="image-comparison">
+              <div class="image-box">
+                <img [src]="project.imageBefore" [alt]="project.title + ' vorher'">
+                <span class="image-label">Vorher</span>
+              </div>
+              <div class="image-box">
+                <img [src]="project.imageAfter" [alt]="project.title + ' nachher'">
+                <span class="image-label">Nachher</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="testimonials-section">
+    <div class="container">
+      <h2>Das sagen unsere Kunden</h2>
+      
+      <div class="testimonials-grid">
+        @for (testimonial of testimonials; track testimonial.name) {
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              @for (star of getRatingStars(testimonial.rating); track $index) {
+                <span>{{ star }}</span>
+              }
+            </div>
+            <p class="testimonial-text">"{{ testimonial.text }}"</p>
+            <div class="testimonial-author">
+              <strong>{{ testimonial.name }}</strong>
+              <span>{{ testimonial.location }} • {{ testimonial.date }}</span>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="references-cta">
+    <div class="container">
+      <h2>Werden Sie unser nächstes Referenzprojekt!</h2>
+      <p>Lassen Sie uns gemeinsam Ihr Dachprojekt realisieren.</p>
+      <a href="/kontakt" class="cta-button">Jetzt Angebot anfordern</a>
+    </div>
+  </section>
+</div>

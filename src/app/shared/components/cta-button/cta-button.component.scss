@@ -1,0 +1,47 @@
+// src/app/shared/components/cta-button/cta-button.component.scss
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--primary-yellow);
+  color: var(--text-dark);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: center;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  border: 3px solid var(--primary-yellow);
+  position: relative;
+  overflow: hidden;
+
+  // Animierter Hover-Effekt
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width var(--transition-base), height var(--transition-base);
+  }
+
+  &:hover {
+    background-color: var(--primary-yellow-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+
+    &::before {
+      width: 400px;
+      height: 400px;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}

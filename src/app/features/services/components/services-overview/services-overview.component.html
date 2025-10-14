@@ -1,0 +1,33 @@
+<!-- src/app/features/services/components/services-overview/services-overview.component.html -->
+<div class="services-page">
+  <section class="page-header">
+    <div class="container">
+      <h1>Unsere Leistungen</h1>
+      <p class="lead">
+        Als Dachdeckermeisterbetrieb bieten wir Ihnen das komplette Leistungsspektrum 
+        rund um Ihr Dach. Qualität, Zuverlässigkeit und faire Preise sind unsere Stärken.
+      </p>
+    </div>
+  </section>
+
+  <section class="services-list">
+    <div class="container">
+      <div class="services-grid">
+        @for (service of services; track service.id) {
+          <article class="service-card">
+            <div class="service-icon">
+              {{ service.icon }}
+            </div>
+            <div class="service-content">
+              <h2>{{ service.headline }}</h2>
+              <p>{{ service.description }}</p>
+              <a [routerLink]="['/leistungen', service.id]" class="btn-details">
+                Mehr erfahren →
+              </a>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+</div>

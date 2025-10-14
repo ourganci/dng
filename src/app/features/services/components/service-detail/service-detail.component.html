@@ -1,0 +1,79 @@
+<!-- src/app/features/services/components/service-detail/service-detail.component.html -->
+@if (service(); as serviceContent) {
+  <article class="service-detail">
+    <section class="service-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a routerLink="/">Startseite</a> / 
+          <a routerLink="/leistungen">Leistungen</a> / 
+          <span>{{ serviceContent.headline }}</span>
+        </div>
+        
+        <h1>{{ serviceContent.headline }}</h1>
+        <p class="lead">{{ serviceContent.description }}</p>
+        
+        <app-cta-button 
+          text="Jetzt Angebot anfordern" 
+          link="/kontakt" />
+      </div>
+    </section>
+
+    <section class="service-benefits">
+      <div class="container">
+        <h2>Ihre Vorteile</h2>
+        <ul class="benefits-list">
+          @for (benefit of serviceContent.benefits; track benefit) {
+            <li>
+              <span class="check-icon">✓</span>
+              {{ benefit }}
+            </li>
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="service-process">
+      <div class="container">
+        <h2>Unser Ablauf</h2>
+        <ol class="process-steps">
+          @for (step of serviceContent.process; track $index) {
+            <li>
+              <span class="step-number">{{ $index + 1 }}</span>
+              <span class="step-text">{{ step }}</span>
+            </li>
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="service-faq">
+      <div class="container">
+        <h2>Häufig gestellte Fragen</h2>
+        <div class="faq-list">
+          @for (faq of serviceContent.faqs; track faq.question) {
+            <details class="faq-item">
+              <summary>{{ faq.question }}</summary>
+              <p>{{ faq.answer }}</p>
+            </details>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="service-cta">
+      <div class="container">
+        <div class="cta-box">
+          <h3>Interessiert an {{ serviceContent.headline }}?</h3>
+          <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot!</p>
+          <app-cta-button 
+            text="Kostenlos beraten lassen" 
+            link="/kontakt" />
+        </div>
+      </div>
+    </section>
+  </article>
+} @else {
+  <div class="container">
+    <p>Service nicht gefunden. <a routerLink="/leistungen">Zurück zur Übersicht</a></p>
+  </div>
+}
