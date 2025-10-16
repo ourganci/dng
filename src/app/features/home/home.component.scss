@@ -463,8 +463,7 @@
                 background: var(--bg-light-gray); // Fallback-Farbe wenn Bild nicht lädt
 
                 @media (max-width: 992px) {
-                    min-height: 400px;
-                    order: 2;
+                    display: none;
                 }
 
                 .why-img {
