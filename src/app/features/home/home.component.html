@@ -1,0 +1,219 @@
+<!-- src/app/features/home/home.component.html -->
+<div class="home-page">
+  <section class="hero">
+    <div class="hero-image"></div>
+    <div class="container">
+      <h1>Ihr Dach. Unsere Mission.</h1>
+      <h2>DNG GmbH – Dachdeckermeisterbetrieb für Nahe Glan & Umgebung</h2>
+
+      <p class="intro">
+        Ob Dachsanierung, Flachdachprüfung, PV-Anlagen oder Dachfenster-Einbau –
+        wir sind Ihr Dachdecker-Fachbetrieb im Umkreis von 50 km rund um Nahe Glan.
+      </p>
+
+      <app-cta-button text="Jetzt unverbindlich beraten lassen!" link="/kontakt" />
+    </div>
+  </section>
+
+  <!-- Services Showcase (NEU) -->
+  <section class="services-showcase">
+    <div class="container">
+      <div class="section-header-ss">
+        <h2>Unsere Leistungen</h2>
+        <h2 class="subtitle">Professionelle Dachdecker-Services für Ihr Zuhause</h2>
+      </div>
+    </div>
+
+    @for (service of services; track service.id; let i = $index) {
+    <div class="showcase-item" [class.reverse]="i % 2 === 1">
+      <!-- Bild-Container -->
+      <div class="showcase-image-wrapper">
+        <!-- ⭐ Nutze service.hasImage direkt statt hasImage()-Methode -->
+        @if (service.hasImage) {
+        <img [src]="'assets/images/services/' + service.id + '.jpg'" [alt]="service.title + ' - DNG GmbH'"
+          class="showcase-img">
+        <div class="image-overlay"></div>
+        } @else {
+        <div class="image-placeholder">
+          <span class="icon">{{ service.icon }}</span>
+        </div>
+        }
+      </div>
+
+      <div class="showcase-content">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+        <a [routerLink]="['/leistungen', service.id]" class="btn-learn-more">
+          Mehr erfahren →
+        </a>
+      </div>
+    </div>
+    }
+
+    <!-- <div class="showcase-cta">
+      <h3>Interesse an unseren Leistungen?</h3>
+      <p>Kontaktieren Sie uns für ein kostenloses Beratungsgespräch</p>
+      <app-cta-button text="Alle Leistungen ansehen" link="/leistungen" />
+    </div> -->
+
+  </section>
+
+
+  <!-- How We Work Section - Minimalistisch -->
+  <section class="how-we-work">
+    <div class="container">
+      <div class="section-header-hww">
+        <h2>So arbeiten wir</h2>
+        <h2 class="subtitle">Schritt für Schritt zu Ihrem perfekten Dach</h2>
+      </div>
+
+      <ul class="steps-list">
+        <li class="step-item">
+          <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+            <path d="m15 5 4 4" />
+          </svg>
+          <div class="step-content">
+            <h3>Ihre Anfrage</h3>
+            <p>Schreiben Sie uns über unser Anfrageformular so detailliert wie möglich, was Sie genau vorhaben.</p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3v18h18" />
+            <path d="m19 9-5 5-4-4-3 3" />
+          </svg>
+          <div class="step-content">
+            <h3>Beratung und Planung</h3>
+            <p>Wir beginnen jedes Projekt mit einer persönlichen Beratung und einer detaillierten Planung, die Ihre
+              individuellen Wünsche berücksichtigt.</p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="21" x2="3" y1="6" y2="6" />
+            <line x1="17" x2="7" y1="12" y2="12" />
+            <line x1="19" x2="5" y1="18" y2="18" />
+          </svg>
+          <div class="step-content">
+            <h3>Vorbereitung und Materialauswahl</h3>
+            <p>Gemeinsam wählen wir die passenden Materialien aus, die höchsten Ansprüchen genügen und perfekt zu Ihrem
+              Projekt passen.</p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9" />
+            <path d="M17.64 15 22 10.64" />
+            <path
+              d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91" />
+          </svg>
+          <div class="step-content">
+            <h3>Umsetzung und Qualitätssicherung</h3>
+            <p>Unser Team führt die Arbeiten fachgerecht aus und sorgt dafür, dass alle Schritte den Qualitätsstandards
+              entsprechen.</p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          <div class="step-content">
+            <h3>Abnahme und Nachbetreuung</h3>
+            <p>Nach Abschluss der Arbeiten stehen wir Ihnen weiterhin zur Verfügung und garantieren eine langanhaltende
+              Qualität.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="cta-wrapper">
+        <app-cta-button text="Projektanfrage erstellen" link="/kontakt" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust/Why Choose Us Section - Minimalistisch -->
+  <section class="why-choose-us">
+    <div class="why-grid">
+      <!-- Bild-Bereich (Links) -->
+      <div class="why-image">
+        <img src="assets/images/why-us.jpg" alt="DNG Team bei der Arbeit" class="why-img">
+        <!-- Platzhalter komplett entfernt -->
+      </div>
+
+      <!-- Text-Bereich (Rechts) -->
+      <div class="why-content">
+        <div class="content-wrapper">
+          <h2>Warum DNG?</h2>
+
+          <p class="intro">
+            Als Dachdeckermeisterbetrieb mit langjähriger Erfahrung stehen wir
+            für Qualität, Zuverlässigkeit und Kundenzufriedenheit in der Region
+            Nahe Glan und Umgebung.
+          </p>
+
+          <div class="trust-points">
+            <div class="trust-point">
+              <h3>Regionaler Service</h3>
+              <p>Schnelle Reaktionszeiten im Umkreis von 50 km rund um Nahe Glan</p>
+            </div>
+
+            <div class="trust-point">
+              <h3>Kostenlose Beratung</h3>
+              <p>Unverbindliches Angebot und transparente Kostenplanung</p>
+            </div>
+
+            <div class="trust-point">
+              <h3>Meisterbetrieb</h3>
+              <p>Erfahrene Dachdecker mit Meisterbrief und Qualitätsgarantie</p>
+            </div>
+
+            <div class="trust-point">
+              <h3>Versichert & Zertifiziert</h3>
+              <p>Vollversichert mit umfangreichen Gewährleistungen</p>
+            </div>
+          </div>
+
+          <app-cta-button text="Mehr über uns" link="/ueber-uns" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="partner-logos">
+    <div class="container">
+      <h2>Unsere Partner</h2>
+      <div class="logos-grid">
+        @for (logo of partnerLogos; track logo.name) {
+        <div class="logo-item">
+          <img [src]="'assets/images/partners/' + logo.file" [alt]="logo.name + ' Logo'" class="partner-logo">
+        </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="services-overview">
+    <div class="container">
+      <h2>Unsere Leistungen</h2>
+      <div class="services-grid">
+        @for (service of services; track service.id) {
+          <a [routerLink]="['/leistungen', service.id]" class="service-card">
+            <span class="service-icon">{{ service.icon }}</span>
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+          </a>
+        }
+      </div>
+    </div>
+  </section> -->
+</div>

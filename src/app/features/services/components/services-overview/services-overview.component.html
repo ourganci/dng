@@ -1,0 +1,47 @@
+<div class="services-page">
+  <section class="services-section">
+    <div class="container">
+      <div class="section-header-sovw">
+        <h2>Unsere Leistungen</h2>
+        <p class="subtitle">Professionelle Dachdecker-Services für Ihr Zuhause</p>
+      </div>
+
+      <div class="services-grid">
+        @for (service of services; track service.id) {
+          <div class="service-card">
+            <div class="card-image">
+              <!-- ⭐ Nutze hasImage direkt vom Service-Objekt -->
+              @if (service.hasImage) {
+                <img [src]="'assets/images/services/' + service.id + '.jpg'" 
+                     [alt]="service.title"
+                     class="service-img">
+              } @else {
+                <div class="image-placeholder">
+                  <span class="icon">{{ service.icon }}</span>
+                </div>
+              }
+            </div>
+
+            <div class="card-content">
+              <h3>{{ service.title }}</h3>
+              <p>{{ service.description }}</p>
+              <a [routerLink]="['/leistungen', service.id]" class="btn-details">
+                Mehr erfahren
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="cta-section">
+        <h2>Sie haben Fragen zu unseren Leistungen?</h2>
+        <p>Kontaktieren Sie uns für eine kostenlose und unverbindliche Beratung.</p>
+        <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
+      </div>
+    </div>
+  </section>
+</div>
