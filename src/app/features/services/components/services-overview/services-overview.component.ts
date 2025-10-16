@@ -1,12 +1,13 @@
 // src/app/features/services/components/services-overview/services-overview.component.ts
 import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 import { SeoService } from '../../../../core/services/seo.service';
 import { ServiceDataService } from '../../../../core/services/service-data.service';
 
 @Component({
   selector: 'app-services-overview',
-  imports: [RouterLink],
+  imports: [RouterLink, CtaButtonComponent],
   templateUrl: './services-overview.component.html',
   styleUrl: './services-overview.component.scss'
 })
@@ -14,7 +15,8 @@ export class ServicesOverviewComponent implements OnInit {
   private seoService = inject(SeoService);
   private serviceDataService = inject(ServiceDataService);
 
-  services = this.serviceDataService.getAllServices();
+    // ⭐ Nutzt getServicesOverview() - enthält bereits hasImage!
+  services = this.serviceDataService.getServicesOverview();
 
   ngOnInit(): void {
     this.seoService.updateMetaTags({

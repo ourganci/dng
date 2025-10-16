@@ -3,7 +3,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CtaButtonComponent } from '../../shared/components/cta-button/cta-button.component';
 import { SeoService } from '../../core/services/seo.service';
-import { SchemaMarkupService } from '../../core/services/schema-markup.service';
 import { ServiceDataService } from '../../core/services/service-data.service';
 
 @Component({
@@ -14,24 +13,11 @@ import { ServiceDataService } from '../../core/services/service-data.service';
 })
 export class HomeComponent implements OnInit {
   private seoService = inject(SeoService);
-  private schemaService = inject(SchemaMarkupService);
   private serviceDataService = inject(ServiceDataService);
 
+  // ⭐ Nutze getServicesOverview() - enthält hasImage bereits
   services = this.serviceDataService.getServicesOverview();
 
-  // Liste der verfügbaren Bilder
-  private availableImages = new Set<string>([
-    'dachsanierung',
-    'dachfenster',
-    // Füge weitere hinzu sobald Bilder da sind:
-    'dachreparaturen',
-    'regenrinnen',
-    'flachdachpruefung',
-    'pv-anlagen',
-    'hallenbeleuchtung'
-  ]);
-
-  // Add this property to your HomeComponent class
   partnerLogos = [
     { name: 'Creaton', file: 'creaton.png.webp' },
     // { name: 'GreenCoat', file: 'GreenCoat.png.webp' },
@@ -51,16 +37,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.seoService.updateMetaTags({
       title: 'DNG GmbH – Dachdeckermeisterbetrieb für Nahe Glan & Umgebung',
-      description: 'Ob Dachsanierung, Flachdachprüfung, PV-Anlagen oder Dachfenster-Einbau – wir sind Ihr Dachdecker-Fachbetrieb im Umkreis von 50 km rund um Nahe Glan.',
-      keywords: 'Dachdecker Nahe Glan, Dachsanierung, Dachfenster, PV-Anlagen, Flachdachprüfung',
+      description: 'Ihr Dachdecker-Fachbetrieb für Dachsanierung, PV-Anlagen, Dachfenster und mehr.',
+      keywords: 'Dachdecker Nahe Glan, Dachsanierung, PV-Anlagen',
       url: 'https://www.dng-gmbh.de'
     });
-
-    this.schemaService.addLocalBusinessSchema();
   }
 
-  // Prüfe ob Bild verfügbar ist
-  hasImage(serviceId: string): boolean {
-    return this.availableImages.has(serviceId);
-  }
+  // ⭐ hasImage()-Methode wird NICHT mehr benötigt!
+  // Die Info ist direkt im service.hasImage verfügbar
 }

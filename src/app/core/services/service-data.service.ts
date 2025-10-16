@@ -11,12 +11,34 @@ export interface ServiceContent {
   faqs: { question: string; answer: string }[];
   keywords: string;
   icon: string;
+  hasImage?: boolean; // ← NEU: Flag ob Bild verfügbar
+}
+
+// Einfaches Interface für Übersichtsseiten
+export interface ServiceOverview {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  hasImage: boolean; // ← NEU
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceDataService {
+
+    // ⭐ ZENTRALE Liste: Welche Services haben Bilder?
+  private servicesWithImages = new Set<string>([
+    'dachsanierung',
+    'dachfenster',
+    // Füge weitere hinzu sobald Bilder da sind:
+    'dachreparaturen',
+    'regenrinnen',
+    'flachdachpruefung',
+    'pv-anlagen',
+    'hallenbeleuchtung'
+  ]);
 
   private services: ServiceContent[] = [
     {
@@ -317,20 +339,39 @@ export class ServiceDataService {
     }
   ];
 
+    // ⭐ Alle Services mit hasImage-Flag
   getAllServices(): ServiceContent[] {
-    return this.services;
+    return this.services.map(service => ({
+      ...service,
+      hasImage: this.servicesWithImages.has(service.id)
+    }));
   }
 
-  getServiceById(id: string): ServiceContent | undefined {
-    return this.services.find(service => service.id === id);
-  }
-
-  getServicesOverview() {
+  // ⭐ Service-Übersicht für Cards (mit hasImage)
+  getServicesOverview(): ServiceOverview[] {
     return this.services.map(service => ({
       id: service.id,
       title: service.headline,
       description: service.description,
-      icon: service.icon
+      icon: service.icon,
+      hasImage: this.servicesWithImages.has(service.id)
     }));
+  }
+
+  // Service by ID (mit hasImage)
+  getServiceById(id: string): ServiceContent | undefined {
+    const service = this.services.find(s => s.id === id);
+    if (service) {
+      return {
+        ...service,
+        hasImage: this.servicesWithImages.has(service.id)
+      };
+    }
+    return undefined;
+  }
+
+  // ⭐ Hilfsmethode: Prüfe ob Service Bild hat
+  hasImage(serviceId: string): boolean {
+    return this.servicesWithImages.has(serviceId);
   }
 }

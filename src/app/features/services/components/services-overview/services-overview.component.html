@@ -1,32 +1,50 @@
-<!-- src/app/features/services/components/services-overview/services-overview.component.html -->
+<!-- Leistungen Übersichtsseite mit Cards -->
 <div class="services-page">
-  <section class="page-header">
+  <!-- Services Grid -->
+  <section class="services-section">
     <div class="container">
-      <h1>Unsere Leistungen</h1>
-      <p class="lead">
-        Als Dachdeckermeisterbetrieb bieten wir Ihnen das komplette Leistungsspektrum 
-        rund um Ihr Dach. Qualität, Zuverlässigkeit und faire Preise sind unsere Stärken.
-      </p>
-    </div>
-  </section>
+      <div class="section-header-sovw">
+        <h2>Unsere Leistungen</h2>
+        <p class="subtitle">Professionelle Dachdecker-Services für Ihr Zuhause</p>
+      </div>
 
-  <section class="services-list">
-    <div class="container">
       <div class="services-grid">
         @for (service of services; track service.id) {
-          <article class="service-card">
-            <div class="service-icon">
-              {{ service.icon }}
+          <div class="service-card">
+            <!-- Bild-Bereich -->
+            <div class="card-image">
+              @if (service.hasImage) {
+                <img [src]="'assets/images/services/' + service.id + '.jpg'" 
+                     [alt]="service.title"
+                     class="service-img">
+              } @else {
+                <div class="image-placeholder">
+                  <span class="icon">{{ service.icon }}</span>
+                </div>
+              }
             </div>
-            <div class="service-content">
-              <h2>{{ service.headline }}</h2>
+
+            <!-- Text-Bereich -->
+            <div class="card-content">
+              <h3>{{ service.title }}</h3>
               <p>{{ service.description }}</p>
               <a [routerLink]="['/leistungen', service.id]" class="btn-details">
-                Mehr erfahren →
+                Mehr erfahren
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
               </a>
             </div>
-          </article>
+          </div>
         }
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <h2>Sie haben Fragen zu unseren Leistungen?</h2>
+        <p>Kontaktieren Sie uns für eine kostenlose und unverbindliche Beratung.</p>
+        <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
       </div>
     </div>
   </section>

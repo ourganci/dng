@@ -25,30 +25,31 @@
     </div>
 
     @for (service of services; track service.id; let i = $index) {
-    <div class="showcase-item" [class.reverse]="i % 2 === 1">
-      <!-- Bild-Container -->
-      <div class="showcase-image-wrapper">
-        @if (hasImage(service.id)) {
-        <img [src]="'assets/images/services/' + service.id + '.jpg'" [alt]="service.title + ' - DNG GmbH'"
-          class="showcase-img">
+  <div class="showcase-item" [class.reverse]="i % 2 === 1">
+    <!-- Bild-Container -->
+    <div class="showcase-image-wrapper">
+      <!-- ⭐ Nutze service.hasImage direkt statt hasImage()-Methode -->
+      @if (service.hasImage) {
+        <img [src]="'assets/images/services/' + service.id + '.jpg'" 
+             [alt]="service.title + ' - DNG GmbH'"
+             class="showcase-img">
         <div class="image-overlay"></div>
-        } @else {
+      } @else {
         <div class="image-placeholder">
           <span class="icon">{{ service.icon }}</span>
         </div>
-        }
-      </div>
-
-      <div class="showcase-content">
-        <!-- <span class="service-number">0{{ i + 1 }}</span> -->
-        <h3>{{ service.title }}</h3>
-        <p>{{ service.description }}</p>
-        <a [routerLink]="['/leistungen', service.id]" class="btn-learn-more">
-          Mehr erfahren →
-        </a>
-      </div>
+      }
     </div>
-    }
+
+    <div class="showcase-content">
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.description }}</p>
+      <a [routerLink]="['/leistungen', service.id]" class="btn-learn-more">
+        Mehr erfahren →
+      </a>
+    </div>
+  </div>
+}
 
     <!-- <div class="showcase-cta">
       <h3>Interesse an unseren Leistungen?</h3>
