@@ -4,6 +4,9 @@
 
   // Header
   .contact-header {
+    position: relative;
+    display: flex;
+    align-items: center;
     background: linear-gradient(135deg, var(--text-dark) 0%, #1a1a1a 100%);
     color: white;
     padding: var(--spacing-xxl) 0;
@@ -14,10 +17,6 @@
     @media (max-width: 768px) {
       min-height: 50vh; // Mobile
     }
-
-    position: relative;
-    display: flex;
-    align-items: center;
 
     // Hintergrundbild
     .hero-image {
