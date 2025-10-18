@@ -1,1 +1,0 @@
-import"./chunk-4CLCTAJ7.js";var e=[{path:"",loadComponent:()=>import("./chunk-JS2UWTQ6.js").then(o=>o.ServicesOverviewComponent)},{path:":id",loadComponent:()=>import("./chunk-BXQ77QWM.js").then(o=>o.ServiceDetailComponent)}];export{e as SERVICES_ROUTES};

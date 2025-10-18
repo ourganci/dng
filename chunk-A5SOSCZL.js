@@ -1,0 +1,1 @@
+import"./chunk-4CLCTAJ7.js";var t=[{path:"",loadComponent:()=>import("./chunk-4SMUIDCA.js").then(o=>o.BlogComponent)},{path:":slug",loadComponent:()=>import("./chunk-F72QM26B.js").then(o=>o.BlogDetailComponent)}];export{t as BLOG_ROUTES};
