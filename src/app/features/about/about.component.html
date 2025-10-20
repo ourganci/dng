@@ -1,39 +1,50 @@
 <!-- src/app/features/about/about.component.html -->
+
 <div class="about-page">
-  <section class="about-header">
+  
+  <!-- Hero Header -->
+  <header class="about-header">
     <div class="container">
       <h1>Über uns</h1>
       <p class="lead">
-        Ihr zuverlässiger Dachdeckermeisterbetrieb im Raum Nahe Glan seit über 20 Jahren
+        Ihr zuverlässiger Dachdecker-Meisterbetrieb in Nahe Glan seit über 20 Jahren
       </p>
     </div>
-  </section>
+  </header>
 
+  <!-- Story Section -->
   <section class="about-story">
     <div class="container">
       <div class="story-grid">
-        <div class="story-image">
-          <img src="assets/images/about/company-building.jpg" alt="DNG GmbH Firmengebäude">
-        </div>
         <div class="story-content">
           <h2>Unsere Geschichte</h2>
           <p>
-            Seit über 20 Jahren sind wir als Dachdeckermeisterbetrieb in der Region Nahe Glan 
-            tätig und haben uns als verlässlicher Partner für alle Dacharbeiten etabliert.
+            Seit über 20 Jahren sind wir als <strong>Dachdeckermeisterbetrieb</strong> in der 
+            Region Nahe Glan tätig und haben uns als verlässlicher Partner für alle 
+            Dacharbeiten etabliert.
           </p>
           <p>
             Was als kleiner Handwerksbetrieb begann, ist heute ein eingespieltes Team von 
-            Fachleuten, die mit Leidenschaft und Expertise jedes Dachprojekt umsetzen.
+            Fachleuten, die mit <strong>Leidenschaft und Expertise</strong> jedes Dachprojekt 
+            umsetzen.
           </p>
           <p>
             Regional verwurzelt und dennoch modern – wir kombinieren traditionelles Handwerk 
-            mit innovativen Technologien wie PV-Anlagen und energieeffizienten Lösungen.
+            mit innovativen Technologien wie <strong>PV-Anlagen</strong> und energieeffizienten 
+            Lösungen.
           </p>
+        </div>
+        <div class="story-image">
+          <img 
+            src="assets/images/about/firma.jpg" 
+            alt="DNG GmbH Firmensitz"
+            loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Values Section -->
   <section class="about-values">
     <div class="container">
       <h2>Unsere Werte</h2>
@@ -49,19 +60,23 @@
     </div>
   </section>
 
+  <!-- Team Section -->
   <section class="about-team">
     <div class="container">
       <h2>Unser Team</h2>
       <p class="team-intro">
-        Lernen Sie die Menschen kennen, die hinter DNG GmbH stehen. 
-        Gemeinsam sorgen wir dafür, dass Ihr Dach in besten Händen ist.
+        Lernen Sie die Menschen kennen, die mit Herzblut und Fachwissen für Ihre 
+        Zufriedenheit sorgen. Jeder bringt seine individuellen Stärken ein, gemeinsam 
+        bilden wir ein starkes Team.
       </p>
-      
       <div class="team-grid">
         @for (member of team; track member.name) {
           <div class="team-card">
             <div class="team-image">
-              <img [src]="member.image" [alt]="member.name">
+              <img 
+                [src]="member.image" 
+                [alt]="member.name"
+                loading="lazy">
             </div>
             <div class="team-info">
               <h3>{{ member.name }}</h3>
@@ -74,11 +89,18 @@
     </div>
   </section>
 
+  <!-- CTA Section -->
   <section class="about-cta">
     <div class="container">
-      <h2>Überzeugt?</h2>
-      <p>Nehmen Sie Kontakt mit uns auf und lassen Sie sich kostenlos beraten!</p>
-      <a href="/kontakt" class="cta-button">Jetzt Kontakt aufnehmen</a>
+      <h2>Lernen Sie uns persönlich kennen</h2>
+      <p>
+        Überzeugen Sie sich von unserer Kompetenz und Leidenschaft für gutes Handwerk. 
+        Wir freuen uns auf Ihr Projekt!
+      </p>
+      <a routerLink="/kontakt" class="cta-button">
+        Jetzt Kontakt aufnehmen
+      </a>
     </div>
   </section>
+
 </div>

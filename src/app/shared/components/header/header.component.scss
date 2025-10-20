@@ -1,14 +1,24 @@
 // src/app/shared/components/header/header.component.scss
 
 .site-header {
-  background: var(--bg-white);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   width: 100%;
   z-index: 1000;
+  background: var(--bg-white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+  &.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  @media (min-width: 769px) {
+    transform: none !important;
+    opacity: 1 !important;
+  }
 
   .main-nav {
     display: flex;
@@ -126,6 +136,21 @@
       }
     }
   }
+
+  /* ================================
+   MOBILE HEADER SCROLL BEHAVIOR
+   ================================ */
+
+@media (max-width: 768px) {
+  .site-header {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+    &.hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+}
 }
 
 // ⭐ NEU: Desktop-Menu auf Mobile verstecken

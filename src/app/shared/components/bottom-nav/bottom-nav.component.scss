@@ -1,13 +1,17 @@
+// src/app/shared/components/bottom-nav/bottom-nav.component.scss
+
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: var(--bg-white);
+  background: #585857;
   box-shadow: 0 -0.125rem 0.625rem rgba(0, 0, 0, 0.1);
   padding-bottom: env(safe-area-inset-bottom);
   display: none;
+  border-radius: 8px 8px 0 0;
+  padding-block: 1vw;
 
   @media (max-width: 992px) {
     display: block;
@@ -20,14 +24,16 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    height: 5.5vh; // Dynamische Höhe: ca. 72px auf großen Displays
-    min-height: 4rem; // Fallback für sehr kleine Screens
+    height: 8vh;
+    min-height: 2.5rem;
+    max-height: 4rem;
   }
 
   .nav-item {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .nav-link {
@@ -35,23 +41,36 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem; // 8px
-    padding: 0.625rem 1rem; // 10px 16px
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
     text-decoration: none;
-    color: var(--text-medium);
+    color: var(--bg-light-gray);
     transition: all 0.2s ease;
     position: relative;
 
-    min-width: 3.5rem; // ~56px
-    min-height: 3.5rem;
+    min-width: 4rem;
+    min-height: 4rem;
     border-radius: 0.75rem;
+
+    // Erweiterte Touch-Area
+    &::before {
+      content: '';
+      position: absolute;
+      top: -0.5rem;
+      right: -0.5rem;
+      bottom: -0.5rem;
+      left: -0.5rem;
+      border-radius: 1rem;
+    }
 
     .nav-icon {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 2rem;  // 32px
-      height: 2rem;
+      // Moderate Skalierung: Min 32px, Max 40px
+      width: clamp(2rem, 4vw, 2.5rem);
+      height: clamp(2rem, 4vw, 2.5rem);
+      transition: transform 0.2s ease;
 
       svg {
         width: 100%;
@@ -60,10 +79,12 @@
     }
 
     .nav-label {
-      font-size: 1.25rem; // 12px
+      // Moderate Skalierung: Min 12px, Max 14px
+      font-size: clamp(0.75rem, 2vw, 0.875rem);
       font-weight: 600;
       text-align: center;
-      line-height: 1;
+      line-height: 1.2;
+      white-space: nowrap;
     }
 
     &.active {
@@ -86,6 +107,7 @@
       &:hover:not(.active) {
         color: var(--text-dark);
         background: var(--bg-light-gray);
+        transform: scale(1.02);
       }
     }
 
@@ -93,37 +115,189 @@
       .nav-icon {
         background: var(--primary-yellow);
         border-radius: 50%;
-        padding: 0.5rem;
-        width: 2.5rem;
-        height: 2.5rem;
-        box-shadow: 0 0.125rem 0.5rem rgba(255, 193, 7, 0.3);
+        // Moderate Skalierung für Padding
+        padding: clamp(0.5rem, 1.5vw, 0.75rem);
+        // Moderate Skalierung: Min 56px, Max 64px
+        width: clamp(3.5rem, 7vw, 4rem);
+        height: clamp(3.5rem, 7vw, 4rem);
+        box-shadow: 0 0.25rem 0.75rem rgba(255, 193, 7, 0.4);
 
         svg {
           stroke: var(--text-dark);
           stroke-width: 0.5;
+          // Moderate Skalierung: Min 28px, Max 32px
+          width: clamp(1.75rem, 3.5vw, 2rem);
+          height: clamp(1.75rem, 3.5vw, 2rem);
         }
       }
 
       .nav-label {
         color: var(--primary-yellow);
-        font-weight: 600;
+        font-weight: 700;
+        // Moderate Skalierung: Min 14px, Max 16px
+        font-size: clamp(0.875rem, 2.2vw, 1rem);
       }
 
       &.active .nav-icon {
         transform: translateY(-0.25rem) scale(1.05);
-        box-shadow: 0 0.25rem 0.75rem rgba(255, 193, 7, 0.5);
+        box-shadow: 0 0.375rem 1rem rgba(255, 193, 7, 0.6);
       }
     }
 
     &:active {
-      transform: scale(0.95);
+      transform: scale(0.92);
+      transition: transform 0.1s ease;
     }
   }
 }
 
 :host-context(body) {
   @media (max-width: 992px) {
-    padding-bottom: 5.5vh; // Dynamisch: passend zur Menü-Höhe
-    min-height: 4rem;
+    padding-bottom: calc(8vh + 1rem);
+    min-padding-bottom: 5.5rem;
+  }
+}
+
+// ============================================================
+// LANDSCAPE-OPTIMIERUNG
+// ============================================================
+@media (max-width: 992px) and (orientation: landscape) {
+  .bottom-nav {
+    .nav-list {
+      height: 7vh;
+      min-height: 3.5rem;
+      max-height: 4.5rem;
+    }
+
+    .nav-link {
+      gap: 0.25rem;
+      padding: 0.5rem 0.75rem;
+
+      .nav-icon {
+        // Landscape: Min 24px, Max 32px
+        width: clamp(1.5rem, 3.5vw, 2rem);
+        height: clamp(1.5rem, 3.5vw, 2rem);
+      }
+
+      .nav-label {
+        // Landscape: Min 10px, Max 12px
+        font-size: clamp(0.625rem, 1.5vw, 0.75rem);
+      }
+
+      &.highlighted {
+        .nav-icon {
+          // Landscape: Min 48px, Max 56px
+          width: clamp(3rem, 6vw, 3.5rem);
+          height: clamp(3rem, 6vw, 3.5rem);
+          padding: clamp(0.375rem, 1.2vw, 0.5rem);
+
+          svg {
+            // Landscape: Min 24px, Max 28px
+            width: clamp(1.5rem, 3vw, 1.75rem);
+            height: clamp(1.5rem, 3vw, 1.75rem);
+            stroke: var(--text-dark);
+            stroke-width: 0.5;
+          }
+        }
+
+        .nav-label {
+          // Landscape: Min 11px, Max 13px
+          font-size: clamp(0.6875rem, 1.8vw, 0.8125rem);
+        }
+      }
+    }
+  }
+
+  :host-context(body) {
+    padding-bottom: calc(7vh + 0.5rem);
+    min-padding-bottom: 4rem;
+  }
+}
+
+// ============================================================
+// HIGH-DPI OPTIMIERUNG (nur leichte Vergrößerung)
+// ============================================================
+@media (max-width: 992px) and (min-resolution: 3dppx) {
+  .bottom-nav {
+    .nav-list {
+      height: 8.5vh; // Leicht größer statt 9vh
+    }
+
+    .nav-link {
+      .nav-label {
+        // High-DPI: Min 13px, Max 15px
+        font-size: clamp(0.8125rem, 2.2vw, 0.9375rem);
+      }
+
+      .nav-icon {
+        // High-DPI: Min 36px, Max 44px
+        width: clamp(1.5rem, 4.5vw, 2.75rem);
+        height: clamp(1.5rem, 4.5vw, 2.75rem);
+      }
+
+      &.highlighted .nav-icon {
+        // High-DPI: Min 60px, Max 68px
+        width: clamp(3.75rem, 7.5vw, 4.25rem);
+        height: clamp(3.75rem, 7.5vw, 4.25rem);
+
+        svg {
+          stroke: var(--text-dark);
+          stroke-width: 0.5;
+        }
+      }
+    }
+  }
+}
+
+// ============================================================
+// HIGH-DPI + LANDSCAPE KOMBINATION
+// ============================================================
+@media (max-width: 992px) and (orientation: landscape) and (min-resolution: 3dppx) {
+  .bottom-nav {
+    .nav-list {
+      height: 7.5vh;
+      min-height: 3.75rem;
+      max-height: 5rem;
+    }
+
+    .nav-link {
+      .nav-icon {
+        // High-DPI Landscape: Min 28px, Max 36px
+        width: clamp(1.75rem, 4vw, 2.25rem);
+        height: clamp(1.75rem, 4vw, 2.25rem);
+      }
+
+      &.highlighted .nav-icon {
+        // High-DPI Landscape: Min 52px, Max 60px
+        width: clamp(3.25rem, 6.5vw, 3.75rem);
+        height: clamp(3.25rem, 6.5vw, 3.75rem);
+        padding: clamp(0.5rem, 1.5vw, 0.625rem);
+
+        svg {
+          // High-DPI Landscape: Min 26px, Max 30px
+          width: clamp(1.625rem, 3.2vw, 1.875rem);
+          height: clamp(1.625rem, 3.2vw, 1.875rem);
+          stroke: var(--text-dark);
+          stroke-width: 0.5;
+        }
+      }
+    }
+  }
+}
+
+// ============================================================
+// SEHR KLEINE SCREENS (< 360px Breite)
+// ============================================================
+@media (max-width: 360px) {
+  .bottom-nav {
+    .nav-link {
+      min-width: 3rem;
+      padding: 0.5rem 0.75rem;
+
+      .nav-label {
+        // Kleine Screens: Min 11px, Max 12px
+        font-size: clamp(0.6875rem, 1.8vw, 0.75rem);
+      }
+    }
   }
 }

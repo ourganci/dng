@@ -1,81 +1,97 @@
 // src/app/features/about/about.component.scss
 
 .about-page {
-  // Header
+  
+  // Hero Header - Dunkelgrauer Gradient
   .about-header {
-    background: linear-gradient(135deg, var(--text-dark) 0%, #1a1a1a 100%);
-    color: white;
-    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, #585857 0%, var(--text-dark) 100%);
+    color: var(--bg-white);
+    padding: clamp(4rem, 10vh, 8rem) 0 clamp(3rem, 8vh, 6rem);
     text-align: center;
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: var(--spacing-md);
-      color: white;
+      // Basiert auf deiner html font-size (16-18px)
+      font-size: clamp(2rem, 5vw, 3rem); // 32-54px
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--bg-white);
+      line-height: 1.2;
     }
 
     .lead {
-      font-size: 1.2rem;
-      max-width: 700px;
+      // Größer für bessere Lesbarkeit auf Mobile
+      font-size: clamp(1.125rem, 2.5vw, 1.375rem); // 18-24.75px
+      max-width: 50rem;
       margin: 0 auto;
       color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
     }
   }
 
   section {
-    padding: var(--spacing-xxl) 0;
+    padding: clamp(3rem, 8vh, 6rem) 0;
   }
 
   // Story Section
   .about-story {
+    background: var(--bg-white);
+
     .story-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-xl);
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
       align-items: center;
 
-      @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
+      @media (min-width: 768px) {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 3rem;
       }
+    }
 
-      .story-image {
-        img {
-          width: 100%;
-          border-radius: var(--border-radius-large);
-          box-shadow: var(--shadow-lg);
+    .story-content {
+      h2 {
+        font-size: clamp(1.75rem, 4vw, 2.5rem); // 28-45px
+        margin-bottom: 1.5rem;
+        color: var(--text-dark);
+        position: relative;
+        padding-bottom: 1rem;
+        line-height: 1.3;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 3.75rem;
+          height: 0.25rem;
+          background: var(--primary-yellow);
         }
       }
 
-      .story-content {
-        h2 {
-          font-size: 2rem;
-          margin-bottom: var(--spacing-lg);
+      p {
+        // WICHTIG: Gut lesbar auf Mobile (18-20.25px)
+        font-size: clamp(1.125rem, 2.2vw, 1.25rem);
+        line-height: 1.8;
+        color: var(--text-medium);
+        margin-bottom: 1.25rem;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        strong {
           color: var(--text-dark);
-          position: relative;
-          padding-bottom: var(--spacing-sm);
-
-          &::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--primary-yellow);
-          }
+          font-weight: 600;
         }
+      }
+    }
 
-        p {
-          font-size: 1.05rem;
-          line-height: 1.8;
-          color: var(--text-medium);
-          margin-bottom: var(--spacing-md);
-
-          &:last-of-type {
-            margin-bottom: 0;
-          }
-        }
+    .story-image {
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-lg);
       }
     }
   }
@@ -86,58 +102,74 @@
 
     h2 {
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: var(--spacing-xl);
+      font-size: clamp(1.75rem, 4vw, 2.5rem); // 28-45px
+      margin-bottom: 1rem;
       color: var(--text-dark);
       position: relative;
+      padding-bottom: 2rem;
+      line-height: 1.3;
 
       &::after {
         content: '';
         position: absolute;
-        bottom: -15px;
+        bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 60px;
-        height: 4px;
+        width: 3.75rem;
+        height: 0.25rem;
         background: var(--primary-yellow);
       }
     }
 
     .values-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--spacing-lg);
-      margin-top: var(--spacing-xl);
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+
+      @media (min-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      @media (min-width: 1024px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     .value-card {
-      background: white;
-      padding: var(--spacing-xl);
-      border-radius: var(--border-radius-large);
+      background: var(--bg-white);
+      padding: clamp(1.5rem, 3vw, 2rem);
+      border-radius: var(--border-radius);
       text-align: center;
       box-shadow: var(--shadow-sm);
-      transition: all var(--transition-base);
-      border-top: 4px solid transparent;
+      transition: all 0.3s ease;
+      border-top: 0.25rem solid transparent;
 
       &:hover {
-        transform: translateY(-8px);
+        transform: translateY(-0.5rem);
         box-shadow: var(--shadow-lg);
         border-top-color: var(--primary-yellow);
       }
 
       .value-icon {
-        font-size: 3.5rem;
+        font-size: clamp(2.5rem, 5vw, 3.5rem); // 40-63px
         display: block;
-        margin-bottom: var(--spacing-md);
+        margin-bottom: 1rem;
+        line-height: 1;
       }
 
       h3 {
-        font-size: 1.4rem;
-        margin-bottom: var(--spacing-sm);
+        font-size: clamp(1.25rem, 2.5vw, 1.5rem); // 20-27px
+        font-weight: 700;
+        margin-bottom: 0.75rem;
         color: var(--primary-yellow);
+        line-height: 1.3;
       }
 
       p {
+        // GUT LESBAR auf Mobile (16.5-18px)
+        font-size: clamp(1rem, 2vw, 1.125rem);
         color: var(--text-medium);
         line-height: 1.6;
       }
@@ -146,37 +178,50 @@
 
   // Team Section
   .about-team {
+    background: var(--bg-white);
+
     h2 {
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: var(--spacing-md);
+      font-size: clamp(1.75rem, 4vw, 2.5rem); // 28-45px
+      margin-bottom: 1rem;
       color: var(--text-dark);
+      line-height: 1.3;
     }
 
     .team-intro {
       text-align: center;
-      font-size: 1.1rem;
+      // GUT LESBAR: 18-20.25px
+      font-size: clamp(1.125rem, 2.2vw, 1.25rem);
       color: var(--text-medium);
-      max-width: 700px;
-      margin: 0 auto var(--spacing-xl);
+      max-width: 50rem;
+      margin: 0 auto 3rem;
       line-height: 1.8;
     }
 
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--spacing-lg);
+      grid-template-columns: 1fr;
+      gap: 2rem;
+
+      @media (min-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+      }
     }
 
     .team-card {
-      background: white;
-      border-radius: var(--border-radius-large);
+      background: var(--bg-white);
+      border-radius: var(--border-radius);
       overflow: hidden;
       box-shadow: var(--shadow-sm);
-      transition: all var(--transition-base);
+      transition: all 0.3s ease;
 
       &:hover {
-        transform: translateY(-8px);
+        transform: translateY(-0.5rem);
         box-shadow: var(--shadow-lg);
 
         .team-image img {
@@ -186,7 +231,7 @@
 
       .team-image {
         width: 100%;
-        height: 320px;
+        height: clamp(14rem, 25vh, 18rem); // Angepasst für Mobile
         overflow: hidden;
         background: var(--bg-light-gray);
         position: relative;
@@ -195,39 +240,44 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform var(--transition-slow);
+          transition: transform 0.4s ease;
         }
 
-        // Platzhalter-Styling falls kein Bild
+        // Platzhalter falls kein Bild
         &:empty::after {
           content: '👤';
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          font-size: 5rem;
+          font-size: clamp(3.5rem, 7vw, 5rem);
           opacity: 0.3;
         }
       }
 
       .team-info {
-        padding: var(--spacing-lg);
+        padding: clamp(1.25rem, 3vw, 1.75rem);
 
         h3 {
-          font-size: 1.3rem;
-          margin-bottom: var(--spacing-xs);
+          font-size: clamp(1.25rem, 2.5vw, 1.5rem); // 20-27px
+          font-weight: 700;
+          margin-bottom: 0.5rem;
           color: var(--text-dark);
+          line-height: 1.3;
         }
 
         .team-role {
-          font-size: 0.95rem;
+          // GUT LESBAR: 17-18px
+          font-size: clamp(1.0625rem, 2vw, 1.125rem);
           color: var(--primary-yellow);
           font-weight: 600;
-          margin-bottom: var(--spacing-sm);
+          margin-bottom: 1rem;
+          line-height: 1.4;
         }
 
         .team-description {
-          font-size: 0.9rem;
+          // GUT LESBAR: 16.5-18px
+          font-size: clamp(1rem, 2vw, 1.125rem);
           color: var(--text-medium);
           line-height: 1.6;
         }
@@ -237,32 +287,61 @@
 
   // CTA Section
   .about-cta {
-    background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-yellow-dark) 100%);
+    background: linear-gradient(135deg, #585857 0%, var(--text-dark) 100%);
     text-align: center;
-    color: var(--text-dark);
+    color: var(--bg-white);
+    padding: clamp(3rem, 8vh, 5rem) 0;
 
     h2 {
-      font-size: 2rem;
-      margin-bottom: var(--spacing-md);
-      color: var(--text-dark);
+      font-size: clamp(1.75rem, 4vw, 2.5rem); // 28-45px
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--bg-white);
+      line-height: 1.3;
     }
 
     p {
-      font-size: 1.2rem;
-      margin-bottom: var(--spacing-lg);
-      color: rgba(0, 0, 0, 0.8);
+      // GUT LESBAR: 18-22.5px
+      font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+      line-height: 1.7;
+      max-width: 50rem;
+      margin: 0 auto 2.5rem;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     .cta-button {
-      background: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary-yellow);
       color: var(--text-dark);
-      padding: var(--spacing-md) var(--spacing-xl);
-      font-size: 1.1rem;
+      padding: clamp(1rem, 2.5vw, 1.25rem) clamp(2rem, 4vw, 3rem);
+      // Button-Text gut lesbar: 17-20.25px
+      font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
+      font-weight: 600;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      min-height: 3rem; // Mindesthöhe für Touch-Target
 
       &:hover {
-        background: var(--text-dark);
-        color: white;
+        background: #e6b800;
+        transform: translateY(-0.125rem);
+        box-shadow: 0 0.5rem 1rem rgba(255, 193, 7, 0.3);
+      }
+
+      &:active {
+        transform: scale(0.98);
       }
     }
+  }
+
+  // Container
+  .container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 3vw, 1.5rem); // Responsive Padding
   }
 }

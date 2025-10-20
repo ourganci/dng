@@ -1,10 +1,14 @@
 // src/app/features/about/about.component.ts
+
 import { Component, OnInit, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-about',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterLink],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })

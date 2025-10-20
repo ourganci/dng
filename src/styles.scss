@@ -30,7 +30,7 @@ img {
 }
 
 html {
-  font-size: 16px;
+  font-size: clamp(16px, 1.8vw, 18px);
   scroll-behavior: smooth;
 }
 

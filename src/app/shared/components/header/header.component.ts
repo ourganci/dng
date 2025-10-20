@@ -1,5 +1,5 @@
 // src/app/shared/components/header/header.component.ts
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -10,7 +10,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
 
-  isMobileMenuOpen = false;
+  // isMobileMenuOpen = false;
+  private lastScrollY = 0;
+  isHeaderHidden = false;
 
   menuItems = [
     { label: 'Startseite', route: '/' },
@@ -33,18 +35,40 @@ export class HeaderComponent {
     { label: 'Kontakt', route: '/kontakt' }
   ];
 
-  toggleMobileMenu(): void {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
 
-    if (this.isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+
+  @HostListener('window:scroll', [])
+  onScroll() {
+    const currentScroll = window.scrollY;
+
+    // Nur auf mobilen Geräten aktiv
+    if (window.innerWidth < 769) {
+      if (currentScroll > this.lastScrollY && currentScroll > 120) {
+        // Nach unten scrollen → Header ausblenden
+        this.isHeaderHidden = true;
+      } else {
+        // Nach oben scrollen → Header wieder anzeigen
+        this.isHeaderHidden = false;
+      }
     } else {
-      document.body.style.overflow = '';
+      this.isHeaderHidden = false; // Desktop = Header bleibt sichtbar
     }
+
+    this.lastScrollY = currentScroll;
   }
 
-  closeMobileMenu(): void {
-    this.isMobileMenuOpen = false;
-    document.body.style.overflow = '';
-  }
+  // toggleMobileMenu(): void {
+  //   this.isMobileMenuOpen = !this.isMobileMenuOpen;
+
+  //   if (this.isMobileMenuOpen) {
+  //     document.body.style.overflow = 'hidden';
+  //   } else {
+  //     document.body.style.overflow = '';
+  //   }
+  // }
+
+  // closeMobileMenu(): void {
+  //   this.isMobileMenuOpen = false;
+  //   document.body.style.overflow = '';
+  // }
 }
