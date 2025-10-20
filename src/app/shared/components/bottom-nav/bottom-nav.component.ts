@@ -38,11 +38,10 @@ export class BottomNavComponent {
       ariaLabel: 'Kontaktformular'
     },
     { 
-      label: 'Notdienst', 
-      route: '/notdienst', 
-      icon: 'emergency',
-      isHighlighted: true,
-      ariaLabel: 'Notdienst - 24/7 erreichbar'
+      label: 'Ratgeber', 
+      route: '/ratgeber', 
+      icon: 'ratgeber',
+      ariaLabel: 'Ratgeber'
     }
   ];
 }
