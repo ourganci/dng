@@ -9,10 +9,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+
+  isMobileMenuOpen = false;
+
   menuItems = [
     { label: 'Startseite', route: '/' },
-    { 
-      label: 'Leistungen', 
+    {
+      label: 'Leistungen',
       route: '/leistungen',
       submenu: [
         { label: 'Dachsanierung', route: '/leistungen/dachsanierung' },
@@ -29,4 +32,19 @@ export class HeaderComponent {
     { label: 'Ratgeber', route: '/ratgeber' },
     { label: 'Kontakt', route: '/kontakt' }
   ];
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+
+    if (this.isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
+    document.body.style.overflow = '';
+  }
 }

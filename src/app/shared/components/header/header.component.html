@@ -5,35 +5,57 @@
       <a routerLink="/" class="logo">
         <strong>DNG GmbH</strong>
       </a>
-      
+
       <ul class="nav-menu">
         @for (item of menuItems; track item.route) {
-          <li class="nav-item">
-            <a 
-              [routerLink]="item.route" 
-              routerLinkActive="active"
-              [routerLinkActiveOptions]="{exact: item.route === '/'}"
-              class="nav-link">
-              {{ item.label }}
-            </a>
-            
-            @if (item.submenu) {
-              <ul class="submenu">
-                @for (sub of item.submenu; track sub.route) {
-                  <li>
-                    <a 
-                      [routerLink]="sub.route" 
-                      routerLinkActive="active"
-                      class="submenu-link">
-                      {{ sub.label }}
-                    </a>
-                  </li>
-                }
-              </ul>
+        <li class="nav-item">
+          <a [routerLink]="item.route" routerLinkActive="active" [routerLinkActiveOptions]="{exact: item.route === '/'}"
+            class="nav-link">
+            {{ item.label }}
+          </a>
+
+          @if (item.submenu) {
+          <ul class="submenu">
+            @for (sub of item.submenu; track sub.route) {
+            <li>
+              <a [routerLink]="sub.route" routerLinkActive="active" class="submenu-link">
+                {{ sub.label }}
+              </a>
+            </li>
             }
-          </li>
+          </ul>
+          }
+        </li>
         }
       </ul>
     </nav>
+
+    <!-- ⭐ NEU: Mobile Menu Toggle Button -->
+    <!-- <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen" aria-label="Menü">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button> -->
   </div>
+
+  <!-- ⭐ NEU: Mobile Menu Overlay -->
+  <!-- <div class="mobile-menu" [class.open]="isMobileMenuOpen">
+    <nav class="mobile-nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">
+        Start
+      </a>
+      <a routerLink="/leistungen" routerLinkActive="active" (click)="closeMobileMenu()">
+        Leistungen
+      </a>
+      <a routerLink="/referenzen" routerLinkActive="active" (click)="closeMobileMenu()">
+        Referenzen
+      </a>
+      <a routerLink="/ueber-uns" routerLinkActive="active" (click)="closeMobileMenu()">
+        Über uns
+      </a>
+      <a routerLink="/kontakt" routerLinkActive="active" (click)="closeMobileMenu()" class="mobile-cta">
+        Kontakt
+      </a>
+    </nav>
+  </div> -->
 </header>

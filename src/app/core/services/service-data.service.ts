@@ -1,17 +1,24 @@
 // src/app/core/services/service-data.service.ts
 import { Injectable } from '@angular/core';
+import { title } from 'process';
+
+export interface ServiceBenefit {
+  title: string;    // ← NEU: Überschrift
+  text: string;     // ← Beschreibung
+  iconSvg: string; // ← SVG als String
+}
 
 export interface ServiceContent {
   id: string;
   title: string;
   headline: string;
   description: string;
-  benefits: string[];
+  benefits: ServiceBenefit[];
   process: string[];
   faqs: { question: string; answer: string }[];
   keywords: string;
   icon: string;
-  hasImage?: boolean; // ← NEU: Flag ob Bild verfügbar
+  hasImage?: boolean;
 }
 
 // Einfaches Interface für Übersichtsseiten
@@ -28,7 +35,7 @@ export interface ServiceOverview {
 })
 export class ServiceDataService {
 
-    // ⭐ ZENTRALE Liste: Welche Services haben Bilder?
+  // ⭐ ZENTRALE Liste: Welche Services haben Bilder?
   private servicesWithImages = new Set<string>([
     'dachsanierung',
     'dachfenster',
@@ -47,11 +54,36 @@ export class ServiceDataService {
       headline: 'Dachsanierung vom Meisterbetrieb',
       description: 'Ihr Dach ist mehr als nur Schutz – es ist ein zentraler Bestandteil Ihres Hauses. Mit einer professionellen Dachsanierung verlängern Sie die Lebensdauer Ihres Daches, steigern die Energieeffizienz und erhöhen den Wert Ihrer Immobilie.',
       benefits: [
-        'Langfristiger Schutz vor Witterung und Schäden',
-        'Energieeffizienz durch moderne Dämmsysteme',
-        'Wertsteigerung Ihrer Immobilie',
-        'Individuelle Lösungen für Steildächer und Flachdächer',
-        'Fachgerechte Ausführung nach aktuellen Standards'
+        {
+          title: 'Langfristiger Schutz',
+          text: 'Langfristiger Schutz vor Witterung und Schäden',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>'
+        },
+        {
+          title: 'Energieeffizienz',
+          text: 'Energieeffizienz durch moderne Dämmsysteme',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>'
+        },
+        {
+          title: 'Wertsteigerung',
+          text: 'Wertsteigerung Ihrer Immobilie',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>'
+        },
+        {
+          title: 'Individuelle Lösungen',
+          text: 'Individuelle Lösungen für Steildächer und Flachdächer',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>'
+        },
+        {
+          title: 'Fachgerechte Ausführung',
+          text: 'Fachgerechte Ausführung nach aktuellen Standards',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>'
+        },
+        {
+          title: 'Nachhaltige Materialien',
+          text: 'Verwendung nachhaltiger und umweltfreundlicher Materialien',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>'
+        }
       ],
       process: [
         'Kostenlose Erstberatung und Besichtigung vor Ort',
@@ -88,11 +120,30 @@ export class ServiceDataService {
       headline: 'Dachfenster-Einbau vom Fachbetrieb',
       description: 'Dachfenster bringen natürliches Licht in Ihr Dachgeschoss und schaffen ein angenehmes Wohnklima. Wir sind Ihr Fachbetrieb für Einbau, Austausch und Reparatur von Dachfenstern in Nahe Glan und Umgebung.',
       benefits: [
-        'Bis zu 3x mehr Tageslicht als Fassadenfenster',
-        'Bessere Belüftung und gesundes Raumklima',
-        'Energieeffiziente 3-fach-Verglasung',
-        'Wertsteigerung Ihrer Immobilie',
-        'Vielfältige Designs und Größen verfügbar'
+        { title: 'Mehr Tageslicht und Wohnkomfort',
+          text: 'Mehr Tageslicht und Wohnkomfort',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
+        },
+        { title: 'Bis zu 3x mehr Tageslicht als Fassadenfenster',
+          text: 'Bis zu 3x mehr Tageslicht als Fassadenfenster',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
+        },
+        { title: 'Bessere Belüftung und gesundes Raumklima',
+          text: 'Bessere Belüftung und gesundes Raumklima',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
+        },
+        { title: 'Energieeffiziente 3-fach-Verglasung',
+          text: 'Energieeffiziente 3-fach-Verglasung',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
+        },
+        { title: 'Wertsteigerung Ihrer Immobilie',
+          text: 'Wertsteigerung Ihrer Immobilie',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
+        },
+        { title: 'Vielfältige Designs und Größen verfügbar',
+          text: 'Vielfältige Designs und Größen verfügbar',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
+        }
       ],
       process: [
         'Beratung zu Größe, Position und Fenstertyp',
@@ -129,11 +180,31 @@ export class ServiceDataService {
       headline: 'Notdienst und regelmäßige Dachwartung',
       description: 'Ein Dach braucht Pflege. Von der Notfall-Reparatur nach einem Sturm bis zur regelmäßigen Inspektion – wir kümmern uns um Ihr Dach und halten es in Top-Zustand.',
       benefits: [
-        'Schneller Notdienst bei Sturmschäden',
-        'Vermeidung kostspieliger Folgeschäden',
-        'Regelmäßige Wartung verlängert die Lebensdauer',
-        'Transparente Preise ohne versteckte Kosten',
-        'Dokumentation aller durchgeführten Arbeiten'
+        {
+          title: 'Schneller Notdienst',
+          text: 'Schneller Notdienst bei Sturmschäden',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M3 12h18"/><path d="M12 3v18"/></svg>'
+        },
+        {
+          title: 'Vermeidung von Folgeschäden',
+          text: 'Vermeidung kostspieliger Folgeschäden',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>'
+        },
+        {
+          title: 'Regelmäßige Wartung',
+          text: 'Regelmäßige Wartung verlängert die Lebensdauer',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 2v6"/><path d="M12 16v6"/></svg>'
+        },
+        {
+          title: 'Transparente Preise',
+          text: 'Transparente Preise ohne versteckte Kosten',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'
+        },
+        {
+          title: 'Dokumentation',
+          text: 'Dokumentation aller durchgeführten Arbeiten',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M8 6h8"/><path d="M8 12h8"/><path d="M8 18h8"/></svg>'
+        }
       ],
       process: [
         'Schadensmeldung per Telefon, E-Mail oder Kontaktformular',
@@ -170,11 +241,31 @@ export class ServiceDataService {
       headline: 'Professionelle Regenrinnen-Services',
       description: 'Regenrinnen sind essentiell für den Schutz Ihres Hauses vor Feuchtigkeit und Wasserschäden. Wir installieren, reparieren und warten Regenrinnen sowie Fallrohre im Raum Nahe Glan.',
       benefits: [
-        'Schutz vor Feuchtigkeitsschäden am Mauerwerk',
-        'Professionelle Rinnenreinigung',
-        'Austausch alter oder beschädigter Rinnen',
-        'Installation von Laubschutzgittern',
-        'Materialauswahl: Kupfer, Zink, Aluminium oder Kunststoff'
+        {
+          title: 'Schutz vor Feuchtigkeitsschäden am Mauerwerk',
+          text: 'Schutz vor Feuchtigkeitsschäden am Mauerwerk',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 2v20"/></svg>'
+        },
+        {
+          title: 'Professionelle Rinnenreinigung',
+          text: 'Professionelle Rinnenreinigung',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M3 12h18"/></svg>'
+        },
+        {
+          title: 'Austausch alter oder beschädigter Rinnen',
+          text: 'Austausch alter oder beschädigter Rinnen',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'
+        },
+        {
+          title: 'Installation von Laubschutzgittern',
+          text: 'Installation von Laubschutzgittern',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M4 6h16"/></svg>'
+        },
+        {
+          title: 'Materialauswahl: Kupfer, Zink, Aluminium oder Kunststoff',
+          text: 'Materialauswahl: Kupfer, Zink, Aluminium oder Kunststoff',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>'
+        }
       ],
       process: [
         'Inspektion der vorhandenen Regenrinnen',
@@ -211,11 +302,31 @@ export class ServiceDataService {
       headline: 'Professionelle Flachdach-Dichtheitsprüfung',
       description: 'Für Gewerbeimmobilien, Hallen und Garagen: Wir prüfen Ihr Flachdach auf Dichtheit mit modernen Verfahren nach DIN-Norm und erstellen detaillierte Prüfprotokolle.',
       benefits: [
-        'Früherkennung von Leckagen vor großen Schäden',
-        'Prüfung nach DIN 18531 und DIN 18195',
-        'Moderne Prüfverfahren (Rauchgas, Dampf, Rauchimpuls)',
-        'Detaillierte Dokumentation mit Fotos und Protokoll',
-        'Angebot zur Behebung festgestellter Mängel'
+        {
+          title: 'Früherkennung von Leckagen',
+          text: 'Früherkennung von Leckagen vor großen Schäden',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 2v20"/></svg>'
+        },
+        {
+          title: 'Prüfung nach DIN-Norm',
+          text: 'Prüfung nach DIN 18531 und DIN 18195',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'
+        },
+        {
+          title: 'Moderne Prüfverfahren',
+          text: 'Moderne Prüfverfahren (Rauchgas, Dampf, Rauchimpuls)',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M4 12h16"/></svg>'
+        },
+        {
+          title: 'Detaillierte Dokumentation',
+          text: 'Detaillierte Dokumentation mit Fotos und Protokoll',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M8 6h8"/><path d="M8 12h8"/></svg>'
+        },
+        {
+          title: 'Angebot zur Mängelbehebung',
+          text: 'Angebot zur Behebung festgestellter Mängel',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>'
+        }
       ],
       process: [
         'Terminvereinbarung und Vorbesprechung',
@@ -253,12 +364,36 @@ export class ServiceDataService {
       headline: 'Photovoltaik-Anlagen vom Fachbetrieb',
       description: 'Nutzen Sie die Kraft der Sonne! Wir planen und installieren moderne Photovoltaik-Anlagen auf Ihrem Dach – für nachhaltige Energiegewinnung, Unabhängigkeit und Kosteneinsparung.',
       benefits: [
-        'Bis zu 70% Reduzierung der Stromkosten',
-        'Unabhängigkeit von steigenden Energiepreisen',
-        'CO₂-neutrale Stromerzeugung',
-        'Wertsteigerung Ihrer Immobilie',
-        'Attraktive Fördermöglichkeiten und KfW-Zuschüsse',
-        'Professionelle Planung und Installation'
+        {
+          title: 'Bis zu 70% Reduzierung der Stromkosten',
+          text: 'Bis zu 70% Reduzierung der Stromkosten',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg>'
+        },
+        {
+          title: 'Unabhängigkeit von steigenden Energiepreisen',
+          text: 'Unabhängigkeit von steigenden Energiepreisen',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 2v6"/><path d="M12 16v6"/><circle cx="12" cy="12" r="3"/></svg>'
+        },
+        {
+          title: 'CO₂-neutrale Stromerzeugung',
+          text: 'CO₂-neutrale Stromerzeugung',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M3 12h18"/><path d="M12 3v18"/></svg>'
+        },
+        {
+          title: 'Wertsteigerung Ihrer Immobilie',
+          text: 'Wertsteigerung Ihrer Immobilie',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>'
+        },
+        {
+          title: 'Attraktive Fördermöglichkeiten und KfW-Zuschüsse',
+          text: 'Attraktive Fördermöglichkeiten und KfW-Zuschüsse',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'
+        },
+        {
+          title: 'Professionelle Planung und Installation',
+          text: 'Professionelle Planung und Installation',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M8 6h8"/><path d="M8 12h8"/><path d="M8 18h8"/></svg>'
+        }
       ],
       process: [
         'Kostenlose Erstberatung und Standortanalyse',
@@ -300,12 +435,36 @@ export class ServiceDataService {
       headline: 'Moderne LED-Beleuchtung für Gewerbe',
       description: 'Energieeffiziente LED-Beleuchtung für Industrie- und Gewerbehallen sowie repräsentative Fassadenbeleuchtung – professionell geplant und installiert von unserem Fachteam.',
       benefits: [
-        'Bis zu 80% Energieeinsparung durch LED-Technik',
-        'Bessere Ausleuchtung für optimale Arbeitsbedingungen',
-        'Langlebige Technik mit bis zu 50.000 Betriebsstunden',
-        'Geringerer Wartungsaufwand als herkömmliche Systeme',
-        'Repräsentative Fassadenbeleuchtung für Ihr Unternehmen',
-        'Professionelle Lichtplanung nach Ihren Anforderungen'
+        {
+          title: 'Energieeinsparung',
+          text: 'Bis zu 80% Energieeinsparung durch LED-Technik',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M9 18h6"/><path d="M12 2a6 6 0 0 0-4 9c0 3 4 4 4 4s4-1 4-4a6 6 0 0 0-4-9z"/></svg>'
+        },
+        {
+          title: 'Optimale Ausleuchtung',
+          text: 'Bessere Ausleuchtung für optimale Arbeitsbedingungen',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'
+        },
+        {
+          title: 'Langlebige Technik',
+          text: 'Langlebige Technik mit bis zu 50.000 Betriebsstunden',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>'
+        },
+        {
+          title: 'Weniger Wartung',
+          text: 'Geringerer Wartungsaufwand als herkömmliche Systeme',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M3 12h18"/></svg>'
+        },
+        {
+          title: 'Repräsentative Beleuchtung',
+          text: 'Repräsentative Fassadenbeleuchtung für Ihr Unternehmen',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M8 6h8"/><path d="M8 12h8"/></svg>'
+        },
+        {
+          title: 'Lichtplanung',
+          text: 'Professionelle Lichtplanung nach Ihren Anforderungen',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 2v6"/><path d="M12 16v6"/></svg>'
+        }
       ],
       process: [
         'Bedarfsanalyse und Lichtplanung vor Ort',
@@ -339,7 +498,7 @@ export class ServiceDataService {
     }
   ];
 
-    // ⭐ Alle Services mit hasImage-Flag
+  // ⭐ Alle Services mit hasImage-Flag
   getAllServices(): ServiceContent[] {
     return this.services.map(service => ({
       ...service,
