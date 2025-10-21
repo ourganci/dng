@@ -1,8 +1,21 @@
 <!-- src/app/features/about/about.component.html -->
 
 <div class="about-page">
-  
-  <!-- Hero Header -->
+
+  <!-- <section class="hero">
+    <div class="hero-image"></div>
+    <div class="container">
+      <h1>Über uns</h1>
+      <h2>Ihr zuverlässiger Dachdecker-Meisterbetrieb in Nahe Glan seit über 20 Jahren</h2>
+
+      <p class="intro">
+        Ob Dachsanierung, Flachdachprüfung, PV-Anlagen oder Dachfenster-Einbau –
+        wir sind Ihr Dachdecker-Fachbetrieb im Umkreis von 50 km rund um Nahe Glan.
+      </p>
+    </div>
+  </section>
+
+   Hero Header->
   <header class="about-header">
     <div class="container">
       <h1>Über uns</h1>
@@ -10,81 +23,186 @@
         Ihr zuverlässiger Dachdecker-Meisterbetrieb in Nahe Glan seit über 20 Jahren
       </p>
     </div>
-  </header>
+  </header> -->
 
-  <!-- Story Section -->
+  <!-- Story Section mit neuem Header-Format -->
   <section class="about-story">
     <div class="container">
+      <div class="section-header">
+        <h2>Unsere Geschichte</h2>
+        <h2 class="subtitle">Über 20 Jahre Erfahrung im Dachdeckerhandwerk</h2>
+      </div>
+
       <div class="story-grid">
         <div class="story-content">
-          <h2>Unsere Geschichte</h2>
           <p>
-            Seit über 20 Jahren sind wir als <strong>Dachdeckermeisterbetrieb</strong> in der 
-            Region Nahe Glan tätig und haben uns als verlässlicher Partner für alle 
+            Seit über 20 Jahren sind wir als <strong>Dachdeckermeisterbetrieb</strong> in der
+            Region Nahe Glan tätig und haben uns als verlässlicher Partner für alle
             Dacharbeiten etabliert.
           </p>
           <p>
-            Was als kleiner Handwerksbetrieb begann, ist heute ein eingespieltes Team von 
-            Fachleuten, die mit <strong>Leidenschaft und Expertise</strong> jedes Dachprojekt 
+            Was als kleiner Handwerksbetrieb begann, ist heute ein eingespieltes Team von
+            Fachleuten, die mit <strong>Leidenschaft und Expertise</strong> jedes Dachprojekt
             umsetzen.
           </p>
           <p>
-            Regional verwurzelt und dennoch modern – wir kombinieren traditionelles Handwerk 
-            mit innovativen Technologien wie <strong>PV-Anlagen</strong> und energieeffizienten 
+            Regional verwurzelt und dennoch modern – wir kombinieren traditionelles Handwerk
+            mit innovativen Technologien wie <strong>PV-Anlagen</strong> und energieeffizienten
             Lösungen.
           </p>
         </div>
         <div class="story-image">
-          <img 
-            src="assets/images/about/company-building.jpg" 
-            alt="DNG GmbH Firmensitz"
-            loading="lazy">
+          <img src="assets/images/about/company-building.jpg" alt="DNG GmbH Firmensitz" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Values Section -->
+  <!-- Values Section mit neuem Header-Format -->
   <section class="about-values">
     <div class="container">
-      <h2>Unsere Werte</h2>
-      <div class="values-grid">
-        @for (value of values; track value.title) {
-          <div class="value-card">
-            <span class="value-icon">{{ value.icon }}</span>
-            <h3>{{ value.title }}</h3>
-            <p>{{ value.description }}</p>
+      <div class="section-header">
+        <h2>Unser Selbstverständnis</h2>
+        <h2 class="subtitle">Qualität, Zuverlässigkeit und Handwerkskunst</h2>
+      </div>
+
+      <div class="values-list">
+        <div class="value-item">
+          <div class="value-number">01</div>
+          <div class="value-content">
+            <h3>Meisterliche Qualität</h3>
+            <p>Jedes Projekt wird mit höchsten Qualitätsstandards und geprüften Materialien umgesetzt. Als
+              Meisterbetrieb garantieren wir erstklassige Handwerksarbeit.</p>
           </div>
-        }
+        </div>
+
+        <div class="value-item">
+          <div class="value-number">02</div>
+          <div class="value-content">
+            <h3>Verlässliche Partnerschaft</h3>
+            <p>Pünktlich, ehrlich und verbindlich – auf uns können Sie sich verlassen. Von der ersten Beratung bis zur
+              finalen Abnahme stehen wir an Ihrer Seite.</p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-number">03</div>
+          <div class="value-content">
+            <h3>Nachhaltige Lösungen</h3>
+            <p>Wir denken langfristig und setzen auf umweltbewusste, energieeffiziente Lösungen für langlebige und
+              zukunftssichere Dächer.</p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-number">04</div>
+          <div class="value-content">
+            <h3>Regional verwurzelt</h3>
+            <p>Im Umkreis von über 50 km rund um Nahe Glan sind wir für Sie im Einsatz. Schnelle Anfahrt, persönlicher
+              Service und regionale Verbundenheit zeichnen uns aus.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Team Section -->
-  <section class="about-team">
-    <div class="container">
-      <h2>Unser Team</h2>
-      <p class="team-intro">
-        Lernen Sie die Menschen kennen, die mit Herzblut und Fachwissen für Ihre 
-        Zufriedenheit sorgen. Jeder bringt seine individuellen Stärken ein, gemeinsam 
-        bilden wir ein starkes Team.
-      </p>
-      <div class="team-grid">
-        @for (member of team; track member.name) {
-          <div class="team-card">
-            <div class="team-image">
-              <img 
-                [src]="member.image" 
-                [alt]="member.name"
-                loading="lazy">
+  <!-- Regional Section - Split Layout wie auf Homepage -->
+  <section class="about-regional">
+    <div class="regional-grid">
+      <!-- Bild-Bereich (Links) -->
+      <div class="regional-image">
+        <img src="assets/images/about/regional.jpg" alt="DNG regional in Nahe Glan verwurzelt" class="regional-img">
+      </div>
+
+      <!-- Content-Bereich (Rechts) - Dunkler Hintergrund -->
+      <div class="regional-content">
+        <div class="content-wrapper">
+          <!-- Section Header innerhalb des Content-Bereichs -->
+          <div class="section-header">
+            <h2>Regional verwurzelt</h2>
+            <h2 class="subtitle">Über 50 km im Einsatz für Sie</h2>
+          </div>
+
+          <p class="intro">
+            Als regionaler Meisterbetrieb sind wir tief in der Nahe-Glan-Region verwurzelt.
+            Im Umkreis von über <strong>50 Kilometern</strong> sind wir schnell vor Ort und
+            kennen die örtlichen Gegebenheiten wie kein anderer.
+          </p>
+
+          <div class="regional-highlights">
+            <div class="highlight-item">
+              <h3>Kurze Anfahrtswege</h3>
+              <p>Schnelle Reaktionszeit bei Notfällen und Wartungsarbeiten</p>
             </div>
-            <div class="team-info">
-              <h3>{{ member.name }}</h3>
-              <p class="team-role">{{ member.role }}</p>
-              <p class="team-description">{{ member.description }}</p>
+
+            <div class="highlight-item">
+              <h3>Lokale Expertise</h3>
+              <p>Wir kennen regionale Wetter- und Baubedingungen genau</p>
+            </div>
+
+            <div class="highlight-item">
+              <h3>Persönlicher Service</h3>
+              <p>Langfristige Betreuung auch nach Projektabschluss</p>
+            </div>
+
+            <div class="highlight-item">
+              <h3>Regionale Verbundenheit</h3>
+              <p>Wir sind Teil der Community und stolz auf unsere Wurzeln</p>
             </div>
           </div>
-        }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section mit neuem Header-Format -->
+  <section class="about-team">
+    <div class="container">
+      <div class="section-header">
+        <h2>Ihr Ansprechpartner</h2>
+        <h2 class="subtitle">Thomas Schneider und sein Team</h2>
+      </div>
+
+      <!-- Hauptansprechpartner Highlight -->
+      <div class="contact-person">
+        <div class="contact-image">
+          <img src="assets/images/about/team/thomas-schneider.jpg" alt="Thomas Schneider - Geschäftsführer DNG GmbH"
+            loading="lazy">
+        </div>
+        <div class="contact-info">
+          <h3>Thomas Schneider</h3>
+          <p class="contact-role">Geschäftsführer & Dachdeckermeister</p>
+          <p class="contact-description">
+            Mit über 25 Jahren Erfahrung im Dachdeckerhandwerk leitet Thomas Schneider
+            die DNG GmbH. Seine Expertise reicht von traditionellen Dachsanierungen bis
+            zu modernen PV-Anlagen.
+          </p>
+          <div class="contact-details">
+            <a href="tel:+4967519999999" class="contact-link">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+              0 67 51 / 99 999 99
+            </a>
+            <a href="mailto:info@dng-gmbh.de" class="contact-link">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              info&#64;dng-gmbh.de
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teamfoto -->
+      <div class="team-photo">
+        <img src="assets/images/about/team/team.jpg" alt="Das Team der DNG GmbH" loading="lazy">
+        <p class="photo-caption">Unser Team – gemeinsam für Ihr Dachprojekt</p>
       </div>
     </div>
   </section>
@@ -94,7 +212,7 @@
     <div class="container">
       <h2>Lernen Sie uns persönlich kennen</h2>
       <p>
-        Überzeugen Sie sich von unserer Kompetenz und Leidenschaft für gutes Handwerk. 
+        Überzeugen Sie sich von unserer Kompetenz und Leidenschaft für gutes Handwerk.
         Wir freuen uns auf Ihr Projekt!
       </p>
       <a routerLink="/kontakt" class="cta-button">

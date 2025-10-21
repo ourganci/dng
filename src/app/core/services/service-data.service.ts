@@ -517,8 +517,7 @@ export class ServiceDataService {
     }));
   }
 
-  // Service by ID (mit hasImage)
-  getServiceById(id: string): ServiceContent | undefined {
+   getServiceById(id: string): ServiceContent | undefined {
     const service = this.services.find(s => s.id === id);
     if (service) {
       return {
@@ -529,7 +528,6 @@ export class ServiceDataService {
     return undefined;
   }
 
-  // ⭐ Hilfsmethode: Prüfe ob Service Bild hat
   hasImage(serviceId: string): boolean {
     return this.servicesWithImages.has(serviceId);
   }
