@@ -1,51 +1,82 @@
 <!-- src/app/features/references/references.component.html -->
+
 <div class="references-page">
-  <section class="references-header">
+
+  <!-- Hero Header -->
+  <!-- <header class="references-header">
     <div class="container">
-      <h1>Unsere Referenzen</h1>
+      <h1>Referenzen</h1>
       <p class="lead">
-        Überzeugen Sie sich von unserer Arbeit. Hier finden Sie eine Auswahl unserer erfolgreich abgeschlossenen Projekte.
+        Überzeugen Sie sich von unserer Arbeit – Projekte und Kundenstimmen aus der Region
       </p>
     </div>
-  </section>
+  </header> -->
 
+  <!-- Projects Section -->
   <section class="projects-section">
     <div class="container">
-      <h2>Unsere Projekte</h2>
-      
-      @for (project of projects; track project.title) {
-        <article class="project-card">
-          <div class="project-info">
-            <h3>{{ project.title }}</h3>
-            <div class="project-meta">
-              <span class="meta-item">📍 {{ project.location }}</span>
-              <span class="meta-item">📅 {{ project.year }}</span>
-              <span class="meta-item">🔨 {{ project.service }}</span>
-            </div>
-            <p class="project-description">{{ project.description }}</p>
-          </div>
-          
-          <div class="project-images">
-            <div class="image-comparison">
-              <div class="image-box">
-                <img [src]="project.imageBefore" [alt]="project.title + ' vorher'">
-                <span class="image-label">Vorher</span>
+      <div class="section-header">
+        <h2>Unsere Projekte</h2>
+        <h2 class="subtitle">Vorher-Nachher Einblicke in unsere Arbeit</h2>
+      </div>
+
+      <div class="projects-grid">
+        @for (project of projects; track project.title) {
+          <div class="project-card">
+            <!-- Project Info -->
+            <div class="project-info">
+              <h3>{{ project.title }}</h3>
+              
+              <div class="project-meta">
+                <span class="meta-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  {{ project.location }}
+                </span>
+                <span class="meta-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  {{ project.year }}
+                </span>
+                <span class="meta-item service">{{ project.service }}</span>
               </div>
-              <div class="image-box">
-                <img [src]="project.imageAfter" [alt]="project.title + ' nachher'">
-                <span class="image-label">Nachher</span>
+
+              <p class="project-description">{{ project.description }}</p>
+            </div>
+
+            <!-- Project Images -->
+            <div class="project-images">
+              <div class="image-comparison">
+                <div class="image-box">
+                  <img [src]="project.imageBefore" [alt]="project.title + ' vorher'" loading="lazy">
+                  <span class="image-label">Vorher</span>
+                </div>
+                <div class="image-box">
+                  <img [src]="project.imageAfter" [alt]="project.title + ' nachher'" loading="lazy">
+                  <span class="image-label">Nachher</span>
+                </div>
               </div>
             </div>
           </div>
-        </article>
-      }
+        }
+      </div>
     </div>
   </section>
 
+  <!-- Testimonials Section -->
   <section class="testimonials-section">
     <div class="container">
-      <h2>Das sagen unsere Kunden</h2>
-      
+      <div class="section-header">
+        <h2>Kundenstimmen</h2>
+        <h2 class="subtitle">Das sagen unsere zufriedenen Kunden</h2>
+      </div>
+
       <div class="testimonials-grid">
         @for (testimonial of testimonials; track testimonial.name) {
           <div class="testimonial-card">
@@ -65,11 +96,17 @@
     </div>
   </section>
 
+  <!-- CTA Section -->
   <section class="references-cta">
     <div class="container">
-      <h2>Werden Sie unser nächstes Referenzprojekt!</h2>
-      <p>Lassen Sie uns gemeinsam Ihr Dachprojekt realisieren.</p>
-      <a href="/kontakt" class="cta-button">Jetzt Angebot anfordern</a>
+      <h2>Werden Sie Teil unserer Erfolgsgeschichte</h2>
+      <p>
+        Lassen Sie uns auch Ihr Dachprojekt verwirklichen. Wir freuen uns auf Ihre Anfrage!
+      </p>
+      <a routerLink="/kontakt" class="cta-button">
+        Jetzt Beratungstermin vereinbaren
+      </a>
     </div>
   </section>
+
 </div>
