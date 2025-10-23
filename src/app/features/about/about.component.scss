@@ -74,27 +74,19 @@
     margin-bottom: clamp(2rem, 5vh, 3rem);
 
     h2 {
-      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-size: clamp(2.2rem, 4vw, 2.5rem);
       font-weight: 900;
       margin-bottom: var(--spacing-sm);
       color: var(--text-dark);
       line-height: 1.2;
-
-      @media (max-width: 768px) {
-        font-size: clamp(1.75rem, 5vw, 2rem);
-      }
     }
 
     .subtitle {
       display: block; // <-- DAS FIXT ES ZUVERLÄSSIG
-      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      font-size: clamp(1.25rem, 3.5vw, 2rem);
       font-weight: 400;
       color: var(--text-medium);
       margin-bottom: 0;
-
-      @media (max-width: 768px) {
-        font-size: clamp(1.125rem, 4vw, 1.5rem);
-      }
     }
   }
 
@@ -333,134 +325,126 @@
   }
 
   // Regional Section - Split Layout OPTIMIERT
-.about-regional {
-  padding: 0;
-  background: var(--bg-white);
+  .about-regional {
+    padding: 0;
+    background: var(--bg-white);
 
-  .regional-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: stretch;
-
-    @media (max-width: 992px) {
-      grid-template-columns: 1fr;
-    }
-
-    // Bild-Bereich (Links)
-    .regional-image {
-      position: relative;
-      overflow: hidden;
-      background: var(--bg-light-gray);
-      max-height: 800px; // ✅ Maximale Höhe begrenzt
+    .regional-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
 
       @media (max-width: 992px) {
-        display: none;
+        grid-template-columns: 1fr;
       }
 
-      .regional-img {
-        width: 100%;
-        height: 100%;
-        max-height: 800px; // ✅ Bild-Höhe begrenzt
-        object-fit: cover;
-        object-position: center;
-        display: block;
-      }
-    }
+      // Bild-Bereich (Links)
+      .regional-image {
+        position: relative;
+        overflow: hidden;
+        background: var(--bg-light-gray);
+        max-height: 800px; // ✅ Maximale Höhe begrenzt
 
-    // Content-Bereich (Rechts)
-    .regional-content {
-      background: var(--text-dark);
-      padding: clamp(3rem, 8vh, 6rem) clamp(2rem, 5vw, 4rem);
-      display: flex;
-      align-items: start; // ✅ OBEN statt center
+        @media (max-width: 992px) {
+          display: none;
+        }
 
-      @media (max-width: 992px) {
-        order: 1;
-        padding: clamp(2rem, 5vh, 3rem) clamp(1.5rem, 4vw, 2rem);
-      }
-
-      .content-wrapper {
-        max-width: 560px;
-        width: 100%;
+        .regional-img {
+          width: 100%;
+          height: 100%;
+          max-height: 800px; // ✅ Bild-Höhe begrenzt
+          object-fit: cover;
+          object-position: center;
+          display: block;
+        }
       }
 
-      // Section Header - Kleinerer Subtitle
-      .section-header {
-        text-align: left;
-        margin-bottom: clamp(1.5rem, 3vh, 2rem);
+      // Content-Bereich (Rechts)
+      .regional-content {
+        background: var(--text-dark);
+        padding: clamp(3rem, 8vh, 6rem) clamp(2rem, 5vw, 4rem);
+        display: flex;
+        align-items: start; // ✅ OBEN statt center
 
-        h2 {
-          font-size: clamp(1.75rem, 3.5vw, 2.5rem); // ✅ Etwas kleiner
-          font-weight: 900;
-          margin-bottom: var(--spacing-sm);
-          color: white;
-          line-height: 1.1;
-          letter-spacing: -0.02em;
+        @media (max-width: 992px) {
+          order: 1;
+          padding: clamp(2rem, 5vh, 3rem) clamp(1.5rem, 4vw, 2rem);
+        }
 
-          @media (max-width: 768px) {
-            font-size: clamp(1.5rem, 4vw, 2rem);
+        .content-wrapper {
+          max-width: 560px;
+          width: 100%;
+        }
+
+        // Section Header - Kleinerer Subtitle
+        .section-header {
+          text-align: left;
+          margin-bottom: clamp(1.5rem, 3vh, 2rem);
+
+          h2 {
+            font-size: clamp(2.2rem, 4vw, 2.5rem);
+            font-weight: 900;
+            margin-bottom: var(--spacing-sm);
+            color: white;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+          }
+
+          .subtitle {
+            font-size: clamp(1.25rem, 3.5vw, 2rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7); // Helle Farbe für dunklen Hintergrund
+            margin-bottom: 0;
           }
         }
 
-        .subtitle {
-          font-size: clamp(1.125rem, 2.5vw, 1.5rem); // ✅ DEUTLICH kleiner (kein Umbruch)
+        // Intro-Text
+        .intro {
+          font-size: clamp(1rem, 2vw, 1.125rem); // ✅ Etwas kleiner
+          line-height: 1.7;
+          color: rgba(255, 255, 255, 0.85);
+          margin-bottom: clamp(1.5rem, 3vh, 2rem);
           font-weight: 400;
-          color: rgba(255, 255, 255, 0.7);
-          margin-bottom: 0;
 
-          @media (max-width: 768px) {
-            font-size: clamp(1rem, 3vw, 1.25rem);
+          strong {
+            color: var(--primary-yellow);
+            font-weight: 600;
           }
         }
-      }
 
-      // Intro-Text
-      .intro {
-        font-size: clamp(1rem, 2vw, 1.125rem); // ✅ Etwas kleiner
-        line-height: 1.7;
-        color: rgba(255, 255, 255, 0.85);
-        margin-bottom: clamp(1.5rem, 3vh, 2rem);
-        font-weight: 400;
-
-        strong {
-          color: var(--primary-yellow);
-          font-weight: 600;
-        }
-      }
-
-      // Regional Highlights
-      .regional-highlights {
-        display: grid;
-        gap: clamp(1.25rem, 2.5vh, 1.75rem); // ✅ Etwas weniger Gap
-      }
-
-      .highlight-item {
-        padding-left: var(--spacing-md);
-        transition: all 0.3s ease;
-        border-left: 0px solid transparent;
-
-        &:hover {
-          border-left: 3px solid var(--primary-yellow);
-          padding-left: calc(var(--spacing-md) + 5px);
+        // Regional Highlights
+        .regional-highlights {
+          display: grid;
+          gap: clamp(1.25rem, 2.5vh, 1.75rem); // ✅ Etwas weniger Gap
         }
 
-        h3 {
-          font-size: clamp(1.0625rem, 2vw, 1.125rem); // ✅ Etwas kleiner
-          font-weight: 700;
-          margin-bottom: var(--spacing-xs);
-          color: white;
-        }
+        .highlight-item {
+          padding-left: var(--spacing-md);
+          transition: all 0.3s ease;
+          border-left: 0px solid transparent;
 
-        p {
-          font-size: clamp(0.875rem, 2vw, 0.9375rem); // ✅ Etwas kleiner
-          line-height: 1.6;
-          color: rgba(255, 255, 255, 0.7);
-          margin: 0;
+          &:hover {
+            border-left: 3px solid var(--primary-yellow);
+            padding-left: calc(var(--spacing-md) + 5px);
+          }
+
+          h3 {
+            font-size: clamp(1.0625rem, 2vw, 1.125rem); // ✅ Etwas kleiner
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+            color: white;
+          }
+
+          p {
+            font-size: clamp(0.875rem, 2vw, 0.9375rem); // ✅ Etwas kleiner
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+          }
         }
       }
     }
   }
-}
 
 
 
