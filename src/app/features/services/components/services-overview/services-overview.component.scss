@@ -1,32 +1,36 @@
 // Services Overview - Cards mit Bildern
 
 .services-page {
+  
   .services-section {
-    padding: var(--spacing-xxl) 0;
+    padding: clamp(3rem, 8vh, 6rem) 0;
     background: var(--bg-white);
 
     .container {
       max-width: var(--container-max-width);
       margin: 0 auto;
-      padding: 0 var(--spacing-md);
+      padding: 0 clamp(1rem, 3vw, 1.5rem);
     }
 
     // Section Header
-    .section-header-sovw {
+    .section-header {
       text-align: left;
-      margin-bottom: var(--spacing-xxl);
+      margin-bottom: clamp(2rem, 5vh, 3rem);
 
       h2 {
         font-size: clamp(2.2rem, 4vw, 2.5rem); // Fluid statt fest
         font-weight: 900;
         margin-bottom: var(--spacing-sm);
         color: var(--text-dark);
+        line-height: 1.2;
       }
 
       .subtitle {
+        display: block;
         font-size: clamp(1.25rem, 3.5vw, 2rem);
         font-weight: 400;
         color: var(--text-medium);
+        margin-bottom: 0;
       }
     }
 
