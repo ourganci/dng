@@ -13,8 +13,8 @@ export class ImpressumComponent implements OnInit {
 
   ngOnInit(): void {
     this.seoService.updateMetaTags({
-      title: 'Impressum – DNG GmbH Dachdeckermeisterbetrieb',
-      description: 'Impressum und Kontaktdaten der DNG GmbH Dachdeckermeisterbetrieb.',
+      title: 'Impressum – DNG GmbH Dachdeckerfachbetrieb',
+      description: 'Impressum und Kontaktdaten der DNG GmbH Dachdeckerfachbetrieb.',
       keywords: 'Impressum, Kontakt, Angaben',
       url: 'https://www.dng-gmbh.de/impressum'
     });

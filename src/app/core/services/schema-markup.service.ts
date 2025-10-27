@@ -7,6 +7,53 @@ import { DOCUMENT } from '@angular/common';
 })
 export class SchemaMarkupService {
   
+  // ⭐ Zentrale Unternehmensdaten für Konsistenz
+  public readonly companyData = {
+    "@type": "RoofingContractor",
+    "name": "DNG GmbH",
+    "description": "Dachdeckerfachbetrieb für Nahe Glan & Umgebung",
+    "image": "https://www.dng-gmbh.de/assets/images/logo.png",
+    "url": "https://www.dng-gmbh.de",
+    "telephone": "+4967531237119", // Echte Nummer im internationalen Format
+    "mobile": "+4915158420657",   // Echte Nummer im internationalen Format
+    "email": "info@dng-gmbh.de",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Hauptstraße 24",
+      "addressLocality": "Callbach",
+      "addressRegion": "Rheinland-Pfalz",
+      "postalCode": "67829",
+      "addressCountry": "DE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.704030,
+      "longitude": 7.699911
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Nahe Glan" },
+      { "@type": "City", "name": "Bad Kreuznach" },
+      { "@type": "City", "name": "Kirn" },
+      { "@type": "City", "name": "Bad Sobernheim" },
+      { "@type": "City", "name": "Bingen" },
+      { "@type": "City", "name": "Idar-Oberstein" }
+    ],
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "sameAs": [
+      // TODO: Echte Social Media Links einfügen
+      // "https://www.facebook.com/dng-gmbh",
+      // "https://www.instagram.com/dng-gmbh"
+    ]
+  };
+
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
   /**
@@ -15,66 +62,7 @@ export class SchemaMarkupService {
   addLocalBusinessSchema(): void {
     const script = this.createSchemaScript({
       "@context": "https://schema.org",
-      "@type": "RoofingContractor",
-      "name": "DNG GmbH",
-      "description": "Dachdeckermeisterbetrieb für Nahe Glan & Umgebung",
-      "image": "https://www.dng-gmbh.de/assets/images/logo.png",
-      "url": "https://www.dng-gmbh.de",
-      "telephone": "+49-XXXX-XXXXXX", // TODO: Echte Nummer einfügen
-      "email": "info@dng-gmbh.de",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Musterstraße 123", // TODO: Echte Adresse
-        "addressLocality": "Nahe Glan",
-        "addressRegion": "Rheinland-Pfalz",
-        "postalCode": "55555", // TODO: Echte PLZ
-        "addressCountry": "DE"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "49.7667", // TODO: Echte Koordinaten
-        "longitude": "7.4667"
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Nahe Glan"
-        },
-        {
-          "@type": "City",
-          "name": "Bad Kreuznach"
-        },
-        {
-          "@type": "City",
-          "name": "Kirn"
-        },
-        {
-          "@type": "City",
-          "name": "Bad Sobernheim"
-        },
-        {
-          "@type": "City",
-          "name": "Bingen"
-        },
-        {
-          "@type": "City",
-          "name": "Idar-Oberstein"
-        }
-      ],
-      "priceRange": "$$",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:00",
-          "closes": "17:00"
-        }
-      ],
-      "sameAs": [
-        // TODO: Social Media Links einfügen
-        // "https://www.facebook.com/dng-gmbh",
-        // "https://www.instagram.com/dng-gmbh"
-      ]
+      ...this.companyData
     });
     
     this.document.head.appendChild(script);
@@ -88,21 +76,16 @@ export class SchemaMarkupService {
       "@context": "https://schema.org",
       "@type": "Service",
       "serviceType": serviceName,
-      "provider": {
-        "@type": "RoofingContractor",
-        "name": "DNG GmbH",
-        "telephone": "+49-XXXX-XXXXXX",
-        "url": "https://www.dng-gmbh.de"
-      },
+      "provider": this.companyData,
       "description": description,
       "areaServed": {
         "@type": "GeoCircle",
         "geoMidpoint": {
           "@type": "GeoCoordinates",
-          "latitude": "49.7667",
-          "longitude": "7.4667"
+          "latitude": this.companyData.geo.latitude,
+          "longitude": this.companyData.geo.longitude
         },
-        "geoRadius": "50000"
+        "geoRadius": 60000 // Radius in Metern (60km)
       },
       "offers": {
         "@type": "Offer",

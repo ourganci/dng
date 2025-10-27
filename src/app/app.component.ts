@@ -12,5 +12,5 @@ import { BottomNavComponent } from './shared/components/bottom-nav/bottom-nav.co
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'DNG GmbH - Dachdeckermeisterbetrieb';
+  title = 'DNG GmbH - Dachdeckerfachbetrieb';
 }

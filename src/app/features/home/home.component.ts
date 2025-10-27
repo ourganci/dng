@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.seoService.updateMetaTags({
-      title: 'DNG GmbH – Dachdeckermeisterbetrieb für Nahe Glan & Umgebung',
+      title: 'DNG GmbH – Dachdeckerfachbetrieb für Nahe Glan & Umgebung',
       description: 'Ihr Dachdecker-Fachbetrieb für Dachsanierung, PV-Anlagen, Dachfenster und mehr.',
       keywords: 'Dachdecker Nahe Glan, Dachsanierung, PV-Anlagen',
       url: 'https://www.dng-gmbh.de'

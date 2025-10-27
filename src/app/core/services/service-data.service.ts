@@ -51,7 +51,7 @@ export class ServiceDataService {
     {
       id: 'dachsanierung',
       title: 'Dachsanierung Nahe Glan – Professionell und nachhaltig',
-      headline: 'Dachsanierung vom Meisterbetrieb',
+      headline: 'Dachsanierung vom Fachbetrieb',
       description: 'Ihr Dach ist mehr als nur Schutz – es ist ein zentraler Bestandteil Ihres Hauses. Mit einer professionellen Dachsanierung verlängern Sie die Lebensdauer Ihres Daches, steigern die Energieeffizienz und erhöhen den Wert Ihrer Immobilie.',
       benefits: [
         {
