@@ -361,7 +361,7 @@
 
       // Content-Bereich (Rechts)
       .regional-content {
-        background: var(--text-dark);
+        background: var(--bg-dng-dark-grey);
         padding: clamp(3rem, 8vh, 6rem) clamp(2rem, 5vw, 4rem);
         display: flex;
         align-items: start; // ✅ OBEN statt center

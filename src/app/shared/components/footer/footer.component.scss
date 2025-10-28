@@ -3,8 +3,13 @@
 .site-footer {
   background: var(--text-dark);
   color: var(--text-light);
-  padding: var(--spacing-xxl) 0 var(--spacing-md);
-  margin-top: var(--spacing-xxl);
+  padding: var(--spacing-sm) 0 var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+
+  // Override the global .container to give footer content more space
+  .container {
+    max-width: 1400px; // Increase max-width for the footer
+  }
 
   .footer-content {
     display: grid;
