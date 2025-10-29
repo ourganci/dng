@@ -1,172 +1,155 @@
-// src/app/features/legal/impressum/impressum.component.scss
 // src/app/features/legal/datenschutz/datenschutz.component.scss
-// (Gleicher Code für beide)
 
 .legal-page {
-  padding: var(--spacing-xxl) 0;
-  background: var(--bg-light-gray);
+  padding: clamp(3rem, 8vh, 6rem) 0 clamp(4rem, 10vh, 8rem);
+  background: var(--bg-white);
   min-height: 70vh;
 
-  .container-narrow {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
-    background: white;
-    padding: var(--spacing-xxl) var(--spacing-xl);
-    border-radius: var(--border-radius-large);
-    box-shadow: var(--shadow-md);
+  // Header Section
+  .legal-header {
+    padding-bottom: clamp(2rem, 5vh, 3rem);
+    border-bottom: 1px solid var(--bg-medium-gray);
+    margin-bottom: clamp(2rem, 5vh, 3rem);
 
-    @media (max-width: 768px) {
-      padding: var(--spacing-xl) var(--spacing-md);
-    }
-  }
-
-  // Main Heading
-  h1 {
-    font-size: 2.8rem;
-    color: var(--text-dark);
-    margin-bottom: var(--spacing-xl);
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 4px solid var(--primary-yellow);
-    position: relative;
-
-    @media (max-width: 768px) {
-      font-size: 2.2rem;
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: clamp(0.75rem, 2vh, 1rem);
+      color: var(--text-dark);
+      line-height: 1.2;
     }
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 120px;
-      height: 4px;
-      background: var(--accent-green);
-    }
-  }
-
-  // Sections
-  section {
-    margin-bottom: var(--spacing-xl);
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid var(--bg-light-gray);
-
-    &:last-of-type {
-      border-bottom: none;
-    }
-  }
-
-  // Section Headings
-  h2 {
-    font-size: 1.8rem;
-    color: var(--text-dark);
-    margin-top: var(--spacing-xl);
-    margin-bottom: var(--spacing-md);
-    padding-left: var(--spacing-sm);
-    border-left: 4px solid var(--primary-yellow);
-
-    &:first-of-type {
-      margin-top: 0;
-    }
-  }
-
-  h3 {
-    font-size: 1.4rem;
-    color: var(--text-dark);
-    margin-top: var(--spacing-lg);
-    margin-bottom: var(--spacing-sm);
-    font-weight: 600;
-  }
-
-  h4 {
-    font-size: 1.1rem;
-    color: var(--text-medium);
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-xs);
-    font-weight: 600;
-  }
-
-  // Paragraphs
-  p {
-    line-height: 1.9;
-    color: var(--text-medium);
-    margin-bottom: var(--spacing-md);
-    font-size: 1rem;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  // Lists
-  ul, ol {
-    margin: var(--spacing-md) 0;
-    padding-left: var(--spacing-xl);
-
-    li {
-      line-height: 1.9;
+    .lead {
+      font-size: clamp(1rem, 2vw, 1.125rem);
       color: var(--text-medium);
-      margin-bottom: var(--spacing-sm);
-      padding-left: var(--spacing-xs);
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
 
-      &::marker {
+  // Container
+  .container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 3vw, 1.5rem);
+  }
+
+  // Content Section
+  .legal-content {
+    padding: 0;
+  }
+
+  // 2-Spalten Grid
+  .legal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      gap: clamp(2rem, 4vh, 3rem);
+    }
+  }
+
+  // BEIDE SPALTEN: Gemeinsame Styles
+  .legal-column-left,
+  .legal-column-right {
+    .info-block {
+      margin-bottom: clamp(2rem, 5vh, 3rem);
+      padding-bottom: clamp(1.5rem, 4vh, 2rem);
+      border-bottom: 1px solid var(--bg-light-gray);
+
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      h2 {
+        font-size: clamp(1.125rem, 2.2vw, 1.375rem);
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: clamp(0.75rem, 2vh, 1rem);
+        line-height: 1.4;
+      }
+
+      h3 {
+        font-size: clamp(1rem, 2vw, 1.125rem);
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-top: clamp(1rem, 3vh, 1.5rem);
+        margin-bottom: clamp(0.5rem, 1.5vh, 0.75rem);
+        line-height: 1.4;
+      }
+
+      p {
+        font-size: clamp(0.9375rem, 2vw, 1rem);
+        line-height: 1.8;
+        color: var(--text-medium);
+        margin-bottom: clamp(0.75rem, 2vh, 1rem);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        strong {
+          color: var(--text-dark);
+          font-weight: 700;
+        }
+      }
+
+      ul {
+        margin: clamp(0.75rem, 2vh, 1rem) 0;
+        padding-left: clamp(1.25rem, 3vw, 1.5rem);
+
+        li {
+          font-size: clamp(0.9375rem, 2vw, 1rem);
+          line-height: 1.8;
+          color: var(--text-medium);
+          margin-bottom: clamp(0.375rem, 1vh, 0.5rem);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      a {
         color: var(--primary-yellow);
-        font-weight: bold;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--text-dark);
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // Update-Info (letzte Box)
+    .update-info {
+      border-bottom: none;
+      padding-top: clamp(1rem, 3vh, 1.5rem);
+      border-top: 1px solid var(--bg-light-gray);
+
+      em {
+        color: var(--text-light);
+        font-size: clamp(0.875rem, 1.8vw, 0.9375rem);
+        font-style: normal;
       }
     }
   }
 
-  // Strong Text
-  strong {
-    color: var(--text-dark);
-    font-weight: 700;
-  }
-
-  // Links
-  a {
-    color: var(--primary-yellow);
-    text-decoration: none;
-    font-weight: 600;
-    border-bottom: 2px solid transparent;
-    transition: all var(--transition-fast);
-
-    &:hover {
-      border-bottom-color: var(--primary-yellow);
-      color: var(--primary-yellow-dark);
-    }
-
-    // External links with icon
-    &[target="_blank"]::after {
-      content: ' ↗';
-      font-size: 0.8em;
-      opacity: 0.7;
-    }
-  }
-
-  // Update Date Footer
-  .update-date {
-    margin-top: var(--spacing-xxl);
-    padding-top: var(--spacing-lg);
-    border-top: 2px solid var(--bg-light-gray);
-    text-align: right;
-    
-    em {
-      color: var(--text-light);
-      font-size: 0.9rem;
-      font-style: normal;
-    }
-  }
-
-  // Highlight Boxes (for important info)
-  .info-box {
-    background: rgba(242, 203, 19, 0.1);
-    border-left: 4px solid var(--primary-yellow);
-    padding: var(--spacing-md);
-    margin: var(--spacing-md) 0;
-    border-radius: var(--border-radius);
-
-    p:last-child {
-      margin-bottom: 0;
+  // Mobile: Bessere Lesbarkeit
+  @media (max-width: 768px) {
+    .legal-column-left,
+    .legal-column-right {
+      .info-block {
+        margin-bottom: clamp(1.5rem, 3vh, 2rem);
+        padding-bottom: clamp(1rem, 2vh, 1.25rem);
+      }
     }
   }
 }
