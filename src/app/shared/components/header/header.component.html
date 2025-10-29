@@ -4,28 +4,48 @@
   <nav class="main-nav">
     <!-- ✅ Logo LINKS -->
     <a routerLink="/" class="logo">
-      <img src="assets/images/logos/logo-xs-yellow.png" alt="DNG GmbH Logo">
+      <img src="assets/images/logos/logo-s-yellow.png" alt="DNG GmbH Logo">
       <strong>DNG</strong>
     </a>
 
     <!-- ✅ Navigation RECHTS -->
     <ul class="nav-menu">
-      @for (item of menuItems; track item.route) {
-        <li class="nav-item">
-          <a
-            [routerLink]="item.route"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: item.route === '/'}"
-            class="nav-link"
-          >
-            {{ item.label }}
-          </a>
+      @for (item of menuItems; track item.route; let i = $index) {
+        <li class="nav-item" [class.open]="openSubmenuIndex === i">
+          
+          <!-- ✅ Wenn Submenu: Toggle on Click -->
+          @if (item.submenu) {
+            <span 
+              class="nav-link has-submenu" 
+              (click)="toggleSubmenu(i)"
+            >
+              {{ item.label }}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          } @else {
+            <a
+              [routerLink]="item.route"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: item.route === '/'}"
+              class="nav-link"
+            >
+              {{ item.label }}
+            </a>
+          }
 
+          <!-- Submenu -->
           @if (item.submenu) {
             <ul class="submenu">
               @for (sub of item.submenu; track sub.route) {
                 <li>
-                  <a [routerLink]="sub.route" routerLinkActive="active" class="submenu-link">
+                  <a 
+                    [routerLink]="sub.route" 
+                    routerLinkActive="active" 
+                    class="submenu-link"
+                    (click)="closeSubmenu()"
+                  >
                     {{ sub.label }}
                   </a>
                 </li>
