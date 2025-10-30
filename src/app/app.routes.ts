@@ -7,10 +7,14 @@ export const routes: Routes = [
     loadComponent: () => import('./features/home/home.component')
       .then(m => m.HomeComponent)
   },
-  {
-    path: 'leistungen',
-    loadChildren: () => import('./features/services/services.routes')
-      .then(m => m.SERVICES_ROUTES)
+  // {
+  //   path: 'leistungen',
+  //   loadChildren: () => import('./features/services/services.routes')
+  //     .then(m => m.SERVICES_ROUTES)
+  // },
+  { path: 'leistungen/dachsanierung', 
+    loadComponent: () => import('./features/services/components/dachsanierung/dachsanierung.component')
+    .then(m => m.DachsanierungComponent)
   },
   {
     path: 'ueber-uns',

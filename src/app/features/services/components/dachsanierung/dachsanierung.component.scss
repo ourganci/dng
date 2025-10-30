@@ -1,0 +1,372 @@
+// Service Detail Page
+
+.service-detail-page {
+
+  // Hero Section mit Bild
+  .service-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      min-height: 40vh;
+    }
+
+    .hero-image-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: brightness(70%);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      color: white;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  // Intro Section
+  .service-intro {
+    padding: var(--spacing-xxl) 0;
+    background: var(--bg-white);
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+    }
+
+    .lead {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--text-medium);
+      text-align: center;
+
+      @media (max-width: 768px) {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+      .story-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+
+      @media (min-width: 768px) {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .story-content {
+      p {
+        font-size: clamp(1rem, 2vw, 1.125rem);
+        line-height: 1.8;
+        color: var(--text-medium);
+        margin-bottom: 1.25rem;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        strong {
+          color: var(--text-dark);
+          font-weight: 600;
+        }
+      }
+    }
+
+  // Vorteile Section - Icon links, Text rechts
+  .service-benefits {
+    padding: var(--spacing-xxl) 0;
+    background: #f2f2f2;
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: var(--spacing-xxl);
+      text-align: center;
+      color: var(--text-medium);
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    // Grid - 2 Spalten
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-xl);
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+      }
+    }
+
+    // Benefit Item - Icon links + Text rechts
+    .benefit-item {
+      display: flex;
+      gap: var(--spacing-md);
+      align-items: flex-start;
+
+      // Icon-Kreis (45x45)
+      .icon-circle {
+        flex-shrink: 0;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: var(--primary-yellow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        // SVG Styling
+        :deep(svg) {
+          width: 24px;
+          height: 24px;
+          fill: var(--text-medium);
+          stroke: var(--text-medium);
+        }
+      }
+
+      // Text-Bereich rechts
+      .benefit-text {
+        flex: 1;
+        padding-top: 2px; // Alignment mit Icon
+
+        h3 {
+          font-size: 1.1rem;
+          font-weight: 700;
+          margin-bottom: var(--spacing-xs);
+          color: var(--text-medium);
+        }
+
+        p {
+          font-size: 0.95rem;
+          line-height: 1.6;
+          color: var(--text-medium);
+          margin: 0;
+        }
+      }
+    }
+  }
+
+
+  // Ablauf Section - Modern & Clean
+  .service-process {
+    padding: var(--spacing-xxl) 0;
+    background: var(--bg-white);
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: var(--spacing-sm);
+      text-align: center;
+      color: var(--text-dark);
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text-medium);
+      margin-bottom: var(--spacing-xxl);
+      text-align: center;
+
+      @media (max-width: 768px) {
+        font-size: 1.1rem;
+      }
+    }
+
+    // Grid - 2 Spalten
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-xl);
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+      }
+    }
+
+    // Process Item
+    .process-item {
+      display: flex;
+      gap: var(--spacing-md);
+      align-items: flex-start;
+
+      // Nummerierter Kreis
+      .step-number {
+        flex-shrink: 0;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: var(--primary-yellow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: 900;
+        color: var(--text-dark);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      // Text
+      .step-text {
+        flex: 1;
+        padding-top: 8px; // Zentriert mit Nummer
+
+        p {
+          font-size: 1rem;
+          line-height: 1.7;
+          color: var(--text-medium);
+          margin: 0;
+        }
+      }
+    }
+  }
+
+
+  // FAQs Section
+  .service-faqs {
+    padding: var(--spacing-xxl) 0;
+    background: #e6e2df;
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: var(--spacing-xl);
+      text-align: center;
+      color: var(--text-dark);
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    .faq-item {
+      background: white;
+      padding: var(--spacing-lg);
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--primary-yellow);
+
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: var(--spacing-sm);
+        color: var(--text-dark);
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--text-medium);
+        margin: 0;
+      }
+    }
+  }
+
+  // CTA Section
+  .service-cta {
+    padding: var(--spacing-xxl) 0;
+    background: var(--bg-white);
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+    }
+
+    .cta-box {
+      text-align: center;
+      padding: var(--spacing-xxl) var(--spacing-lg);
+      background: var(--text-dark);
+      border-radius: var(--border-radius-large);
+      color: white;
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-md);
+        color: white;
+
+        @media (max-width: 768px) {
+          font-size: 1.6rem;
+        }
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin-bottom: var(--spacing-lg);
+        color: rgba(255, 255, 255, 0.8);
+
+        @media (max-width: 768px) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

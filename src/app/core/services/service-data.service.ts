@@ -8,17 +8,37 @@ export interface ServiceBenefit {
   iconSvg: string; // ← SVG als String
 }
 
+export type ServiceSection =
+  | { type: 'hero'; data: { headline: string; subline?: string; image?: string; overlay?: boolean } }
+  | { type: 'intro'; data: { lead: string } }
+  | { type: 'image'; data: { src: string; alt: string; caption?: string; fullWidth?: boolean } }
+  | { type: 'gallery'; data: { images: { src: string; alt: string }[]; columns?: 2|3|4 } }
+  | { type: 'bullets'; data: { title?: string; items: string[]; icon?: string } }
+  | { type: 'checklist'; data: { title?: string; items: string[] } }
+  | { type: 'steps'; data: { title?: string; steps: string[] } }
+  | { type: 'twoColumn'; data: { leftHtml: string; rightHtml: string } }
+  | { type: 'highlight'; data: { title?: string; text: string } }
+  | { type: 'table'; data: { title?: string; headers: string[]; rows: string[][] } }
+  | { type: 'faq'; data: { items: { question: string; answer: string }[] } }
+  | { type: 'richtext'; data: { html: string } }
+  | { type: 'accordion'; data: { items: { title: string; contentHtml: string }[] } }
+  | { type: 'cta'; data: { title: string; text?: string; buttonText: string; link: string } }
+  | { type: 'benefits-from-service'; data: { title: string } };
+
 export interface ServiceContent {
   id: string;
   title: string;
   headline: string;
   description: string;
-  benefits: ServiceBenefit[];
-  process: string[];
-  faqs: { question: string; answer: string }[];
   keywords: string;
   icon: string;
   hasImage?: boolean;
+  // Optional: legacy Felder weiter nutzen, aber perspektivisch in sections aufgehen lassen:
+  benefits?: ServiceBenefit[];
+  process?: string[];
+  faqs?: { question: string; answer: string }[];
+  // Neu:
+  sections?: ServiceSection[];
 }
 
 // Einfaches Interface für Übersichtsseiten
@@ -50,69 +70,108 @@ export class ServiceDataService {
   private services: ServiceContent[] = [
     {
       id: 'dachsanierung',
-      title: 'Dachsanierung Nahe Glan – Professionell und nachhaltig',
+      title: 'Dachsanierung Nahe Glan – professionell & nachhaltig',
       headline: 'Dachsanierung vom Fachbetrieb',
-      description: 'Ihr Dach ist mehr als nur Schutz – es ist ein zentraler Bestandteil Ihres Hauses. Mit einer professionellen Dachsanierung verlängern Sie die Lebensdauer Ihres Daches, steigern die Energieeffizienz und erhöhen den Wert Ihrer Immobilie.',
-      benefits: [
+      description: 'Ihr Dach ist in die Jahre gekommen? Feuchtigkeit, Wärmeverluste oder lockere Ziegel sind erste Anzeichen für Sanierungsbedarf. Als erfahrener Dachdeckerbetrieb aus Nahe Glan bieten wir Ihnen fachgerechte Dachsanierungen im Umkreis von 50 km – für Wohnhäuser, Gewerbeobjekte und Mehrfamilienhäuser.',
+      keywords: 'Dachsanierung, Dachdecker Nahe Glan, Dach erneuern, Dach dämmen, Dach abdichten, Sanierung',
+      icon: '🏠',
+      hasImage: true,
+      sections: [
         {
-          title: 'Langfristiger Schutz',
-          text: 'Langfristiger Schutz vor Witterung und Schäden',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>'
+          type: 'hero', data: {
+            headline: 'Dachsanierung vom Meisterbetrieb – DNG GmbH Nahe-Glan',
+            subline: 'Professionell & nachhaltig',
+            image: 'assets/images/services/dachsanierung.jpg',
+            overlay: true
+          }
         },
         {
-          title: 'Energieeffizienz',
-          text: 'Energieeffizienz durch moderne Dämmsysteme',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>'
+          type: 'intro', data: {
+            lead: 'Ihr Dach ist in die Jahre gekommen? Feuchtigkeit, Wärmeverluste oder lockere Ziegel sind erste Anzeichen für Sanierungsbedarf. Als erfahrener Dachdeckerbetrieb aus Nahe Glan bieten wir Ihnen fachgerechte Dachsanierungen im Umkreis von 50 km – für Wohnhäuser, Gewerbeobjekte und Mehrfamilienhäuser.'
+          }
         },
         {
-          title: 'Wertsteigerung',
-          text: 'Wertsteigerung Ihrer Immobilie',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>'
+          type: 'richtext', data: {
+            html: '<h2>Ursachen und typische Schäden am Dach</h2><p>Ein beschädigtes Dach beeinträchtigt nicht nur die Optik, sondern vor allem die Sicherheit und Energieeffizienz Ihres Gebäudes. Häufige Anzeichen für einen Sanierungsbedarf:</p>'
+          }
         },
         {
-          title: 'Individuelle Lösungen',
-          text: 'Individuelle Lösungen für Steildächer und Flachdächer',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>'
+          type: 'bullets', data: {
+            items: [
+              'Moos- oder Algenbefall, brüchige Ziegel',
+              'Undichtigkeiten & Wassereintritt',
+              'Hoher Wärmeverlust durch mangelnde Dämmung',
+              'Schäden nach Sturm oder Hagel',
+              'Korrosion an Dachrinnen und Blechen'
+            ]
+          }
         },
         {
-          title: 'Fachgerechte Ausführung',
-          text: 'Fachgerechte Ausführung nach aktuellen Standards',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>'
+          type: 'highlight', data: {
+            title: 'Je früher Sie handeln, desto günstiger die Sanierung',
+            text: 'Frühe Maßnahmen verhindern Folgeschäden und reduzieren Gesamtkosten.'
+          }
         },
         {
-          title: 'Nachhaltige Materialien',
-          text: 'Verwendung nachhaltiger und umweltfreundlicher Materialien',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>'
+          type: 'richtext', data: {
+            html: '<h2>Vorteile einer professionellen Dachsanierung</h2><p>Eine Sanierung ist nicht nur eine Instandhaltung, sondern eine Investition in die Zukunft Ihrer Immobilie:</p>'
+          }
+        },
+        {
+          type: 'bullets', data: {
+            items: [
+              'Wertsteigerung: Erhöht Marktwert & Wohnqualität',
+              'Energieeffizienz: Spart Heizkosten durch neue Dämmung (z. B. nach GEG)',
+              'Dichtigkeit & Schutz: Verhindert teure Folgeschäden durch Feuchtigkeit',
+              'Förderfähig: KfW-Zuschüsse & steuerliche Vorteile möglich'
+            ]
+          }
+        },
+        {
+          type: 'steps', data: {
+            title: 'So läuft eine Dachsanierung mit uns ab',
+            steps: [
+              'Vor-Ort-Besichtigung & Beratung – Wir begutachten den Zustand Ihres Daches und klären mögliche Maßnahmen.',
+              'Individuelles Angebot und Planung – Transparent, auf Wunsch mit verschiedenen Materialoptionen.',
+              'Rückbau und Entsorgung – Fachgerechte Entfernung alter Eindeckung inkl. umweltfreundlicher Entsorgung.',
+              'Neueindeckung und Dämmung – Ziegel, Dachsteine, Schiefer oder Metall – passend zum Hausstil und Budget.',
+              'Abschlusskontrolle und Abnahme – Inklusive Übergabeprotokoll und Fotodokumentation.'
+            ]
+          }
+        },
+        {
+          type: 'richtext', data: {
+            html: '<p>Auf Wunsch realisieren wir auch Dachfenstereinbau oder PV-Anlagen.</p>'
+          }
+        },
+        {
+          type: 'richtext', data: {
+            html: '<h2>Für wen ist eine Dachsanierung sinnvoll?</h2><p>Unsere Leistungen richten sich an:</p>'
+          }
+        },
+        {
+          type: 'bullets', data: {
+            items: [
+              'Privathaushalte (Eigentümer & Bauherren)',
+              'Hausverwaltungen & Immobiliengesellschaften',
+              'Bauträger & Sanierungsfirmen'
+            ]
+          }
+        },
+        {
+          type: 'richtext', data: {
+            html: '<h2>Regional & zuverlässig</h2><p>Wir sanieren Dächer im gesamten Raum: Nahe Glan, Bad Kreuznach, Kirn, Meisenheim, Bingen, Simmern, Kirchheimbolanden, Idar-Oberstein & Umgebung.</p><p>Als regionaler Meisterbetrieb mit Erfahrung aus über 50 Dachprojekten stehen wir für Zuverlässigkeit, Termintreue und Qualität.</p>'
+          }
+        },
+        {
+          type: 'cta', data: {
+            title: 'Jetzt Dachsanierung anfragen',
+            text: 'Kostenlose Vor-Ort-Besichtigung und transparentes Angebot.',
+            buttonText: 'Kostenlose Beratung',
+            link: '/kontakt'
+          }
         }
-      ],
-      process: [
-        'Kostenlose Erstberatung und Besichtigung vor Ort',
-        'Detaillierte Schadensanalyse und Zustandsbewertung',
-        'Transparentes Angebot mit allen Kosten',
-        'Professionelle Ausführung durch erfahrene Dachdecker',
-        'Saubere Baustelle und pünktliche Fertigstellung',
-        'Abnahme und Dokumentation der durchgeführten Arbeiten'
-      ],
-      faqs: [
-        {
-          question: 'Wann ist eine Dachsanierung notwendig?',
-          answer: 'Eine Dachsanierung wird empfohlen bei sichtbaren Schäden (Risse, fehlende Ziegel), bei Undichtigkeiten, starkem Moosbewuchs oder wenn Ihr Dach älter als 30-40 Jahre ist. Auch bei unzureichender Dämmung ist eine energetische Sanierung sinnvoll.'
-        },
-        {
-          question: 'Wie lange dauert eine Dachsanierung?',
-          answer: 'Die Dauer hängt von der Dachgröße und dem Sanierungsumfang ab. Ein Einfamilienhaus (ca. 150m²) dauert in der Regel 1-3 Wochen. Wir erstellen Ihnen einen detaillierten Zeitplan.'
-        },
-        {
-          question: 'Was kostet eine Dachsanierung?',
-          answer: 'Die Kosten variieren je nach Dachfläche, Material und Aufwand. Für ein Einfamilienhaus können Sie mit 100-250€ pro m² rechnen. Kontaktieren Sie uns für ein kostenloses, unverbindliches Angebot.'
-        },
-        {
-          question: 'Welche Fördermöglichkeiten gibt es?',
-          answer: 'Für energetische Dachsanierungen gibt es Förderungen über die KfW und BAFA. Wir beraten Sie gerne zu den aktuellen Förderprogrammen und unterstützen Sie bei der Antragstellung.'
-        }
-      ],
-      keywords: 'Dachsanierung Nahe Glan, Dach sanieren, Dacherneuerung, Steildach, Flachdach, energetische Sanierung, Bad Kreuznach, Kirn',
-      icon: '🏠'
+      ]
     },
     {
       id: 'dachfenster',
@@ -120,27 +179,33 @@ export class ServiceDataService {
       headline: 'Dachfenster-Einbau vom Fachbetrieb',
       description: 'Dachfenster bringen natürliches Licht in Ihr Dachgeschoss und schaffen ein angenehmes Wohnklima. Wir sind Ihr Fachbetrieb für Einbau, Austausch und Reparatur von Dachfenstern in Nahe Glan und Umgebung.',
       benefits: [
-        { title: 'Mehr Tageslicht und Wohnkomfort',
+        {
+          title: 'Mehr Tageslicht und Wohnkomfort',
           text: 'Mehr Tageslicht und Wohnkomfort',
           iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
         },
-        { title: 'Bis zu 3x mehr Tageslicht als Fassadenfenster',
+        {
+          title: 'Bis zu 3x mehr Tageslicht als Fassadenfenster',
           text: 'Bis zu 3x mehr Tageslicht als Fassadenfenster',
           iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
         },
-        { title: 'Bessere Belüftung und gesundes Raumklima',
+        {
+          title: 'Bessere Belüftung und gesundes Raumklima',
           text: 'Bessere Belüftung und gesundes Raumklima',
           iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
         },
-        { title: 'Energieeffiziente 3-fach-Verglasung',
+        {
+          title: 'Energieeffiziente 3-fach-Verglasung',
           text: 'Energieeffiziente 3-fach-Verglasung',
           iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
         },
-        { title: 'Wertsteigerung Ihrer Immobilie',
+        {
+          title: 'Wertsteigerung Ihrer Immobilie',
           text: 'Wertsteigerung Ihrer Immobilie',
           iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
         },
-        { title: 'Vielfältige Designs und Größen verfügbar',
+        {
+          title: 'Vielfältige Designs und Größen verfügbar',
           text: 'Vielfältige Designs und Größen verfügbar',
           iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
         }
@@ -517,7 +582,7 @@ export class ServiceDataService {
     }));
   }
 
-   getServiceById(id: string): ServiceContent | undefined {
+  getServiceById(id: string): ServiceContent | undefined {
     const service = this.services.find(s => s.id === id);
     if (service) {
       return {

@@ -24,9 +24,9 @@ export class ServiceDetailComponent implements OnInit, OnDestroy { // ✅ OnDest
   private serviceDataService = inject(ServiceDataService);
   private seoService = inject(SeoService);
   private sanitizer = inject(DomSanitizer);
-  
+
   private routeSubscription?: Subscription; // ✅ NEU
-  
+
   benefitsWithIcons: BenefitWithSanitizedIcon[] = [];
   service: ServiceContent | undefined;
 
@@ -34,7 +34,7 @@ export class ServiceDetailComponent implements OnInit, OnDestroy { // ✅ OnDest
     // ✅ Subscribe to route params (reagiert auf Änderungen!)
     this.routeSubscription = this.route.paramMap.subscribe(params => {
       const serviceId = params.get('id');
-      
+
       if (serviceId) {
         this.loadService(serviceId); // ✅ Extrahiere Logik in separate Methode
       }
@@ -47,9 +47,9 @@ export class ServiceDetailComponent implements OnInit, OnDestroy { // ✅ OnDest
 
     if (this.service) {
       // Icons sanitizen
-      this.benefitsWithIcons = this.service.benefits.map(benefit => ({
-        ...benefit,
-        sanitizedIcon: this.sanitizer.bypassSecurityTrustHtml(benefit.iconSvg)
+      this.benefitsWithIcons = (this.service?.benefits || []).map(b => ({
+        ...b,
+        sanitizedIcon: this.sanitizer.bypassSecurityTrustHtml(b.iconSvg)
       }));
 
       // SEO Meta Tags aktualisieren
