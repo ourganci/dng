@@ -43,7 +43,7 @@
     margin-right: auto;
 
     img {
-      height: clamp(32px, 5vw, 40px); // ✅ 32px → 40px
+      height: clamp(32px, 5vw, 42px); // ✅ 32px → 42px
       width: auto;
     }
 
