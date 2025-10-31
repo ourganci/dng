@@ -1,0 +1,438 @@
+<!-- src/app/features/services/components/dachsanierung/dachsanierung.component.html -->
+
+<div class="service-detail-page">
+
+    <!-- Hero Section mit Bild -->
+    <!-- <section class="service-hero">
+        <div class="hero-image-bg" style="background-image: url('assets/images/services/dachsanierung.jpg')"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Dachfenster vom Fachbetrieb</h1>
+            <p></p>
+            <h1>Licht, Luft & Komfort für Ihr Zuhause</h1>
+        </div>
+    </section> -->
+
+    <!-- Story Section -->
+    <section class="service-story">
+        <div class="container">
+            <div class="section-header">
+                <h2>Dachfenster vom Fachbetrieb</h2>
+                <h2 class="subtitle">Mehr Licht, mehr Raum, mehr Lebensqualität</h2>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-content">
+                    <p>
+                        Beim Einbau von Dachfenstern und Gauben geht es um weit mehr als nur zusätzliches Tageslicht. Es
+                        ist eine Investition in die Wohnqualität und den Wert Ihres Hauses. Eine breite Palette an
+                        Farben und Materialien ermöglicht eine individuelle Anpassung an die ästhetischen Bedürfnisse
+                        Ihres Hauses.
+                    </p>
+                    <p>
+                        Unser Unternehmen bietet nicht nur den fachgerechten Einbau, sondern auch eine umfassende
+                        Beratung zu Design und Funktionalität.
+                    </p>
+                    <p>
+                        Wir bauen Qualitätsfenster von führenden Herstellern ein:
+                        <img width="250" height="141" alt="Velux" title="Velux" sizes="(max-width: 426px) 100vw, 426px"
+                            src="assets/images/services/velux-logo.png" alt="Velux Logo" loading="lazy">
+                    </p>
+                </div>
+                <div class="story-image">
+                    <img src="assets/images/services/Dach-Fenster-8.webp" alt="Dachfenster" loading="lazy">
+                    <!-- <img src="assets/images/services/Dach-Gaube-2.webp" alt="Dachgaube" loading="lazy"> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modernization Section -->
+    <section class="service-modernization">
+        <div class="container">
+        <div class="section-header">
+            <h2>Dachfenster & Gauben</h2>
+            <h2 class="subtitle">Mehr Licht, mehr Raum, mehr Lebensqualität</h2>
+        </div>
+        <div class="story-grid">
+            <div class="story-content">
+                <p>Neben den klassischen Dachfenstern und Gauben sind wir auch spezialisiert auf:</p>
+
+                <ul class="bullet-list">
+                    <li>Individuelle Lichtlösungen und Raumkonzepte</li>
+                    <li>Integration von Sonnenschutz und Lüftungssystemen</li>
+                    <li>Dachausbauten und -aufstockungen</li>
+                    <li>Einhaltung energetischer Standards und Vorschriften</li>
+                </ul>
+
+                <p><strong>Modernisierung vorhandener Dachfenster – Ein neues Leben für Ihr Dachgeschoss</strong></p>
+                <p>
+                    Die Modernisierung vorhandener Dachfenster ist eine effektive Möglichkeit, den Wohnkomfort
+                    zu erhöhen, die Energieeffizienz zu verbessern und den Wert Ihrer Immobilie zu steigern.
+                </p>
+
+                <p>Mit der Modernisierung Ihrer Dachfenster bieten wir:</p>
+                <ul class="bullet-list">
+                    <li>Austausch alter Fenster durch moderne, energieeffiziente Modelle</li>
+                    <li>Verbesserung der Schallisolierung für mehr Ruhe im Wohnbereich</li>
+                    <li>Erhöhung der Sicherheit durch einbruchhemmende Fensterkonstruktionen</li>
+                    <li>Intelligente Belüftungssysteme für ein optimales Raumklima</li>
+                </ul>
+
+            </div>
+
+            <section class="carousel">
+                <div id="carouselExampleCaptions" class="carousel slide carousel-fade">
+                    <!-- <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div> -->
+                    <div class="carousel-inner">
+                        @for (img of images; track $index) {
+                        <div class="carousel-item" [class.active]="$index === 0">
+                            <img [src]="img.src" class="d-block w-100" [alt]="img.alt">
+                            <!-- @if (img.caption || img.title) {
+                            <div class="carousel-caption d-none d-md-block">
+                                @if (img.title) { <h5>{{ img.title }}</h5> }
+                                @if (img.caption) { <p>{{ img.caption }}</p> }
+                            </div>
+                            } -->
+                        </div>
+                        }
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Zwei-Spalten Bild-Content -->
+            <!-- <section class="image-grid">
+                    <div class="container">
+                        <div class="grid-2">
+                            @for (img of images; track $index) {
+                            <figure class="image-card">
+                                <img [src]="img.src" [alt]="img.alt" loading="lazy">
+                                @if (img.caption) {
+                                <figcaption>{{ img.caption }}</figcaption>
+                                }
+                            </figure>
+                            }
+                        </div>
+                    </div>
+                </section> -->
+        </div>
+        </div>
+    </section>
+
+    <section class="rolladen">
+        <div class="container">
+            <div class="section-header">
+                <h2>Anbau von Rolläden und Markisen</h2>
+                <h2 class="subtitle">Funktionalität trifft Ästhetik</h2>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-content">
+                    <p>
+                        Rolläden und Markisen sind nicht nur funktionale Ergänzungen für Ihre Dachfenster; sie bieten
+                        auch gestalterische Möglichkeiten, um das Erscheinungsbild Ihres Hauses aufzuwerten.
+                        Der Anbau von Rolläden und Markisen bringt viele Vorteile:
+                    </p>
+
+                    <ul class="bullet-list">
+                        <li>Rolläden bieten zusätzlichen Schutz vor Sonnenlicht, Hitze und Kälte.</li>
+                        <li>Sie erhöhen die Privatsphäre und Sicherheit und tragen zur Energieeinsparung bei.</li>
+                        <li>Markisen schützen vor direkter Sonneneinstrahlung und verhindern, dass sich Räume unter dem
+                            Dach unangenehm aufheizen.</li>
+                        <li>Sie ermöglichen eine natürliche Lichtregulierung und schaffen eine angenehme Atmosphäre.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Energieeffizienz
+
+                        Rolläden und Markisen verbessern die Energieeffizienz Ihres Hauses, indem sie im Sommer kühlen
+                        und im Winter die Wärme speichern.
+                        Komfortsteigerung
+
+                        Mit automatisierten Lösungen lassen sich Rolläden und Markisen bequem steuern, was den
+                        Wohnkomfort deutlich erhöht.
+                    </p>
+                </div>
+                <div class="story-image">
+                    <img src="assets/images/services/Dach-Rolladen-1.webp" alt="Dachfenster" loading="lazy">
+                    <!-- <img src="assets/images/services/Dach-Gaube-2.webp" alt="Dachgaube" loading="lazy"> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="staat-unterstutzung">
+        <div class="container">
+            <div class="section-header">
+                <h2>Der Staat unterstützt</h2>
+                <h2 class="subtitle">Sichern Sie sich Ihr Förderprogrammen</h2>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-content">
+                    <p>Wichtig ist dabei immer, dass die Anträge vor der Beauftragung erfolgen.
+                        Bundesförderung für effiziente Gebäude (BEG)
+
+                        – 15 bis 20 % der Kosten für Produkt- und Handwerkerleistung als Investitionszuschuss für
+                        Einzelmaßnahmen für Wohn- und Nichtwohngebäude
+                    </p>
+                    Steuerliche Förderung nach §35c Einkommensteuergesetz (EStG) + ESanMV (Energetische
+                    Sanierungsmaßnahmen-Verordnung)
+
+                    – Max. 20 % der Investitionskosten für energetische Sanierungsmaßnahmen können steuerlich geltend
+                    gemacht werden
+                    – Verringerung der Einkommenssteuer über die kommenden 3 Jahre (7 %, 7 %, 6 %)
+                    – Max. 40.000 € Förderung bei 200.000 € Investitionskosten
+                    Förderung bei Nachrüstung
+
+                    Auch bei einer Nachrüstung von Rollläden oder Hitzeschutz-Markisen sind übrigens bis zu 20 %
+                    Förderung möglich, wenn sie mit einer strahlungsabhängigen Steuerung ausgestattet sind.
+                    <p>
+                        Energieeffizienz
+
+                        Rolläden und Markisen verbessern die Energieeffizienz Ihres Hauses, indem sie im Sommer kühlen
+                        und im Winter die Wärme speichern.
+                        Komfortsteigerung
+
+                        Mit automatisierten Lösungen lassen sich Rolläden und Markisen bequem steuern, was den
+                        Wohnkomfort deutlich erhöht.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Ursachen und typische Schäden -->
+    <!-- This section seems out of place for 'Dachfenster', so it's commented out -->
+    <!-- <section class="service-bullets">
+    <div class="container">
+        <h2>Ursachen und typische Schäden am Dach</h2>
+        <p>
+            Ein beschädigtes Dach beeinträchtigt nicht nur die Optik, sondern vor allem die Sicherheit und
+            Energieeffizienz Ihres Gebäudes.
+            Häufige Anzeichen für einen Sanierungsbedarf:
+        </p>
+        <ul class="bullet-list">
+            <li>Moos- oder Algenbefall, brüchige Ziegel</li>
+            <li>Undichtigkeiten &amp; Wassereintritt</li>
+            <li>Hoher Wärmeverlust durch mangelnde Dämmung</li>
+            <li>Schäden nach Sturm oder Hagel</li>
+            <li>Korrosion an Dachrinnen und Blechen</li>
+        </ul>
+        <div class="service-highlight">
+            <p><strong>Je früher Sie handeln, desto günstiger die Sanierung.</strong></p>
+        </div>
+    </div>
+</section> -->
+
+    <!-- Vorteile Section - Mit Icons -->
+    <section class="service-benefits">
+        <div class="container">
+            <h2>Ihre Vorteile</h2>
+
+            <div class="benefits-grid">
+                <!-- Benefit 1 -->
+                <div class="benefit-item">
+                    <span class="icon-circle">
+                        <!-- Plus Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="var(--text-medium)" stroke-width="2">
+                            <path d="M3 12h18"></path>
+                            <path d="M12 3v18"></path>
+                        </svg>
+                    </span>
+                    <div class="benefit-text">
+                        <h3>Schneller Notdienst</h3>
+                        <p>Schneller Notdienst bei Sturmschäden</p>
+                    </div>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="benefit-item">
+                    <span class="icon-circle">
+                        <!-- Haus Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="var(--text-medium)" stroke-width="2">
+                            <path d="M3 11l9-7 9 7"></path>
+                            <path d="M9 22V12h6v10"></path>
+                        </svg>
+                    </span>
+                    <div class="benefit-text">
+                        <h3>Wertsteigerung</h3>
+                        <p>Erhöht Marktwert &amp; Wohnqualität</p>
+                    </div>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="benefit-item">
+                    <span class="icon-circle">
+                        <!-- Blitz/Energie Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="var(--text-medium)" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </span>
+                    <div class="benefit-text">
+                        <h3>Energieeffizienz</h3>
+                        <p>Spart Heizkosten durch neue Dämmung (z. B. nach GEG)</p>
+                    </div>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="benefit-item">
+                    <span class="icon-circle">
+                        <!-- Tropfen/Schutz Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="var(--text-medium)" stroke-width="2">
+                            <path d="M12 22s8-4 8-10a8 8 0 10-16 0c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </span>
+                    <div class="benefit-text">
+                        <h3>Dichtigkeit &amp; Schutz</h3>
+                        <p>Verhindert teure Folgeschäden durch Feuchtigkeit</p>
+                    </div>
+                </div>
+
+                <!-- Benefit 5 -->
+                <div class="benefit-item">
+                    <span class="icon-circle">
+                        <!-- Plus im Kreis / Förderung -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="var(--text-medium)" stroke-width="2">
+                            <circle cx="12" cy="12" r r="10"></circle>
+                            <path d="M12 8v8"></path>
+                            <path d="M8 12h8"></path>
+                        </svg>
+                    </span>
+                    <div class="benefit-text">
+                        <h3>Förderfähig</h3>
+                        <p>KfW-Zuschüsse &amp; steuerliche Vorteile möglich</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ablauf Section -->
+    <section class="service-process">
+        <div class="container">
+            <h2>So läuft es ab</h2>
+            <p class="subtitle">Schritt für Schritt zu Ihrer Lösung</p>
+
+            <div class="process-grid">
+                <div class="process-item">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <p>Vor-Ort-Besichtigung &amp; Beratung – Wir begutachten den Zustand Ihres Daches und klären
+                            mögliche Maßnahmen.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <p>Individuelles Angebot und Planung – Transparent, auf Wunsch mit verschiedenen
+                            Materialoptionen.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <p>Rückbau und Entsorgung – Fachgerechte Entfernung alter Eindeckung inkl. umweltfreundlicher
+                            Entsorgung.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="step-number">4</div>
+                    <div class="step-text">
+                        <p>Neueindeckung und Dämmung – Ziegel, Dachsteine, Schiefer oder Metall – passend zum Hausstil
+                            und Budget.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="step-number">5</div>
+                    <div class="step-text">
+                        <p>Abschlusskontrolle und Abnahme – Inklusive Übergabeprotokoll und Fotodokumentation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Für wen sinnvoll -->
+    <!-- This section seems out of place for 'Dachfenster', so it's commented out -->
+    <!-- <section class="service-bullets">
+    <div class="container">
+        <h2>Für wen ist eine Dachsanierung sinnvoll?</h2>
+        <ul class="bullet-list">
+            <li>Privathaushalte (Eigentümer &amp; Bauherren)</li>
+            <li>Hausverwaltungen &amp; Immobiliengesellschaften</li>
+            <li>Bauträger &amp; Sanierungsfirmen</li>
+        </ul>
+    </div>
+</section> -->
+
+    <!-- Regional & zuverlässig -->
+    <!-- This section seems out of place for 'Dachfenster', so it's commented out -->
+    <!-- <section class="service-richtext">
+    <div class="container">
+        <h2>Regional &amp; zuverlässig</h2>
+        <p>
+            Wir sanieren Dächer im gesamten Raum: Nahe Glan, Bad Kreuznach, Kirn, Meisenheim, Bingen, Simmern,
+            Kirchheimbolanden,
+            Idar-Oberstein &amp; Umgebung.
+        </p>
+        <p>
+            Als regionaler Meisterbetrieb mit Erfahrung aus über 50 Dachprojekten stehen wir für Zuverlässigkeit,
+            Termintreue und Qualität.
+        </p>
+    </div>
+</section> -->
+
+    <!-- FAQs Section (optional, aktuell ohne Inhalte) -->
+    <!--
+  <section class="service-faqs">
+    <div class="container">
+      <h2>Häufig gestellte Fragen</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Frage</h3>
+          <p>Antwort</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+
+    <!-- CTA Section -->
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Interesse an neuen Dachfenstern?</h2>
+                <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot.</p>
+                <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
+            </div>
+        </div>
+    </section>
+</div>

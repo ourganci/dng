@@ -1,0 +1,442 @@
+.service-detail-page {
+
+    /* Abschnittstitel */
+    .section-header {
+        text-align: left;
+        margin-bottom: clamp(2rem, 5vh, 3rem);
+
+        h2 {
+            font-size: clamp(2.2rem, 4vw, 2.5rem);
+            font-weight: 900;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            display: block;
+            font-size: clamp(1.25rem, 3.5vw, 2rem);
+            font-weight: 400;
+            color: var(--text-medium);
+            margin-bottom: 0;
+        }
+    }
+
+    /* Story-Grid für Story + Bild */
+    .story-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        align-items: center;
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+        }
+    }
+
+    .story-content {
+        p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.8;
+            color: var(--text-medium);
+            margin-bottom: 1.25rem;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            strong {
+                color: var(--text-dark);
+                font-weight: 600;
+            }
+
+            /* Inline-Logo (Velux) im Text kleiner halten */
+            img {
+                display: inline-block;
+                height: auto;
+                max-width: 250px;
+                vertical-align: middle;
+            }
+        }
+
+        .bullet-list {
+            list-style: disc inside;
+            margin-top: var(--spacing-md);
+            color: var(--text-medium);
+
+            li {
+                margin-bottom: var(--spacing-sm);
+                font-size: clamp(1rem, 2vw, 1.125rem);
+                line-height: 1.6;
+            }
+        }
+    }
+
+    /* Story-Bild rechts: ein Bild, sauber zugeschnitten */
+    .story-image {
+        display: flex;
+        gap: 1rem;
+
+        img {
+            flex: 1 1 0;
+            width: 100%;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+            aspect-ratio: 4 / 3;
+            /* harmonisches Verhältnis */
+        }
+
+        @media (max-width: 640px) {
+            flex-direction: column;
+
+            img {
+                aspect-ratio: 16 / 9;
+            }
+        }
+    }
+
+    /* Modernization-Section an HTML angepasst (ohne inneren Container) */
+    .service-modernization {
+        padding: var(--spacing-xxl) var(--spacing-xl);
+        background: var(--bg-dng-sand);
+
+        /* Greift direkt das vorhandene story-grid in dieser Section auf */
+        .story-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+    }
+
+
+    /* Bootstrap Carousel-Block in rechter Spalte */
+    .carousel {
+
+        /* Zielgenau nur dieses Carousel */
+        #carouselExampleCaptions {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+
+            .carousel-item {
+                height: clamp(240px, 45vw, 500px);
+                /* responsive, nicht zu hoch */
+                background: var(--bg-white);
+            }
+
+            .carousel-item img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                /* füllt, wirkt modern */
+                object-position: center;
+                display: block;
+            }
+
+            /* Optional: Für vollständige Darstellung statt Zuschnitt */
+            /* .carousel-item img { object-fit: contain; background: #f6f6f6; } */
+        }
+
+        /* Buttons leicht abdunkeln für bessere Sichtbarkeit */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .35));
+        }
+    }
+
+    /* Zwei-Spalten Bild-Grid (falls wieder aktiviert) */
+    .image-grid {
+        padding: var(--spacing-xxl) 0;
+        background: var(--bg-white);
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .image-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+            background: var(--bg-white);
+
+            img {
+                display: block;
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                /* quadratisch */
+                object-fit: cover;
+                object-position: center;
+            }
+
+            figcaption {
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: .9rem;
+                color: var(--text-medium);
+            }
+        }
+    }
+
+    /* Vorteile: Fix für Containerbreite (war 100px) */
+    .service-benefits {
+        padding: var(--spacing-xxl) 0;
+        background: #f2f2f2;
+
+        .container {
+            max-width: 1000px;
+            /* korrigiert: volle Layoutbreite */
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: var(--spacing-xxl);
+            text-align: center;
+            color: var(--text-medium);
+
+            @media (max-width: 768px) {
+                font-size: 2rem;
+            }
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xl);
+
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: flex-start;
+
+            .icon-circle {
+                flex-shrink: 0;
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                background: var(--primary-yellow);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+                :deep(svg) {
+                    width: 24px;
+                    height: 24px;
+                    fill: var(--text-medium);
+                    stroke: var(--text-medium);
+                }
+            }
+
+            .benefit-text {
+                flex: 1;
+                padding-top: 2px;
+
+                h3 {
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    margin-bottom: var(--spacing-xs);
+                    color: var(--text-medium);
+                }
+
+                p {
+                    font-size: 0.95rem;
+                    line-height: 1.6;
+                    color: var(--text-medium);
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    /* Prozess */
+    .service-process {
+        padding: var(--spacing-xxl) 0;
+        background: var(--bg-white);
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: var(--spacing-sm);
+            text-align: center;
+            color: var(--text-dark);
+
+            @media (max-width: 768px) {
+                font-size: 2rem;
+            }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-medium);
+            margin-bottom: var(--spacing-xxl);
+            text-align: center;
+
+            @media (max-width: 768px) {
+                font-size: 1.1rem;
+            }
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xl);
+
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+        }
+
+        .process-item {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: flex-start;
+
+            .step-number {
+                flex-shrink: 0;
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                background: var(--primary-yellow);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                font-weight: 900;
+                color: var(--text-dark);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .step-text {
+                flex: 1;
+                padding-top: 8px;
+
+                p {
+                    font-size: 1rem;
+                    line-height: 1.7;
+                    color: var(--text-medium);
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    /* FAQs */
+    .service-faqs {
+        padding: var(--spacing-xxl) 0;
+        background: var(--bg-dng-sand);
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+            color: var(--text-dark);
+
+            @media (max-width: 768px) {
+                font-size: 2rem;
+            }
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .faq-item {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-yellow);
+
+            h3 {
+                font-size: 1.2rem;
+                font-weight: 700;
+                margin-bottom: var(--spacing-sm);
+                color: var(--text-dark);
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.7;
+                color: var(--text-medium);
+                margin: 0;
+            }
+        }
+    }
+
+    /* CTA */
+    .service-cta {
+        padding: var(--spacing-xxl) 0;
+        background: var(--bg-white);
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .cta-box {
+            text-align: center;
+            padding: var(--spacing-xxl) var(--spacing-lg);
+            background: var(--text-dark);
+            border-radius: var(--border-radius-large);
+            color: white;
+
+            h2 {
+                font-size: 2rem;
+                margin-bottom: var(--spacing-md);
+                color: white;
+
+                @media (max-width: 768px) {
+                    font-size: 1.6rem;
+                }
+            }
+
+            p {
+                font-size: 1.1rem;
+                margin-bottom: var(--spacing-lg);
+                color: rgba(255, 255, 255, 0.8);
+
+                @media (max-width: 768px) {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

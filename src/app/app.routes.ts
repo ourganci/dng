@@ -16,6 +16,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/services/components/dachsanierung/dachsanierung.component')
     .then(m => m.DachsanierungComponent)
   },
+    { path: 'leistungen/dachfenster', 
+    loadComponent: () => import('./features/services/components/dachfenster/dachfenster.component')
+    .then(m => m.DachfensterComponent)
+  },
   {
     path: 'ueber-uns',
     loadComponent: () => import('./features/about/about.component')
