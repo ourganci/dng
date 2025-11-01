@@ -1,0 +1,149 @@
+<!-- src/app/features/services/components/dachsanierung/dachsanierung.component.html -->
+
+<div class="service-detail-page">
+
+    <!-- Hero Section mit Bild -->
+    <!-- <section class="service-hero">
+        <div class="hero-image-bg" style="background-image: url('assets/images/services/dachsanierung.jpg')"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Dachsanierung vom Fachbetrieb</h1>
+        </div>
+    </section> -->
+
+
+    <!-- Intro Section -->
+    <section class="service-intro">
+        <div class="container">
+            <div class="section-header">
+                <h2>Flachdachdichtheitsprüfung</h2>
+                <h2 class="subtitle">Mit Rauch- und Dampftest</h2>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-content">
+                    <p>Undichte Flachdächer führen schnell zu erheblichen Schäden an der Bausubstanz.</p>
+                    <p>Gganz gleich ob bei Industriehallen, Wohngebäuden oder Garagen.</p>
+                    <p>Als erfahrene Dachdeckerfirma aus Nahe Glan bieten wir Ihnen professionelle <strong>
+                            Dichtheitsprüfungen für Flachdächer</strong> mittels <strong>Rauch- oder
+                            Dampferzeugung</strong>.
+                    </p>
+                    <p>Schnell. Zuverlässig. Dokumentiert.</p>
+                </div>
+                <div class="story-image">
+                    <img src="assets/images/services/flachdach/flachdachpruefung1.jpeg" alt="Fassade" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ursachen und typische Schäden -->
+    <!-- <section class="service-what-you-get">
+        <div class="container">
+            <div class="section-header">
+                <h2>Verfahren & Vorteile</h2>
+                <h2 class="subtitle"></h2>
+            </div>
+            <div class="story-grid">
+                <div class="story-content">
+
+                </div>
+                <div class="story-image">
+                    <img src="assets/images/services/flachdach/flachdachpruefung1.jpeg" alt="Fassade" loading="lazy">
+                </div>
+            </div>
+
+            <div class="benefits-list">
+                <div class="benefit-item">✅ Keine großflächige Öffnung nötig</div>
+                <div class="benefit-item">✅ Für Versicherungen, Gutachten, Instandhaltungspläne</div>
+            </div>
+
+            <div class="section-header" style="margin-top: 2rem;">
+                <h3>Einsatzgebiete</h3>
+            </div>
+            <ul class="bullet-list">
+                <li>Gewerbehallen & Flachdachbauten</li>
+                <li>Tiefgaragen & Parkdecks</li>
+                <li>Wohnanlagen mit Flachdach</li>
+            </ul>
+
+        </div>
+    </section> -->
+
+
+    <section class="service-importance">
+        <div class="importance-grid">
+            <!-- Bild-Bereich (Links) -->
+            <div class="importance-image">
+                <img src="assets/images/services/flachdach/rauchgas_wide_s.webp" alt="Rauchgas" loading="lazy">
+            </div>
+
+            <!-- Content-Bereich (Rechts) - Dunkler Hintergrund -->
+            <div class="importance-content">
+                <div class="content-wrapper">
+                    <!-- Section Header innerhalb des Content-Bereichs -->
+                    <div class="section-header">
+                        <h2>Verfahren & Vorteile</h2>
+                        <h2 class="subtitle"></h2>
+                    </div>
+                    <div class="importance-highlights">
+                        <div class="highlight-item">
+                            <h3>Rauchgasprüfung</h3>
+                            <p>Sichtbar gemachte Leckagen bei Flachdächern mit Bitumen- oder Folienabdichtungen.</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h3>Dampferzeugung</h3>
+                            <p>Auch für komplizierte Dachaufbauten geeignet.</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h3>Dokumentation</h3>
+                            <p>Umfassende Dokumentation mit Fotos & Prüfprotokoll.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-faqs">
+        <div class="container">
+            <h2>Häufig gestellte Fragen</h2>
+
+            <div class="faq-list">
+                @for (faq of faqs; track $index) {
+                <div class="faq-item" [class.active]="faq.isOpen">
+                    <button type="button" class="faq-question" (click)="toggleFaq($index)"
+                        [attr.aria-expanded]="faq.isOpen" [attr.aria-controls]="'faq-answer-' + $index">
+                        <span class="question-text">{{ faq.question }}</span>
+                        <span class="faq-icon" [class.rotated]="faq.isOpen">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </button>
+
+                    @if (faq.isOpen) {
+                    <div class="faq-answer" [id]="'faq-answer-' + $index">
+                        <p>{{ faq.answer }}</p>
+                    </div>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Interesse an einer Dachsanierung?</h2>
+                <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot.</p>
+                <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
+            </div>
+        </div>
+    </section>
+
+</div>

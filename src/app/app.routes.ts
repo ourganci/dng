@@ -12,17 +12,35 @@ export const routes: Routes = [
     loadComponent: () => import('./features/services/components/services-overview/services-overview.component')
       .then(m => m.ServicesOverviewComponent)
   },
-  { path: 'leistungen/dachsanierung', 
+  {
+    path: 'leistungen/dachsanierung',
     loadComponent: () => import('./features/services/components/dachsanierung/dachsanierung.component')
-    .then(m => m.DachsanierungComponent)
+      .then(m => m.DachsanierungComponent)
   },
-    { path: 'leistungen/dachfenster', 
+  {
+    path: 'leistungen/dachfenster',
     loadComponent: () => import('./features/services/components/dachfenster/dachfenster.component')
-    .then(m => m.DachfensterComponent)
+      .then(m => m.DachfensterComponent)
   },
-      { path: 'leistungen/dachreparatur', 
+  {
+    path: 'leistungen/regenrinnen',
+    loadComponent: () => import('./features/services/components/regenrinnen/regenrinnen.component')
+      .then(m => m.RegenrinnenComponent)
+  },
+  {
+    path: 'leistungen/dachreparatur',
     loadComponent: () => import('./features/services/components/dachreparatur/dachreparatur.component')
-    .then(m => m.DachreparaturComponent)
+      .then(m => m.DachreparaturComponent)
+  },
+    {
+    path: 'leistungen/flachdachpruefung',
+    loadComponent: () => import('./features/services/components/flachdach/flachdach.component')
+      .then(m => m.FlachdachComponent)
+  },
+  {
+    path: 'leistungen/pv-anlagen',
+    loadComponent: () => import('./features/services/components/photovoltaik/photovoltaik.component')
+      .then(m => m.PhotovoltaikComponent)
   },
   {
     path: 'ueber-uns',

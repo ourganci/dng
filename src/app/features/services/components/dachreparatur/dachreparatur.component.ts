@@ -37,14 +37,13 @@ export class DachreparaturComponent {
   ];
 
   ngOnInit(): void {
-    this.titleService.setTitle('Dachsanierung Nahe Glan – professionell & nachhaltig');
-    this.metaService.updateTag({ name: 'description', content: 'Ihr Dach ist in die Jahre gekommen? Feuchtigkeit, Wärmeverluste oder lockere Ziegel sind erste Anzeichen für Sanierungsbedarf. Als erfahrener Dachdeckerbetrieb aus Nahe Glan bieten wir Ihnen fachgerechte Dachsanierungen im Umkreis von 50 km – für Wohnhäuser, Gewerbeobjekte und Mehrfamilienhäuser.' });
-    this.metaService.updateTag({ name: 'description', content: 'Dachsanierung vom Fachbetrieb in Nahe Glan. Jetzt Dach prüfen & Angebot erhalten. Energieeffizient, zuverlässig & regional.' });
-    this.metaService.updateTag({ name: 'keywords', content: 'Dachsanierung, Dachdecker Nahe Glan, Dach erneuern, Dach dämmen, Dach abdichten, Sanierung' });
+    this.titleService.setTitle('Dachreparaturen und Wartung Nahe Glan – Schnell und zuverlässig');
+    this.metaService.updateTag({ name: 'description', content: 'Ein Dach braucht Pflege. Von der Notfall-Reparatur nach einem Sturm bis zur regelmäßigen Inspektion – wir kümmern uns um Ihr Dach und halten es in Top-Zustand.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'Dachreparatur Nahe Glan, Dach reparieren, Notdienst, Sturmschaden, Dachwartung, Dachinspektion, Bad Kreuznach' });
 
     // Open Graph and Twitter Card tags for social sharing
-    this.metaService.updateTag({ property: 'og:title', content: 'Dachsanierung vom Fachbetrieb' });
-    this.metaService.updateTag({ property: 'og:description', content: 'Ihr Dach ist in die Jahre gekommen? Feuchtigkeit, Wärmeverluste oder lockere Ziegel sind erste Anzeichen für Sanierungsbedarf. Als erfahrener Dachdeckerbetrieb aus Nahe Glan bieten wir Ihnen fachgerechte Dachsanierungen im Umkreis von 50 km – für Wohnhäuser, Gewerbeobjekte und Mehrfamilienhäuser.' });
+    this.metaService.updateTag({ property: 'og:title', content: 'Dachreparaturen und Wartung vom Fachbetrieb' });
+    this.metaService.updateTag({ property: 'og:description', content: 'Ein Dach braucht Pflege. Von der Notfall-Reparatur nach einem Sturm bis zur regelmäßigen Inspektion – wir kümmern uns um Ihr Dach und halten es in Top-Zustand.' });
     this.metaService.updateTag({ property: 'og:type', content: 'website' });
     // this.metaService.updateTag({ property: 'og:image', content: 'URL_to_your_image.jpg' }); // Optional: Add a relevant image URL
     this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });

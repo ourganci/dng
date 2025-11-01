@@ -1,0 +1,152 @@
+<!-- src/app/features/services/components/dachsanierung/dachsanierung.component.html -->
+
+<div class="service-detail-page">
+
+    <!-- Hero Section mit Bild -->
+    <!-- <section class="service-hero">
+        <div class="hero-image-bg" style="background-image: url('assets/images/services/dachsanierung.jpg')"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Dachsanierung vom Fachbetrieb</h1>
+        </div>
+    </section> -->
+
+    <!-- Intro Section -->
+    <section class="service-intro">
+        <div class="container">
+            <div class="section-header">
+                <h2>Regenrinnen- und Fensterarbeiten</h2>
+                <h2 class="subtitle">Für ein sicheres und zuverlässiges Zuhause</h2>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-content">
+                    <p>
+                        Regenrinnen und Dachfenster sind essenzielle Bestandteile der Dachentwässerung und Wohnqualität.
+                    </p>
+                    <p>
+                        Besonders bei älteren Gebäuden. Wir kümmern uns um die fachgerechte Wartung, Reparatur und
+                        Erneuerung Ihrer Dachentwässerung und Fenster im Dachbereich. Schnell. Gründlich. Zuverlässig.
+                    </p>
+                </div>
+                <div class="story-image">
+                    <img src="assets/images/services/regenrinnen/regenrinne1.jpg" alt="Regenrinne" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ursachen und typische Schäden -->
+    <section class="service-what-you-get">
+        <div class="container">
+            <div class="section-header">
+                <h2>Unsere Leistungen</h2>
+                <h2 class="subtitle"></h2>
+            </div>
+            <div class="story-grid">
+                <div class="story-content">
+                    <p>Regenrinnen</p>
+                    <ul class="bullet-list">
+                        <li>Reinigung von verstopften Regenrinnen </li>
+                        <li>Reparatur undichter oder verbogener Rinnen</li>
+                        <li>Austausch alter Dachrinnen (Zink, Kupfer, Kunststoff, Alu)</li>
+                        <li>Montage von Laubschutzsystemen</li>
+                        <li>Kontrolle der Fallrohre & Regenwasserableitung</li>
+                    </ul>
+                    <p>Dachfenster</p>
+                    <ul class="bullet-list">
+                        <li>Sanierung von alten Holz- oder Kunststofffenstern im Dachbereich </li>
+                        <li>Abdichtung von Fensteranschlüssen (z.B. Traufe, Gauben) </li>
+                        <li>Instandsetzung bei Undichtigkeiten oder Wärmeverlust </li>
+                        <li>Kombination mit Dachsanierung oder Fenstertausch </li>
+                    </ul>
+                </div>
+                <div class="story-image">
+                    <img src="assets/images/services/dachsanierung/dachsanierung_1.jpeg" alt="Dachsanierung"
+                        loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="service-importance">
+        <div class="importance-grid">
+            <!-- Bild-Bereich (Links) -->
+            <div class="importance-image">
+                <img src="assets/images/top.jpg" alt="DNG regional in Nahe Glan verwurzelt" class="importance-img">
+            </div>
+
+            <!-- Content-Bereich (Rechts) - Dunkler Hintergrund -->
+            <div class="importance-content">
+                <div class="content-wrapper">
+                    <!-- Section Header innerhalb des Content-Bereichs -->
+                    <div class="section-header">
+                        <h2>Pflege & Wartung</h2>
+                        <h2 class="subtitle">Warum ist das wichtig?</h2>
+                    </div>
+
+                    <div class="importance-highlights">
+
+                        <div class="highlight-item">
+                            <h3>Schutz vor Feuchtigkeit</h3>
+                            <p>Verstopfte Rinnen führen zu Wasserschäden an Fassade & Dachstuhl</p>
+                        </div>
+
+                        <div class="highlight-item">
+                            <h3>Wert- & Substanzerhalt</h3>
+                            <p>Insbesondere bei Altbauten mit Holzfenstern</p>
+                        </div>
+
+                        <div class="highlight-item">
+                            <h3>Vorsorge gegen Frostschäden & Schimmelbildung</h3>
+                            <p>Regelmäßige Wartung verhindert teure Folgeschäden</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-faqs">
+        <div class="container">
+            <h2>Häufig gestellte Fragen</h2>
+
+            <div class="faq-list">
+                @for (faq of faqs; track $index) {
+                <div class="faq-item" [class.active]="faq.isOpen">
+                    <button type="button" class="faq-question" (click)="toggleFaq($index)"
+                        [attr.aria-expanded]="faq.isOpen" [attr.aria-controls]="'faq-answer-' + $index">
+                        <span class="question-text">{{ faq.question }}</span>
+                        <span class="faq-icon" [class.rotated]="faq.isOpen">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </button>
+
+                    @if (faq.isOpen) {
+                    <div class="faq-answer" [id]="'faq-answer-' + $index">
+                        <p>{{ faq.answer }}</p>
+                    </div>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Interesse an einer Dachsanierung?</h2>
+                <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot.</p>
+                <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
+            </div>
+        </div>
+    </section>
+
+</div>
