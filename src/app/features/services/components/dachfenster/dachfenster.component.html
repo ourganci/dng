@@ -14,7 +14,7 @@
     </section> -->
 
     <!-- Story Section -->
-    <section class="service-story">
+    <section class="service-intro">
         <div class="container">
             <div class="section-header">
                 <h2>Dachfenster vom Fachbetrieb</h2>
@@ -50,40 +50,40 @@
     <!-- Modernization Section -->
     <section class="service-modernization">
         <div class="container">
-        <div class="section-header">
-            <h2>Dachfenster & Gauben</h2>
-            <h2 class="subtitle">Mehr Licht, mehr Raum, mehr Lebensqualität</h2>
-        </div>
-        <div class="story-grid">
-            <div class="story-content">
-                <p>Neben den klassischen Dachfenstern und Gauben sind wir auch spezialisiert auf:</p>
-
-                <ul class="bullet-list">
-                    <li>Individuelle Lichtlösungen und Raumkonzepte</li>
-                    <li>Integration von Sonnenschutz und Lüftungssystemen</li>
-                    <li>Dachausbauten und -aufstockungen</li>
-                    <li>Einhaltung energetischer Standards und Vorschriften</li>
-                </ul>
-
-                <p><strong>Modernisierung vorhandener Dachfenster – Ein neues Leben für Ihr Dachgeschoss</strong></p>
-                <p>
-                    Die Modernisierung vorhandener Dachfenster ist eine effektive Möglichkeit, den Wohnkomfort
-                    zu erhöhen, die Energieeffizienz zu verbessern und den Wert Ihrer Immobilie zu steigern.
-                </p>
-
-                <p>Mit der Modernisierung Ihrer Dachfenster bieten wir:</p>
-                <ul class="bullet-list">
-                    <li>Austausch alter Fenster durch moderne, energieeffiziente Modelle</li>
-                    <li>Verbesserung der Schallisolierung für mehr Ruhe im Wohnbereich</li>
-                    <li>Erhöhung der Sicherheit durch einbruchhemmende Fensterkonstruktionen</li>
-                    <li>Intelligente Belüftungssysteme für ein optimales Raumklima</li>
-                </ul>
-
+            <div class="section-header">
+                <h2>Dachfenster & Gauben</h2>
+                <h2 class="subtitle">Mehr als nur Licht</h2>
             </div>
+            <div class="story-grid">
+                <div class="story-content">
+                    <p><strong>Modernisierung vorhandener Dachfenster – Ein neues Leben für Ihr Dachgeschoss</strong>
+                    </p>
+                    <p>
+                        Die Modernisierung vorhandener Dachfenster ist eine effektive Möglichkeit, den Wohnkomfort
+                        zu erhöhen, die Energieeffizienz zu verbessern und den Wert Ihrer Immobilie zu steigern.
+                    </p>
 
-            <section class="carousel">
-                <div id="carouselExampleCaptions" class="carousel slide carousel-fade">
-                    <!-- <div class="carousel-indicators">
+                    <p>Mit der Modernisierung Ihrer Dachfenster bieten wir:</p>
+                    <ul class="bullet-list">
+                        <li>Austausch alter Fenster durch moderne, energieeffiziente Modelle</li>
+                        <li>Verbesserung der Schallisolierung für mehr Ruhe im Wohnbereich</li>
+                        <li>Erhöhung der Sicherheit durch einbruchhemmende Fensterkonstruktionen</li>
+                        <li>Intelligente Belüftungssysteme für ein optimales Raumklima</li>
+                    </ul>
+
+                    <p>Neben den klassischen Dachfenstern und Gauben sind wir auch spezialisiert auf:</p>
+
+                    <ul class="bullet-list">
+                        <li>Individuelle Lichtlösungen und Raumkonzepte</li>
+                        <li>Integration von Sonnenschutz und Lüftungssystemen</li>
+                        <li>Dachausbauten und -aufstockungen</li>
+                        <li>Einhaltung energetischer Standards und Vorschriften</li>
+                    </ul>
+                </div>
+
+                <div class="carousel">
+                    <div id="carouselExampleCaptions" class="carousel slide carousel-fade">
+                        <!-- <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
                             class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
@@ -91,35 +91,35 @@
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
                             aria-label="Slide 3"></button>
                     </div> -->
-                    <div class="carousel-inner">
-                        @for (img of images; track $index) {
-                        <div class="carousel-item" [class.active]="$index === 0">
-                            <img [src]="img.src" class="d-block w-100" [alt]="img.alt">
-                            <!-- @if (img.caption || img.title) {
+                        <div class="carousel-inner">
+                            @for (img of images; track $index) {
+                            <div class="carousel-item" [class.active]="$index === 0">
+                                <img [src]="img.src" class="d-block w-100" [alt]="img.alt">
+                                <!-- @if (img.caption || img.title) {
                             <div class="carousel-caption d-none d-md-block">
                                 @if (img.title) { <h5>{{ img.title }}</h5> }
                                 @if (img.caption) { <p>{{ img.caption }}</p> }
                             </div>
                             } -->
+                            </div>
+                            }
                         </div>
-                        }
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
-            </section>
 
-            <!-- Zwei-Spalten Bild-Content -->
-            <!-- <section class="image-grid">
+                <!-- Zwei-Spalten Bild-Content -->
+                <!-- <section class="image-grid">
                     <div class="container">
                         <div class="grid-2">
                             @for (img of images; track $index) {
@@ -133,7 +133,7 @@
                         </div>
                     </div>
                 </section> -->
-        </div>
+            </div>
         </div>
     </section>
 
@@ -184,7 +184,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Der Staat unterstützt</h2>
-                <h2 class="subtitle">Sichern Sie sich Ihr Förderprogrammen</h2>
+                <h2 class="subtitle">Sichern Sie sich Ihr Förderprogramm</h2>
             </div>
 
             <div class="story-grid">

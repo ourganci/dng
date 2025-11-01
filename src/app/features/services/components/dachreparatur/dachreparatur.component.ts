@@ -4,45 +4,34 @@ import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta
 
 
 @Component({
-  selector: 'app-dachsanierung',
-  standalone: true,
+  selector: 'app-dachreparatur',
   imports: [CtaButtonComponent],
-  templateUrl: './dachsanierung.component.html',
-  styleUrl: './dachsanierung.component.scss'
+  templateUrl: './dachreparatur.component.html',
+  styleUrl: './dachreparatur.component.scss'
 })
-export class DachsanierungComponent implements OnInit {
+export class DachreparaturComponent {
 
   constructor(private titleService: Title, private metaService: Meta) { }
 
   faqs = [
     {
-      question: 'Wann ist eine Dachsanierung notwendig?',
-      answer: 'Eine Dachsanierung wird empfohlen bei sichtbaren Schäden (Risse, fehlende Ziegel), bei Undichtigkeiten, starkem Moosbewuchs oder wenn Ihr Dach älter als 30-40 Jahre ist. Auch bei unzureichender Dämmung ist eine energetische Sanierung sinnvoll.',
+      question: 'Wie schnell können Sie bei einem Notfall vor Ort sein?',
+      answer: 'Bei Notfällen wie Sturmschäden oder undichten Stellen bemühen wir uns, innerhalb von 24 Stunden bei Ihnen zu sein. Kontaktieren Sie uns telefonisch für eine schnelle Reaktion.',
       isOpen: false
     },
     {
-      question: 'Wie lange dauert eine Dachsanierung?',
-      answer: 'Die Dauer hängt von der Dachgröße und dem Sanierungsumfang ab. Ein Einfamilienhaus (ca. 150m²) dauert in der Regel 1-3 Wochen. Wir erstellen Ihnen einen detaillierten Zeitplan.',
+      question: 'Wie oft sollte ein Dach gewartet werden?',
+      answer: 'Wir empfehlen eine professionelle Inspektion alle 2-3 Jahre. Bei älteren Dächern (20+ Jahre) oder nach starken Stürmen sollte jährlich kontrolliert werden.',
       isOpen: false
     },
     {
-      question: 'Was kostet eine Dachsanierung?',
-      answer: 'Die Kosten variieren je nach Dachfläche, Material und Aufwand. Für ein Einfamilienhaus können Sie mit 100-250€ pro m² rechnen. Kontaktieren Sie uns für ein kostenloses, unverbindliches Angebot.',
+      question: 'Was beinhaltet eine Dachwartung?',
+      answer: 'Bei der Wartung prüfen wir die Dacheindeckung, Abdichtungen, Regenrinnen, Dachfenster und alle kritischen Bereiche. Kleine Mängel beheben wir direkt, größere Schäden dokumentieren wir im Wartungsprotokoll.',
       isOpen: false
     },
     {
-      question: 'Welche Fördermöglichkeiten gibt es?',
-      answer: 'Für energetische Dachsanierungen gibt es Förderungen über die KfW und BAFA. Wir beraten Sie gerne zu den aktuellen Förderprogrammen und unterstützen Sie bei der Antragstellung.',
-      isOpen: false
-    },
-    {
-      question: 'Für wen ist eine Dachsanierung sinnvoll?',
-      answer: `
-        Eine Dachsanierung ist sinnvoll für:
-        - Privathaushalte (Eigentümer & Bauherren)
-        - Hausverwaltungen & Immobiliengesellschaften
-        - Bauträger & Sanierungsfirmen
-      `,
+      question: 'Bieten Sie Wartungsverträge an?',
+      answer: 'Ja, besonders für Hausverwaltungen, Gewerbeimmobilien und Mehrfamilienhäuser bieten wir individuelle Wartungsverträge mit festen Terminen an.',
       isOpen: false
     }
   ];

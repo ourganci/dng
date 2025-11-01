@@ -1,0 +1,131 @@
+<!-- src/app/features/services/components/dachsanierung/dachsanierung.component.html -->
+
+<div class="service-detail-page">
+
+    <!-- Hero Section mit Bild -->
+    <!-- <section class="service-hero">
+        <div class="hero-image-bg" style="background-image: url('assets/images/services/dachsanierung.jpg')"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Dachsanierung vom Fachbetrieb</h1>
+        </div>
+    </section> -->
+
+    <!-- Intro Section -->
+    <section class="service-intro">
+        <div class="container">
+            <div class="section-header">
+                <h2>Dachreparatur und Wartung</h2>
+                <h2 class="subtitle">Schnell, sicher, zuverlässig </h2>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-content">
+                    <p>
+                        Ob Sturmschaden, undichte Stelle oder defekter Ziegel
+                    </p>
+                    <p>
+                        Ein beschädigtes Dach duldet keinen
+                        Aufschub. Als erfahrener Dachdeckerbetrieb in Nahe Glan sind wir schnell für Sie vor Ort. Wir
+                        bieten sofortige Dachreparaturen, langfristige Wartungsverträge und bei Bedarf auch einen
+                        Notdienst.
+                    </p>
+                </div>
+                <div class="story-image">
+                    <img src="assets/images/services/dachsanierung_detail1.jpg" alt="Dachsanierung Detail"
+                        loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ursachen und typische Schäden -->
+    <section class="service-what-you-get">
+        <div class="container">
+            <div class="section-header">
+                <h2>Unsere Leistungen</h2>
+                <h2 class="subtitle"></h2>
+            </div>
+            <div class="story-grid">
+                <div class="story-content">
+                    <p>Reparaturleistungen im Überblick</p>
+                    <ul class="bullet-list">
+                        <li>Austausch loser oder zerbrochener Dachziegel</li>
+                        <li>Abdichtung von undichten Stellen</li>
+                        <li>Reparatur nach Sturm, Hagel oder starker Witterung</li>
+                        <li>Behebung von Verstopfungen in Rinnen und Kehlen</li>
+                        <li><strong>Notfall? – Auf Wunsch auch kurzfristig verfügbar.</strong></li>
+                    </ul>
+
+                    <p>Wartung und Instandhaltung für Ihre Dächer</p>
+                    <ul class="bullet-list">
+                        <li>Sichtprüfung, Reinigung, kleine Reparaturen</li>
+                        <li>Dachrinnen-Check & Laubentfernung</li>
+                        <li>Dokumentation für Versicherungen</li>
+                        <li>Frühwarnsystem für Folgeschäden</li>
+                    </ul>
+                    <p><strong>Ideal für: </strong></p>
+                    <ul class="bullet-list">
+                        <li>Privathaushalte</li>
+                        <li>Hausverwaltungen</li>
+                        <li>Gewerbe- und Industrieobjekte</li>
+                        <li>öffentliche Gebäude</li>
+                    </ul>
+                    <p>Notdienst – schnell Hilfe bei Schäden </p>
+                    <ul class="bullet-list">
+                        <li>Einsatzbereit bei akuten Schäden (z. B. Wassereintritt)</li>
+                        <li>Notabdichtung zur Schadensbegrenzung</li>
+                        <li>Sofortige Absicherung bei Gefahr im Verzug</li>
+                        <li>Hotline / Bereitschaftsdienst auf Anfrage möglich</li>
+                    </ul>
+                </div>
+                <div class="story-image">
+                    <img src="assets/images/services/dachsanierung/dachsanierung_1.jpeg" alt="Dachsanierung"
+                        loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-faqs">
+        <div class="container">
+            <h2>Häufig gestellte Fragen</h2>
+
+            <div class="faq-list">
+                @for (faq of faqs; track $index) {
+                <div class="faq-item" [class.active]="faq.isOpen">
+                    <button type="button" class="faq-question" (click)="toggleFaq($index)"
+                        [attr.aria-expanded]="faq.isOpen" [attr.aria-controls]="'faq-answer-' + $index">
+                        <span class="question-text">{{ faq.question }}</span>
+                        <span class="faq-icon" [class.rotated]="faq.isOpen">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </button>
+
+                    @if (faq.isOpen) {
+                    <div class="faq-answer" [id]="'faq-answer-' + $index">
+                        <p>{{ faq.answer }}</p>
+                    </div>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Interesse an einer Dachsanierung?</h2>
+                <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot.</p>
+                <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
+            </div>
+        </div>
+    </section>
+
+</div>

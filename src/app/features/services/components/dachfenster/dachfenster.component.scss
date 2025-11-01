@@ -22,12 +22,34 @@
         }
     }
 
+    // Intro Section
+    .service-intro {
+        padding: var(--spacing-xxl) 0;
+        background: var(--bg-white);
+
+        .container {
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+            text-align: center;
+
+            @media (max-width: 768px) {
+                font-size: 1.1rem;
+            }
+        }
+    }
+
     /* Story-Grid für Story + Bild */
     .story-grid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 2.5rem;
-        align-items: center;
+        // align-items: center;
 
         @media (min-width: 768px) {
             grid-template-columns: 1.2fr 1fr;
@@ -47,7 +69,7 @@
             }
 
             strong {
-                color: var(--text-dark);
+                color: var(--text-medium);
                 font-weight: 600;
             }
 
@@ -101,12 +123,6 @@
     .service-modernization {
         padding: var(--spacing-xxl) var(--spacing-xl);
         background: var(--bg-dng-sand);
-
-        /* Greift direkt das vorhandene story-grid in dieser Section auf */
-        .story-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
     }
 
 
@@ -189,14 +205,12 @@
         }
     }
 
-    /* Vorteile: Fix für Containerbreite (war 100px) */
     .service-benefits {
         padding: var(--spacing-xxl) 0;
         background: #f2f2f2;
 
         .container {
             max-width: 1000px;
-            /* korrigiert: volle Layoutbreite */
             margin: 0 auto;
             padding: 0 var(--spacing-md);
         }

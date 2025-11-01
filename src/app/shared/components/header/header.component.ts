@@ -17,7 +17,7 @@ export class HeaderComponent {
       submenu: [
         { label: 'Dachsanierung', route: '/leistungen/dachsanierung' },
         { label: 'Dachfenster', route: '/leistungen/dachfenster' },
-        { label: 'Dachreparaturen', route: '/leistungen/dachreparaturen' },
+        { label: 'Dachreparaturen', route: '/leistungen/dachreparatur' },
         { label: 'Regenrinnen', route: '/leistungen/regenrinnen' },
         { label: 'Flachdachdichtheitsprüfung', route: '/leistungen/flachdachpruefung' },
         { label: 'PV-Anlagen', route: '/leistungen/pv-anlagen' },
