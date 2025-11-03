@@ -60,7 +60,7 @@ export class ServiceDataService {
     'dachsanierung',
     'dachfenster',
     // Füge weitere hinzu sobald Bilder da sind:
-    'dachreparaturen',
+    'dachreparatur',
     'regenrinnen',
     'flachdachpruefung',
     'pv-anlagen',
@@ -240,7 +240,7 @@ export class ServiceDataService {
       icon: '🪟'
     },
     {
-      id: 'dachreparaturen',
+      id: 'dachreparatur',
       title: 'Dachreparaturen und Wartung Nahe Glan – Schnell und zuverlässig',
       headline: 'Notdienst und regelmäßige Dachwartung',
       description: 'Ein Dach braucht Pflege. Von der Notfall-Reparatur nach einem Sturm bis zur regelmäßigen Inspektion – wir kümmern uns um Ihr Dach und halten es in Top-Zustand.',
