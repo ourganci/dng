@@ -161,63 +161,191 @@
 
     .service-what-you-get {
         padding: var(--spacing-xxl) 0;
-        background: var(--bg-dng-sand);
-    }
+        background: var(--bg-light-gray);
 
-    // Vorteile Section - Icon links, Text rechts
-    .service-benefits {
-        padding: var(--spacing-xxl) 0;
-        background: #f2f2f2;
-
-        // Grid - 2 Spalten
-        .benefits-grid {
+        // Karten-Grid
+        .service-cards-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-xl);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(1.5rem, 3vw, 2rem);
 
-            @media (max-width: 768px) {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
+            @media (min-width: 1024px) {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        // Benefit Item - Icon links + Text rechts
-        .benefit-item {
-            display: flex;
-            gap: var(--spacing-md);
-            align-items: flex-start;
+        // Einzelne Karte
+        .service-card {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06),
+                0 8px 16px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 0, 0, 0.04);
 
-            // Icon-Kreis (45x45)
-            .icon-circle {
-                flex-shrink: 0;
-                width: 45px;
-                height: 45px;
-                border-radius: 50%;
-                background: var(--primary-yellow);
+            &:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1),
+                    0 16px 32px rgba(0, 0, 0, 0.08);
+            }
+
+            // Icon-Container
+            .card-icon {
+                width: 64px;
+                height: 64px;
+                border-radius: 12px;
+                background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-yellow-dark) 100%);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                margin-bottom: var(--spacing-lg);
+                box-shadow: 0 4px 12px rgba(242, 203, 19, 0.3);
 
-                // SVG Styling
-                :deep(svg) {
-                    width: 24px;
-                    height: 24px;
-                    fill: var(--text-medium);
-                    stroke: var(--text-medium);
+                svg {
+                    color: var(--text-dark);
                 }
             }
 
-            // Text-Bereich rechts
-            .benefit-text {
+            h3 {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: var(--text-dark);
+                margin-bottom: var(--spacing-sm);
+                line-height: 1.3;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.7;
+                color: var(--text-medium);
+                margin: 0;
+            }
+        }
+    }
+
+
+    // Vorteile Section - Icon links, Text rechts
+    // .service-benefits {
+    //     padding: var(--spacing-xxl) 0;
+    //     background: #f2f2f2;
+
+    //     // Grid - 2 Spalten
+    //     .benefits-grid {
+    //         display: grid;
+    //         grid-template-columns: repeat(2, 1fr);
+    //         gap: var(--spacing-xl);
+
+    //         @media (max-width: 768px) {
+    //             grid-template-columns: 1fr;
+    //             gap: var(--spacing-lg);
+    //         }
+    //     }
+
+    //     // Benefit Item - Icon links + Text rechts
+    //     .benefit-item {
+    //         display: flex;
+    //         gap: var(--spacing-md);
+    //         align-items: flex-start;
+
+    //         // Icon-Kreis (45x45)
+    //         .icon-circle {
+    //             flex-shrink: 0;
+    //             width: 45px;
+    //             height: 45px;
+    //             border-radius: 50%;
+    //             background: var(--primary-yellow);
+    //             display: flex;
+    //             align-items: center;
+    //             justify-content: center;
+    //             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    //             // SVG Styling
+    //             :deep(svg) {
+    //                 width: 24px;
+    //                 height: 24px;
+    //                 fill: var(--text-medium);
+    //                 stroke: var(--text-medium);
+    //             }
+    //         }
+
+    //         // Text-Bereich rechts
+    //         .benefit-text {
+    //             flex: 1;
+    //             padding-top: 2px; // Alignment mit Icon
+
+    //             h3 {
+    //                 font-size: 1.1rem;
+    //                 font-weight: 700;
+    //                 margin-bottom: var(--spacing-xs);
+    //                 color: var(--text-medium);
+    //             }
+
+    //             p {
+    //                 font-size: 0.95rem;
+    //                 line-height: 1.6;
+    //                 color: var(--text-medium);
+    //                 margin: 0;
+    //             }
+    //         }
+    //     }
+    // }
+
+
+    .service-process {
+        padding: var(--spacing-xxl) 0;
+        background: var(--bg-white);
+
+
+        // Kompakte Liste
+        .process-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        // Einzelnes Item
+        .process-item {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: flex-start;
+            padding: var(--spacing-sm);
+            background: white;
+            border-radius: 12px;
+            border-left: 3px solid var(--primary-yellow);
+            transition: all 0.2s ease;
+
+            &:hover {
+                background: #fafafa;
+                transform: translateX(4px);
+            }
+
+            // Kleines Icon
+            .item-icon {
+                flex-shrink: 0;
+                width: 40px;
+                height: 40px;
+                border-radius: 8px;
+                background: rgba(215, 200, 66, 0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    color: var(--primary-yellow);
+                }
+            }
+
+            // Content
+            .item-content {
                 flex: 1;
-                padding-top: 2px; // Alignment mit Icon
 
                 h3 {
                     font-size: 1.1rem;
                     font-weight: 700;
-                    margin-bottom: var(--spacing-xs);
-                    color: var(--text-medium);
+                    color: var(--text-dark);
+                    margin: 0 0 0.25rem 0;
+                    line-height: 1.3;
                 }
 
                 p {
@@ -230,67 +358,12 @@
         }
     }
 
-
-    // Ablauf Section - Modern & Clean
-    .service-process {
-        padding: var(--spacing-xxl) 0;
-        background: var(--bg-white);
-
-        // Grid - 2 Spalten
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-xl);
-
-            @media (max-width: 768px) {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
-            }
-        }
-
-        // Process Item
-        .process-item {
-            display: flex;
-            gap: var(--spacing-md);
-            align-items: flex-start;
-
-            // Nummerierter Kreis
-            .step-number {
-                flex-shrink: 0;
-                width: 45px;
-                height: 45px;
-                border-radius: 50%;
-                background: var(--primary-yellow);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.2rem;
-                font-weight: 900;
-                color: var(--text-dark);
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
-
-            // Text
-            .step-text {
-                flex: 1;
-                padding-top: 8px; // Zentriert mit Nummer
-
-                p {
-                    font-size: 1rem;
-                    line-height: 1.7;
-                    color: var(--text-medium);
-                    margin: 0;
-                }
-            }
-        }
-    }
-
-    // Regional Section - Split Layout OPTIMIERT
-    .service-importance {
+// Regional Section - Split Layout OPTIMIERT
+    .service-benefits {
         padding: 0;
         background: var(--bg-white);
 
-        .importance-grid {
+        .benefits-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: stretch;
@@ -300,7 +373,7 @@
             }
 
             // Bild-Bereich (Links)
-            .importance-image {
+            .benefits-image {
                 position: relative;
                 overflow: hidden;
                 background: var(--bg-light-gray);
@@ -310,7 +383,7 @@
                     display: none;
                 }
 
-                .importance-img {
+                .benefits-img {
                     width: 100%;
                     height: 100%;
                     max-height: 800px; // ✅ Bild-Höhe begrenzt
@@ -321,8 +394,8 @@
             }
 
             // Content-Bereich (Rechts)
-            .importance-content {
-                background: var(--bg-dng-dark-grey);
+            .benefits-content {
+                background: var(--bg-dark-charcoal);
                 padding: clamp(3rem, 8vh, 6rem) clamp(2rem, 5vw, 4rem);
                 display: flex;
                 align-items: start; // ✅ OBEN statt center
@@ -374,19 +447,19 @@
                 }
 
                 // Regional Highlights
-                .importance-highlights {
+                .benefits-highlights {
                     display: grid;
                     gap: clamp(1.25rem, 2.5vh, 1.75rem); // ✅ Etwas weniger Gap
                 }
 
                 .highlight-item {
-                    padding-left: var(--spacing-md);
+                    padding-left: var(--spacing-sm);
                     transition: all 0.3s ease;
                     border-left: 0px solid transparent;
 
                     &:hover {
                         border-left: 3px solid var(--primary-yellow);
-                        padding-left: calc(var(--spacing-md) + 5px);
+                        padding-left: calc(var(--spacing-sm) + 5px);
                     }
 
                     h3 {
@@ -406,6 +479,128 @@
             }
         }
     }
+
+    // // Regional Section - Split Layout OPTIMIERT
+    // .service-importance {
+    //     padding: 0;
+    //     background: var(--bg-white);
+
+    //     .importance-grid {
+    //         display: grid;
+    //         grid-template-columns: 1fr 1fr;
+    //         align-items: stretch;
+
+    //         @media (max-width: 992px) {
+    //             grid-template-columns: 1fr;
+    //         }
+
+    //         // Bild-Bereich (Links)
+    //         .importance-image {
+    //             position: relative;
+    //             overflow: hidden;
+    //             background: var(--bg-light-gray);
+    //             max-height: 800px; // ✅ Maximale Höhe begrenzt
+
+    //             @media (max-width: 992px) {
+    //                 display: none;
+    //             }
+
+    //             .importance-img {
+    //                 width: 100%;
+    //                 height: 100%;
+    //                 max-height: 800px; // ✅ Bild-Höhe begrenzt
+    //                 object-fit: cover;
+    //                 object-position: center;
+    //                 display: block;
+    //             }
+    //         }
+
+    //         // Content-Bereich (Rechts)
+    //         .importance-content {
+    //             background: var(--bg-dng-dark-gray);
+    //             padding: clamp(3rem, 8vh, 6rem) clamp(2rem, 5vw, 4rem);
+    //             display: flex;
+    //             align-items: start; // ✅ OBEN statt center
+
+    //             @media (max-width: 992px) {
+    //                 order: 1;
+    //                 padding: clamp(2rem, 5vh, 3rem) clamp(1.5rem, 4vw, 2rem);
+    //             }
+
+    //             .content-wrapper {
+    //                 max-width: 560px;
+    //                 width: 100%;
+    //             }
+
+    //             // Section Header - Kleinerer Subtitle
+    //             .section-header {
+    //                 text-align: left;
+    //                 margin-bottom: clamp(1.5rem, 3vh, 2rem);
+
+    //                 h2 {
+    //                     font-size: clamp(2.2rem, 4vw, 2.5rem);
+    //                     font-weight: 900;
+    //                     margin-bottom: var(--spacing-sm);
+    //                     color: white;
+    //                     line-height: 1.1;
+    //                     letter-spacing: -0.02em;
+    //                 }
+
+    //                 .subtitle {
+    //                     font-size: clamp(1.25rem, 3.5vw, 2rem);
+    //                     font-weight: 400;
+    //                     color: rgba(255, 255, 255, 0.7); // Helle Farbe für dunklen Hintergrund
+    //                     margin-bottom: 0;
+    //                 }
+    //             }
+
+    //             // Intro-Text
+    //             .intro {
+    //                 font-size: clamp(1rem, 2vw, 1.125rem); // ✅ Etwas kleiner
+    //                 line-height: 1.7;
+    //                 color: rgba(255, 255, 255, 0.85);
+    //                 margin-bottom: clamp(1.5rem, 3vh, 2rem);
+    //                 font-weight: 400;
+
+    //                 strong {
+    //                     color: var(--primary-yellow);
+    //                     font-weight: 600;
+    //                 }
+    //             }
+
+    //             // Regional Highlights
+    //             .importance-highlights {
+    //                 display: grid;
+    //                 gap: clamp(1.25rem, 2.5vh, 1.75rem); // ✅ Etwas weniger Gap
+    //             }
+
+    //             .highlight-item {
+    //                 padding-left: var(--spacing-md);
+    //                 transition: all 0.3s ease;
+    //                 border-left: 0px solid transparent;
+
+    //                 &:hover {
+    //                     border-left: 3px solid var(--primary-yellow);
+    //                     padding-left: calc(var(--spacing-md) + 5px);
+    //                 }
+
+    //                 h3 {
+    //                     font-size: clamp(1.0625rem, 2vw, 1.125rem); // ✅ Etwas kleiner
+    //                     font-weight: 700;
+    //                     margin-bottom: var(--spacing-xs);
+    //                     color: white;
+    //                 }
+
+    //                 p {
+    //                     font-size: clamp(0.875rem, 2vw, 0.9375rem); // ✅ Etwas kleiner
+    //                     line-height: 1.6;
+    //                     color: rgba(255, 255, 255, 0.7);
+    //                     margin: 0;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 
 
     .service-faqs {

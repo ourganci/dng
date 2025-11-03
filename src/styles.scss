@@ -5,7 +5,7 @@
 img {
   max-width: 100%;
   height: auto;
-  
+
   // Lazy Loading nativ
   loading: lazy;
 }
@@ -53,31 +53,62 @@ body {
   --accent-green: #81d742;
   --accent-red: #a72828;
   --accent-red-dark: #8a2222;
-  
+
   --text-dark: #262626;
   --text-medium: #585857;
   --text-light: #999;
   --text-lighter: #d6d6d6;
-  
+
   --bg-white: #fff;
   --bg-light-gray: #f7f7f7;
   --bg-medium-gray: #e6e6e6;
-  --bg-dng-dark-grey: #585857;
-  --bg-dng-light-grey: #9b9b9b;
+  --bg-dng-dark-gray: #585857;
+  --bg-dng-dark-gray: #9b9b9b;
   --bg-dng-sand: #e6e2df;
   --border-gray: #eee;
-  
+
+  /* Dunkle Hintergrundfarben */
+
+  /* Hauptfarben - Dunkel */
+  --bg-dark-charcoal: #2a2a2a;
+  /* Neutrales Dunkelgrau, wärmer als reines Schwarz */
+  --bg-dark-slate: #3a3a39;
+  /* Etwas heller, passt zu deinem --text-dark */
+  --bg-dark-warm: #36342f;
+  /* Warmer Dunkelton, harmoniert mit --bg-dng-sand */
+
+  /* Akzentfarben - Dunkel */
+  --bg-dark-yellow-tint: #3d3820;
+  /* Dunkles Gelb-Grau, für subtile Yellow-Akzente */
+  --bg-dark-green-tint: #2a3d27;
+  /* Dunkles Grün-Grau, passt zu --accent-green */
+  --bg-dark-red-tint: #3a2626;
+  /* Dunkles Rot-Grau, passt zu --accent-red */
+
+  /* Footer & Hero Sections */
+  --bg-footer-dark: #2d2d2c;
+  /* Speziell für Footer, leicht wärmer */
+  --bg-hero-overlay: rgba(38, 38, 38, 0.85);
+  /* Halbtransparentes Overlay für Bilder */
+
+  /* Hover & Interaktionen */
+  --bg-dark-hover: #404040;
+  /* Für Hover-States auf dunklen Hintergründen */
+  --bg-dark-card: #323231;
+  /* Für Cards auf dunklem Hintergrund */
+
+
   /* Typografie */
   --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --font-family-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
+
   --font-size-small: 0.875rem;
   --font-size-base: 1rem;
   --font-size-large: 1.125rem;
   --font-size-h1: 2.5rem;
   --font-size-h2: 2rem;
   --font-size-h3: 1.5rem;
-  
+
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -85,18 +116,18 @@ body {
   --spacing-lg: 2rem;
   --spacing-xl: 3rem;
   --spacing-xxl: 4rem;
-  
+
   /* Layout */
   --container-max-width: 1200px;
   --container-narrow-max-width: 800px;
   --border-radius: 8px;
   --border-radius-large: 12px;
-  
+
   /* Shadows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
-  
+
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-base: 0.3s ease;
@@ -106,7 +137,12 @@ body {
 /* ================================
    TYPOGRAPHY
    ================================ */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-family-heading);
   font-weight: 700;
   line-height: 1.2;
@@ -116,7 +152,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: var(--font-size-h1);
-  
+
   @media (max-width: 768px) {
     font-size: 2rem;
   }
@@ -124,7 +160,7 @@ h1 {
 
 h2 {
   font-size: var(--font-size-h2);
-  
+
   @media (max-width: 768px) {
     font-size: 1.75rem;
   }
@@ -132,7 +168,7 @@ h2 {
 
 h3 {
   font-size: var(--font-size-h3);
-  
+
   @media (max-width: 768px) {
     font-size: 1.25rem;
   }
@@ -147,7 +183,7 @@ a {
   color: var(--text-dark);
   text-decoration: none;
   transition: color var(--transition-fast);
-  
+
   &:hover {
     color: var(--primary-yellow);
   }
@@ -157,10 +193,10 @@ a {
    LAYOUT UTILITIES
    ================================ */
 .container {
-  max-width: var(--container-max-width);
+  // max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 var(--spacing-md);
-  
+
   @media (max-width: 768px) {
     padding: 0 var(--spacing-sm);
   }
@@ -186,7 +222,7 @@ a {
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: all var(--transition-base);
-  
+
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
@@ -196,7 +232,7 @@ a {
 .btn-primary {
   background-color: var(--primary-yellow);
   color: var(--text-dark);
-  
+
   &:hover:not(:disabled) {
     background-color: var(--primary-yellow-dark);
     transform: translateY(-2px);
@@ -208,7 +244,7 @@ a {
   background-color: transparent;
   color: var(--text-dark);
   border: 2px solid var(--primary-yellow);
-  
+
   &:hover:not(:disabled) {
     background-color: var(--primary-yellow);
     transform: translateY(-2px);
@@ -218,7 +254,7 @@ a {
 .btn-accent {
   background-color: var(--accent-green);
   color: white;
-  
+
   &:hover:not(:disabled) {
     background-color: #6ec235;
     transform: translateY(-2px);
@@ -235,7 +271,7 @@ a {
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   transition: all var(--transition-base);
-  
+
   &:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-5px);
@@ -248,27 +284,27 @@ a {
 .grid {
   display: grid;
   gap: var(--spacing-lg);
-  
+
   &.grid-2 {
     grid-template-columns: repeat(2, 1fr);
-    
+
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
     }
   }
-  
+
   &.grid-3 {
     grid-template-columns: repeat(3, 1fr);
-    
+
     @media (max-width: 992px) {
       grid-template-columns: repeat(2, 1fr);
     }
-    
+
     @media (max-width: 576px) {
       grid-template-columns: 1fr;
     }
   }
-  
+
   &.grid-auto-fit {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
@@ -279,7 +315,7 @@ a {
    ================================ */
 section {
   padding: var(--spacing-xxl) 0;
-  
+
   @media (max-width: 768px) {
     padding: var(--spacing-xl) 0;
   }
@@ -288,11 +324,11 @@ section {
 .section-header {
   text-align: center;
   margin-bottom: var(--spacing-xl);
-  
+
   h2 {
     position: relative;
     display: inline-block;
-    
+
     // &::after {
     //   content: '';
     //   position: absolute;
@@ -335,12 +371,12 @@ select {
   border: 2px solid var(--bg-medium-gray);
   border-radius: var(--border-radius);
   transition: border-color var(--transition-fast);
-  
+
   &:focus {
     outline: none;
     border-color: var(--primary-yellow);
   }
-  
+
   &.invalid {
     border-color: var(--accent-red);
   }
@@ -372,17 +408,45 @@ label {
   background-color: var(--bg-light-gray);
 }
 
-.mt-0 { margin-top: 0; }
-.mt-sm { margin-top: var(--spacing-sm); }
-.mt-md { margin-top: var(--spacing-md); }
-.mt-lg { margin-top: var(--spacing-lg); }
-.mt-xl { margin-top: var(--spacing-xl); }
+.mt-0 {
+  margin-top: 0;
+}
 
-.mb-0 { margin-bottom: 0; }
-.mb-sm { margin-bottom: var(--spacing-sm); }
-.mb-md { margin-bottom: var(--spacing-md); }
-.mb-lg { margin-bottom: var(--spacing-lg); }
-.mb-xl { margin-bottom: var(--spacing-xl); }
+.mt-sm {
+  margin-top: var(--spacing-sm);
+}
+
+.mt-md {
+  margin-top: var(--spacing-md);
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.mt-xl {
+  margin-top: var(--spacing-xl);
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-sm {
+  margin-bottom: var(--spacing-sm);
+}
+
+.mb-md {
+  margin-bottom: var(--spacing-md);
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.mb-xl {
+  margin-bottom: var(--spacing-xl);
+}
 
 /* ================================
    RESPONSIVE UTILITIES
@@ -398,4 +462,3 @@ label {
     display: none !important;
   }
 }
-
