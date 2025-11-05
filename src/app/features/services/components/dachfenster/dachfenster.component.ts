@@ -12,6 +12,8 @@ import { title } from 'process';
 })
 export class DachfensterComponent implements OnInit {
 
+  openCard: number | null = null;
+
   constructor(private titleService: Title, private metaService: Meta) { }
 
   ngOnInit(): void {
@@ -51,6 +53,10 @@ export class DachfensterComponent implements OnInit {
 
   goToSlide(i: number): void {
     this.currentSlide = i;
+  }
+
+  toggleCard(index: number): void {
+    this.openCard = this.openCard === index ? null : index;
   }
 
 

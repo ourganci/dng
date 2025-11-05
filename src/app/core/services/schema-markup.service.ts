@@ -85,7 +85,7 @@ export class SchemaMarkupService {
           "latitude": this.companyData.geo.latitude,
           "longitude": this.companyData.geo.longitude
         },
-        "geoRadius": 60000 // Radius in Metern (60km)
+        "geoRadius": 75000 // Radius in Metern (75km)
       },
       "offers": {
         "@type": "Offer",

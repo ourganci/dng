@@ -75,14 +75,15 @@
 
                 <div class="carousel">
                     <div id="carouselExampleCaptions" class="carousel slide carousel-fade">
-                        <!-- <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div> -->
+                        <div class="carousel-indicators">
+                            @for (img of images; track $index) {
+                            <button type="button" data-bs-target="#carouselExampleCaptions"
+                                [attr.data-bs-slide-to]="$index" [class.active]="$index === 0"
+                                [attr.aria-current]="$index === 0 ? 'true' : null" [attr.aria-label]="img.alt">
+                            </button>
+                            }
+                        </div>
+
                         <div class="carousel-inner">
                             @for (img of images; track $index) {
                             <div class="carousel-item" [class.active]="$index === 0">
@@ -201,35 +202,52 @@
       </p>
     </div>
 
+    <!-- Funding Options -->
     <div class="funding-options">
+      
       <!-- Option 1: BEG -->
-      <div class="funding-card">
-        <div class="funding-header">
+      <div class="funding-card" [class.active]="openCard === 0">
+        <button type="button" class="funding-header" (click)="toggleCard(0)" [attr.aria-expanded]="openCard === 0">
           <h3>Bundesförderung für effiziente Gebäude (BEG)</h3>
-          <span class="funding-badge">15–20 % Zuschuss</span>
-        </div>
+          <div class="header-right">
+            <span class="funding-badge">15–20 % Zuschuss</span>
+            <span class="funding-icon" [class.rotated]="openCard === 0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+        </button>
+
+        @if (openCard === 0) {
         <div class="funding-content">
-          <p>
-            Investitionszuschuss für energetische Einzelmaßnahmen an Wohn- und Nichtwohngebäuden.
-          </p>
+          <p>Investitionszuschuss für energetische Einzelmaßnahmen an Wohn- und Nichtwohngebäuden.</p>
           <ul class="bullet-list">
             <li>15 bis 20 % der förderfähigen Kosten als direkter Zuschuss</li>
             <li>Gilt für Material- und Handwerkerleistung</li>
             <li>Keine Rückzahlung erforderlich</li>
           </ul>
         </div>
+        }
       </div>
 
       <!-- Option 2: Steuerförderung -->
-      <div class="funding-card">
-        <div class="funding-header">
+      <div class="funding-card" [class.active]="openCard === 1">
+        <button type="button" class="funding-header" (click)="toggleCard(1)" [attr.aria-expanded]="openCard === 1">
           <h3>Steuerliche Förderung nach §35c EStG</h3>
-          <span class="funding-badge">Bis 20 % steuerlich absetzbar</span>
-        </div>
+          <div class="header-right">
+            <span class="funding-badge">Bis 20 % absetzbar</span>
+            <span class="funding-icon" [class.rotated]="openCard === 1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+        </button>
+
+        @if (openCard === 1) {
         <div class="funding-content">
-          <p>
-            Verteilen Sie die Investitionskosten über drei Jahre und reduzieren Sie Ihre Einkommenssteuer.
-          </p>
+          <p>Verteilen Sie die Investitionskosten über drei Jahre und reduzieren Sie Ihre Einkommenssteuer.</p>
           <ul class="bullet-list">
             <li><strong>Jahr 1:</strong> 7 % der Investitionskosten</li>
             <li><strong>Jahr 2:</strong> 7 % der Investitionskosten</li>
@@ -240,25 +258,35 @@
             Gilt für energetische Sanierungsmaßnahmen nach der ESanMV (Energetische Sanierungsmaßnahmen-Verordnung).
           </p>
         </div>
+        }
       </div>
 
       <!-- Option 3: Nachrüstung -->
-      <div class="funding-card">
-        <div class="funding-header">
+      <div class="funding-card" [class.active]="openCard === 2">
+        <button type="button" class="funding-header" (click)="toggleCard(2)" [attr.aria-expanded]="openCard === 2">
           <h3>Förderung bei Nachrüstung</h3>
-          <span class="funding-badge">Bis 20 % Zuschuss</span>
-        </div>
+          <div class="header-right">
+            <span class="funding-badge">Bis 20 % Zuschuss</span>
+            <span class="funding-icon" [class.rotated]="openCard === 2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+        </button>
+
+        @if (openCard === 2) {
         <div class="funding-content">
-          <p>
-            Auch die nachträgliche Installation von Sonnenschutz ist förderfähig.
-          </p>
+          <p>Auch die nachträgliche Installation von Sonnenschutz ist förderfähig.</p>
           <ul class="bullet-list">
             <li>Rollläden mit strahlungsabhängiger Steuerung</li>
             <li>Hitzeschutz-Markisen mit automatischer Steuerung</li>
             <li>Bis zu 20 % der Investitionskosten als Zuschuss</li>
           </ul>
         </div>
+        }
       </div>
+
     </div>
 
     <div class="funding-cta">
@@ -268,6 +296,7 @@
     </div>
   </div>
 </section>
+
 
 
 
