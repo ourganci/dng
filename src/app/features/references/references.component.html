@@ -2,16 +2,6 @@
 
 <div class="references-page">
 
-  <!-- Hero Header -->
-  <!-- <header class="references-header">
-    <div class="container">
-      <h1>Referenzen</h1>
-      <p class="lead">
-        Überzeugen Sie sich von unserer Arbeit – Projekte und Kundenstimmen aus der Region
-      </p>
-    </div>
-  </header> -->
-
   <!-- Projects Section -->
   <section class="projects-section">
     <div class="container">
@@ -20,10 +10,51 @@
         <h2 class="subtitle">Vorher-Nachher Einblicke in unsere Arbeit</h2>
       </div>
 
-      <div class="projects-grid">
-        @for (project of projects; track project.title) {
+      <div class="section-carousel">
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade">
+          <div class="carousel-indicators">
+            @for (img of images; track $index) {
+            <button type="button" data-bs-target="#carouselExampleCaptions" [attr.data-bs-slide-to]="$index"
+              [class.active]="$index === 0" [attr.aria-current]="$index === 0 ? 'true' : null"
+              [attr.aria-label]="img.alt">
+            </button>
+            }
+          </div>
+
+          <div class="carousel-inner">
+            @for (img of images; track $index) {
+            <div class="carousel-item" [class.active]="$index === 0">
+              <img [src]="img.src" class="d-block w-100" [alt]="img.alt">
+              <!-- @if (img.caption || img.title) {
+                            <div class="carousel-caption d-none d-md-block">
+                                @if (img.title) { <h5>{{ img.title }}</h5> }
+                                @if (img.caption) { <p>{{ img.caption }}</p> }
+                            </div>
+                            } -->
+            </div>
+            }
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="projects-grid">
+
+    <!-- @for (project of projects; track project.title) {
           <div class="project-card">
-            <!-- Project Info -->
+             Project Info 
             <div class="project-info">
               <h3>{{ project.title }}</h3>
               
@@ -50,7 +81,7 @@
               <p class="project-description">{{ project.description }}</p>
             </div>
 
-            <!-- Project Images -->
+             Project Images 
             <div class="project-images">
               <div class="image-comparison">
                 <div class="image-box">
@@ -67,22 +98,22 @@
         }
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <!-- Testimonials Section -->
-  <section class="testimonials-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Kundenstimmen</h2>
-        <h2 class="subtitle">Das sagen unsere zufriedenen Kunden</h2>
-      </div>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Kundenstimmen</h2>
+          <h2 class="subtitle">Das sagen unsere zufriedenen Kunden</h2>
+        </div>
 
-      <div class="testimonials-grid">
-        @for (testimonial of testimonials; track testimonial.name) {
+        <div class="testimonials-grid">
+          @for (testimonial of testimonials; track testimonial.name) {
           <div class="testimonial-card">
             <div class="testimonial-rating">
               @for (star of getRatingStars(testimonial.rating); track $index) {
-                <span>{{ star }}</span>
+              <span>{{ star }}</span>
               }
             </div>
             <p class="testimonial-text">"{{ testimonial.text }}"</p>
@@ -91,22 +122,22 @@
               <span>{{ testimonial.location }} • {{ testimonial.date }}</span>
             </div>
           </div>
-        }
+          }
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Section -->
-  <section class="references-cta">
-    <div class="container">
-      <h2>Werden Sie Teil unserer Erfolgsgeschichte</h2>
-      <p>
-        Lassen Sie uns auch Ihr Dachprojekt verwirklichen. Wir freuen uns auf Ihre Anfrage!
-      </p>
-      <a routerLink="/kontakt" class="cta-button">
-        Jetzt Beratungstermin vereinbaren
-      </a>
-    </div>
-  </section>
+    <!-- CTA Section -->
+    <section class="references-cta">
+      <div class="container">
+        <h2>Werden Sie Teil unserer Erfolgsgeschichte</h2>
+        <p>
+          Lassen Sie uns auch Ihr Dachprojekt verwirklichen. Wir freuen uns auf Ihre Anfrage!
+        </p>
+        <a routerLink="/kontakt" class="cta-button">
+          Jetzt Beratungstermin vereinbaren
+        </a>
+      </div>
+    </section>
 
-</div>
+  </div>
