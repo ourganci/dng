@@ -78,6 +78,11 @@ export const routes: Routes = [
       .then(m => m.DatenschutzComponent)
   },
   {
+    path: 'agb',
+    loadComponent: () => import('./features/legal/agb/agb.component')
+      .then(m => m.AgbComponent)
+  },
+  {
     path: '404',
     loadComponent: () => import('./features/not-found/not-found.component')
       .then(m => m.NotFoundComponent)

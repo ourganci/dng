@@ -1,0 +1,201 @@
+.legal-page {
+  padding: var(--spacing-xxl) 0;
+  background: var(--bg-white);
+  min-height: 70vh;
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+
+  // Header
+  .legal-header {
+    margin-bottom: var(--spacing-xxl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 2px solid var(--primary-yellow);
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 0 0 var(--spacing-lg) 0;
+      line-height: 1.2;
+    }
+
+    .legal-meta {
+      p {
+        margin: 0.25rem 0;
+        font-size: 0.95rem;
+        color: var(--text-medium);
+        line-height: 1.6;
+
+        strong {
+          color: var(--text-dark);
+          font-weight: 600;
+        }
+
+        a {
+          color: var(--text-dark);
+          text-decoration: none;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: var(--primary-yellow-dark);
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .legal-date {
+        margin-top: var(--spacing-md);
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  // Content
+  .legal-content {
+    display: flex;
+    flex-direction: column;
+    // gap: var(--spacing-xxl);
+  }
+
+  .legal-section {
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--bg-medium-gray);
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 0 0 var(--spacing-md) 0;
+      line-height: 1.3;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin: var(--spacing-lg) 0 var(--spacing-sm) 0;
+      line-height: 1.4;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-medium);
+      margin: 0 0 var(--spacing-md) 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        color: var(--text-dark);
+        font-weight: 600;
+      }
+
+      a {
+        color: var(--text-dark);
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--primary-yellow-dark);
+          text-decoration: underline;
+        }
+      }
+    }
+
+    ul {
+      margin: var(--spacing-md) 0;
+      padding-left: 1.5rem;
+
+      li {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: var(--text-medium);
+        margin-bottom: var(--spacing-sm);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  // Highlight Section (Widerrufsbelehrung)
+  .highlight-section {
+    background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    h2 {
+      color: var(--text-dark);
+      padding-bottom: var(--spacing-md);
+      border-bottom: 2px solid var(--primary-yellow);
+    }
+  }
+
+  // Widerrufsformular
+  .widerruf-formular {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: white;
+    border-radius: 8px;
+    border: 1px solid var(--bg-medium-gray);
+
+    h3 {
+      margin-top: 0;
+      color: var(--text-dark);
+    }
+
+    .form-note {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--text-medium);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .form-template {
+      background: var(--bg-light-gray);
+      padding: var(--spacing-md);
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      line-height: 1.8;
+
+      p {
+        margin: var(--spacing-sm) 0;
+        color: var(--text-dark);
+      }
+
+      strong {
+        font-weight: 700;
+      }
+    }
+  }
+
+  // Responsive
+  @media (max-width: 768px) {
+    padding: var(--spacing-xl) 0;
+
+    .legal-header h1 {
+      font-size: 1.8rem;
+    }
+
+    .legal-section h2 {
+      font-size: 1.2rem;
+    }
+  }
+}
