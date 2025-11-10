@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 

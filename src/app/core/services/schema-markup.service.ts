@@ -12,11 +12,11 @@ export class SchemaMarkupService {
     "@type": "RoofingContractor",
     "name": "DNG GmbH",
     "description": "Dachdeckerfachbetrieb für Nahe Glan & Umgebung",
-    "image": "https://www.dng-gmbh.de/assets/images/logo.png",
-    "url": "https://www.dng-gmbh.de",
+    "image": "https://www.dng-nahe-glan.de//assets/images/logo.png",
+    "url": "https://www.dng-nahe-glan.de/",
     "telephone": "+4967531237119", // Echte Nummer im internationalen Format
     "mobile": "+4915158420657",   // Echte Nummer im internationalen Format
-    "email": "info@dng-gmbh.de",
+    "email": "info@dng-nahe-glan.de",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Hauptstraße 24",
@@ -141,7 +141,7 @@ export class SchemaMarkupService {
         "name": "DNG GmbH",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.dng-gmbh.de/assets/images/logo.png"
+          "url": "https://www.dng-nahe-glan.de/assets/images/logo.png"
         }
       },
       "datePublished": article.datePublished,

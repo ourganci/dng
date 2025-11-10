@@ -21,6 +21,7 @@ export class HeaderComponent {
         { label: 'Regenrinnen', route: '/leistungen/regenrinnen' },
         { label: 'Flachdachdichtheitsprüfung', route: '/leistungen/flachdachpruefung' },
         { label: 'PV-Anlagen', route: '/leistungen/pv-anlagen' },
+        { label: 'PV Indach', route: '/leistungen/pv-indach' },
         { label: 'Hallenbeleuchtung', route: '/leistungen/hallenbeleuchtung' }
       ]
     },

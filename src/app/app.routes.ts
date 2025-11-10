@@ -32,7 +32,7 @@ export const routes: Routes = [
     loadComponent: () => import('./features/services/components/dachreparatur/dachreparatur.component')
       .then(m => m.DachreparaturComponent)
   },
-    {
+  {
     path: 'leistungen/flachdachpruefung',
     loadComponent: () => import('./features/services/components/flachdach/flachdach.component')
       .then(m => m.FlachdachComponent)
@@ -41,6 +41,11 @@ export const routes: Routes = [
     path: 'leistungen/pv-anlagen',
     loadComponent: () => import('./features/services/components/photovoltaik/photovoltaik.component')
       .then(m => m.PhotovoltaikComponent)
+  },
+  {
+    path: 'leistungen/pv-indach',
+    loadComponent: () => import('./features/services/components/pvindach/pvindach.component')
+      .then(m => m.PvindachComponent)
   },
   {
     path: 'ueber-uns',
