@@ -48,6 +48,11 @@ export const routes: Routes = [
       .then(m => m.PvindachComponent)
   },
   {
+    path: 'leistungen/hallenbeleuchtung',
+    loadComponent: () => import('./features/services/components/hallenbeleuchtung/hallenbeleuchtung.component')
+      .then(m => m.HallenbeleuchtungComponent)
+  },
+  {
     path: 'ueber-uns',
     loadComponent: () => import('./features/about/about.component')
       .then(m => m.AboutComponent)
