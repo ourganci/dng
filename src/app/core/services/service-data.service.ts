@@ -12,7 +12,7 @@ export type ServiceSection =
   | { type: 'hero'; data: { headline: string; subline?: string; image?: string; overlay?: boolean } }
   | { type: 'intro'; data: { lead: string } }
   | { type: 'image'; data: { src: string; alt: string; caption?: string; fullWidth?: boolean } }
-  | { type: 'gallery'; data: { images: { src: string; alt: string }[]; columns?: 2|3|4 } }
+  | { type: 'gallery'; data: { images: { src: string; alt: string }[]; columns?: 2 | 3 | 4 } }
   | { type: 'bullets'; data: { title?: string; items: string[]; icon?: string } }
   | { type: 'checklist'; data: { title?: string; items: string[] } }
   | { type: 'steps'; data: { title?: string; steps: string[] } }
@@ -68,6 +68,144 @@ export class ServiceDataService {
   ]);
 
   private services: ServiceContent[] = [
+    {
+      id: 'pv-anlagen',
+      title: 'PV-Anlagen Nahe Glan – Solarenergie für Ihr Dach',
+      headline: 'Photovoltaik-Anlagen vom Fachbetrieb',
+      description: 'Nutzen Sie die Kraft der Sonne! Wir planen und installieren moderne Photovoltaik-Anlagen auf Ihrem Dach – für nachhaltige Energiegewinnung, Unabhängigkeit und Kosteneinsparung.',
+      benefits: [
+        {
+          title: 'Bis zu 70% Reduzierung der Stromkosten',
+          text: 'Bis zu 70% Reduzierung der Stromkosten',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg>'
+        },
+        {
+          title: 'Unabhängigkeit von steigenden Energiepreisen',
+          text: 'Unabhängigkeit von steigenden Energiepreisen',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 2v6"/><path d="M12 16v6"/><circle cx="12" cy="12" r="3"/></svg>'
+        },
+        {
+          title: 'CO₂-neutrale Stromerzeugung',
+          text: 'CO₂-neutrale Stromerzeugung',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M3 12h18"/><path d="M12 3v18"/></svg>'
+        },
+        {
+          title: 'Wertsteigerung Ihrer Immobilie',
+          text: 'Wertsteigerung Ihrer Immobilie',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>'
+        },
+        {
+          title: 'Attraktive Fördermöglichkeiten und KfW-Zuschüsse',
+          text: 'Attraktive Fördermöglichkeiten und KfW-Zuschüsse',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'
+        },
+        {
+          title: 'Professionelle Planung und Installation',
+          text: 'Professionelle Planung und Installation',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M8 6h8"/><path d="M8 12h8"/><path d="M8 18h8"/></svg>'
+        }
+      ],
+      process: [
+        'Kostenlose Erstberatung und Standortanalyse',
+        'Berechnung des Energiebedarfs und der Anlagengröße',
+        'Beratung zu Fördermöglichkeiten (KfW, BAFA)',
+        'Detailliertes Angebot mit Wirtschaftlichkeitsrechnung',
+        'Fachgerechte Installation der PV-Module',
+        'Elektrischer Anschluss und Inbetriebnahme',
+        'Anmeldung beim Netzbetreiber und Einweisung'
+      ],
+      faqs: [
+        {
+          question: 'Lohnt sich eine PV-Anlage in unserer Region?',
+          answer: 'Ja! Auch in Rheinland-Pfalz ist die Sonneneinstrahlung ausreichend für rentable PV-Anlagen. Mit ca. 1.000-1.200 kWh pro kWp Anlagenleistung können Sie rechnen.'
+        },
+        {
+          question: 'Welche Fördermöglichkeiten gibt es?',
+          answer: 'Es gibt verschiedene KfW-Programme (z.B. KfW 270 für zinsgünstige Kredite), BAFA-Zuschüsse und regionale Förderungen. Außerdem profitieren Sie von der Einspeisevergütung nach EEG. Wir beraten Sie umfassend.'
+        },
+        {
+          question: 'Wie groß sollte meine PV-Anlage sein?',
+          answer: 'Das hängt von Ihrem Stromverbrauch und der verfügbaren Dachfläche ab. Für einen 4-Personen-Haushalt empfehlen wir ca. 5-8 kWp (ca. 30-50m² Modulfläche). Wir erstellen eine individuelle Bedarfsanalyse.'
+        },
+        {
+          question: 'Wie lange dauert die Installation?',
+          answer: 'Die Installation dauert je nach Anlagengröße 2-5 Tage. Von der Planung bis zur Inbetriebnahme sollten Sie 4-8 Wochen einplanen (inkl. Genehmigungen und Netzbetreiber-Anmeldung).'
+        },
+        {
+          question: 'Brauche ich einen Stromspeicher?',
+          answer: 'Ein Stromspeicher erhöht Ihre Eigenverbrauchsquote von ca. 30% auf 60-80% und macht Sie unabhängiger. Die Anschaffung lohnt sich, wenn Sie möglichst viel selbst erzeugten Strom nutzen möchten.'
+        }
+      ],
+      keywords: 'PV-Anlagen Nahe Glan, Photovoltaik, Solaranlage, Sonnenenergie, Stromspeicher, KfW-Förderung, Bad Kreuznach, Kirn',
+      icon: '☀️'
+    },
+    {
+      id: 'hallenbeleuchtung',
+      title: 'Hallen- und Fassadenbeleuchtung Nahe Glan',
+      headline: 'Moderne LED-Beleuchtung für Gewerbe',
+      description: 'Energieeffiziente LED-Beleuchtung für Industrie- und Gewerbehallen sowie repräsentative Fassadenbeleuchtung – professionell geplant und installiert von unserem Fachteam.',
+      benefits: [
+        {
+          title: 'Energieeinsparung',
+          text: 'Bis zu 80% Energieeinsparung durch LED-Technik',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M9 18h6"/><path d="M12 2a6 6 0 0 0-4 9c0 3 4 4 4 4s4-1 4-4a6 6 0 0 0-4-9z"/></svg>'
+        },
+        {
+          title: 'Optimale Ausleuchtung',
+          text: 'Bessere Ausleuchtung für optimale Arbeitsbedingungen',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'
+        },
+        {
+          title: 'Langlebige Technik',
+          text: 'Langlebige Technik mit bis zu 50.000 Betriebsstunden',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>'
+        },
+        {
+          title: 'Weniger Wartung',
+          text: 'Geringerer Wartungsaufwand als herkömmliche Systeme',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M3 12h18"/></svg>'
+        },
+        {
+          title: 'Repräsentative Beleuchtung',
+          text: 'Repräsentative Fassadenbeleuchtung für Ihr Unternehmen',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M8 6h8"/><path d="M8 12h8"/></svg>'
+        },
+        {
+          title: 'Lichtplanung',
+          text: 'Professionelle Lichtplanung nach Ihren Anforderungen',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 2v6"/><path d="M12 16v6"/></svg>'
+        }
+      ],
+      process: [
+        'Bedarfsanalyse und Lichtplanung vor Ort',
+        'Berechnung der optimalen Ausleuchtung (Lux-Werte)',
+        'Auswahl passender LED-Systeme',
+        'Angebot mit Wirtschaftlichkeitsberechnung',
+        'Professionelle Installation durch Fachpersonal',
+        'Elektrischer Anschluss und Inbetriebnahme',
+        'Einweisung und Dokumentation'
+      ],
+      faqs: [
+        {
+          question: 'Für welche Objekte ist das geeignet?',
+          answer: 'Ideal für Lagerhallen, Produktionshallen, Werkstätten, Logistikzentren, Gewerbefassaden und alle Industriebauten, die eine professionelle Beleuchtung benötigen.'
+        },
+        {
+          question: 'Wie hoch ist die Energieeinsparung?',
+          answer: 'LED-Beleuchtung spart gegenüber herkömmlichen Halogen- oder Leuchtstoffröhren bis zu 80% Energie. Bei einer 1.000m² Halle können Sie mit mehreren tausend Euro Einsparung pro Jahr rechnen.'
+        },
+        {
+          question: 'Wie lange halten LED-Leuchtmittel?',
+          answer: 'Hochwertige LED-Hallenstrahler haben eine Lebensdauer von 50.000-100.000 Betriebsstunden. Das entspricht bei 10h Betrieb/Tag ca. 15-25 Jahren.'
+        },
+        {
+          question: 'Bieten Sie auch Wartung an?',
+          answer: 'Ja, wir bieten Wartungsverträge für Gewerbekunden an, die regelmäßige Inspektionen und schnelle Reparaturen bei Ausfällen umfassen.'
+        }
+      ],
+      keywords: 'Hallenbeleuchtung Nahe Glan, LED Beleuchtung, Fassadenbeleuchtung, Gewerbe, Industriehallen, Bad Kreuznach',
+      icon: '💡'
+    },
     {
       id: 'dachsanierung',
       title: 'Dachsanierung Nahe Glan – professionell & nachhaltig',
@@ -423,144 +561,7 @@ export class ServiceDataService {
       keywords: 'Flachdachdichtheitsprüfung Nahe Glan, Flachdach prüfen, DIN-Prüfung, Gewerbe, Hallen, Bad Kreuznach',
       icon: '🔍'
     },
-    {
-      id: 'pv-anlagen',
-      title: 'PV-Anlagen Nahe Glan – Solarenergie für Ihr Dach',
-      headline: 'Photovoltaik-Anlagen vom Fachbetrieb',
-      description: 'Nutzen Sie die Kraft der Sonne! Wir planen und installieren moderne Photovoltaik-Anlagen auf Ihrem Dach – für nachhaltige Energiegewinnung, Unabhängigkeit und Kosteneinsparung.',
-      benefits: [
-        {
-          title: 'Bis zu 70% Reduzierung der Stromkosten',
-          text: 'Bis zu 70% Reduzierung der Stromkosten',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg>'
-        },
-        {
-          title: 'Unabhängigkeit von steigenden Energiepreisen',
-          text: 'Unabhängigkeit von steigenden Energiepreisen',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 2v6"/><path d="M12 16v6"/><circle cx="12" cy="12" r="3"/></svg>'
-        },
-        {
-          title: 'CO₂-neutrale Stromerzeugung',
-          text: 'CO₂-neutrale Stromerzeugung',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M3 12h18"/><path d="M12 3v18"/></svg>'
-        },
-        {
-          title: 'Wertsteigerung Ihrer Immobilie',
-          text: 'Wertsteigerung Ihrer Immobilie',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>'
-        },
-        {
-          title: 'Attraktive Fördermöglichkeiten und KfW-Zuschüsse',
-          text: 'Attraktive Fördermöglichkeiten und KfW-Zuschüsse',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'
-        },
-        {
-          title: 'Professionelle Planung und Installation',
-          text: 'Professionelle Planung und Installation',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M8 6h8"/><path d="M8 12h8"/><path d="M8 18h8"/></svg>'
-        }
-      ],
-      process: [
-        'Kostenlose Erstberatung und Standortanalyse',
-        'Berechnung des Energiebedarfs und der Anlagengröße',
-        'Beratung zu Fördermöglichkeiten (KfW, BAFA)',
-        'Detailliertes Angebot mit Wirtschaftlichkeitsrechnung',
-        'Fachgerechte Installation der PV-Module',
-        'Elektrischer Anschluss und Inbetriebnahme',
-        'Anmeldung beim Netzbetreiber und Einweisung'
-      ],
-      faqs: [
-        {
-          question: 'Lohnt sich eine PV-Anlage in unserer Region?',
-          answer: 'Ja! Auch in Rheinland-Pfalz ist die Sonneneinstrahlung ausreichend für rentable PV-Anlagen. Mit ca. 1.000-1.200 kWh pro kWp Anlagenleistung können Sie rechnen.'
-        },
-        {
-          question: 'Welche Fördermöglichkeiten gibt es?',
-          answer: 'Es gibt verschiedene KfW-Programme (z.B. KfW 270 für zinsgünstige Kredite), BAFA-Zuschüsse und regionale Förderungen. Außerdem profitieren Sie von der Einspeisevergütung nach EEG. Wir beraten Sie umfassend.'
-        },
-        {
-          question: 'Wie groß sollte meine PV-Anlage sein?',
-          answer: 'Das hängt von Ihrem Stromverbrauch und der verfügbaren Dachfläche ab. Für einen 4-Personen-Haushalt empfehlen wir ca. 5-8 kWp (ca. 30-50m² Modulfläche). Wir erstellen eine individuelle Bedarfsanalyse.'
-        },
-        {
-          question: 'Wie lange dauert die Installation?',
-          answer: 'Die Installation dauert je nach Anlagengröße 2-5 Tage. Von der Planung bis zur Inbetriebnahme sollten Sie 4-8 Wochen einplanen (inkl. Genehmigungen und Netzbetreiber-Anmeldung).'
-        },
-        {
-          question: 'Brauche ich einen Stromspeicher?',
-          answer: 'Ein Stromspeicher erhöht Ihre Eigenverbrauchsquote von ca. 30% auf 60-80% und macht Sie unabhängiger. Die Anschaffung lohnt sich, wenn Sie möglichst viel selbst erzeugten Strom nutzen möchten.'
-        }
-      ],
-      keywords: 'PV-Anlagen Nahe Glan, Photovoltaik, Solaranlage, Sonnenenergie, Stromspeicher, KfW-Förderung, Bad Kreuznach, Kirn',
-      icon: '☀️'
-    },
-    {
-      id: 'hallenbeleuchtung',
-      title: 'Hallen- und Fassadenbeleuchtung Nahe Glan',
-      headline: 'Moderne LED-Beleuchtung für Gewerbe',
-      description: 'Energieeffiziente LED-Beleuchtung für Industrie- und Gewerbehallen sowie repräsentative Fassadenbeleuchtung – professionell geplant und installiert von unserem Fachteam.',
-      benefits: [
-        {
-          title: 'Energieeinsparung',
-          text: 'Bis zu 80% Energieeinsparung durch LED-Technik',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M9 18h6"/><path d="M12 2a6 6 0 0 0-4 9c0 3 4 4 4 4s4-1 4-4a6 6 0 0 0-4-9z"/></svg>'
-        },
-        {
-          title: 'Optimale Ausleuchtung',
-          text: 'Bessere Ausleuchtung für optimale Arbeitsbedingungen',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'
-        },
-        {
-          title: 'Langlebige Technik',
-          text: 'Langlebige Technik mit bis zu 50.000 Betriebsstunden',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>'
-        },
-        {
-          title: 'Weniger Wartung',
-          text: 'Geringerer Wartungsaufwand als herkömmliche Systeme',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M3 12h18"/></svg>'
-        },
-        {
-          title: 'Repräsentative Beleuchtung',
-          text: 'Repräsentative Fassadenbeleuchtung für Ihr Unternehmen',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M8 6h8"/><path d="M8 12h8"/></svg>'
-        },
-        {
-          title: 'Lichtplanung',
-          text: 'Professionelle Lichtplanung nach Ihren Anforderungen',
-          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 2v6"/><path d="M12 16v6"/></svg>'
-        }
-      ],
-      process: [
-        'Bedarfsanalyse und Lichtplanung vor Ort',
-        'Berechnung der optimalen Ausleuchtung (Lux-Werte)',
-        'Auswahl passender LED-Systeme',
-        'Angebot mit Wirtschaftlichkeitsberechnung',
-        'Professionelle Installation durch Fachpersonal',
-        'Elektrischer Anschluss und Inbetriebnahme',
-        'Einweisung und Dokumentation'
-      ],
-      faqs: [
-        {
-          question: 'Für welche Objekte ist das geeignet?',
-          answer: 'Ideal für Lagerhallen, Produktionshallen, Werkstätten, Logistikzentren, Gewerbefassaden und alle Industriebauten, die eine professionelle Beleuchtung benötigen.'
-        },
-        {
-          question: 'Wie hoch ist die Energieeinsparung?',
-          answer: 'LED-Beleuchtung spart gegenüber herkömmlichen Halogen- oder Leuchtstoffröhren bis zu 80% Energie. Bei einer 1.000m² Halle können Sie mit mehreren tausend Euro Einsparung pro Jahr rechnen.'
-        },
-        {
-          question: 'Wie lange halten LED-Leuchtmittel?',
-          answer: 'Hochwertige LED-Hallenstrahler haben eine Lebensdauer von 50.000-100.000 Betriebsstunden. Das entspricht bei 10h Betrieb/Tag ca. 15-25 Jahren.'
-        },
-        {
-          question: 'Bieten Sie auch Wartung an?',
-          answer: 'Ja, wir bieten Wartungsverträge für Gewerbekunden an, die regelmäßige Inspektionen und schnelle Reparaturen bei Ausfällen umfassen.'
-        }
-      ],
-      keywords: 'Hallenbeleuchtung Nahe Glan, LED Beleuchtung, Fassadenbeleuchtung, Gewerbe, Industriehallen, Bad Kreuznach',
-      icon: '💡'
-    }
+
   ];
 
   // ⭐ Alle Services mit hasImage-Flag

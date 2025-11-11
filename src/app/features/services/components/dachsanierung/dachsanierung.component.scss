@@ -89,6 +89,7 @@
         grid-template-columns: 1fr;
         gap: 2.5rem;
         // align-items: center;
+        margin-block: 3rem;
 
         @media (min-width: 768px) {
             grid-template-columns: 1.2fr 1fr;
@@ -136,7 +137,7 @@
 
     /* Story-Bild rechts: ein Bild, sauber zugeschnitten */
     .story-image {
-        display: flex;
+        // display: flex;
         gap: 1rem;
 
         img {
