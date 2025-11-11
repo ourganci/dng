@@ -62,11 +62,11 @@ export const routes: Routes = [
     loadComponent: () => import('./features/references/references.component')
       .then(m => m.ReferencesComponent)
   },
-  {
-    path: 'ratgeber',
-    loadChildren: () => import('./features/blog/blog.routes')
-      .then(m => m.BLOG_ROUTES)
-  },
+  // {
+  //   path: 'ratgeber',
+  //   loadChildren: () => import('./features/blog/blog.routes')
+  //     .then(m => m.BLOG_ROUTES)
+  // },
   {
     path: 'kontakt',
     loadComponent: () => import('./features/contact/contact.component')

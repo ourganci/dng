@@ -27,7 +27,7 @@ export class HeaderComponent {
     },
     { label: 'Über uns', route: '/ueber-uns' },
     { label: 'Referenzen', route: '/referenzen' },
-    { label: 'Ratgeber', route: '/ratgeber' },
+    // { label: 'Ratgeber', route: '/ratgeber' },
     { label: 'Kontakt', route: '/kontakt' }
   ];
 }

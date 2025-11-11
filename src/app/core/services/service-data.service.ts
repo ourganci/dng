@@ -59,11 +59,11 @@ export class ServiceDataService {
   private servicesWithImages = new Set<string>([
     'dachsanierung',
     'dachfenster',
-    // Füge weitere hinzu sobald Bilder da sind:
     'dachreparatur',
     'regenrinnen',
     'flachdachpruefung',
     'pv-anlagen',
+    'pv-indach',
     'hallenbeleuchtung'
   ]);
 
@@ -561,7 +561,68 @@ export class ServiceDataService {
       keywords: 'Flachdachdichtheitsprüfung Nahe Glan, Flachdach prüfen, DIN-Prüfung, Gewerbe, Hallen, Bad Kreuznach',
       icon: '🔍'
     },
-
+    {
+      id: 'pv-indach',
+      title: 'PV Indach-Systeme von DNG',
+      headline: 'Dach und Solarenergie in einem System',
+      description: 'Innovative Indach-Photovoltaik mit GSE IN-ROOF SYSTEM: Solardachplatten ersetzen konventionelle Ziegel vollständig. Witterungsschutz und Stromerzeugung vereint – elegant, sturmsicher und maximal effizient.',
+      benefits: [
+        {
+          title: 'Früherkennung von Leckagen',
+          text: 'Früherkennung von Leckagen vor großen Schäden',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M12 2v20"/></svg>'
+        },
+        {
+          title: 'Prüfung nach DIN-Norm',
+          text: 'Prüfung nach DIN 18531 und DIN 18195',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'
+        },
+        {
+          title: 'Moderne Prüfverfahren',
+          text: 'Moderne Prüfverfahren (Rauchgas, Dampf, Rauchimpuls)',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M4 12h16"/></svg>'
+        },
+        {
+          title: 'Detaillierte Dokumentation',
+          text: 'Detaillierte Dokumentation mit Fotos und Protokoll',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><path d="M8 6h8"/><path d="M8 12h8"/></svg>'
+        },
+        {
+          title: 'Angebot zur Mängelbehebung',
+          text: 'Angebot zur Behebung festgestellter Mängel',
+          iconSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-medium)" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>'
+        }
+      ],
+      process: [
+        'Terminvereinbarung und Vorbesprechung',
+        'Auswahl des geeigneten Prüfverfahrens',
+        'Durchführung der Dichtheitsprüfung vor Ort',
+        'Präzise Lokalisierung undichter Stellen',
+        'Fotodokumentation aller Befunde',
+        'Erstellung eines detaillierten Prüfprotokolls',
+        'Optional: Angebot zur Mängelbehebung'
+      ],
+      faqs: [
+        {
+          question: 'Welche Prüfverfahren gibt es?',
+          answer: 'Wir nutzen Rauchgas-Verfahren, Dampferzeugungs-Verfahren und Rauchimpuls-Verfahren. Die Wahl hängt vom Dachaufbau, der Größe und den baulichen Gegebenheiten ab.'
+        },
+        {
+          question: 'Wie lange dauert eine Flachdachprüfung?',
+          answer: 'Je nach Dachgröße zwischen 2-6 Stunden. Bei sehr großen Hallen kann die Prüfung auch einen ganzen Tag dauern.'
+        },
+        {
+          question: 'Für wen ist die Prüfung relevant?',
+          answer: 'Ideal für Gewerbegebäude, Lagerhallen, Industriebauten, Tiefgaragen, Balkone und alle Flachdach-Konstruktionen. Besonders wichtig vor Ablauf der Gewährleistung oder bei Verdacht auf Undichtigkeiten.'
+        },
+        {
+          question: 'Wird die Prüfung dokumentiert?',
+          answer: 'Ja, Sie erhalten ein ausführliches Prüfprotokoll mit Fotos, Markierungen der undichten Stellen und Handlungsempfehlungen.'
+        }
+      ],
+      keywords: 'Flachdachdichtheitsprüfung Nahe Glan, Flachdach prüfen, DIN-Prüfung, Gewerbe, Hallen, Bad Kreuznach',
+      icon: '🔍'
+    },
   ];
 
   // ⭐ Alle Services mit hasImage-Flag
