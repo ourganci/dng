@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { SeoService } from '../../core/services/seo.service';
 import { SchemaMarkupService } from '../../core/services/schema-markup.service';
 import { ServiceDataService } from '../../core/services/service-data.service';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
@@ -21,6 +22,7 @@ export class ContactComponent implements OnInit {
   submitted = signal(false);
   submitSuccess = signal(false);
   submitError = signal<string | null>(null);
+  isSending = signal(false);
 
   companyData = this.schemaMarkupService.companyData;
   services = this.serviceDataService.getAllServices().map(s => s.headline);
@@ -37,7 +39,11 @@ export class ContactComponent implements OnInit {
 
     // Reactive Form erstellen
     this.contactForm = this.fb.group({
+      firstname: ['', [Validators.required, Validators.minLength(2)]],
       name: ['', [Validators.required, Validators.minLength(2)]],
+      street: ['', [Validators.required, Validators.minLength(2)]],
+      postalcode: ['', [Validators.required, Validators.pattern(/^[0-9]{5}$/)]],
+      city: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern(/^[0-9\s\-\+\(\)]+$/)]],
       service: ['', Validators.required],
@@ -52,6 +58,13 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit(): void {
+    // Formular invalid → Button nicht sperren
+    if (this.contactForm.invalid) {
+      // Optional: alle Felder markieren
+      this.contactForm.markAllAsTouched();
+      return;
+    }
+
     this.submitted.set(true);
     this.submitError.set(null);
 
@@ -60,30 +73,42 @@ export class ContactComponent implements OnInit {
     }
 
     const formData = new URLSearchParams();
-    formData.set('name', this.contactForm.value.name);
-    formData.set('email', this.contactForm.value.email);
-    formData.set('message', this.contactForm.value.message);
-    formData.set('phone', this.contactForm.value.phone);
-    formData.set('service', this.contactForm.value.service);
+    Object.entries(this.contactForm.value).forEach(([key, value]) => {
+      if (key === 'privacy') return;
+      formData.set(key, String(value ?? ''));
+    });
+
+    // Optionaler "Wird gesendet"-Status
+    this.isSending.set(true);
 
     fetch('https://ang.dng-nahe-glan.de/mail.php', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
       body: formData.toString(),
     })
-      .then(res => res.json())
+      .then(async res => {
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(`Serverfehler (${res.status}): ${text}`);
+        }
+        return res.json();
+      })
       .then(data => {
         if (data.success) {
           this.submitSuccess.set(true);
           this.contactForm.reset();
-          this.submitted.set(false);
           setTimeout(() => this.submitSuccess.set(false), 5000);
         } else {
           this.submitError.set(data.error || 'Unbekannter Fehler beim Senden.');
         }
       })
-      .catch(() => {
-        this.submitError.set('Der Server ist derzeit nicht erreichbar.');
+      .catch(err => {
+        this.submitError.set(err.message || 'Der Server ist derzeit nicht erreichbar.');
+      })
+      .finally(() => {
+        this.isSending.set(false);
+        this.submitted.set(false);
       });
   }
+
 }

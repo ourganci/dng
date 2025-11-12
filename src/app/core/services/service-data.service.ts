@@ -564,7 +564,7 @@ export class ServiceDataService {
     {
       id: 'pv-indach',
       title: 'PV Indach-Systeme von DNG',
-      headline: 'Dach und Solarenergie in einem System',
+      headline: 'GSE In-Roof System – Die elegante Solarlösung',
       description: 'Innovative Indach-Photovoltaik mit GSE IN-ROOF SYSTEM: Solardachplatten ersetzen konventionelle Ziegel vollständig. Witterungsschutz und Stromerzeugung vereint – elegant, sturmsicher und maximal effizient.',
       benefits: [
         {

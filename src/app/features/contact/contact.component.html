@@ -1,7 +1,7 @@
 <!-- src/app/features/contact/contact.component.html -->
 
 <div class="contact-page">
-  
+
   <!-- Header Section -->
   <section class="contact-header">
     <div class="container">
@@ -11,65 +11,72 @@
       </div>
     </div>
   </section>
-      <!-- ZEILE 1: Kontaktinformationen (LINKS) + Bild (RECHTS) -->
-      <div class="contact-info-row">
-        <div class="contact-row-grid">
-          
-          <!-- LINKS: Kontaktinformationen -->
-          <div class="contact-info">
-            <h3>Kontaktinformationen</h3>
+  <!-- ZEILE 1: Kontaktinformationen (LINKS) + Bild (RECHTS) -->
+  <div class="contact-info-row">
+    <div class="contact-row-grid">
 
-            <div class="info-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <div>
-                <h4>Adresse</h4>
-                <p>
-                  {{ companyData.name }}<br>
-                  {{ companyData.address.streetAddress }}<br>
-                  {{ companyData.address.postalCode }} {{ companyData.address.addressLocality }}
-                </p>
-              </div>
-            </div>
+      <!-- LINKS: Kontaktinformationen -->
+      <div class="contact-info">
+        <h3>Kontaktinformationen</h3>
 
-            <div class="info-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-              <div>
-                <h4>Telefon</h4>
-                <p><a href="tel:{{ companyData.telephone }}">{{ companyData.telephone }}</a></p>
-              </div>
-            </div>
+        <div class="info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <div>
+            <h4>Adresse</h4>
+            <p>
+              {{ companyData.name }}<br>
+              {{ companyData.address.streetAddress }}<br>
+              {{ companyData.address.postalCode }} {{ companyData.address.addressLocality }}
+            </p>
+          </div>
+        </div>
 
-            <div class="info-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <div>
-                <h4>E-Mail</h4>
-                <p><a href="mailto:{{ companyData.email }}">{{ companyData.email }}</a></p>
-              </div>
-            </div>
+        <div class="info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+            </path>
+          </svg>
+          <div>
+            <h4>Telefon</h4>
+            <p><a href="tel:{{ companyData.telephone }}">{{ companyData.telephone }}</a></p>
+          </div>
+        </div>
 
-            <div class="info-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-              <div>
-                <h4>Öffnungszeiten</h4>
-                <p>
-                  Mo - Fr: {{ companyData.openingHoursSpecification[0].opens }} - {{ companyData.openingHoursSpecification[0].closes }} Uhr<br>
-                  Samstag: Nach Vereinbarung
-                </p>
-              </div>
-            </div>
+        <div class="info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <div>
+            <h4>E-Mail</h4>
+            <p><a href="mailto:{{ companyData.email }}">{{ companyData.email }}</a></p>
+          </div>
+        </div>
 
-            <!-- <div class="service-area">
+        <div class="info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <div>
+            <h4>Öffnungszeiten</h4>
+            <p>
+              Mo - Fr: {{ companyData.openingHoursSpecification[0].opens }} - {{
+              companyData.openingHoursSpecification[0].closes }} Uhr<br>
+              Samstag: Nach Vereinbarung
+            </p>
+          </div>
+        </div>
+
+        <!-- <div class="service-area">
               <h4>Unser Einzugsgebiet</h4>
               <p>Im Umkreis von 50 km, einschließlich:</p>
               <ul>
@@ -80,204 +87,267 @@
                 <li>Idar-Oberstein</li>
               </ul>
             </div> -->
-          </div>
-
-          <!-- RECHTS: Bild -->
-          <div class="contact-image-section">
-            <img src="assets/images/contact/contact_1024.jpg" alt="DNG GmbH Kontakt">
-          </div>
-
-        </div>
       </div>
 
-      <!-- ZEILE 2: Kontaktformular (LINKS) + Vorteile (RECHTS) -->
-      <div class="contact-form-row">
-        <div class="contact-row-grid">
-          
-          <!-- LINKS: Kontaktformular -->
-          <div class="contact-form-section">
-            <h3>Beratungsgespräch vereinbaren</h3>
+      <!-- RECHTS: Bild -->
+      <div class="contact-image-section">
+        <img src="assets/images/contact/contact_1024.jpg" alt="DNG GmbH Kontakt">
+      </div>
 
-            @if (submitSuccess()) {
-              <div class="success-message">
-                Vielen Dank! Ihre Nachricht wurde erfolgreich versendet.
-                Wir melden uns schnellstmöglich bei Ihnen.
-              </div>
+    </div>
+  </div>
+
+  <!-- ZEILE 2: Kontaktformular (LINKS) + Vorteile (RECHTS) -->
+  <div class="contact-form-row">
+    <div class="contact-row-grid">
+
+      <!-- LINKS: Kontaktformular -->
+      <div class="contact-form-section">
+        <h3>Beratungsgespräch vereinbaren</h3>
+
+        @if (submitSuccess()) {
+        <div class="success-message">
+          Vielen Dank! Ihre Nachricht wurde erfolgreich versendet.
+          Wir melden uns schnellstmöglich bei Ihnen.
+        </div>
+        }
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+
+          <!-- Firstname -->
+          <div class="form-group">
+            <label for="firstname">Vorname *</label>
+            <input type="text" id="firstname" formControlName="firstname"
+              [class.invalid]="f['firstname'].invalid && (f['firstname'].touched || submitted())"
+              placeholder="Ihr Vorname">
+
+            @if (f['firstname'].invalid && (f['firstname'].touched || submitted())) {
+            <div class="error-message">
+              @if (f['firstname'].errors?.['required']) {
+              <span>Vorname ist erforderlich</span>
+              }
+              @if (f['firstname'].errors?.['minlength']) {
+              <span>Mindestens 2 Zeichen</span>
+              }
+            </div>
             }
-
-            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
-              
-              <!-- Name -->
-              <div class="form-group">
-                <label for="name">Name *</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  formControlName="name" 
-                  [class.invalid]="submitted() && f['name'].errors"
-                  placeholder="Ihr vollständiger Name">
-                
-                @if (submitted() && f['name'].errors) {
-                  <div class="error-message">
-                    @if (f['name'].errors['required']) {
-                      <span>Name ist erforderlich</span>
-                    }
-                    @if (f['name'].errors['minlength']) {
-                      <span>Mindestens 2 Zeichen</span>
-                    }
-                  </div>
-                }
-              </div>
-
-              <!-- E-Mail -->
-              <div class="form-group">
-                <label for="email">E-Mail *</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  formControlName="email" 
-                  [class.invalid]="submitted() && f['email'].errors"
-                  placeholder="ihre@email.de">
-                
-                @if (submitted() && f['email'].errors) {
-                  <div class="error-message">
-                    @if (f['email'].errors['required']) {
-                      <span>E-Mail ist erforderlich</span>
-                    }
-                    @if (f['email'].errors['email']) {
-                      <span>Ungültige E-Mail-Adresse</span>
-                    }
-                  </div>
-                }
-              </div>
-
-              <!-- Telefon -->
-              <div class="form-group">
-                <label for="phone">Telefon *</label>
-                <input 
-                  type="tel" 
-                  id="phone" 
-                  formControlName="phone" 
-                  [class.invalid]="submitted() && f['phone'].errors"
-                  placeholder="+49 XXX XXXXXXX">
-                
-                @if (submitted() && f['phone'].errors) {
-                  <div class="error-message">
-                    @if (f['phone'].errors['required']) {
-                      <span>Telefonnummer ist erforderlich</span>
-                    }
-                    @if (f['phone'].errors['pattern']) {
-                      <span>Ungültige Telefonnummer</span>
-                    }
-                  </div>
-                }
-              </div>
-
-              <!-- Service -->
-              <div class="form-group">
-                <label for="service">Gewünschte Leistung *</label>
-                <select 
-                  id="service" 
-                  formControlName="service" 
-                  [class.invalid]="submitted() && f['service'].errors">
-                  <option value="">Bitte wählen...</option>
-                  @for (service of services; track service) {
-                    <option [value]="service">{{ service }}</option>
-                  }
-                </select>
-                
-                @if (submitted() && f['service'].errors) {
-                  <div class="error-message">
-                    <span>Bitte wählen Sie eine Leistung aus</span>
-                  </div>
-                }
-              </div>
-
-              <!-- Nachricht -->
-              <div class="form-group">
-                <label for="message">Ihre Nachricht *</label>
-                <textarea 
-                  id="message" 
-                  formControlName="message" 
-                  [class.invalid]="submitted() && f['message'].errors"
-                  rows="4" 
-                  placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
-                
-                @if (submitted() && f['message'].errors) {
-                  <div class="error-message">
-                    @if (f['message'].errors['required']) {
-                      <span>Nachricht ist erforderlich</span>
-                    }
-                    @if (f['message'].errors['minlength']) {
-                      <span>Mindestens 10 Zeichen</span>
-                    }
-                  </div>
-                }
-              </div>
-
-              <!-- Datenschutz -->
-              <div class="form-group checkbox-group">
-                <label>
-                  <input 
-                    type="checkbox" 
-                    formControlName="privacy" 
-                    [class.invalid]="submitted() && f['privacy'].errors">
-                  <span>
-                    Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>
-                    gelesen und stimme der Verarbeitung meiner Daten zu. *
-                  </span>
-                </label>
-                
-                @if (submitted() && f['privacy'].errors) {
-                  <div class="error-message">
-                    <span>Bitte akzeptieren Sie die Datenschutzerklärung</span>
-                  </div>
-                }
-              </div>
-
-              <button type="submit" class="submit-button">
-                Anfrage absenden
-              </button>
-
-              <p class="required-note">* Pflichtfelder</p>
-            </form>
           </div>
 
-          <!-- RECHTS: Vorteile -->
-          <div class="contact-benefits-section">
-            <h3>Ihre Vorteile</h3>
-            <ul>
-              <li>Kostenlose & unverbindliche Beratung</li>
-              <li>Schnelle Rückmeldung innerhalb von 24h</li>
-              <li>Über 20 Jahre Erfahrung</li>
-              <li>Zertifizierter Meisterbetrieb</li>
-              <li>Faire & transparente Preise</li>
-              <li>Persönlicher Ansprechpartner</li>
-            </ul>
+
+          <!-- Nachname -->
+          <div class="form-group">
+            <label for="name">Nachname *</label>
+            <input type="text" id="name" formControlName="name" 
+            [class.invalid]="f['name'].invalid && (f['name'].touched || submitted())"
+              placeholder="Ihr vollständiger Name">
+
+            @if (f['name'].invalid && (f['name'].touched || submitted())) {
+            <div class="error-message">
+              @if (f['name'].errors?.['required']) {
+              <span>Name ist erforderlich</span>
+              }
+              @if (f['name'].errors?.['minlength']) {
+              <span>Mindestens 2 Zeichen</span>
+              }
+            </div>
+            }
           </div>
 
-        </div>
+          <!-- Straße -->
+          <div class="form-group">
+            <label for="street">Straße & Hausnummer *</label>
+            <input type="text" id="street" formControlName="street" 
+            [class.invalid]="f['street'].invalid && (f['street'].touched || submitted())"
+              placeholder="Ihre Straße & Hausnummer">
+
+            @if (f['street'].invalid && (f['street'].touched || submitted())) {
+            <div class="error-message">
+              @if (f['street'].errors?.['required']) {
+              <span>Straße & Hausnummer ist erforderlich</span>
+              }
+              @if (f['street'].errors?.['minlength']) {
+              <span>Mindestens 2 Zeichen</span>
+              }
+            </div>
+            }
+          </div>
+
+          <!-- PLZ -->
+          <div class="form-group">
+            <label for="postalcode">Postleitzahl *</label>
+            <input type="text" id="postalcode" formControlName="postalcode"
+              [class.invalid]="f['postalcode'].invalid && (f['postalcode'].touched || submitted())"
+              placeholder="Ihre Postleitzahl">
+
+            @if (f['postalcode'].invalid && (f['postalcode'].touched || submitted())) {
+            <div class="error-message">
+              @if (f['postalcode'].errors?.['required']) {
+              <span>Postleitzahl ist erforderlich</span>
+              }
+              @if (f['postalcode'].errors?.['minlength']) {
+              <span>Mindestens 5 Zeichen</span>
+              }
+            </div>
+            }
+          </div>
+
+          <!-- Ort -->
+          <div class="form-group">
+            <label for="city">Ort *</label>
+            <input type="text" id="city" formControlName="city" 
+            [class.invalid]="f['city'].invalid && (f['city'].touched || submitted())"
+              placeholder="Ihr Ort">
+
+            @if (f['city'].invalid && (f['city'].touched || submitted())) {
+            <div class="error-message">
+              @if (f['city'].errors?.['required']) {
+              <span>Ort ist erforderlich</span>
+              }
+              @if (f['city'].errors?.['minlength']) {
+              <span>Mindestens 5 Zeichen</span>
+              }
+            </div>
+            }
+          </div>
+
+          <!-- E-Mail -->
+          <div class="form-group">
+            <label for="email">E-Mail *</label>
+            <input type="email" id="email" formControlName="email" 
+            [class.invalid]="f['email'].invalid && (f['email'].touched || submitted())"
+              placeholder="ihre@email.de">
+
+            @if (f['email'].invalid && (f['email'].touched || submitted())) {
+            <div class="error-message">
+              @if (f['email'].errors?.['required']) {
+              <span>E-Mail ist erforderlich</span>
+              }
+              @if (f['email'].errors?.['email']) {
+              <span>Ungültige E-Mail-Adresse</span>
+              }
+            </div>
+            }
+          </div>
+
+          <!-- Telefon -->
+          <div class="form-group">
+            <label for="phone">Telefon *</label>
+            <input type="tel" id="phone" formControlName="phone" 
+            [class.invalid]="f['phone'].invalid && (f['phone'].touched || submitted())"
+              placeholder="+49 XXX XXXXXXX">
+
+            @if (f['phone'].invalid && (f['phone'].touched || submitted())) {
+            <div class="error-message">
+              @if (f['phone'].errors?.['required']) {
+              <span>Telefonnummer ist erforderlich</span>
+              }
+              @if (f['phone'].errors?.['pattern']) {
+              <span>Ungültige Telefonnummer</span>
+              }
+            </div>
+            }
+          </div>
+
+          <!-- Service -->
+          <div class="form-group">
+            <label for="service">Gewünschte Leistung *</label>
+            <select id="service" formControlName="service" 
+            [class.invalid]="submitted() && f['service'].errors">
+              <option value="">Bitte wählen...</option>
+              @for (service of services; track service) {
+              <option [value]="service">{{ service }}</option>
+              }
+            </select>
+
+            @if (submitted() && f['service'].errors) {
+            <div class="error-message">
+              <span>Bitte wählen Sie eine Leistung aus</span>
+            </div>
+            }
+          </div>
+
+          <!-- Nachricht -->
+          <div class="form-group">
+            <label for="message">Ihre Nachricht *</label>
+            <textarea id="message" formControlName="message" 
+            [class.invalid]="f['message'].invalid && (f['message'].touched || submitted())"
+              rows="4" placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
+
+            @if (f['message'].invalid && (f['message'].touched || submitted())) {
+            <div class="error-message">
+              @if (f['message'].errors?.['required']) {
+              <span>Nachricht ist erforderlich</span>
+              }
+              @if (f['message'].errors?.['minlength']) {
+              <span>Mindestens 10 Zeichen</span>
+              }
+            </div>
+            }
+          </div>
+
+          <!-- Datenschutz -->
+          <div class="form-group checkbox-group">
+            <label>
+              <input type="checkbox" formControlName="privacy" 
+              [class.invalid]="submitted() && f['privacy'].errors">
+              <span>
+                Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>
+                gelesen und stimme der Verarbeitung meiner Daten zu. *
+              </span>
+            </label>
+
+            @if (submitted() && f['privacy'].errors) {
+            <div class="error-message">
+              <span>Bitte akzeptieren Sie die Datenschutzerklärung</span>
+            </div>
+            }
+          </div>
+
+          <button type="submit" class="submit-button" [disabled]="isSending() || !contactForm.valid">
+            @if (!isSending()) {
+            <span>Absenden</span>
+            } @else {
+            <span>Nachricht wird gesendet...</span>
+            }
+          </button>
+
+
+
+          <p class="required-note">* Pflichtfelder</p>
+        </form>
       </div>
 
-    <!-- ZEILE 3: Google Maps (Volle Breite, außerhalb Container) -->
-    <div class="contact-map-row">
-      <div class="contact-map">
-        <div class="map-container">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2580.124739394455!2d7.697342412282279!3d49.70395764071195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479601687d543743%3A0xda8abca8ba93b408!2sHauptstra%C3%9Fe%2024%2C%2067829%20Callbach!5e0!3m2!1sde!2sde!4v1761428514850!5m2!1sde!2sde" 
-            width="100%" 
-            height="100%" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
+      <!-- RECHTS: Vorteile -->
+      <div class="contact-benefits-section">
+        <h3>Ihre Vorteile</h3>
+        <ul>
+          <li>Kostenlose & unverbindliche Beratung</li>
+          <li>Schnelle Rückmeldung innerhalb von 24h</li>
+          <li>Über 20 Jahre Erfahrung</li>
+          <li>Zertifizierter Meisterbetrieb</li>
+          <li>Faire & transparente Preise</li>
+          <li>Persönlicher Ansprechpartner</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ZEILE 3: Google Maps (Volle Breite, außerhalb Container) -->
+  <div class="contact-map-row">
+    <div class="contact-map">
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2580.124739394455!2d7.697342412282279!3d49.70395764071195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479601687d543743%3A0xda8abca8ba93b408!2sHauptstra%C3%9Fe%2024%2C%2067829%20Callbach!5e0!3m2!1sde!2sde!4v1761428514850!5m2!1sde!2sde"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
+  </div>
 
-    <!-- ZEILE 4: Social Media (optional) -->
-    <!-- <div class="container">
+  <!-- ZEILE 4: Social Media (optional) -->
+  <!-- <div class="container">
       <section class="social-media-section">
         <h3>Folgen Sie uns auf</h3>
         <div class="social-icons">
@@ -311,5 +381,5 @@
         </div>
       </section>
     </div> -->
-  
+
 </div>
