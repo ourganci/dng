@@ -67,7 +67,7 @@ ngOnInit(): void {
   // Open Graph und Twitter Card Tags für Social Sharing
   this.metaService.updateTag({ 
     property: 'og:title', 
-    content: 'Dachfenster Einbau & Austausch vom Meisterbetrieb | DNG GmbH' 
+    content: 'Dachfenster Einbau & Austausch vom Fachetrieb | DNG GmbH' 
   });
   
   this.metaService.updateTag({ 

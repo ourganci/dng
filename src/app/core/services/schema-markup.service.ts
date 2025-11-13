@@ -12,7 +12,7 @@ export class SchemaMarkupService {
     "@type": "RoofingContractor", // Spezifischer als "LocalBusiness" - wichtig für SEO!
     "name": "DNG GmbH",
     "alternateName": "DNG GmbH Nahe-Glan", // Für Variationen in Suchen
-    "description": "Meisterbetrieb für Dachdeckerarbeiten, Photovoltaik-Indachanlagen, Dachsanierung und Dachfenster in Nahe Glan & Umgebung. Zertifizierter Fachbetrieb mit 20+ Jahren Erfahrung.",
+    "description": "Fachetrieb für Dachdeckerarbeiten, Photovoltaik-Indachanlagen, Dachsanierung und Dachfenster in Nahe Glan & Umgebung. Zertifizierter Fachbetrieb mit 20+ Jahren Erfahrung.",
     "image": "https://www.dng-nahe-glan.de/assets/images/logo.png",
     "logo": {
       "@type": "ImageObject",

@@ -52,7 +52,7 @@ ngOnInit(): void {
   
   this.metaService.updateTag({ 
     name: 'description', 
-    content: 'Professionelle Dachsanierung vom Meisterbetrieb in Nahe Glan. KfW-Förderung möglich. Energieeffizient dämmen, neu decken & Heizkosten sparen. Jetzt Angebot erhalten!' 
+    content: 'Professionelle Dachsanierung vom Fachetrieb in Nahe Glan. KfW-Förderung möglich. Energieeffizient dämmen, neu decken & Heizkosten sparen. Jetzt Angebot erhalten!' 
   });
   
   this.metaService.updateTag({ 
@@ -122,12 +122,12 @@ ngOnInit(): void {
   // Open Graph und Twitter Card Tags für Social Sharing
   this.metaService.updateTag({ 
     property: 'og:title', 
-    content: 'Dachsanierung vom Meisterbetrieb – KfW-Förderung möglich | DNG GmbH' 
+    content: 'Dachsanierung vom Fachetrieb – KfW-Förderung möglich | DNG GmbH' 
   });
   
   this.metaService.updateTag({ 
     property: 'og:description', 
-    content: 'Professionelle Dachsanierung vom Meisterbetrieb in Nahe Glan. KfW-Förderung möglich. Energieeffizient dämmen, neu decken & Heizkosten sparen. Jetzt Angebot erhalten!' 
+    content: 'Professionelle Dachsanierung vom Fachetrieb in Nahe Glan. KfW-Förderung möglich. Energieeffizient dämmen, neu decken & Heizkosten sparen. Jetzt Angebot erhalten!' 
   });
   
   this.metaService.updateTag({ 

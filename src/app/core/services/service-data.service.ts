@@ -217,7 +217,7 @@ export class ServiceDataService {
       sections: [
         {
           type: 'hero', data: {
-            headline: 'Dachsanierung vom Meisterbetrieb – DNG GmbH Nahe-Glan',
+            headline: 'Dachsanierung vom Fachetrieb – DNG GmbH Nahe-Glan',
             subline: 'Professionell & nachhaltig',
             image: 'assets/images/services/dachsanierung.jpg',
             overlay: true
@@ -298,7 +298,7 @@ export class ServiceDataService {
         },
         {
           type: 'richtext', data: {
-            html: '<h2>Regional & zuverlässig</h2><p>Wir sanieren Dächer im gesamten Raum: Nahe Glan, Bad Kreuznach, Kirn, Meisenheim, Bingen, Simmern, Kirchheimbolanden, Idar-Oberstein & Umgebung.</p><p>Als regionaler Meisterbetrieb mit Erfahrung aus über 50 Dachprojekten stehen wir für Zuverlässigkeit, Termintreue und Qualität.</p>'
+            html: '<h2>Regional & zuverlässig</h2><p>Wir sanieren Dächer im gesamten Raum: Nahe Glan, Bad Kreuznach, Kirn, Meisenheim, Bingen, Simmern, Kirchheimbolanden, Idar-Oberstein & Umgebung.</p><p>Als regionaler Fachetrieb mit Erfahrung aus über 50 Dachprojekten stehen wir für Zuverlässigkeit, Termintreue und Qualität.</p>'
           }
         },
         {

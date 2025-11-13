@@ -41,7 +41,7 @@ ngOnInit(): void {
   
   this.metaService.updateTag({ 
     name: 'description', 
-    content: 'Schnelle Dachreparatur bei Sturmschäden & Notfällen. Wartungsverträge & Inspektion vom Meisterbetrieb in Nahe Glan, Bad Kreuznach & Kirn. 24h-Notdienst verfügbar!' 
+    content: 'Schnelle Dachreparatur bei Sturmschäden & Notfällen. Wartungsverträge & Inspektion vom Fachetrieb in Nahe Glan, Bad Kreuznach & Kirn. 24h-Notdienst verfügbar!' 
   });
   
   this.metaService.updateTag({ 
@@ -99,12 +99,12 @@ ngOnInit(): void {
   // Open Graph und Twitter Card Tags für Social Sharing
   this.metaService.updateTag({ 
     property: 'og:title', 
-    content: 'Dachreparatur & 24h-Notdienst vom Meisterbetrieb | DNG GmbH' 
+    content: 'Dachreparatur & 24h-Notdienst vom Fachetrieb | DNG GmbH' 
   });
   
   this.metaService.updateTag({ 
     property: 'og:description', 
-    content: 'Schnelle Dachreparatur bei Sturmschäden & Notfällen. Wartungsverträge & Inspektion vom Meisterbetrieb in Nahe Glan, Bad Kreuznach & Kirn. 24h-Notdienst verfügbar!' 
+    content: 'Schnelle Dachreparatur bei Sturmschäden & Notfällen. Wartungsverträge & Inspektion vom Fachetrieb in Nahe Glan, Bad Kreuznach & Kirn. 24h-Notdienst verfügbar!' 
   });
   
   this.metaService.updateTag({ 

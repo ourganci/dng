@@ -18,7 +18,7 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
     this.seoService.updateMetaTags({
       title: 'Über uns – DNG GmbH Dachdeckerfachbetrieb Nahe Glan',
-      description: 'Lernen Sie Thomas Schneider und sein Team kennen. Als Dachdeckerfachbetrieb sind wir seit über 20 Jahren Ihr zuverlässiger Partner im Raum Nahe Glan.',
+      description: 'Lernen Sie Thomas Schneider und sein Team kennen. Als Dachdeckerfachbetrieb sind wir Ihr zuverlässiger Partner im Raum Nahe Glan.',
       keywords: 'Dachdecker Team, Fachbetrieb, Thomas Schneider, Nahe Glan, Über uns',
       url: 'https://www.dng-gmbh.de/ueber-uns'
     });
