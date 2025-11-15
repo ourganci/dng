@@ -23,7 +23,7 @@ export class ServicesOverviewComponent implements OnInit {
       title: 'Unsere Leistungen – DNG GmbH Dachdeckerfachbetrieb',
       description: 'Alle Dacharbeiten aus einer Hand: Dachsanierung, Dachfenster, Reparaturen, PV-Anlagen und mehr. Ihr Experte für Nahe Glan und Umgebung.',
       keywords: 'Dachdecker Leistungen, Dachsanierung, Dachfenster, PV-Anlagen, Flachdach',
-      url: 'https://www.dng-gmbh.de/leistungen'
+      url: 'https://www.dng-nahe-glan.de/leistungen'
     });
   }
 }

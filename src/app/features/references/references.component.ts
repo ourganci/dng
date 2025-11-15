@@ -96,7 +96,7 @@ export class ReferencesComponent implements OnInit {
       title: 'Referenzen – Unsere Projekte | DNG GmbH Dachdeckerei',
       description: 'Überzeugen Sie sich von unserer Arbeit. Sehen Sie Beispiele unserer Dachprojekte im Raum Nahe Glan, Bad Kreuznach und Kirn.',
       keywords: 'Dachdecker Referenzen, Projekte, Vorher Nachher, Kundenstimmen',
-      url: 'https://www.dng-gmbh.de/referenzen'
+      url: 'https://www.dng-nahe-glan.de/referenzen'
     });
   }
 

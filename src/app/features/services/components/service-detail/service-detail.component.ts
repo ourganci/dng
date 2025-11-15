@@ -57,7 +57,7 @@ export class ServiceDetailComponent implements OnInit, OnDestroy { // ✅ OnDest
         title: this.service.title,
         description: this.service.description,
         keywords: this.service.keywords,
-        url: `https://www.dng-gmbh.de/leistungen/${serviceId}`
+        url: `https://www.dng-nahe-glan.de/leistungen/${serviceId}`
       });
 
       // ✅ Scroll to Top bei Route-Wechsel

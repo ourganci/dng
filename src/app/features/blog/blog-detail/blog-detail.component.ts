@@ -55,7 +55,7 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
         title: `${this.article.title} – DNG GmbH Ratgeber`,
         description: 'Der Winter stellt besondere Anforderungen an Ihr Dach. Erfahren Sie, welche Maßnahmen wichtig sind.',
         keywords: 'Dach Winter, Wintervorbereitung, Dachinspektion',
-        url: `https://www.dng-gmbh.de/ratgeber/${this.slug}`
+        url: `https://www.dng-nahe-glan.de/ratgeber/${this.slug}`
       });
 
       // Article Schema hinzufügen
@@ -64,8 +64,8 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
         description: 'Der Winter stellt besondere Anforderungen an Ihr Dach. Erfahren Sie, welche Maßnahmen wichtig sind.',
         author: this.article.author,
         datePublished: this.article.date,
-        image: `https://www.dng-gmbh.de/${this.article.image}`,
-        url: `https://www.dng-gmbh.de/ratgeber/${this.slug}`
+        image: `https://www.dng-nahe-glan.de/${this.article.image}`,
+        url: `https://www.dng-nahe-glan.de/ratgeber/${this.slug}`
       });
     });
   }

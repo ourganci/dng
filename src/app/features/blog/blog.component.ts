@@ -70,7 +70,7 @@ export class BlogComponent implements OnInit {
       title: 'Ratgeber & Blog – Tipps rund ums Dach | DNG GmbH',
       description: 'Nützliche Tipps und Ratschläge rund um Dach, Sanierung, PV-Anlagen und mehr. Expertenwissen vom Dachdeckerfachbetrieb aus Nahe Glan.',
       keywords: 'Dachdecker Ratgeber, Dach Tipps, Blog, Wartung, PV-Anlagen',
-      url: 'https://www.dng-gmbh.de/ratgeber'
+      url: 'https://www.dng-nahe-glan.de/ratgeber'
     });
   }
 

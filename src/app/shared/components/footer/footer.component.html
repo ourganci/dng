@@ -43,7 +43,8 @@
         </p>
         <p>
           <strong>Telefon:</strong><br>
-          <a [href]="'tel:' + companyData.telephone">{{ phone }}</a>
+          Telefon: <a [href]="'tel:' + companyData.telephone">{{ companyData.telephone }}</a><br>
+          Mobil: <a [href]="'tel:' + companyData.mobile">{{ companyData.mobile }}</a>
         </p>
         <p>
           <strong>E-Mail:</strong><br>

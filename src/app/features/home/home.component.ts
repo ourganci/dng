@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   services = this.serviceDataService.getServicesOverview();
 
   partnerLogos = [
+    { name: 'DEG', file: 'deg.png' },
     { name: 'Creaton', file: 'creaton.png.webp' },
     // { name: 'GreenCoat', file: 'GreenCoat.png.webp' },
     { name: 'Kemperol', file: 'kemperol.jpg.webp' },
@@ -40,7 +41,7 @@ export class HomeComponent implements OnInit {
       title: 'DNG GmbH – Dachdeckerfachbetrieb für Nahe Glan & Umgebung',
       description: 'Ihr Dachdecker-Fachbetrieb für Dachsanierung, PV-Anlagen, Dachfenster und mehr.',
       keywords: 'Dachdecker Nahe Glan, Dachsanierung, PV-Anlagen',
-      url: 'https://www.dng-gmbh.de'
+      url: 'https://www.dng-nahe-glan.de'
     });
   }
 

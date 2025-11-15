@@ -21,8 +21,8 @@ export class SchemaMarkupService {
       "height": "60"
     },
     "url": "https://www.dng-nahe-glan.de/",
-    "telephone": "+4967531237119",
-    "mobile": "+4915158420657",
+    "telephone": "+49 6753 1237119",
+    "mobile": "+49 151 584 20 657",
     "email": "info@dng-nahe-glan.de",
     "address": {
       "@type": "PostalAddress",

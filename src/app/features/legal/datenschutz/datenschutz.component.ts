@@ -16,7 +16,7 @@ export class DatenschutzComponent implements OnInit {
       title: 'Datenschutzerklärung – DNG GmbH',
       description: 'Datenschutzerklärung der DNG GmbH gemäß DSGVO.',
       keywords: 'Datenschutz, DSGVO, Datenschutzerklärung',
-      url: 'https://www.dng-gmbh.de/datenschutz'
+      url: 'https://www.dng-nahe-glan.de/datenschutz'
     });
   }
 }

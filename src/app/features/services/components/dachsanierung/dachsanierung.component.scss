@@ -164,6 +164,101 @@
         background: var(--bg-dng-sand);
     }
 
+    .service-what-you-get {
+        padding: var(--spacing-xxl) 0;
+        background: var(--bg-light-gray);
+
+        // Karten-Grid - 4 Spalten nebeneinander auf Desktop
+        .service-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: clamp(1.5rem, 3vw, 2rem);
+
+            // 2 Spalten auf Tablets
+            @media (min-width: 768px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            // 4 Spalten auf Desktop
+            @media (min-width: 1200px) {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        // Einzelne Karte
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06),
+                0 8px 16px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            &:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1),
+                    0 16px 32px rgba(0, 0, 0, 0.08);
+            }
+
+            // Bild-Container
+            .card-image {
+                width: 100%;
+                height: 200px;
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 60%;
+                    // background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+                    pointer-events: none;
+                }
+            }
+
+            &:hover .card-image img {
+                transform: scale(1.05);
+            }
+
+            // Content-Container
+            .card-content {
+                padding: var(--spacing-xl);
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+
+                h3 {
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    color: var(--text-dark);
+                    margin-bottom: var(--spacing-sm);
+                    line-height: 1.3;
+                }
+
+                p {
+                    font-size: 0.95rem;
+                    line-height: 1.6;
+                    color: var(--text-medium);
+                    margin: 0;
+                }
+            }
+        }
+    }
+
     // Vorteile Section - Icon links, Text rechts
     .service-benefits {
         padding: var(--spacing-xxl) 0;

@@ -51,6 +51,19 @@
         <div class="info-item">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+            </path>
+          </svg>
+          <div>
+            <h4>Mobil</h4>
+            <p><a href="tel:{{ companyData.mobile }}">{{ companyData.mobile }}</a></p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
           </svg>
@@ -137,8 +150,8 @@
           <!-- Nachname -->
           <div class="form-group">
             <label for="name">Nachname *</label>
-            <input type="text" id="name" formControlName="name" 
-            [class.invalid]="f['name'].invalid && (f['name'].touched || submitted())"
+            <input type="text" id="name" formControlName="name"
+              [class.invalid]="f['name'].invalid && (f['name'].touched || submitted())"
               placeholder="Ihr vollständiger Name">
 
             @if (f['name'].invalid && (f['name'].touched || submitted())) {
@@ -156,8 +169,8 @@
           <!-- Straße -->
           <div class="form-group">
             <label for="street">Straße & Hausnummer *</label>
-            <input type="text" id="street" formControlName="street" 
-            [class.invalid]="f['street'].invalid && (f['street'].touched || submitted())"
+            <input type="text" id="street" formControlName="street"
+              [class.invalid]="f['street'].invalid && (f['street'].touched || submitted())"
               placeholder="Ihre Straße & Hausnummer">
 
             @if (f['street'].invalid && (f['street'].touched || submitted())) {
@@ -194,9 +207,8 @@
           <!-- Ort -->
           <div class="form-group">
             <label for="city">Ort *</label>
-            <input type="text" id="city" formControlName="city" 
-            [class.invalid]="f['city'].invalid && (f['city'].touched || submitted())"
-              placeholder="Ihr Ort">
+            <input type="text" id="city" formControlName="city"
+              [class.invalid]="f['city'].invalid && (f['city'].touched || submitted())" placeholder="Ihr Ort">
 
             @if (f['city'].invalid && (f['city'].touched || submitted())) {
             <div class="error-message">
@@ -213,9 +225,8 @@
           <!-- E-Mail -->
           <div class="form-group">
             <label for="email">E-Mail *</label>
-            <input type="email" id="email" formControlName="email" 
-            [class.invalid]="f['email'].invalid && (f['email'].touched || submitted())"
-              placeholder="ihre@email.de">
+            <input type="email" id="email" formControlName="email"
+              [class.invalid]="f['email'].invalid && (f['email'].touched || submitted())" placeholder="ihre@email.de">
 
             @if (f['email'].invalid && (f['email'].touched || submitted())) {
             <div class="error-message">
@@ -232,9 +243,8 @@
           <!-- Telefon -->
           <div class="form-group">
             <label for="phone">Telefon *</label>
-            <input type="tel" id="phone" formControlName="phone" 
-            [class.invalid]="f['phone'].invalid && (f['phone'].touched || submitted())"
-              placeholder="+49 XXX XXXXXXX">
+            <input type="tel" id="phone" formControlName="phone"
+              [class.invalid]="f['phone'].invalid && (f['phone'].touched || submitted())" placeholder="+49 XXX XXXXXXX">
 
             @if (f['phone'].invalid && (f['phone'].touched || submitted())) {
             <div class="error-message">
@@ -251,8 +261,7 @@
           <!-- Service -->
           <div class="form-group">
             <label for="service">Gewünschte Leistung *</label>
-            <select id="service" formControlName="service" 
-            [class.invalid]="submitted() && f['service'].errors">
+            <select id="service" formControlName="service" [class.invalid]="submitted() && f['service'].errors">
               <option value="">Bitte wählen...</option>
               @for (service of services; track service) {
               <option [value]="service">{{ service }}</option>
@@ -269,9 +278,9 @@
           <!-- Nachricht -->
           <div class="form-group">
             <label for="message">Ihre Nachricht *</label>
-            <textarea id="message" formControlName="message" 
-            [class.invalid]="f['message'].invalid && (f['message'].touched || submitted())"
-              rows="4" placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
+            <textarea id="message" formControlName="message"
+              [class.invalid]="f['message'].invalid && (f['message'].touched || submitted())" rows="4"
+              placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
 
             @if (f['message'].invalid && (f['message'].touched || submitted())) {
             <div class="error-message">
@@ -288,8 +297,7 @@
           <!-- Datenschutz -->
           <div class="form-group checkbox-group">
             <label>
-              <input type="checkbox" formControlName="privacy" 
-              [class.invalid]="submitted() && f['privacy'].errors">
+              <input type="checkbox" formControlName="privacy" [class.invalid]="submitted() && f['privacy'].errors">
               <span>
                 Ich habe die <a href="/dng/datenschutz" target="_blank">Datenschutzerklärung</a>
                 gelesen und stimme der Verarbeitung meiner Daten zu. *

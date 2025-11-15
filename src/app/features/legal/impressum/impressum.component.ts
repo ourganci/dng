@@ -16,7 +16,7 @@ export class ImpressumComponent implements OnInit {
       title: 'Impressum – DNG GmbH Dachdeckerfachbetrieb',
       description: 'Impressum und Kontaktdaten der DNG GmbH Dachdeckerfachbetrieb.',
       keywords: 'Impressum, Kontakt, Angaben',
-      url: 'https://www.dng-gmbh.de/impressum'
+      url: 'https://www.dng-nahe-glan.de/impressum'
     });
   }
 }
