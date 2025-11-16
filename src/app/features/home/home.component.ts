@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
 
   partnerLogos = [
     { name: 'DEG', file: 'deg.png' },
+    { name: 'Velux', file: 'velux.png' },
+    { name: 'Beinbrech', file: 'beinbrech.png' },
     { name: 'Creaton', file: 'creaton.png.webp' },
     // { name: 'GreenCoat', file: 'GreenCoat.png.webp' },
     { name: 'Kemperol', file: 'kemperol.jpg.webp' },
@@ -27,12 +29,12 @@ export class HomeComponent implements OnInit {
     // { name: 'Rheinzink', file: 'rheinzink.svg' },
     // { name: 'Roto Frank', file: 'Roto_Frank.svg' },
     { name: 'Steiner Gerüstbau', file: 'gerustbau_steiner_new_s.webp' },
-    { name: 'Soprema', file: 'soprema.svg' },
-    { name: 'Subnova', file: 'subnova.svg' },
-    { name: 'VMZinc', file: 'vmzinc.svg' },
+    // { name: 'Soprema', file: 'soprema.svg' },
+    // { name: 'Subnova', file: 'subnova.svg' },
+    // { name: 'VMZinc', file: 'vmzinc.svg' },
     // { name: 'Velux', file: 'velux.png' },
     { name: 'Wienerberger', file: 'wienerberger.svg' },
-    { name: 'Wolf Gerüstbau', file: 'wolf-geruestbau-logo.png.webp' },
+    // { name: 'Wolf Gerüstbau', file: 'wolf-geruestbau-logo.png.webp' },
     { name: 'Würth', file: 'wuerth.svg' }
   ];
 

@@ -25,12 +25,12 @@
             @for (img of images; track $index) {
             <div class="carousel-item" [class.active]="$index === 0">
               <img [src]="img.src" class="d-block w-100" [alt]="img.alt">
-              <!-- @if (img.caption || img.title) {
-                            <div class="carousel-caption d-none d-md-block">
-                                @if (img.title) { <h5>{{ img.title }}</h5> }
-                                @if (img.caption) { <p>{{ img.caption }}</p> }
-                            </div>
-                            } -->
+              @if (img.caption || img.title) {
+              <div class="carousel-caption d-none d-md-block">
+                @if (img.title) { <h5>{{ img.title }}</h5> }
+                @if (img.caption) { <p>{{ img.caption }}</p> }
+              </div>
+              }
             </div>
             }
           </div>

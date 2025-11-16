@@ -80,15 +80,15 @@ export class ReferencesComponent implements OnInit {
 
 
   images = [
-    { src: 'assets/images/services/Dach-Bad-3.webp', alt: 'Dachbad', caption: 'Optionaler Text', title: 'Modernes Dachbad' },
-    { src: 'assets/images/services/Dach-Fenster-8.webp', alt: 'Dachfenster', caption: 'Optionaler Text', title: 'Modernes Dachfenster' },
-    { src: 'assets/images/services/Dach-Kueche-1.webp', alt: 'Dachküche', caption: 'Optionaler Text', title: 'Moderne Dachküche' },
-    { src: 'assets/images/services/Dach-Wohnen-3.webp', alt: 'Dachwohnraum', caption: 'Optionaler Text', title: 'Moderner Dachwohnraum' },
-    { src: 'assets/images/services/Dach-Wohnen-8.webp', alt: 'Dachwohnraum', caption: 'Optionaler Text', title: 'Moderner Dachwohnraum' },
-    { src: 'assets/images/services/Dach-Bad-7.webp', alt: 'Dachbad', caption: 'Optionaler Text', title: 'Modernes Dachbad' },
-    { src: 'assets/images/services/Dach-Gaube-2.webp', alt: 'Dachgaube', caption: 'Optionaler Text', title: 'Moderne Dachgaube' },
-    { src: 'assets/images/services/Dach-Kueche-4.webp', alt: 'Dachküche', caption: 'Optionaler Text', title: 'Moderne Dachküche' },
-    { src: 'assets/images/services/Dach-Wohnen-7.webp', alt: 'Dachwohnraum', caption: 'Optionaler Text', title: 'Moderner Dachwohnraum' }
+    { src: '/assets/images/references/r1.webp', alt: 'PV Anlage', caption: 'Geschäftsstelle Volksbank Otterbach', title: 'PV-Anlage Lauterecken' },
+    { src: '/assets/images/references/r2.webp', alt: 'PV Anlage', caption: 'Geschäftsstelle Volksbank Otterbach', title: 'PV-Anlage Lauterecken' },
+    { src: '/assets/images/references/r3.webp', alt: 'PV Anlage Dintesheim', title: 'PV Anlage Dintesheim', caption: '36 Module Glas-Glas - 10kWh Speicher', },
+    { src: '/assets/images/references/r4.webp', alt: 'PV Anlage Eisenberg', title: ' PV Anlage Eisenberg', caption: '15 Module Glas-Glas - 10kWh Speicher' },
+    { src: '/assets/images/references/r5.webp', alt: 'PV Anlage Rehborn', title: 'PV Anlage Rehborn', caption: '26 Module Glas-Glas - 10kWh Speicher' },
+    { src: '/assets/images/references/r6.webp', alt: 'PV Anlage Rehborn', title: 'PV Anlage Rehborn', caption: '26 Module Glas-Glas - 10kWh Speicher' },
+    { src: '/assets/images/references/r7.webp', alt: 'PV Anlage Rehborn', title: 'PV Anlage Rehborn', caption: '32 Module Glas-Glas - 10kWh Speicher und Wallbox' },
+    { src: '/assets/images/references/r8.webp', alt: 'PV Anlage Rehborn Wallbox', title: 'PV Anlage Rehborn', caption: '32 Module Glas-Glas - 10kWh Speicher und Wallbox' },
+    { src: '/assets/images/references/r9.webp', alt: 'PV Anlage Gau-Bickelheim', title: 'PV Anlage Gau-Bickelheim', caption: '3-seitige Installation mit 30 Modulen Glas-Glas - 10kWh Speicher' },
   ];
 
   ngOnInit(): void {
