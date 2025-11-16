@@ -81,7 +81,7 @@ export class ContactComponent implements OnInit {
     // Optionaler "Wird gesendet"-Status
     this.isSending.set(true);
 
-    fetch('http://ang.dng-nahe-glan.de/mail.php', {
+    fetch('https://ang.dng-nahe-glan.de/mail.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
       body: formData.toString(),
