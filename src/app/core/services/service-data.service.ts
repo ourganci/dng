@@ -71,7 +71,7 @@ export class ServiceDataService {
     {
       id: 'pv-anlagen',
       title: 'PV-Anlagen Nahe Glan – Solarenergie für Ihr Dach',
-      headline: 'Photovoltaik-Anlagen vom Fachbetrieb',
+      headline: 'Photovoltaik-Anlagen',
       description: 'Nutzen Sie die Kraft der Sonne! Wir planen und installieren moderne Photovoltaik-Anlagen auf Ihrem Dach – für nachhaltige Energiegewinnung, Unabhängigkeit und Kosteneinsparung.',
       benefits: [
         {
@@ -209,7 +209,7 @@ export class ServiceDataService {
     {
       id: 'dachsanierung',
       title: 'Dachsanierung Nahe Glan – professionell & nachhaltig',
-      headline: 'Dachsanierung vom Fachbetrieb',
+      headline: 'Dachsanierung',
       description: 'Ihr Dach ist in die Jahre gekommen? Feuchtigkeit, Wärmeverluste oder lockere Ziegel sind erste Anzeichen für Sanierungsbedarf. Als erfahrener Dachdeckerbetrieb aus Nahe Glan bieten wir Ihnen fachgerechte Dachsanierungen im Umkreis von 50 km – für Wohnhäuser, Gewerbeobjekte und Mehrfamilienhäuser.',
       keywords: 'Dachsanierung, Dachdecker Nahe Glan, Dach erneuern, Dach dämmen, Dach abdichten, Sanierung',
       icon: '🏠',
@@ -314,7 +314,7 @@ export class ServiceDataService {
     {
       id: 'dachfenster',
       title: 'Dachfenster Nahe Glan – Mehr Licht und Wohnkomfort',
-      headline: 'Dachfenster-Einbau vom Fachbetrieb',
+      headline: 'Dachfenster-Einbau',
       description: 'Dachfenster bringen natürliches Licht in Ihr Dachgeschoss und schaffen ein angenehmes Wohnklima. Wir sind Ihr Fachbetrieb für Einbau, Austausch und Reparatur von Dachfenstern in Nahe Glan und Umgebung.',
       benefits: [
         {

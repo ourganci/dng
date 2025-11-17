@@ -80,8 +80,8 @@ export class ReferencesComponent implements OnInit {
 
 
   images = [
-    { src: '/assets/images/references/r1.webp', alt: 'PV Anlage', caption: 'Geschäftsstelle Volksbank Otterbach', title: 'PV-Anlage Lauterecken' },
-    { src: '/assets/images/references/r2.webp', alt: 'PV Anlage', caption: 'Geschäftsstelle Volksbank Otterbach', title: 'PV-Anlage Lauterecken' },
+    { src: '/assets/images/references/r1.webp', alt: 'PV Anlage Volksbank Otterbach', title: 'Geschäftsstelle Volksbank Otterbach', caption: 'PV-Anlage Lauterecken' },
+    { src: '/assets/images/references/r2.webp', alt: 'PV Anlage Volksbank Otterbach', title: 'Geschäftsstelle Volksbank Otterbach', caption: 'PV-Anlage Lauterecken' },
     { src: '/assets/images/references/r3.webp', alt: 'PV Anlage Dintesheim', title: 'PV Anlage Dintesheim', caption: '36 Module Glas-Glas - 10kWh Speicher', },
     { src: '/assets/images/references/r4.webp', alt: 'PV Anlage Eisenberg', title: ' PV Anlage Eisenberg', caption: '15 Module Glas-Glas - 10kWh Speicher' },
     { src: '/assets/images/references/r5.webp', alt: 'PV Anlage Rehborn', title: 'PV Anlage Rehborn', caption: '26 Module Glas-Glas - 10kWh Speicher' },
