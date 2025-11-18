@@ -16,6 +16,29 @@ export class DachfensterComponent implements OnInit {
 
   constructor(private titleService: Title, private metaService: Meta) { }
 
+  faqs = [
+    {
+      question: 'Welche Dachfenster-Typen gibt es?',
+      answer: 'Die gängigsten Typen sind Schwingfenster (klassisch), Klapp-Schwingfenster (mit Balkon-Funktion) und Ausstiegsfenster für den Zugang aufs Dach. Wir beraten Sie, welcher Typ für Ihre Bedürfnisse ideal ist.',
+      isOpen: false
+    },
+    {
+      question: 'Kann jedes Dach ein Dachfenster bekommen?',
+      answer: 'Grundsätzlich ja, allerdings müssen die Dachneigung (15-90°) und die Dachkonstruktion geprüft werden. Bei Flachdächern gibt es spezielle Lösungen wie Lichtkuppeln.',
+      isOpen: false
+    },
+    {
+      question: 'Wie lange dauert der Einbau?',
+      answer: 'Der Einbau eines Dachfensters dauert in der Regel 4-8 Stunden pro Fenster, abhängig von der Dachkonstruktion und dem gewählten Fenstertyp.',
+      isOpen: false
+    },
+    {
+      question: 'Arbeiten Sie mit Markenherstellern?',
+      answer: 'Ja, wir sind Partner von führenden Herstellern wie VELUX, Roto und Fakro und bieten Ihnen hochwertige Produkte mit Herstellergarantie.',
+      isOpen: false
+    }
+  ]
+
   ngOnInit(): void {
     this.titleService.setTitle('Dachfenster Nahe Glan – Einbau, Austausch & Reparatur | DNG GmbH');
 
@@ -119,5 +142,8 @@ export class DachfensterComponent implements OnInit {
     this.openCard = this.openCard === index ? null : index;
   }
 
+  toggleFaq(index: number): void {
+    this.faqs[index].isOpen = !this.faqs[index].isOpen;
+  }
 
 }

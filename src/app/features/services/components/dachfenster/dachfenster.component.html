@@ -130,7 +130,8 @@
                 </div>
 
                 <div class="story-image">
-                    <img src="assets/images/services/dachfenster/lichtlosung_s.webp" alt="Individuelle Lichtlösung" loading="lazy">
+                    <img src="assets/images/services/dachfenster/lichtlosung_s.webp" alt="Individuelle Lichtlösung"
+                        loading="lazy">
                     <!-- <img src="assets/images/services/Dach-Gaube-2.webp" alt="Dachgaube" loading="lazy"> -->
                 </div>
             </div>
@@ -182,7 +183,8 @@
                     </p>
                 </div>
                 <div class="story-image">
-                    <img src="assets/images/services/dachfenster/Dach-Markise-1.webp" alt="Dachfenster Markise" loading="lazy">
+                    <img src="assets/images/services/dachfenster/Dach-Markise-1.webp" alt="Dachfenster Markise"
+                        loading="lazy">
                     <!-- <img src="assets/images/services/Dach-Gaube-2.webp" alt="Dachgaube" loading="lazy"> -->
                 </div>
             </div>
@@ -190,112 +192,124 @@
     </section>
 
     <section class="service-funding">
-  <div class="container">
-    <div class="section-header">
-      <h2>Fördermöglichkeiten für Ihre Dachfenster</h2>
-      <h2 class="subtitle">Nutzen Sie staatliche Zuschüsse und Steuervorteile</h2>
-    </div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Fördermöglichkeiten für Ihre Dachfenster</h2>
+                <h2 class="subtitle">Nutzen Sie staatliche Zuschüsse und Steuervorteile</h2>
+            </div>
 
-    <div class="funding-intro">
-      <p>
-        <strong>Wichtig:</strong> Förderanträge müssen grundsätzlich <strong>vor</strong> der Auftragserteilung gestellt werden. Wir beraten Sie gerne zu den passenden Förderprogrammen und unterstützen Sie bei der Antragstellung.
-      </p>
-    </div>
+            <div class="funding-intro">
+                <p>
+                    <strong>Wichtig:</strong> Förderanträge müssen grundsätzlich <strong>vor</strong> der
+                    Auftragserteilung gestellt werden. Wir beraten Sie gerne zu den passenden Förderprogrammen und
+                    unterstützen Sie bei der Antragstellung.
+                </p>
+            </div>
 
-    <!-- Funding Options -->
-    <div class="funding-options">
-      
-      <!-- Option 1: BEG -->
-      <div class="funding-card" [class.active]="openCard === 0">
-        <button type="button" class="funding-header" (click)="toggleCard(0)" [attr.aria-expanded]="openCard === 0">
-          <h3>Bundesförderung für effiziente Gebäude (BEG)</h3>
-          <div class="header-right">
-            <span class="funding-badge">15–20 % Zuschuss</span>
-            <span class="funding-icon" [class.rotated]="openCard === 0">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </span>
-          </div>
-        </button>
+            <!-- Funding Options -->
+            <div class="funding-options">
 
-        @if (openCard === 0) {
-        <div class="funding-content">
-          <p>Investitionszuschuss für energetische Einzelmaßnahmen an Wohn- und Nichtwohngebäuden.</p>
-          <ul class="bullet-list">
-            <li>15 bis 20 % der förderfähigen Kosten als direkter Zuschuss</li>
-            <li>Gilt für Material- und Handwerkerleistung</li>
-            <li>Keine Rückzahlung erforderlich</li>
-          </ul>
+                <!-- Option 1: BEG -->
+                <div class="funding-card" [class.active]="openCard === 0">
+                    <button type="button" class="funding-header" (click)="toggleCard(0)"
+                        [attr.aria-expanded]="openCard === 0">
+                        <h3>Bundesförderung für effiziente Gebäude (BEG)</h3>
+                        <div class="header-right">
+                            <span class="funding-badge">15–20 % Zuschuss</span>
+                            <span class="funding-icon" [class.rotated]="openCard === 0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </span>
+                        </div>
+                    </button>
+
+                    @if (openCard === 0) {
+                    <div class="funding-content">
+                        <p>Investitionszuschuss für energetische Einzelmaßnahmen an Wohn- und Nichtwohngebäuden.</p>
+                        <ul class="bullet-list">
+                            <li>15 bis 20 % der förderfähigen Kosten als direkter Zuschuss</li>
+                            <li>Gilt für Material- und Handwerkerleistung</li>
+                            <li>Keine Rückzahlung erforderlich</li>
+                        </ul>
+                    </div>
+                    }
+                </div>
+
+                <!-- Option 2: Steuerförderung -->
+                <div class="funding-card" [class.active]="openCard === 1">
+                    <button type="button" class="funding-header" (click)="toggleCard(1)"
+                        [attr.aria-expanded]="openCard === 1">
+                        <h3>Steuerliche Förderung nach §35c EStG</h3>
+                        <div class="header-right">
+                            <span class="funding-badge">Bis 20 % absetzbar</span>
+                            <span class="funding-icon" [class.rotated]="openCard === 1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </span>
+                        </div>
+                    </button>
+
+                    @if (openCard === 1) {
+                    <div class="funding-content">
+                        <p>Verteilen Sie die Investitionskosten über drei Jahre und reduzieren Sie Ihre
+                            Einkommenssteuer.</p>
+                        <ul class="bullet-list">
+                            <li><strong>Jahr 1:</strong> 7 % der Investitionskosten</li>
+                            <li><strong>Jahr 2:</strong> 7 % der Investitionskosten</li>
+                            <li><strong>Jahr 3:</strong> 6 % der Investitionskosten</li>
+                            <li><strong>Maximale Förderung:</strong> 40.000 € bei 200.000 € Investition</li>
+                        </ul>
+                        <p class="funding-note">
+                            Gilt für energetische Sanierungsmaßnahmen nach der ESanMV (Energetische
+                            Sanierungsmaßnahmen-Verordnung).
+                        </p>
+                    </div>
+                    }
+                </div>
+
+                <!-- Option 3: Nachrüstung -->
+                <div class="funding-card" [class.active]="openCard === 2">
+                    <button type="button" class="funding-header" (click)="toggleCard(2)"
+                        [attr.aria-expanded]="openCard === 2">
+                        <h3>Förderung bei Nachrüstung</h3>
+                        <div class="header-right">
+                            <span class="funding-badge">Bis 20 % Zuschuss</span>
+                            <span class="funding-icon" [class.rotated]="openCard === 2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </span>
+                        </div>
+                    </button>
+
+                    @if (openCard === 2) {
+                    <div class="funding-content">
+                        <p>Auch die nachträgliche Installation von Sonnenschutz ist förderfähig.</p>
+                        <ul class="bullet-list">
+                            <li>Rollläden mit strahlungsabhängiger Steuerung</li>
+                            <li>Hitzeschutz-Markisen mit automatischer Steuerung</li>
+                            <li>Bis zu 20 % der Investitionskosten als Zuschuss</li>
+                        </ul>
+                    </div>
+                    }
+                </div>
+            </div>
+
+
+
+            <div class="funding-cta">
+                <p>
+                    <strong>Gut zu wissen:</strong> Wir unterstützen Sie bei der Auswahl des passenden Förderprogramms
+                    und helfen bei der Antragsstellung. Sprechen Sie uns an!
+                </p>
+            </div>
         </div>
-        }
-      </div>
-
-      <!-- Option 2: Steuerförderung -->
-      <div class="funding-card" [class.active]="openCard === 1">
-        <button type="button" class="funding-header" (click)="toggleCard(1)" [attr.aria-expanded]="openCard === 1">
-          <h3>Steuerliche Förderung nach §35c EStG</h3>
-          <div class="header-right">
-            <span class="funding-badge">Bis 20 % absetzbar</span>
-            <span class="funding-icon" [class.rotated]="openCard === 1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </span>
-          </div>
-        </button>
-
-        @if (openCard === 1) {
-        <div class="funding-content">
-          <p>Verteilen Sie die Investitionskosten über drei Jahre und reduzieren Sie Ihre Einkommenssteuer.</p>
-          <ul class="bullet-list">
-            <li><strong>Jahr 1:</strong> 7 % der Investitionskosten</li>
-            <li><strong>Jahr 2:</strong> 7 % der Investitionskosten</li>
-            <li><strong>Jahr 3:</strong> 6 % der Investitionskosten</li>
-            <li><strong>Maximale Förderung:</strong> 40.000 € bei 200.000 € Investition</li>
-          </ul>
-          <p class="funding-note">
-            Gilt für energetische Sanierungsmaßnahmen nach der ESanMV (Energetische Sanierungsmaßnahmen-Verordnung).
-          </p>
-        </div>
-        }
-      </div>
-
-      <!-- Option 3: Nachrüstung -->
-      <div class="funding-card" [class.active]="openCard === 2">
-        <button type="button" class="funding-header" (click)="toggleCard(2)" [attr.aria-expanded]="openCard === 2">
-          <h3>Förderung bei Nachrüstung</h3>
-          <div class="header-right">
-            <span class="funding-badge">Bis 20 % Zuschuss</span>
-            <span class="funding-icon" [class.rotated]="openCard === 2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </span>
-          </div>
-        </button>
-
-        @if (openCard === 2) {
-        <div class="funding-content">
-          <p>Auch die nachträgliche Installation von Sonnenschutz ist förderfähig.</p>
-          <ul class="bullet-list">
-            <li>Rollläden mit strahlungsabhängiger Steuerung</li>
-            <li>Hitzeschutz-Markisen mit automatischer Steuerung</li>
-            <li>Bis zu 20 % der Investitionskosten als Zuschuss</li>
-          </ul>
-        </div>
-        }
-      </div>
-
-    </div>
-
-    <div class="funding-cta">
-      <p>
-        <strong>Gut zu wissen:</strong> Wir unterstützen Sie bei der Auswahl des passenden Förderprogramms und helfen bei der Antragsstellung. Sprechen Sie uns an!
-      </p>
-    </div>
-  </div>
-</section>
+    </section>
 
 
 
@@ -324,15 +338,13 @@
 </section> -->
 
     <!-- Vorteile Section - Mit Icons -->
-    <section class="service-benefits">
+    <!-- <section class="service-benefits">
         <div class="container">
             <h2>Ihre Vorteile</h2>
 
             <div class="benefits-grid">
-                <!-- Benefit 1 -->
                 <div class="benefit-item">
                     <span class="icon-circle">
-                        <!-- Plus Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="var(--text-medium)" stroke-width="2">
                             <path d="M3 12h18"></path>
@@ -345,10 +357,8 @@
                     </div>
                 </div>
 
-                <!-- Benefit 2 -->
                 <div class="benefit-item">
                     <span class="icon-circle">
-                        <!-- Haus Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="var(--text-medium)" stroke-width="2">
                             <path d="M3 11l9-7 9 7"></path>
@@ -361,10 +371,8 @@
                     </div>
                 </div>
 
-                <!-- Benefit 3 -->
                 <div class="benefit-item">
                     <span class="icon-circle">
-                        <!-- Blitz/Energie Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="var(--text-medium)" stroke-width="2">
                             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
@@ -376,10 +384,8 @@
                     </div>
                 </div>
 
-                <!-- Benefit 4 -->
                 <div class="benefit-item">
                     <span class="icon-circle">
-                        <!-- Tropfen/Schutz Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="var(--text-medium)" stroke-width="2">
                             <path d="M12 22s8-4 8-10a8 8 0 10-16 0c0 6 8 10 8 10z"></path>
@@ -391,10 +397,8 @@
                     </div>
                 </div>
 
-                <!-- Benefit 5 -->
                 <div class="benefit-item">
                     <span class="icon-circle">
-                        <!-- Plus im Kreis / Förderung -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="var(--text-medium)" stroke-width="2">
                             <circle cx="12" cy="12" r r="10"></circle>
@@ -409,10 +413,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Ablauf Section -->
-    <section class="service-process">
+    <!-- <section class="service-process">
         <div class="container">
             <h2>So läuft es ab</h2>
             <p class="subtitle">Schritt für Schritt zu Ihrer Lösung</p>
@@ -452,6 +456,36 @@
                         <p>Abschlusskontrolle und Abnahme – Inklusive Übergabeprotokoll und Fotodokumentation.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- FAQ -->
+    <section class="service-faqs">
+        <div class="container">
+            <h2>Häufig gestellte Fragen</h2>
+
+            <div class="faq-list">
+                @for (faq of faqs; track $index) {
+                <div class="faq-item" [class.active]="faq.isOpen">
+                    <button type="button" class="faq-question" (click)="toggleFaq($index)"
+                        [attr.aria-expanded]="faq.isOpen" [attr.aria-controls]="'faq-answer-' + $index">
+                        <span class="question-text">{{ faq.question }}</span>
+                        <span class="faq-icon" [class.rotated]="faq.isOpen">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </button>
+
+                    @if (faq.isOpen) {
+                    <div class="faq-answer" [id]="'faq-answer-' + $index">
+                        <p>{{ faq.answer }}</p>
+                    </div>
+                    }
+                </div>
+                }
             </div>
         </div>
     </section>

@@ -221,26 +221,32 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ -->
     <section class="service-faqs">
         <div class="container">
-            <h2>Häufige Fragen</h2>
+            <h2>Häufig gestellte Fragen</h2>
+
             <div class="faq-list">
-                <div class="faq-item" *ngFor="let faq of faqs; let i = index" [class.active]="faq.isOpen">
-                    <button class="faq-question" (click)="toggleFaq(i)">
+                @for (faq of faqs; track $index) {
+                <div class="faq-item" [class.active]="faq.isOpen">
+                    <button type="button" class="faq-question" (click)="toggleFaq($index)"
+                        [attr.aria-expanded]="faq.isOpen" [attr.aria-controls]="'faq-answer-' + $index">
                         <span class="question-text">{{ faq.question }}</span>
                         <span class="faq-icon" [class.rotated]="faq.isOpen">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
+                                fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </span>
                     </button>
-                    <div class="faq-answer" *ngIf="faq.isOpen">
+
+                    @if (faq.isOpen) {
+                    <div class="faq-answer" [id]="'faq-answer-' + $index">
                         <p>{{ faq.answer }}</p>
                     </div>
+                    }
                 </div>
+                }
             </div>
         </div>
     </section>
