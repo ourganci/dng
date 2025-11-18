@@ -16,77 +16,77 @@ export class DachfensterComponent implements OnInit {
 
   constructor(private titleService: Title, private metaService: Meta) { }
 
-ngOnInit(): void {
-  this.titleService.setTitle('Dachfenster Nahe Glan – Einbau, Austausch & Reparatur | DNG GmbH');
-  
-  this.metaService.updateTag({ 
-    name: 'description', 
-    content: 'Mehr Licht & Wohnkomfort mit Dachfenstern von VELUX & Roto. Fachgerechter Einbau, Austausch und Reparatur in Nahe Glan, Bad Kreuznach & Kirn. Jetzt Beratung anfordern!' 
-  });
-  
-  this.metaService.updateTag({ 
-    name: 'keywords', 
-    content: 
-      // Hauptkeywords - Produkt/Dienstleistung
-      'Dachfenster Nahe Glan, Dachfenster einbauen, Dachfenster austauschen, Dachfenster Einbau, Dachfenster Reparatur, Dachflächenfenster, Dachfenster Montage, Dachfenster Modernisierung, ' +
-      
-      // Marken & Hersteller
-      'VELUX Dachfenster, Roto Dachfenster, VELUX Einbau, Roto Einbau, VELUX Austausch, Roto Austausch, ROOFLITE Dachfenster, ' +
-      
-      // Produktvarianten & Typen
-      'Schwingfenster, Klapp-Schwingfenster, Dachfenster mit Rolladen, elektrische Dachfenster, Solar Dachfenster, Dachfenster mit Sonnenschutz, Dachfenster Kombination, ' +
-      
-      // Nutzen & Vorteile
-      'mehr Licht Dachgeschoss, Wohnkomfort Dach, Dachausbau Fenster, Tageslicht Dachgeschoss, Dachgeschoss belüften, Raumklima Dach, ' +
-      
-      // Anwendungsfälle
-      'Dachfenster Neubau, Dachfenster Sanierung, Dachfenster nachrüsten, alte Dachfenster austauschen, Dachfenster erneuern, Dachfenster Renovierung, ' +
-      
-      // Technische Aspekte
-      'Dachfenster Wärmedämmung, Dachfenster Energieeffizienz, Dachfenster dreifach Verglasung, Dachfenster Abdichtung, Dachfenster undicht, Dachfenster Schimmel, ' +
-      
-      // Fachbetrieb & Service
-      'Dachfenster Fachbetrieb, Dachdecker Dachfenster, Dachfenster Handwerker, Dachfenster Meisterbetrieb, Dachfenster Beratung, Dachfenster Kosten, Dachfenster Preis, ' +
-      
-      // Long-Tail Keywords (kaufbereite Kunden)
-      'Dachfenster einbauen lassen, Dachfenster Einbau Kosten, Dachfenster austauschen Kosten, Dachfenster in meiner Nähe, Dachfenster Angebot, ' +
-      
-      // Regionale Keywords - Nahe Glan Region
-      'Dachfenster Bad Kreuznach, Dachfenster Kirn, Dachfenster Idar-Oberstein, Dachfenster Birkenfeld, Dachfenster Meisenheim, Dachfenster Sobernheim, ' +
-      
-      // Regionale Keywords - Rheinland-Pfalz
-      'Dachfenster Mainz, Dachfenster Wiesbaden, Dachfenster Bingen, Dachfenster Alzey, Dachfenster Ingelheim, Dachfenster Worms, Dachfenster Kaiserslautern, Dachfenster Neustadt Weinstraße, Dachfenster Speyer, Dachfenster Landau, Dachfenster Rheinland-Pfalz, ' +
-      
-      // Regionale Keywords - Saarland
-      'Dachfenster Saarbrücken, Dachfenster Saarland, Dachfenster St. Wendel, Dachfenster Homburg, ' +
-      
-      // Regionale Keywords - Hessen
-      'Dachfenster Frankfurt, Dachfenster Darmstadt, Dachfenster Offenbach, Dachfenster Rüsselsheim'
-  });
+  ngOnInit(): void {
+    this.titleService.setTitle('Dachfenster Nahe Glan – Einbau, Austausch & Reparatur | DNG GmbH');
 
-  // Open Graph und Twitter Card Tags für Social Sharing
-  this.metaService.updateTag({ 
-    property: 'og:title', 
-    content: 'Dachfenster Einbau & Austausch vom Fachetrieb | DNG GmbH' 
-  });
-  
-  this.metaService.updateTag({ 
-    property: 'og:description', 
-    content: 'Mehr Licht & Wohnkomfort mit Dachfenstern von VELUX & Roto. Fachgerechter Einbau, Austausch und Reparatur in Nahe Glan, Bad Kreuznach & Kirn. Jetzt Beratung anfordern!' 
-  });
-  
-  this.metaService.updateTag({ 
-    property: 'og:type', 
-    content: 'website' 
-  });
-  
-  // this.metaService.updateTag({ property: 'og:image', content: 'https://www.dng-nahe-glan.de/assets/images/services/dachfenster-og.jpg' }); // Optional: Bild-URL hinzufügen
-  
-  this.metaService.updateTag({ 
-    name: 'twitter:card', 
-    content: 'summary_large_image' 
-  });
-}
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Mehr Licht & Wohnkomfort mit Dachfenstern von VELUX & Roto. Fachgerechter Einbau, Austausch und Reparatur in Nahe Glan, Bad Kreuznach & Kirn. Jetzt Beratung anfordern!'
+    });
+
+    this.metaService.updateTag({
+      name: 'keywords',
+      content:
+        // Hauptkeywords - Produkt/Dienstleistung
+        'Dachfenster Nahe Glan, Dachfenster einbauen, Dachfenster austauschen, Dachfenster Einbau, Dachfenster Reparatur, Dachflächenfenster, Dachfenster Montage, Dachfenster Modernisierung, ' +
+
+        // Marken & Hersteller
+        'VELUX Dachfenster, Roto Dachfenster, VELUX Einbau, Roto Einbau, VELUX Austausch, Roto Austausch, ROOFLITE Dachfenster, ' +
+
+        // Produktvarianten & Typen
+        'Schwingfenster, Klapp-Schwingfenster, Dachfenster mit Rolladen, elektrische Dachfenster, Solar Dachfenster, Dachfenster mit Sonnenschutz, Dachfenster Kombination, ' +
+
+        // Nutzen & Vorteile
+        'mehr Licht Dachgeschoss, Wohnkomfort Dach, Dachausbau Fenster, Tageslicht Dachgeschoss, Dachgeschoss belüften, Raumklima Dach, ' +
+
+        // Anwendungsfälle
+        'Dachfenster Neubau, Dachfenster Sanierung, Dachfenster nachrüsten, alte Dachfenster austauschen, Dachfenster erneuern, Dachfenster Renovierung, ' +
+
+        // Technische Aspekte
+        'Dachfenster Wärmedämmung, Dachfenster Energieeffizienz, Dachfenster dreifach Verglasung, Dachfenster Abdichtung, Dachfenster undicht, Dachfenster Schimmel, ' +
+
+        // Fachbetrieb & Service
+        'Dachfenster Fachbetrieb, Dachdecker Dachfenster, Dachfenster Handwerker, Dachfenster Meisterbetrieb, Dachfenster Beratung, Dachfenster Kosten, Dachfenster Preis, ' +
+
+        // Long-Tail Keywords (kaufbereite Kunden)
+        'Dachfenster einbauen lassen, Dachfenster Einbau Kosten, Dachfenster austauschen Kosten, Dachfenster in meiner Nähe, Dachfenster Angebot, ' +
+
+        // Regionale Keywords - Nahe Glan Region
+        'Dachfenster Bad Kreuznach, Dachfenster Kirn, Dachfenster Idar-Oberstein, Dachfenster Birkenfeld, Dachfenster Meisenheim, Dachfenster Sobernheim, ' +
+
+        // Regionale Keywords - Rheinland-Pfalz
+        'Dachfenster Mainz, Dachfenster Wiesbaden, Dachfenster Bingen, Dachfenster Alzey, Dachfenster Ingelheim, Dachfenster Worms, Dachfenster Kaiserslautern, Dachfenster Neustadt Weinstraße, Dachfenster Speyer, Dachfenster Landau, Dachfenster Rheinland-Pfalz, ' +
+
+        // Regionale Keywords - Saarland
+        'Dachfenster Saarbrücken, Dachfenster Saarland, Dachfenster St. Wendel, Dachfenster Homburg, ' +
+
+        // Regionale Keywords - Hessen
+        'Dachfenster Frankfurt, Dachfenster Darmstadt, Dachfenster Offenbach, Dachfenster Rüsselsheim'
+    });
+
+    // Open Graph und Twitter Card Tags für Social Sharing
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Dachfenster Einbau & Austausch vom Fachetrieb | DNG GmbH'
+    });
+
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Mehr Licht & Wohnkomfort mit Dachfenstern von VELUX & Roto. Fachgerechter Einbau, Austausch und Reparatur in Nahe Glan, Bad Kreuznach & Kirn. Jetzt Beratung anfordern!'
+    });
+
+    this.metaService.updateTag({
+      property: 'og:type',
+      content: 'website'
+    });
+
+    // this.metaService.updateTag({ property: 'og:image', content: 'https://www.dng-nahe-glan.de/assets/images/services/dachfenster-og.jpg' }); // Optional: Bild-URL hinzufügen
+
+    this.metaService.updateTag({
+      name: 'twitter:card',
+      content: 'summary_large_image'
+    });
+  }
 
 
   images = [

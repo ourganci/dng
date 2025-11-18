@@ -38,7 +38,7 @@ export const routes: Routes = [
       .then(m => m.FlachdachComponent)
   },
   {
-    path: 'leistungen/pv-anlagen',
+    path: 'leistungen/photovoltaik',
     loadComponent: () => import('./features/services/components/photovoltaik/photovoltaik.component')
       .then(m => m.PhotovoltaikComponent)
   },

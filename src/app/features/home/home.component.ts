@@ -19,31 +19,23 @@ export class HomeComponent implements OnInit {
   services = this.serviceDataService.getServicesOverview();
 
   partnerLogos = [
-    { name: 'DEG', file: 'deg.png' },
-    { name: 'Velux', file: 'velux.png' },
-    { name: 'Beinbrech', file: 'beinbrech.png' },
-    { name: 'Creaton', file: 'creaton.png.webp' },
-    // { name: 'GreenCoat', file: 'GreenCoat.png.webp' },
-    { name: 'Kemperol', file: 'kemperol.jpg.webp' },
-    { name: 'Prefa', file: 'prefa.svg' },
-    // { name: 'Rheinzink', file: 'rheinzink.svg' },
-    // { name: 'Roto Frank', file: 'Roto_Frank.svg' },
-    { name: 'Steiner Gerüstbau', file: 'gerustbau_steiner_new_s.webp' },
-    // { name: 'Soprema', file: 'soprema.svg' },
-    // { name: 'Subnova', file: 'subnova.svg' },
-    // { name: 'VMZinc', file: 'vmzinc.svg' },
-    // { name: 'Velux', file: 'velux.png' },
-    { name: 'Wienerberger', file: 'wienerberger.svg' },
-    // { name: 'Wolf Gerüstbau', file: 'wolf-geruestbau-logo.png.webp' },
-    { name: 'Würth', file: 'wuerth.svg' }
+    { name: 'DEG', file: 'deg.png', alt: 'DEG Fachhändler für die Bedachungsbranche'},
+    { name: 'Velux', file: 'velux.png', alt: 'Velux Dachfenster Hersteller'},
+    { name: 'Beinbrech', file: 'beinbrech.png', alt: 'Beinbrech Bedachungsmaterialien'},
+    { name: 'Creaton', file: 'creaton.png.webp', alt: 'Creaton Dachziegel Hersteller'},
+    { name: 'Kemperol', file: 'kemperol.jpg.webp', alt: 'Kemperol Abdichtungssysteme'},
+    { name: 'Prefa', file: 'prefa.svg', alt: 'Prefa Dach- und Fassadensysteme'},
+    { name: 'Steiner Gerüstbau', file: 'gerustbau_steiner_new_s.webp', alt: 'Steiner Gerüstbau'},
+    { name: 'Wienerberger', file: 'wienerberger.svg', alt: 'Wienerberger Ziegel'},
+    { name: 'Würth', file: 'wuerth.svg', alt: 'Würth Befestigungstechnik'}
   ];
 
   ngOnInit(): void {
     this.seoService.updateMetaTags({
-      title: 'DNG GmbH – Dachdeckerfachbetrieb für Nahe Glan & Umgebung',
-      description: 'Ihr Dachdecker-Fachbetrieb für Dachsanierung, PV-Anlagen, Dachfenster und mehr.',
+      title: 'DNG GmbH – Professioneller Dachdecker für Dachsanierung und PV-Anlagen in Nahe Glan',
+      description: 'Verlässlicher Fachbetrieb für Dachsanierung, Photovoltaik-Anlagen, Dachfenster und Reparaturen in Nahe Glan und Umgebung. Jetzt unverbindlich beraten lassen!',
+      url: 'https://www.dng-nahe-glan.de',
       keywords: 'Dachdecker Nahe Glan, Dachsanierung, PV-Anlagen',
-      url: 'https://www.dng-nahe-glan.de'
     });
   }
 

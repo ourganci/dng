@@ -147,7 +147,7 @@
     <div class="why-grid">
       <!-- Bild-Bereich (Links) -->
       <div class="why-image">
-        <img src="assets/images/why-us-new.jpeg" alt="DNG Team bei der Arbeit" class="why-img">
+        <img src="assets/images/why-us-new.jpeg" alt="Warum DNG" class="why-img">
         <!-- Platzhalter komplett entfernt -->
       </div>
 
@@ -196,7 +196,7 @@
       <div class="logos-grid">
         @for (logo of partnerLogos; track logo.name) {
         <div class="logo-item">
-          <img [src]="'assets/images/partners/' + logo.file" [alt]="logo.name + ' Logo'" class="partner-logo">
+          <img [src]="'assets/images/partners/' + logo.file" [alt]="logo.alt" class="partner-logo">
         </div>
         }
       </div>

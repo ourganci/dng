@@ -314,7 +314,7 @@ export class ServiceDataService {
     {
       id: 'dachfenster',
       title: 'Dachfenster Nahe Glan – Mehr Licht und Wohnkomfort',
-      headline: 'Dachfenster-Einbau',
+      headline: 'Dachfenster',
       description: 'Dachfenster bringen natürliches Licht in Ihr Dachgeschoss und schaffen ein angenehmes Wohnklima. Wir sind Ihr Fachbetrieb für Einbau, Austausch und Reparatur von Dachfenstern in Nahe Glan und Umgebung.',
       benefits: [
         {
