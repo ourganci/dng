@@ -211,8 +211,8 @@
     }
 
     .success-message {
-      background: linear-gradient(135deg, var(--accent-green) 0%, #6ec235 100%);
-      color: white;
+      background: var(--primary-yellow);
+      color: var(--text-dark);
       padding: clamp(0.625rem, 1.5vw, 0.75rem); // ✅ Weniger Padding
       border-radius: var(--border-radius);
       margin-bottom: clamp(0.75rem, 1.5vh, 1rem); // ✅ Weniger Abstand

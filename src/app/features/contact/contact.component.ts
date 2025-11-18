@@ -58,17 +58,11 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // Formular invalid → Button nicht sperren
-    if (this.contactForm.invalid) {
-      // Optional: alle Felder markieren
-      this.contactForm.markAllAsTouched();
-      return;
-    }
-
     this.submitted.set(true);
     this.submitError.set(null);
 
     if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
       return;
     }
 
@@ -79,7 +73,6 @@ export class ContactComponent implements OnInit {
     });
 
     // Optionaler "Wird gesendet"-Status
-    this.isSending.set(true);
 
     fetch('https://ang.dng-nahe-glan.de/mail.php', {
       method: 'POST',
@@ -96,8 +89,9 @@ export class ContactComponent implements OnInit {
       .then(data => {
         if (data.success) {
           this.submitSuccess.set(true);
+          // this.submitted.set(false); // <-- HIER: Setze submitted zurück
           this.contactForm.reset();
-          setTimeout(() => this.submitSuccess.set(false), 5000);
+          // setTimeout(() => this.submitSuccess.set(false), 5000);
         } else {
           this.submitError.set(data.error || 'Unbekannter Fehler beim Senden.');
         }
@@ -107,7 +101,6 @@ export class ContactComponent implements OnInit {
       })
       .finally(() => {
         this.isSending.set(false);
-        this.submitted.set(false);
       });
   }
 

@@ -6,13 +6,13 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #585857;
+  background: var(--bg-dark-charcoal);
   box-shadow: 0 -0.125rem 0.625rem rgba(0, 0, 0, 0.1);
   padding-bottom: env(safe-area-inset-bottom);
   display: none;
   border-radius: 8px 8px 0 0;
   padding-block: 1vw;
-  opacity: 0.85;
+  opacity: 0.90;
 
   @media (max-width: 992px) {
     display: block;
