@@ -1,5 +1,4 @@
 .contact-page {
-
   // Wiederverwendbarer Section Header (wie auf Home/About-Page)
   .section-header {
     text-align: left;
@@ -39,7 +38,7 @@
     padding: 0 clamp(1rem, 3vw, 1.5rem);
   }
 
-  // ZEILE 1: Kontaktinformationen + Bild (2-Spalten Layout)
+  // ZEILE 1: Kontaktinformationen + Karte (2-Spalten Layout)
   .contact-info-row {
     background: var(--bg-light-gray);
     padding: clamp(2rem, 4vw, 3rem) 0;
@@ -48,7 +47,6 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: start;
-      // gap: clamp(1rem, 2vw, 2rem);
 
       @media (max-width: 992px) {
         grid-template-columns: 1fr;
@@ -56,6 +54,7 @@
     }
   }
 
+  // Zusätzliche Wrapper-Klasse berücksichtigt
   .contact-info-wrapper {
     padding: 0 clamp(2rem, 4vw, 3rem);
   }
@@ -79,14 +78,14 @@
       display: flex;
       gap: clamp(0.5rem, 1vw, 1rem);
       align-items: flex-start;
-      flex: 1 1 calc(50% - 1rem); // Zweispaltig mit Abstand
-      min-width: 280px; // Mindestens 280px breit
+      flex: 1 1 calc(50% - (clamp(1.25rem, 2.5vh, 1.5rem) / 2));
+      // min-width: 280px;
 
       svg {
         flex-shrink: 0;
         stroke: var(--text-medium);
-        width: clamp(20px, 3vw, 24px);
-        height: clamp(20px, 3vw, 24px);
+        width: 24px;
+        height: 24px;
         margin-top: 0.25rem;
       }
 
@@ -119,46 +118,52 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 576px) {
       .info-item {
-        flex: 1 1 100%; // Auf kleinen Bildschirmen einspaltig
+        flex: 1 1 100%;
       }
     }
   }
 
-  // Bild-Sektion
-  .contact-image-section {
-    overflow: hidden;
-    height: 100%;
-    min-height: clamp(350px, 50vh, 650px);
-    max-height: clamp(750px, 50vh, 800px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg-light-gray);
+  // Kompakte Karte (rechts neben dem Formular)
+  .contact-map-small {
+    height: clamp(400px, 50vh, 550px);
 
-    img {
+    .map-container {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      display: block;
-    }
 
-    @media (max-width: 992px) {
-      display: none;
+      iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--border-radius);
+        border: none;
+      }
     }
   }
 
-  // ZEILE 2: Formular + Karte (2-Spalten Layout)
+  // Responsive Anpassungen
+  @media (max-width: 992px) {
+    .contact-info-row,
+    .contact-form-row {
+      padding: 0;
+    }
+
+    .contact-map-small {
+      height: 300px;
+      margin-top: 2rem;
+    }
+  }
+
+  // Formular (zweispaltig)
   .contact-form-row {
     background: var(--bg-light-gray);
-    // padding-top: clamp(2rem, 4vh, 3rem);
 
     .contact-row-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      align-items: start;
-      // gap: clamp(1.5rem, 3vw, 2rem);
+      align-items: stretch;
 
       @media (max-width: 992px) {
         grid-template-columns: 1fr;
@@ -166,14 +171,13 @@
     }
   }
 
-  // Kontaktformular (KOMPAKT)
   .contact-form-section {
     background: var(--bg-white);
     padding: clamp(1.5rem, 3vw, 2rem);
     box-shadow: var(--shadow-md);
 
     h3 {
-      font-size: clamp(1.5rem, 3vw, 1.875rem);
+      font-size: clamp(1rem, 3vw, 1.5rem);
       font-weight: 700;
       margin-bottom: clamp(0.75rem, 1.5vh, 1rem);
       color: var(--text-medium);
@@ -182,11 +186,11 @@
     .success-message {
       background: var(--primary-yellow);
       color: var(--text-medium);
-      padding: clamp(0.625rem, 1.5vw, 0.75rem); // ✅ Weniger Padding
+      padding: clamp(0.625rem, 1.5vw, 0.75rem);
       border-radius: var(--border-radius);
-      margin-bottom: clamp(0.75rem, 1.5vh, 1rem); // ✅ Weniger Abstand
+      margin-bottom: clamp(0.75rem, 1.5vh, 1rem);
       font-weight: 600;
-      font-size: clamp(0.875rem, 1.8vw, 0.9375rem); // ✅ Kleinere Schrift
+      font-size: clamp(0.875rem, 1.8vw, 0.9375rem);
       display: flex;
       align-items: center;
       gap: 0.375rem;
@@ -200,11 +204,10 @@
 
     .contact-form {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); // Zwei Spalten
+      grid-template-columns: repeat(2, 1fr);
       grid-gap: clamp(1rem, 2vw, 1.5rem);
-
-      // Die Textarea und Datenschutz-Checkbox nehmen volle Breite ein
-      textarea,
+      
+      .form-group:has(textarea),
       .checkbox-group {
         grid-column: 1 / -1;
       }
@@ -335,21 +338,16 @@
           cursor: not-allowed;
         }
       }
-
-
     }
 
     .required-note,
-    .data-protection-note  {
+    .data-protection-note {
       text-align: left;
-      font-size: small;
-      color: var(--text-light);
       font-size: clamp(0.75rem, 1.6vw, 0.8125rem);
       margin-top: clamp(0.5rem, 1vh, 0.625rem);
+      color: var(--text-light);
     }
 
-
-    // Responsive Anpassung: Auf kleinen Bildschirmen wieder einspaltig
     @media (max-width: 768px) {
       .contact-form {
         grid-template-columns: 1fr;
@@ -363,40 +361,16 @@
     }
   }
 
+  .contact-image-section {
+        @media (max-width: 992px) {
+          display: none;
+        }
 
-  // Kompakte Karte (rechts neben dem Formular)
-  .contact-map-small {
-    // padding: clamp(1rem, 2vh, 2rem) clamp(1rem, 3vw, 1.5rem);
-    // background: var(--bg-white);
-    // box-shadow: var(--shadow-md);
-    // border-radius: var(--border-radius);
-    height: clamp(400px, 50vh, 550px);
-
-    .map-container {
-      width: 100%;
-      height: 100%;
-
-      iframe {
-        display: block;
-        width: 100%;
-        height: 100%;
-        border-radius: var(--border-radius);
-        border: none;
-      }
-    }
-  }
-
-  // Responsive Änderungen
-  @media (max-width: 992px) {
-
-    .contact-info-row,
-    .contact-form-row {
-      padding: 0;
-    }
-
-    .contact-map-small {
-      height: 300px;
-      margin-top: 2rem;
-    }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: right;
+        }
   }
 }
