@@ -274,6 +274,19 @@
         }
       }
 
+      .form-group-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .char-counter {
+        font-size: clamp(0.75rem, 1.6vw, 0.8125rem);
+        color: var(--text-light);
+        margin-top: 0.25rem;
+        text-align: right;
+      }
+
       .checkbox-group {
         margin-bottom: clamp(0.75rem, 1.5vh, 1rem);
 

@@ -38,11 +38,11 @@ export class HallenbeleuchtungComponent {
 
   ngOnInit(): void {
     this.titleService.setTitle('Hallenbeleuchtung – Planung, LED-Umrüstung & Montage | DNG GmbH Nahe-Glan');
-    this.metaService.updateTag({ 
-      name: 'description', 
-      content: 'Effiziente LED-Hallenbeleuchtung für Produktion, Lager, Werkstatt & Sporthallen. Planung mit Lichtberechnung, Montage, Steuerung & Wartung. Fördermittel-Check. DNG GmbH – Ihr Fachbetrieb in Rheinland-Pfalz.' 
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Effiziente LED-Hallenbeleuchtung für Produktion, Lager, Werkstatt & Sporthallen. Planung mit Lichtberechnung, Montage, Steuerung & Wartung. Fördermittel-Check. DNG GmbH – Ihr Fachbetrieb in Rheinland-Pfalz.'
     });
-    
+
     this.metaService.updateTag({
       name: 'keywords',
       content:
@@ -64,14 +64,15 @@ export class HallenbeleuchtungComponent {
     });
 
     // Open Graph and Twitter Card tags for social sharing
-    this.metaService.updateTag({ 
-      property: 'og:title', 
-      content: 'Hallenbeleuchtung – Planung, LED-Umrüstung & Montage | DNG GmbH Nahe-Glan' 
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Hallenbeleuchtung – Planung, LED-Umrüstung & Montage | DNG GmbH Nahe-Glan'
     });
-    this.metaService.updateTag({ 
-      property: 'og:description', 
-      content: 'Effiziente LED-Hallenbeleuchtung für Produktion, Lager, Werkstatt & Sporthallen. Planung mit Lichtberechnung, Montage, Steuerung & Wartung. Fördermittel-Check. DNG GmbH – Ihr Fachbetrieb in Rheinland-Pfalz.' 
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Effiziente LED-Hallenbeleuchtung mit Planung, Montage und Wartung in Bad Kreuznach, Zweibrücken, Kaiserslautern und Mainz. Nachhaltige Lösungen für Industrie & Lager.'
     });
+
     this.metaService.updateTag({ property: 'og:type', content: 'website' });
     this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
   }

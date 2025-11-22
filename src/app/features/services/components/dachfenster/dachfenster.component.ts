@@ -44,8 +44,9 @@ export class DachfensterComponent implements OnInit {
 
     this.metaService.updateTag({
       name: 'description',
-      content: 'Mehr Licht & Wohnkomfort mit Dachfenstern von VELUX & Roto. Fachgerechter Einbau, Austausch und Reparatur in Nahe Glan, Bad Kreuznach & Kirn. Jetzt Beratung anfordern!'
+      content: 'Dachfenster von VELUX & Roto für mehr Licht und Wohnkomfort. Fachgerechter Einbau, Austausch und Reparatur in Nahe Glan, Bad Kreuznach, MAinz, Kirn, Kaiserslautern und Zweibrücken.'
     });
+
 
     this.metaService.updateTag({
       name: 'keywords',

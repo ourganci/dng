@@ -264,18 +264,24 @@
           <div class="form-group">
             <label for="message">Ihre Nachricht *</label>
             <textarea id="message" formControlName="message"
-              [class.invalid]="f['message'].invalid && (f['message'].touched || submitted())" rows="4"
+              [class.invalid]="f['message'].invalid && (f['message'].touched || submitted())" rows="4" maxlength="5000"
               placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
-            @if (f['message'].invalid && (f['message'].touched || submitted())) {
-            <div class="error-message">
-              @if (f['message'].errors?.['required']) {
-              <span>Nachricht ist erforderlich</span>
+            <div class="form-group-footer">
+              @if (f['message'].invalid && (f['message'].touched || submitted())) {
+              <div class="error-message">
+                @if (f['message'].errors?.['required']) {
+                <span>Nachricht ist erforderlich</span>
+                }
+                @if (f['message'].errors?.['minlength']) {
+                <span>Mindestens 10 Zeichen</span>
+                }
+                @if (f['message'].errors?.['maxlength']) {
+                <span>Maximal 5000 Zeichen erlaubt</span>
+                }
+              </div>
               }
-              @if (f['message'].errors?.['minlength']) {
-              <span>Mindestens 10 Zeichen</span>
-              }
+              <div class="char-counter">{{ f['message'].value?.length || 0 }} / 5000</div>
             </div>
-            }
           </div>
 
           <!-- Datenschutz -->
