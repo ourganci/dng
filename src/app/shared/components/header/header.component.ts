@@ -20,7 +20,7 @@ export class HeaderComponent {
         { label: 'Dachreparatur', route: '/leistungen/dachreparatur' },
         { label: 'Regenrinnen', route: '/leistungen/regenrinnen' },
         { label: 'Flachdachdichtheitsprüfung', route: '/leistungen/flachdachpruefung' },
-        { label: 'PV-Anlagen', route: '/leistungen/pv-anlagen' },
+        { label: 'PV-Anlagen', route: '/leistungen/photovoltaik' },
         { label: 'PV Indach', route: '/leistungen/pv-indach' },
         { label: 'Hallenbeleuchtung', route: '/leistungen/hallenbeleuchtung' }
       ]
