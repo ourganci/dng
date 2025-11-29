@@ -34,7 +34,7 @@ export class ContactComponent implements OnInit {
       description:
         'Kontaktieren Sie uns für eine kostenlose Beratung. Wir sind Ihr Dachdecker-Fachbetrieb im Raum Nahe Glan.',
       keywords: 'Dachdecker Kontakt, Angebot anfordern, Beratung Nahe Glan',
-      url: 'https://ang.dng-nahe-glan.de/kontakt'
+      url: 'https://dng-nahe-glan.de/kontakt'
     });
 
     // Reactive Form erstellen
@@ -74,7 +74,7 @@ export class ContactComponent implements OnInit {
 
     // Optionaler "Wird gesendet"-Status
 
-    fetch('https://ang.dng-nahe-glan.de/mail.php', {
+    fetch('https://dng-nahe-glan.de/mail.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
       body: formData.toString(),
