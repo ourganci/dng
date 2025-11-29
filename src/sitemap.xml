@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Hauptseiten -->
   <url>
-    <loc>https://ang.dng-nahe-glan.de/</loc>
+    <loc>https://dng-nahe-glan.de/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/leistungen</loc>
+    <loc>https://dng-nahe-glan.de/leistungen</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -17,49 +17,49 @@
   
   <!-- Service-Seiten -->
   <url>
-    <loc>https://ang.dng-nahe-glan.de/leistungen/dachsanierung</loc>
+    <loc>https://dng-nahe-glan.de/leistungen/dachsanierung</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/leistungen/dachfenster</loc>
+    <loc>https://dng-nahe-glan.de/leistungen/dachfenster</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/leistungen/dachreparaturen</loc>
+    <loc>https://dng-nahe-glan.de/leistungen/dachreparaturen</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/leistungen/regenrinnen</loc>
+    <loc>https://dng-nahe-glan.de/leistungen/regenrinnen</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/leistungen/flachdachpruefung</loc>
+    <loc>https://dng-nahe-glan.de/leistungen/flachdachpruefung</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/leistungen/pv-anlagen</loc>
+    <loc>https://dng-nahe-glan.de/leistungen/photovoltaik</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/leistungen/hallenbeleuchtung</loc>
+    <loc>https://dng-nahe-glan.de/leistungen/hallenbeleuchtung</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -67,28 +67,28 @@
   
   <!-- Weitere Hauptseiten -->
   <url>
-    <loc>https://ang.dng-nahe-glan.de/ueber-uns</loc>
+    <loc>https://dng-nahe-glan.de/ueber-uns</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/referenzen</loc>
+    <loc>https://dng-nahe-glan.de/referenzen</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/ratgeber</loc>
+    <loc>https://dng-nahe-glan.de/ratgeber</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/kontakt</loc>
+    <loc>https://dng-nahe-glan.de/kontakt</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -96,45 +96,45 @@
   
   <!-- Rechtliches -->
   <url>
-    <loc>https://ang.dng-nahe-glan.de/impressum</loc>
+    <loc>https://dng-nahe-glan.de/impressum</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/datenschutz</loc>
+    <loc>https://dng-nahe-glan.de/datenschutz</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <!-- Blog-Artikel (Beispiele) -->
-  <url>
-    <loc>https://ang.dng-nahe-glan.de/ratgeber/dach-im-winter-vorbereiten</loc>
+  <!-- <url>
+    <loc>https://dng-nahe-glan.de/ratgeber/dach-im-winter-vorbereiten</loc>
     <lastmod>2024-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/ratgeber/photovoltaik-lohnt-sich</loc>
+    <loc>https://dng-nahe-glan.de/ratgeber/photovoltaik-lohnt-sich</loc>
     <lastmod>2024-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/ratgeber/dachfenster-austauschen-wann</loc>
+    <loc>https://dng-nahe-glan.de/ratgeber/dachfenster-austauschen-wann</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://ang.dng-nahe-glan.de/ratgeber/flachdach-wartung-wichtig</loc>
+    <loc>https://dng-nahe-glan.de/ratgeber/flachdach-wartung-wichtig</loc>
     <lastmod>2024-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
+  </url> -->
 </urlset>

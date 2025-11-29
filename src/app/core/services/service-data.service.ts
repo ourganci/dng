@@ -62,14 +62,14 @@ export class ServiceDataService {
     'dachreparatur',
     'regenrinnen',
     'flachdachpruefung',
-    'pv-anlagen',
+    'photovoltaik',
     'pv-indach',
     'hallenbeleuchtung'
   ]);
 
   private services: ServiceContent[] = [
     {
-      id: 'pv-anlagen',
+      id: 'photovoltaik',
       title: 'PV-Anlagen Nahe Glan – Solarenergie für Ihr Dach',
       headline: 'Photovoltaik-Anlagen',
       description: 'Nutzen Sie die Kraft der Sonne! Wir planen und installieren moderne Photovoltaik-Anlagen auf Ihrem Dach – für nachhaltige Energiegewinnung, Unabhängigkeit und Kosteneinsparung.',
