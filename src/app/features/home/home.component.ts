@@ -30,14 +30,15 @@ export class HomeComponent implements OnInit {
     { name: 'Würth', file: 'wuerth.svg', alt: 'Würth Befestigungstechnik'}
   ];
 
-  ngOnInit(): void {
-    this.seoService.updateMetaTags({
-      title: 'DNG GmbH – Professioneller Dachdecker für Dachsanierung und PV-Anlagen in Nahe Glan',
-      description: 'Verlässlicher Fachbetrieb für Dachsanierung, Photovoltaik-Anlagen, Dachfenster und Reparaturen in Nahe Glan und Umgebung. Jetzt unverbindlich beraten lassen!',
-      url: 'https://www.dng-nahe-glan.de',
-      keywords: 'Dachdecker Nahe Glan, Dachsanierung, PV-Anlagen',
-    });
-  }
+ngOnInit(): void {
+  this.seoService.updateMetaTags({
+    title: 'DNG GmbH | Dachdecker & Photovoltaik in Mainz, Bad Kreuznach & Ingelheim',
+    description: 'Ihr Meisterbetrieb für Dachsanierung & Photovoltaik-Anlagen im Raum Mainz, Bad Kreuznach, Ingelheim & Kaiserslautern. PV-Anlagen, Dachfenster & Reparaturen aus einer Hand.',
+    url: 'https://www.dng-nahe-glan.de',
+    keywords: 'Dachdecker Mainz, Photovoltaik Bad Kreuznach, Dachsanierung Kaiserslautern, PV-Anlage Ingelheim, DNG GmbH',
+  });
+}
+
 
   // ⭐ hasImage()-Methode wird NICHT mehr benötigt!
   // Die Info ist direkt im service.hasImage verfügbar
