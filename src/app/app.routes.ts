@@ -53,6 +53,12 @@ export const routes: Routes = [
       .then(m => m.HallenbeleuchtungComponent)
   },
   {
+    path: 'leistungen/:service/:city',
+    loadComponent: () =>
+      import('./features/city-service/city-service.component').then(m => m.CityServiceComponent)
+  },
+
+  {
     path: 'ueber-uns',
     loadComponent: () => import('./features/about/about.component')
       .then(m => m.AboutComponent)

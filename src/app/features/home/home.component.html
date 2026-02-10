@@ -3,12 +3,17 @@
   <section class="hero">
     <div class="hero-image"></div>
     <div class="container">
-      <h1>Ihr Dach. Unsere Mission.</h1>
-      <h2>Dachdeckerfachbetrieb für Nahe Glan & Umgebung</h2>
+      <h1>Dachdecker für Nahe-Glan, Bad Kreuznach & Umgebung</h1>
+      <h2>Dachsanierung, Flachdach & Photovoltaik vom regionalen Fachbetrieb</h2>
+      <h2>Ihr Dach. Unsere Mission.</h2>
+
 
       <p class="intro">
-        Ob Dachsanierung, Flachdachprüfung, PV-Anlagen oder Dachfenster-Einbau.
-        Wir sind Ihr Dachdecker-Fachbetrieb rund um Nahe-Glan.
+        Wir sind Ihr zuverlässiger Dachdeckerfachbetrieb für Nahe-Glan und das gesamte
+        Umkreisgebiet in Bad Kreuznach, Kaiserslautern,
+        Bingen, Ingelheim, Mainz, Alzey und Wörrstadt.
+        Ob Dachsanierung, Flachdach, Photovoltaik oder Dachfenster:
+        Wir kümmern uns fachgerecht um Ihr Dach.
       </p>
 
       <app-cta-button text="Jetzt unverbindlich beraten lassen!" link="/kontakt" />
@@ -25,31 +30,30 @@
     </div>
 
     @for (service of services; track service.id; let i = $index) {
-  <div class="showcase-item" [class.reverse]="i % 2 === 1">
-    <!-- Bild-Container -->
-    <div class="showcase-image-wrapper">
-      <!-- ⭐ Nutze service.hasImage direkt statt hasImage()-Methode -->
-      @if (service.hasImage) {
-        <img [src]="'assets/images/services/' + service.id + '.jpg'" 
-             [alt]="service.title + ' - DNG GmbH'"
-             class="showcase-img">
+    <div class="showcase-item" [class.reverse]="i % 2 === 1">
+      <!-- Bild-Container -->
+      <div class="showcase-image-wrapper">
+        <!-- ⭐ Nutze service.hasImage direkt statt hasImage()-Methode -->
+        @if (service.hasImage) {
+        <img [src]="'assets/images/services/' + service.id + '.jpg'" [alt]="service.title + ' vom Dachdecker in Nahe-Glan und Umgebung'"
+          class="showcase-img">
         <div class="image-overlay"></div>
-      } @else {
+        } @else {
         <div class="image-placeholder">
           <span class="icon">{{ service.icon }}</span>
         </div>
-      }
-    </div>
+        }
+      </div>
 
-    <div class="showcase-content">
-      <h3>{{ service.title }}</h3>
-      <p>{{ service.description }}</p>
-      <a [routerLink]="['/leistungen', service.id]" class="btn-learn-more">
-        Mehr erfahren →
-      </a>
+      <div class="showcase-content">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+        <a [routerLink]="['/leistungen', service.id]" class="btn-learn-more">
+          Mehr erfahren →
+        </a>
+      </div>
     </div>
-  </div>
-}
+    }
 
     <!-- <div class="showcase-cta">
       <h3>Interesse an unseren Leistungen?</h3>
@@ -89,8 +93,11 @@
           </svg>
           <div class="step-content">
             <h3>Beratung und Planung</h3>
-            <p>Wir beginnen jedes Projekt mit einer persönlichen Beratung und einer detaillierten Planung, die Ihre
-              individuellen Wünsche berücksichtigt.</p>
+            <p>
+              Wir beraten Sie persönlich vor Ort,
+              analysieren den Zustand Ihres Daches und erstellen
+              eine individuelle, fachgerechte Planung.
+            </p>
           </div>
         </li>
 
@@ -147,7 +154,7 @@
     <div class="why-grid">
       <!-- Bild-Bereich (Links) -->
       <div class="why-image">
-        <img src="assets/images/why-us-new.jpeg" alt="Warum DNG" class="why-img">
+        <img src="assets/images/why-us-new.jpeg" alt="Dachdeckerfachbetrieb DNG für Bad Krueznach, Ingelheim und Mainz" class="why-img">
         <!-- Platzhalter komplett entfernt -->
       </div>
 
@@ -157,15 +164,20 @@
           <h2>Warum DNG?</h2>
 
           <p class="intro">
-            Als Dachdeckerfachbetrieb mit langjähriger Erfahrung stehen wir
-            für Qualität, Zuverlässigkeit und Kundenzufriedenheit in der Region
-            Nahe Glan und Umgebung.
+            DNG ist Ihr erfahrener Dachdeckerfachbetrieb für
+            Bad Kreuznach, Bingen, Ingelheim und Mainz und das gesamte Rhein-Nahe-Gebiet.
+            Seit vielen Jahren stehen wir für saubere Arbeit,
+            langlebige Lösungen und persönliche Beratung rund ums Dach.
           </p>
 
           <div class="trust-points">
             <div class="trust-point">
-              <h3>Regionaler Service</h3>
-              <p>Schnelle Reaktionszeiten im Umkreis von 50 km rund um Nahe Glan</p>
+              <h3>Regionaler Dachdecker</h3>
+              <p>
+                Einsatzgebiet bis 70 km rund um Nahe-Glan –
+                inklusive Mainz, Bingen, Ingelheim, Alzey und Wörrstadt
+              </p>
+
             </div>
 
             <div class="trust-point">

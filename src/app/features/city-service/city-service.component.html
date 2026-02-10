@@ -1,0 +1,80 @@
+<div class="city-service-page">
+    @if (city && service && serviceKey) {
+    <section class="hero">
+        <div class="hero-image"></div>
+        <div class="container">
+            <h1>{{ service.name }} in {{ city.name }}</h1>
+            <h2>Dachdecker für {{ service.name }} im Raum {{ city.region }}</h2>
+            <p>
+                Als erfahrener Dachdeckerfachbetrieb bieten wir
+                {{ service.name }} in {{ city.name }} und Umgebung an.
+            </p>
+
+            <app-cta-button text="Kostenlose Beratung anfragen" link="/kontakt">
+            </app-cta-button>
+        </div>
+    </section>
+
+    <section class="services-showcase">
+        <div class="container">
+            <div class="section-header-ss">
+                <h2>Weitere Informationen zu {{ service.name }}</h2>
+                <p>
+                    Auf unserer Seite finden Sie alle Details, Beispiele und Referenzen.
+                </p>
+            </div>
+
+            <div class="showcase-item reverse">
+                <div class="showcase-content">
+                    <h3>{{ service.name }} – Details</h3>
+                    <p>{{ service.description }}</p>
+                    <a class="btn-learn-more" [routerLink]="['/leistungen', serviceKeyFromName(service.name)]">
+                        Alle Infos zu {{ service.name }} →
+                    </a>
+                </div>
+                <div class="showcase-image-wrapper">
+                    <div class="showcase-img"
+                        [style.background-image]="'url(/assets/images/services/' + serviceKey + '.jpg)'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-us">
+        <div class="why-grid">
+            <div class="why-content">
+                <div class="content-wrapper">
+                    <h2>Warum uns wählen?</h2>
+                    <p class="intro">
+                        Professionelle Arbeit, transparente Preise und zufriedene Kunden in {{ city.region }}.
+                    </p>
+                    <div class="trust-points">
+                        <div class="trust-point">
+                            <h3>Erfahrung</h3>
+                            <p>Über 15 Jahre Erfahrung im Dachdecker-Handwerk.</p>
+                        </div>
+                        <div class="trust-point">
+                            <h3>Qualität</h3>
+                            <p>Nur hochwertige Materialien für Ihr Dach.</p>
+                        </div>
+                        <div class="trust-point">
+                            <h3>Service</h3>
+                            <p>Schnelle und zuverlässige Umsetzung Ihrer Projekte.</p>
+                        </div>
+                    </div>
+                    <app-cta-button text="Jetzt Termin vereinbaren" link="/kontakt">
+                    </app-cta-button>
+                </div>
+            </div>
+            <div class="why-image">
+                <div class="why-img" [style.background-image]="'url(/assets/images/hero/home.jpg)'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    } @else {
+    <div class="loading-placeholder"></div>
+    }
+</div>
