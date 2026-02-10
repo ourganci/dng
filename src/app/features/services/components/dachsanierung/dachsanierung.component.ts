@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
+import { CITY_CONFIG } from '../../../city/city.config';
+
+interface City { name: string; region: string; }
 
 
 @Component({
@@ -12,7 +16,14 @@ import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta
 })
 export class DachsanierungComponent implements OnInit {
 
-  constructor(private titleService: Title, private metaService: Meta) { }
+  // City-Informationen
+  city?: City;
+  cityKey?: string;
+
+  // Service-Informationen
+  serviceName = 'Dachsanierung';
+
+  constructor(private titleService: Title, private metaService: Meta, private route: ActivatedRoute) { }
 
   faqs = [
     {
@@ -47,87 +58,78 @@ export class DachsanierungComponent implements OnInit {
     }
   ];
 
-  ngOnInit(): void {
-    this.titleService.setTitle('Dachsanierung Nahe Glan – Dach neu decken & dämmen | DNG GmbH');
+ngOnInit(): void {
+    // City-Parameter auslesen (falls vorhanden)
+    this.cityKey = this.route.snapshot.paramMap.get('city') || undefined;
+    
+    if (this.cityKey) {
+      this.city = CITY_CONFIG[this.cityKey];
+    }
 
-    this.metaService.updateTag({
-      name: 'description',
-      content: 'Professionelle Dachsanierung, energetische Dämmung und Neueindeckung in Nahe Glan, Bad Kreuznach MAinz, Kaiserslautern und Kirn. KfW-Förderung möglich,'
-    });
+    // SEO dynamisch setzen
+    this.setSeoTags();
+  }
 
+  // Helper-Methods für Template
+  get titleWithCity(): string {
+    return this.city 
+      ? `${this.serviceName} in ${this.city.name}`
+      : this.serviceName;
+  }
+
+  get subtitleWithCity(): string {
+    return this.city
+      ? `Dach neu decken & dämmen im Raum ${this.city.region}`
+      : 'Dach neu decken & dämmen';
+  }
+
+  private setSeoTags(): void {
+    if (this.city) {
+      // SEO mit Stadt
+      this.titleService.setTitle(
+        `${this.serviceName} ${this.city.name} – Dach neu decken & dämmen | DNG GmbH`
+      );
+
+      this.metaService.updateTag({
+        name: 'description',
+        content: `Professionelle ${this.serviceName} in ${this.city.name}. Energetische Dämmung und Neueindeckung im Raum ${this.city.region}. KfW-Förderung möglich.`
+      });
+
+      this.metaService.updateTag({
+        property: 'og:title',
+        content: `${this.serviceName} ${this.city.name} – KfW-Förderung möglich | DNG GmbH`
+      });
+
+      this.metaService.updateTag({
+        property: 'og:description',
+        content: `Professionelle ${this.serviceName} in ${this.city.name}. KfW-Förderung möglich. Energieeffizient dämmen, neu decken & Heizkosten sparen.`
+      });
+    } else {
+      // SEO ohne Stadt (Original)
+      this.titleService.setTitle(
+        'Dachsanierung Nahe Glan – Dach neu decken & dämmen | DNG GmbH'
+      );
+
+      this.metaService.updateTag({
+        name: 'description',
+        content: 'Professionelle Dachsanierung, energetische Dämmung und Neueindeckung in Nahe Glan, Bad Kreuznach Mainz, Kaiserslautern und Kirn. KfW-Förderung möglich.'
+      });
+
+      this.metaService.updateTag({
+        property: 'og:title',
+        content: 'Dachsanierung vom Fachbetrieb – KfW-Förderung möglich | DNG GmbH'
+      });
+
+      this.metaService.updateTag({
+        property: 'og:description',
+        content: 'Professionelle Dachsanierung vom Fachbetrieb in Nahe Glan. KfW-Förderung möglich. Energieeffizient dämmen, neu decken & Heizkosten sparen. Jetzt Angebot erhalten!'
+      });
+    }
+
+    // Diese bleiben immer gleich
     this.metaService.updateTag({
       name: 'keywords',
-      content:
-        // Hauptdienstleistungen - Sanierung
-        'Dachsanierung Nahe Glan, Dachsanierung Bad Kreuznach, Dachsanierung Kirn, Dach sanieren, Dach sanieren lassen, Dachsanierung Kosten, Dachsanierung Preis, komplette Dachsanierung, Dach Komplettsanierung, ' +
-
-        // Kerntätigkeiten
-        'Dach neu decken, Dach neu eindecken, Dach erneuern, Dacheindeckung erneuern, Dach komplett erneuern, altes Dach erneuern, Dach modernisieren, Dachmodernisierung, ' +
-
-        // Dämmung & Energieeffizienz
-        'Dach dämmen, Dachdämmung, Dach dämmen Kosten, Dach von innen dämmen, Dach von außen dämmen, Aufsparrendämmung, Zwischensparrendämmung, Untersparrendämmung, Dachdämmung nachträglich, ' +
-
-        // Energetische Sanierung
-        'energetische Dachsanierung, Dach energetisch sanieren, Wärmedämmung Dach, Dach Energieeffizienz, Heizkosten sparen Dach, Wärmeverlust Dach reduzieren, GEG Dach, GEG-konform dämmen, ' +
-
-        // Förderung & Finanzierung
-        'Dachsanierung KfW-Förderung, KfW-Förderung Dach, BEG Förderung Dach, BAFA Dachsanierung, Dachsanierung Zuschuss, Dachsanierung steuerlich absetzen, Dachsanierung finanzieren, Fördermittel Dachsanierung, ' +
-
-        // Abdichtung & Schutz
-        'Dach abdichten, Dachabdichtung erneuern, Dach wasserdicht machen, undichtes Dach sanieren, Dach Feuchtigkeit, Wasserschaden Dach sanieren, Dach diffusionsoffen, ' +
-
-        // Materialien & Eindeckung
-        'Dach neu decken Ziegel, Dachziegel erneuern, Dachsteine erneuern, Schieferdach sanieren, Metalldach sanieren, Biberschwanz Dach, Frankfurter Pfanne, Betonziegel Dach, ' +
-
-        // Dachtypen
-        'Steildach sanieren, Satteldach sanieren, Walmdach sanieren, Pultdach sanieren, Mansarddach sanieren, Zeltdach sanieren, Flachdach sanieren, Gründach sanieren, ' +
-
-        // Schadensbilder & Anzeichen
-        'Dach undicht sanieren, Dach porös, brüchige Dachziegel, Moosbefall Dach entfernen, Algenbefall Dach, Dach verwittert, alte Dacheindeckung, Sturmschaden Dach sanieren, Hagelschaden Dach sanieren, ' +
-
-        // Zusatzleistungen bei Sanierung
-        'Dachfenster bei Sanierung, Dachgaube bei Sanierung, PV-Anlage bei Sanierung, Solardach, Dachausbau mit Sanierung, Dachrinnen erneuern, Dachrinnen bei Sanierung, Dachrinne mitversetzen, ' +
-
-        // Umfang & Projekttypen
-        'Teilsanierung Dach, Dach Teilerneuerung, Dachsanierung Altbau, Dachsanierung Neubau, Dachsanierung Einfamilienhaus, Dachsanierung Mehrfamilienhaus, Dachsanierung Gewerbe, Dachsanierung Industrie, ' +
-
-        // Zielgruppen
-        'Dachsanierung Hausverwaltung, Dachsanierung Immobiliengesellschaft, Dachsanierung Bauträger, Dachsanierung Eigentümer, Dachsanierung Vermieter, Dachsanierung WEG, ' +
-
-        // Ablauf & Leistungen
-        'Dachsanierung Ablauf, Dachgutachten, Dachberatung, Dachcheck kostenlos, Vor-Ort-Besichtigung Dach, Dachrückbau, alte Eindeckung entsorgen, Dachsanierung mit Gerüst, ' +
-
-        // Vorteile & Nutzen
-        'Wertsteigerung durch Dachsanierung, Immobilienwert steigern Dach, Schallschutz Dach verbessern, Brandschutz Dach, Dach Lebensdauer verlängern, Dach zukunftssicher, ' +
-
-        // Zeitliche Aspekte
-        'Dachsanierung Dauer, wie lange dauert Dachsanierung, Dachsanierung ohne Gerüst, Dachsanierung Sommer, beste Zeit Dachsanierung, Dachsanierung planen, ' +
-
-        // Long-Tail Keywords (Kaufintention)
-        'Dachsanierung in meiner Nähe, Dachsanierung Angebot einholen, Dachsanierung Kostenvoranschlag, Was kostet komplette Dachsanierung, Dachsanierung notwendig, wann Dach sanieren, ' +
-
-        // Fachbetrieb & Qualität
-        'Dachsanierung Meisterbetrieb, Dachdecker Meisterbetrieb, Dachsanierung Fachbetrieb, zertifizierter Dachdecker, geprüfter Dachdeckerbetrieb, Dachsanierung vom Fachmann, Qualität Dachsanierung, ' +
-
-        // Regionale Keywords - Nahe Glan Region
-        'Dachsanierung Idar-Oberstein, Dachsanierung Birkenfeld, Dachsanierung Meisenheim, Dachsanierung Sobernheim, Dachsanierung Kirchheimbolanden, Dachsanierung Bingen, Dachsanierung Simmern, ' +
-
-        // Regionale Keywords - Rheinland-Pfalz
-        'Dachsanierung Mainz, Dachsanierung Wiesbaden, Dachsanierung Alzey, Dachsanierung Ingelheim, Dachsanierung Worms, Dachsanierung Kaiserslautern, Dachsanierung Ludwigshafen, Dachsanierung Neustadt Weinstraße, ' +
-
-        // Regionale Keywords - erweitert
-        'Dachsanierung Rheinland-Pfalz, Dachsanierung Saarland, Dachsanierung Saarbrücken, Dachsanierung Trier, Dachsanierung Koblenz, Dachsanierung Hunsrück'
-    });
-
-    // Open Graph und Twitter Card Tags für Social Sharing
-    this.metaService.updateTag({
-      property: 'og:title',
-      content: 'Dachsanierung vom Fachetrieb – KfW-Förderung möglich | DNG GmbH'
-    });
-
-    this.metaService.updateTag({
-      property: 'og:description',
-      content: 'Professionelle Dachsanierung vom Fachetrieb in Nahe Glan. KfW-Förderung möglich. Energieeffizient dämmen, neu decken & Heizkosten sparen. Jetzt Angebot erhalten!'
+      content: 'Dachsanierung Nahe Glan, Dachsanierung Bad Kreuznach, ...' // deine Keywords
     });
 
     this.metaService.updateTag({
@@ -135,13 +137,12 @@ export class DachsanierungComponent implements OnInit {
       content: 'website'
     });
 
-    // this.metaService.updateTag({ property: 'og:image', content: 'https://www.dng-nahe-glan.de/assets/images/services/dachsanierung-og.jpg' }); // Optional: Bild-URL hinzufügen
-
     this.metaService.updateTag({
       name: 'twitter:card',
       content: 'summary_large_image'
     });
   }
+
 
 
   toggleFaq(index: number): void {

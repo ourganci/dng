@@ -1,31 +1,27 @@
-<!-- src/app/features/services/components/dachsanierung/dachsanierung.component.html -->
-
+<!-- regenrinnen.component.html -->
 <div class="service-detail-page">
-
-    <!-- Hero Section mit Bild -->
-    <!-- <section class="service-hero">
-        <div class="hero-image-bg" style="background-image: url('assets/images/services/dachsanierung.jpg')"></div>
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1>Dachsanierung vom Fachbetrieb</h1>
-        </div>
-    </section> -->
 
     <!-- Intro Section -->
     <section class="service-intro">
         <div class="container">
             <div class="section-header">
-                <h2>Regenrinnen- und Fensterarbeiten</h2>
-                <h2 class="subtitle">Für ein sicheres und zuverlässiges Zuhause</h2>
+                <h2>{{ titleWithCity }}</h2>
+                <h2 class="subtitle">{{ subtitleWithCity }}</h2>
             </div>
 
             <div class="story-grid">
                 <div class="story-content">
                     <p>
-                        Regenrinnen und Dachfenster sind essenzielle Bestandteile der Dachentwässerung und Wohnqualität.
+                        <strong>Regenrinnen und Dachfenster sind essenzielle Bestandteile der Dachentwässerung und Wohnqualität.</strong>
                     </p>
                     <p>
-                        Besonders bei älteren Gebäuden. Wir kümmern uns um die fachgerechte Wartung, Reparatur und
+                        Besonders bei älteren Gebäuden. 
+                        @if (city) {
+                            In {{ city.name }} und der Region {{ city.region }}
+                        } @else {
+                            Wir
+                        }
+                        kümmern wir uns um die fachgerechte Wartung, Reparatur und
                         Erneuerung Ihrer Dachentwässerung und Fenster im Dachbereich. Schnell. Gründlich. Zuverlässig.
                     </p>
                 </div>
@@ -36,7 +32,7 @@
         </div>
     </section>
 
-    <!-- Ursachen und typische Schäden -->
+    <!-- Unsere Leistungen -->
     <section class="service-what-you-get">
         <div class="container">
             <div class="section-header">
@@ -45,30 +41,29 @@
             </div>
             <div class="story-grid">
                 <div class="story-content">
-                    <p>Regenrinnen</p>
+                    <p><strong>Regenrinnen</strong></p>
                     <ul class="bullet-list">
-                        <li>Reinigung von verstopften Regenrinnen </li>
+                        <li>Reinigung von verstopften Regenrinnen</li>
                         <li>Reparatur undichter oder verbogener Rinnen</li>
                         <li>Austausch alter Dachrinnen (Zink, Kupfer, Kunststoff, Alu)</li>
                         <li>Montage von Laubschutzsystemen</li>
                         <li>Kontrolle der Fallrohre & Regenwasserableitung</li>
                     </ul>
-                    <p>Dachfenster</p>
+                    <p><strong>Dachfenster</strong></p>
                     <ul class="bullet-list">
-                        <li>Sanierung von alten Holz- oder Kunststofffenstern im Dachbereich </li>
-                        <li>Abdichtung von Fensteranschlüssen (z.B. Traufe, Gauben) </li>
-                        <li>Instandsetzung bei Undichtigkeiten oder Wärmeverlust </li>
-                        <li>Kombination mit Dachsanierung oder Fenstertausch </li>
+                        <li>Sanierung von alten Holz- oder Kunststofffenstern im Dachbereich</li>
+                        <li>Abdichtung von Fensteranschlüssen (z.B. Traufe, Gauben)</li>
+                        <li>Instandsetzung bei Undichtigkeiten oder Wärmeverlust</li>
+                        <li>Kombination mit Dachsanierung oder Fenstertausch</li>
                     </ul>
                 </div>
                 <div class="story-image">
-                    <img src="assets/images/services/dachsanierung/dachsanierung_1.jpeg" alt="Dachsanierung"
+                    <img src="assets/images/services/dachsanierung/dachsanierung_1.jpeg" alt="Dachentwässerung"
                         loading="lazy">
                 </div>
             </div>
         </div>
     </section>
-
 
     <section class="service-importance">
         <div class="importance-grid">
@@ -87,7 +82,6 @@
                     </div>
 
                     <div class="importance-highlights">
-
                         <div class="highlight-item">
                             <h3>Schutz vor Feuchtigkeit</h3>
                             <p>Verstopfte Rinnen führen zu Wasserschäden an Fassade & Dachstuhl</p>
@@ -137,12 +131,17 @@
         </div>
     </section>
 
-
     <!-- CTA Section -->
     <section class="service-cta">
         <div class="container">
             <div class="cta-box">
-                <h2>Interesse an einer Dachsanierung?</h2>
+                <h2>
+                    @if (city) {
+                        Regenrinnen-Service in {{ city.name }} gesucht?
+                    } @else {
+                        Regenrinnen-Service gesucht?
+                    }
+                </h2>
                 <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot.</p>
                 <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
             </div>

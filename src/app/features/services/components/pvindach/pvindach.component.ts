@@ -1,17 +1,27 @@
-import { Component } from '@angular/core';
+// pvindach.component.ts
+import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-
+import { ActivatedRoute } from '@angular/router';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
+import { CITY_CONFIG } from '../../../city/city.config';
+
+interface City { name: string; region: string; }
 
 @Component({
   selector: 'app-pvindach',
+  standalone: true,
   imports: [CtaButtonComponent],
   templateUrl: './pvindach.component.html',
   styleUrl: './pvindach.component.scss'
 })
-export class PvindachComponent {
+export class PvindachComponent implements OnInit {
 
-  constructor(private titleService: Title, private metaService: Meta) { }
+  // City-Informationen
+  city?: City;
+  cityKey?: string;
+
+  // Service-Informationen
+  serviceName = 'Indach-Photovoltaik';
 
   faqs = [
     {
@@ -36,63 +46,117 @@ export class PvindachComponent {
     }
   ];
 
+  constructor(
+    private titleService: Title,
+    private metaService: Meta,
+    private route: ActivatedRoute
+  ) { }
+
   ngOnInit(): void {
-    this.titleService.setTitle('PV Indach-Lösungen Nahe Glan – Ästhetische Solarenergie');
-    this.metaService.updateTag({ name: 'description', content: 'Entdecken Sie unsere PV Indach-Lösungen! Wir planen und installieren ästhetisch integrierte Photovoltaik-Anlagen, die sich nahtlos in Ihr Dach einfügen – für nachhaltige Energiegewinnung und eine moderne Optik.' });
-this.metaService.updateTag({ 
-  name: 'keywords', 
-  content:
-    // Hauptkeywords - Produkt/Technik
-    'Indach Photovoltaik, PV Indach, Indach PV Anlage, Indach Solaranlage, dachintegrierte Photovoltaik, gebäudeintegrierte Photovoltaik, BIPV, Solardach, Photovoltaik Dachintegration, Solarmodule Indach, Indach System, ' +
+    // City-Parameter auslesen (falls vorhanden)
+    this.cityKey = this.route.snapshot.paramMap.get('city') || undefined;
     
-    // Ästhetik & Design (hohe Nachfrage)
-    'ästhetische PV-Anlage, ästhetische Solaranlage, unauffällige Photovoltaik, Solardachziegel, Solardachpfannen, Photovoltaik als Dacheindeckung, PV-Module ohne Ziegel, rahmenlose Solarmodule, ' +
-    
-    // Vergleich & Entscheidungshilfe
-    'Indach vs Aufdach, Indach oder Aufdach Photovoltaik, Unterschied Indach Aufdach, Indach Photovoltaik Vorteile, Indach Photovoltaik Nachteile, ' +
-    
-    // Kosten & Wirtschaftlichkeit (Top-Suchanfrage)
-    'Indach Photovoltaik Kosten, Indach PV Kosten pro qm, Indach Photovoltaik Preis, Indach PV Anlage Kosten, was kostet Indach Photovoltaik, Indach Photovoltaik Förderung, ' +
-    
-    // Anwendungsfälle
-    'Indach PV Neubau, Indach Photovoltaik Altbau, Dachsanierung mit Photovoltaik, Dachsanierung mit PV, Dacherneuerung mit Solar, Solardach statt Ziegel, PV bei Dachsanierung, ' +
-    
-    // Technische Begriffe
-    'Indach Montagesystem, GSE In-Roof System, Indach Befestigungssystem, PV Schienensystem Indach, dachintegrierte Solarmodule, Indach PV Abdichtung, ' +
-    
-    // Fachbetrieb & Dienstleistung
-    'Indach Photovoltaik Dachdecker, Indach PV Installation, Indach PV Fachbetrieb, Indach Photovoltaik Montage, Dachdeckerbetrieb mit PV, Meisterbetrieb Indach PV, ' +
-    
-    // Long-Tail Keywords (kaufbereite Kunden)
-    'Indach Photovoltaik in meiner Nähe, Indach PV Angebot, Indach Solaranlage Angebot einholen, Indach Photovoltaik Beratung, Indach PV kaufen, ' +
-    
-    // Regionale Keywords - Nahe Glan Region
-    'Indach PV Nahe Glan, Indach Photovoltaik Bad Kreuznach, Indach PV Kirn, Indach Solaranlage Idar-Oberstein, Indach PV Birkenfeld, ' +
-    
-    // Regionale Keywords - Rhein-Main Gebiet
-    'Indach PV Mainz, Indach Photovoltaik Wiesbaden, Indach PV Frankfurt, Indach PV Darmstadt, Indach Solaranlage Mainz, Indach PV Bingen, Indach PV Alzey, Indach PV Ingelheim, ' +
-    
-    // Regionale Keywords - Rheinland-Pfalz
-    'Indach PV Worms, Indach Photovoltaik Ludwigshafen, Indach PV Mannheim, Indach PV Kaiserslautern, Indach PV Neustadt Weinstraße, Indach PV Speyer, Indach PV Landau, Indach PV Pirmasens, Indach PV Zweibrücken, Indach PV Bad Dürkheim, Indach PV Rheinland-Pfalz, ' +
-    
-    // Regionale Keywords - Saarland
-    'Indach PV Saarbrücken, Indach Photovoltaik Saarland, Indach PV Homburg, Indach PV St. Wendel, ' +
-    
-    // Regionale Keywords - Hessen
-    'Indach PV Offenbach, Indach Photovoltaik Rüsselsheim, Indach PV Groß-Gerau'
-});
+    if (this.cityKey) {
+      this.city = CITY_CONFIG[this.cityKey];
+      
+      // Stadt-spezifische FAQ hinzufügen
+      this.faqs.push({
+        question: `Sind Sie auch in ${this.city.name} tätig?`,
+        answer: `Ja, wir installieren PV Indach-Anlagen in ${this.city.name} und der gesamten Region ${this.city.region}. Als Dachdecker- und Elektrofachbetrieb bieten wir persönliche Vor-Ort-Beratung und fachgerechte Montage.`,
+        isOpen: false
+      });
+    } else {
+      // Allgemeine Regions-FAQ
+      this.faqs.push({
+        question: 'In welchen Regionen sind Sie tätig?',
+        answer: 'Als regional verwurzelter Fachbetrieb sind wir im Umkreis von ca. 50 km rund um Nahe-Glan für Sie im Einsatz. Wir realisieren PV Indach-Projekte in den Großräumen Mainz, Kaiserslautern und Bad Kreuznach sowie in allen umliegenden Gemeinden.',
+        isOpen: false
+      });
+    }
 
+    // SEO dynamisch setzen
+    this.setSeoTags();
+  }
 
-    // Open Graph and Twitter Card tags for social sharing
-    this.metaService.updateTag({ property: 'og:title', content: 'PV Indach-Lösungen Nahe Glan – Ästhetische Solarenergie' });
-    this.metaService.updateTag({ property: 'og:description', content: 'Entdecken Sie unsere PV Indach-Lösungen! Wir planen und installieren ästhetisch integrierte Photovoltaik-Anlagen, die sich nahtlos in Ihr Dach einfügen – für nachhaltige Energiegewinnung und eine moderne Optik.' });
-    this.metaService.updateTag({ property: 'og:type', content: 'website' });
-    // this.metaService.updateTag({ property: 'og:image', content: 'URL_to_your_image.jpg' }); // Optional: Add a relevant image URL
-    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+  // Helper-Methods für Template
+  get titleWithCity(): string {
+    return this.city 
+      ? `${this.serviceName} in ${this.city.name}`
+      : this.serviceName;
+  }
+
+  get subtitleWithCity(): string {
+    return this.city
+      ? `Dach und Solarenergie in einem System im Raum ${this.city.region}`
+      : 'Dach und Solarenergie in einem System';
+  }
+
+  private setSeoTags(): void {
+    if (this.city) {
+      // SEO mit Stadt
+      this.titleService.setTitle(
+        `PV Indach ${this.city.name} – Ästhetische Solarlösung | DNG`
+      );
+
+      this.metaService.updateTag({
+        name: 'description',
+        content: `PV Indach-Lösung in ${this.city.name}: GSE In-Roof System vom Dachdecker & Elektriker. Ästhetisch integriert, sturmsicher, förderfähig. Ideal für Neubau & Sanierung im Raum ${this.city.region}.`
+      });
+
+      this.metaService.updateTag({
+        property: 'og:title',
+        content: `PV Indach ${this.city.name} – GSE System | DNG GmbH`
+      });
+
+      this.metaService.updateTag({
+        property: 'og:description',
+        content: `Indach-Photovoltaik in ${this.city.name}: Solarmodule als Dacheindeckung. Ästhetisch, effizient, langlebig. Komplettlösung vom Fachbetrieb. Jetzt beraten lassen!`
+      });
+    } else {
+      // SEO ohne Stadt (Original)
+      this.titleService.setTitle(
+        'PV Indach-Lösungen Nahe Glan – Ästhetische Solarenergie | DNG'
+      );
+
+      this.metaService.updateTag({
+        name: 'description',
+        content: 'Entdecken Sie unsere PV Indach-Lösungen! Wir planen und installieren ästhetisch integrierte Photovoltaik-Anlagen, die sich nahtlos in Ihr Dach einfügen – für nachhaltige Energiegewinnung und eine moderne Optik.'
+      });
+
+      this.metaService.updateTag({
+        property: 'og:title',
+        content: 'PV Indach-Lösungen Nahe Glan – Ästhetische Solarenergie | DNG'
+      });
+
+      this.metaService.updateTag({
+        property: 'og:description',
+        content: 'Entdecken Sie unsere PV Indach-Lösungen! Wir planen und installieren ästhetisch integrierte Photovoltaik-Anlagen, die sich nahtlos in Ihr Dach einfügen – für nachhaltige Energiegewinnung und eine moderne Optik.'
+      });
+    }
+
+    // Keywords bleiben umfangreich (bereits gut optimiert)
+    this.metaService.updateTag({
+      name: 'keywords',
+      content:
+        'Indach Photovoltaik, PV Indach, Indach PV Anlage, dachintegrierte Photovoltaik, BIPV, Solardach, ' +
+        'ästhetische PV-Anlage, Solardachziegel, GSE In-Roof System, Indach Montagesystem, ' +
+        'Indach vs Aufdach, Indach Photovoltaik Kosten, Indach PV Neubau, Dachsanierung mit Photovoltaik, ' +
+        'Indach PV Nahe Glan, Indach Photovoltaik Bad Kreuznach, Indach PV Mainz, Indach PV Kaiserslautern'
+    });
+
+    // Diese bleiben immer gleich
+    this.metaService.updateTag({
+      property: 'og:type',
+      content: 'website'
+    });
+
+    this.metaService.updateTag({
+      name: 'twitter:card',
+      content: 'summary_large_image'
+    });
   }
 
   toggleFaq(index: number): void {
     this.faqs[index].isOpen = !this.faqs[index].isOpen;
   }
-
 }

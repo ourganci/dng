@@ -10,33 +10,52 @@
 
       <div class="services-grid">
         @for (service of services; track service.id) {
-          <div class="service-card">
-            <!-- Bild-Bereich -->
-            <div class="card-image">
-              @if (service.hasImage) {
-                <img [src]="'assets/images/services/' + service.id + '.jpg'" 
-                     [alt]="service.title"
-                     class="service-img">
-              } @else {
-                <div class="image-placeholder">
-                  <span class="icon">{{ service.icon }}</span>
-                </div>
-              }
+        <div class="service-card">
+          <!-- Bild-Bereich -->
+          <div class="card-image">
+            @if (service.hasImage) {
+            <img [src]="'assets/images/services/' + service.id + '.jpg'" [alt]="service.title" class="service-img"
+              loading="lazy">
+            } @else {
+            <div class="image-placeholder">
+              <span class="icon">{{ service.icon }}</span>
             </div>
+            }
+          </div>
 
-            <!-- Text-Bereich -->
-            <div class="card-content">
-              <h3>{{ service.title }}</h3>
-              <p>{{ service.description }}</p>
+          <!-- Text-Bereich -->
+          <div class="card-content">
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+
+            <!-- Button-Container (optional, macht es expliziter) -->
+            <div class="button-area">
               <a [routerLink]="['/leistungen', service.id]" class="btn-details">
                 Mehr erfahren
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="5" y1="12" x2="19" y2="12"/>
-                  <polyline points="12 5 19 12 12 19"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
                 </svg>
               </a>
+
+              @if (service.topCities && service.topCities.length > 0) {
+              <div class="city-links">
+                <span class="city-label">Auch verfügbar in:</span>
+                <div class="city-list">
+                  @for (cityKey of service.topCities; track cityKey) {
+                  <a [routerLink]="['/leistungen', service.id, cityKey]"
+                    [title]="service.title + ' in ' + getCityName(cityKey)" class="city-link">
+                    {{ getCityName(cityKey) }}
+                  </a>
+                  }
+                </div>
+              </div>
+              }
             </div>
           </div>
+
+        </div>
         }
       </div>
 

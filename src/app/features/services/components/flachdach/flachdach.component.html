@@ -1,32 +1,31 @@
-<!-- src/app/features/services/components/dachsanierung/dachsanierung.component.html -->
-
+<!-- flachdach.component.html -->
 <div class="service-detail-page">
-
-    <!-- Hero Section mit Bild -->
-    <!-- <section class="service-hero">
-        <div class="hero-image-bg" style="background-image: url('assets/images/services/dachsanierung.jpg')"></div>
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1>Dachsanierung vom Fachbetrieb</h1>
-        </div>
-    </section> -->
-
 
     <!-- Intro Section -->
     <section class="service-intro">
         <div class="container">
             <div class="section-header">
-                <h2>Flachdachdichtheitsprüfung</h2>
-                <h2 class="subtitle">Mit Rauch- und Dampftest</h2>
+                <h2>{{ titleWithCity }}</h2>
+                <h2 class="subtitle">{{ subtitleWithCity }}</h2>
             </div>
 
             <div class="story-grid">
                 <div class="story-content">
-                    <p>Undichte Flachdächer führen schnell zu erheblichen Schäden an der Bausubstanz.</p>
-                    <p>Gganz gleich ob bei Industriehallen, Wohngebäuden oder Garagen.</p>
-                    <p>Als erfahrene Dachdeckerfirma aus Nahe Glan bieten wir Ihnen professionelle <strong>
-                            Dichtheitsprüfungen für Flachdächer</strong> mittels <strong>Rauch- oder
-                            Dampferzeugung</strong>.
+                    <p>
+                        <strong>Undichte Flachdächer führen schnell zu erheblichen Schäden an der Bausubstanz.</strong>
+                    </p>
+                    <p>
+                        Ganz gleich ob bei Industriehallen, Wohngebäuden oder Garagen.
+                    </p>
+                    <p>
+                        Als erfahrene Dachdeckerfirma 
+                        @if (city) {
+                            in {{ city.name }} und der Region {{ city.region }}
+                        } @else {
+                            aus Nahe Glan
+                        }
+                        bieten wir Ihnen professionelle <strong>Dichtheitsprüfungen für Flachdächer</strong> 
+                        mittels <strong>Rauch- oder Dampferzeugung</strong>.
                     </p>
                     <p>Schnell. Zuverlässig. Dokumentiert.</p>
                 </div>
@@ -37,7 +36,6 @@
             </div>
         </div>
     </section>
-
 
     <section class="service-importance">
         <div class="importance-grid">
@@ -102,13 +100,18 @@
         </div>
     </section>
 
-
     <!-- CTA Section -->
     <section class="service-cta">
         <div class="container">
             <div class="cta-box">
-                <h2>Interesse an einer Dachsanierung?</h2>
-                <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot.</p>
+                <h2>
+                    @if (city) {
+                        Flachdachprüfung in {{ city.name }} benötigt?
+                    } @else {
+                        Flachdachprüfung benötigt?
+                    }
+                </h2>
+                <p>Kontaktieren Sie uns für eine professionelle Dichtheitsprüfung mit Prüfprotokoll.</p>
                 <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
             </div>
         </div>

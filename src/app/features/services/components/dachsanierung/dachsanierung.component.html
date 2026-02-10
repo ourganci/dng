@@ -2,22 +2,12 @@
 
 <div class="service-detail-page">
 
-    <!-- Hero Section mit Bild -->
-    <!-- <section class="service-hero">
-        <div class="hero-image-bg" style="background-image: url('assets/images/services/dachsanierung.jpg')"></div>
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1>Dachsanierung vom Fachbetrieb</h1>
-        </div>
-    </section> -->
-
     <!-- Intro Section -->
-
     <section class="service-intro">
         <div class="container">
             <div class="section-header">
-                <h2>Dachsanierung</h2>
-                <h2 class="subtitle">Schutz und Effizienz für Ihr Dach</h2>
+                <h2>{{ titleWithCity }}</h2>
+                <h2 class="subtitle">{{ subtitleWithCity }}</h2>
             </div>
 
             <div class="story-grid">
@@ -27,14 +17,19 @@
                     </p>
                     <p>
                         Feuchtigkeit, Wärmeverluste oder lockere Ziegel sind erste
-                        Anzeichen
-                        für Sanierungsbedarf.
+                        Anzeichen für Sanierungsbedarf.
                     </p>
                     <p>
-                        Als erfahrener Dachdeckerbetrieb aus Nahe-Glan sind wir im gesamten regionalen Umfeld für Sie unterwegs.
-                        Von Mainz über Bingen und Bad Kreuznach bis hin nach Kaiserslautern und Zweibrücken. 
-                        In diesem rund 75 Kilometer umfassenden Einzugsgebiet bieten wir Ihnen fachgerechte Dachsanierungen 
-                        für Wohnhäuser, Gewerbeobjekte und Mehrfamilienhäuser.
+                        Als erfahrener Dachdeckerbetrieb aus Nahe-Glan 
+                        @if (city) {
+                            bieten wir Ihnen in {{ city.name }} und der Region {{ city.region }}
+                            fachgerechte Dachsanierungen für Wohnhäuser, Gewerbeobjekte und Mehrfamilienhäuser.
+                        } @else {
+                            sind wir im gesamten regionalen Umfeld für Sie unterwegs.
+                            Von Mainz über Bingen und Bad Kreuznach bis hin nach Kaiserslautern und Zweibrücken. 
+                            In diesem rund 75 Kilometer umfassenden Einzugsgebiet bieten wir Ihnen fachgerechte Dachsanierungen 
+                            für Wohnhäuser, Gewerbeobjekte und Mehrfamilienhäuser.
+                        }
                     </p>
                 </div>
                 <div class="story-image">
@@ -83,7 +78,7 @@
     <section class="service-what-you-get">
         <div class="container">
             <div class="section-header">
-                <h2>Vorteile einer professionellen Dachsanierung </h2>
+                <h2>Vorteile einer professionellen Dachsanierung</h2>
                 <h2 class="subtitle">Früh erkennen, gezielt sanieren</h2>
             </div>
             <div class="service-cards-grid">
@@ -103,7 +98,7 @@
                     </div>
                     <div class="card-content">
                         <h3>Energieeffizienz</h3>
-                        <p>Spart Heizkosten durch neue Dämmung (z. B. nach GEG)</p>
+                        <p>Spart Heizkosten durch neue Dämmung (z. B. nach GEG)</p>
                     </div>
                 </div>
 
@@ -178,7 +173,6 @@
         </div>
     </section>
 
-
     <section class="service-faqs">
         <div class="container">
             <h2>Häufig gestellte Fragen</h2>
@@ -208,12 +202,17 @@
         </div>
     </section>
 
-
     <!-- CTA Section -->
     <section class="service-cta">
         <div class="container">
             <div class="cta-box">
-                <h2>Interesse an einer Dachsanierung?</h2>
+                <h2>
+                    @if (city) {
+                        Interesse an einer Dachsanierung in {{ city.name }}?
+                    } @else {
+                        Interesse an einer Dachsanierung?
+                    }
+                </h2>
                 <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot.</p>
                 <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
             </div>

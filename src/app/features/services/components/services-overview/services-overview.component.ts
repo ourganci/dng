@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 import { SeoService } from '../../../../core/services/seo.service';
 import { ServiceDataService } from '../../../../core/services/service-data.service';
+import { CITY_CONFIG } from '../../../city/city.config';
 
 @Component({
   selector: 'app-services-overview',
@@ -26,4 +27,10 @@ export class ServicesOverviewComponent implements OnInit {
       url: 'https://www.dng-nahe-glan.de/leistungen'
     });
   }
+
+    // Helper-Method um City-Namen zu bekommen
+  getCityName(cityKey: string): string {
+    return CITY_CONFIG[cityKey]?.name || cityKey;
+  }
+  
 }

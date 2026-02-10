@@ -48,6 +48,7 @@ export interface ServiceOverview {
   description: string;
   icon: string;
   hasImage: boolean; // ← NEU
+  topCities?: string[];
 }
 
 @Injectable({
@@ -633,16 +634,86 @@ export class ServiceDataService {
     }));
   }
 
-  // ⭐ Service-Übersicht für Cards (mit hasImage)
+    // Service-Übersicht für Cards (mit dynamischen topCities)
   getServicesOverview(): ServiceOverview[] {
     return this.services.map(service => ({
       id: service.id,
       title: service.headline,
       description: service.description,
       icon: service.icon,
-      hasImage: this.servicesWithImages.has(service.id)
+      hasImage: this.servicesWithImages.has(service.id),
+      topCities: this.getTopCitiesForService(service.id) // ← Dynamisch!
     }));
   }
+
+    // ⭐ Strategische Top-Cities pro Service (Keys, nicht Namen!)
+  private getTopCitiesForService(serviceId: string): string[] {
+    const cityMapping: Record<string, string[]> = {
+      // Dach-Services: Fokus auf Nahe-Glan Kern + wichtige Städte
+      'dachsanierung': [
+        'mainz',           // Größte Stadt, hohes Suchvolumen
+        'bad-kreuznach',   // Stammsitz
+        'kaiserslautern',  // Wirtschaftsstarke Region
+        'bingen'           // Rhein-Nähe
+      ],
+      
+      'dachfenster': [
+        'mainz',
+        'ingelheim',       // Wohlhabende Vorstadt
+        'bad-kreuznach',
+        'alzey'            // Rheinhessen
+      ],
+      
+      'dachreparatur': [
+        'bad-kreuznach',   // Lokal, schnelle Anfahrt
+        'kirn',            // Nahe Region
+        'idar-oberstein',  // Nahe Region
+        'mainz'
+      ],
+      
+      'regenrinnen': [
+        'mainz',
+        'bingen',
+        'bad-kreuznach',
+        'worrstadt'        // Rheinhessen
+      ],
+      
+      // Spezial-Services: Fokus auf größere Gewerbe-Städte
+      'flachdachpruefung': [
+        'mainz',
+        'kaiserslautern',  // Viel Industrie
+        'ludwigshafen',    // BASF-Region
+        'worms'            // Gewerbehallen
+      ],
+      
+      // PV-Services: Kaufkräftige & wirtschaftsstarke Regionen
+      'photovoltaik': [
+        'mainz',
+        'kaiserslautern',  // Uni + Militär
+        'bad-kreuznach',
+        'ingelheim'        // Kaufkraft
+      ],
+      
+      'pv-indach': [
+        'mainz',
+        'wiesbaden',       // Kaufkräftig, Neubaugebiet
+        'bingen',
+        'alzey'
+      ],
+      
+      // B2B: Industrie-Standorte
+      'hallenbeleuchtung': [
+        'kaiserslautern',  // Industrie + Logistik
+        'mainz',
+        'ludwigshafen',    // BASF
+        'zweibruecken'     // Outlet + Gewerbe
+      ]
+    };
+
+    // Fallback: Standard-Cities wenn Service nicht gemappt
+    return cityMapping[serviceId] || ['mainz', 'bingen', 'bad-kreuznach', 'ingelheim'];
+  }
+
 
   getServiceById(id: string): ServiceContent | undefined {
     const service = this.services.find(s => s.id === id);

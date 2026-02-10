@@ -13,9 +13,19 @@ export const routes: Routes = [
       .then(m => m.ServicesOverviewComponent)
   },
   {
+    path: 'leistungen/dachsanierung/:city',
+    loadComponent: () => import('./features/services/components/dachsanierung/dachsanierung.component')
+      .then(m => m.DachsanierungComponent)
+  },
+  {
     path: 'leistungen/dachsanierung',
     loadComponent: () => import('./features/services/components/dachsanierung/dachsanierung.component')
       .then(m => m.DachsanierungComponent)
+  },
+  {
+    path: 'leistungen/dachfenster/:city',
+    loadComponent: () => import('./features/services/components/dachfenster/dachfenster.component')
+      .then(m => m.DachfensterComponent)
   },
   {
     path: 'leistungen/dachfenster',
@@ -23,9 +33,19 @@ export const routes: Routes = [
       .then(m => m.DachfensterComponent)
   },
   {
+    path: 'leistungen/regenrinnen/:city',
+    loadComponent: () => import('./features/services/components/regenrinnen/regenrinnen.component')
+      .then(m => m.RegenrinnenComponent)
+  },
+  {
     path: 'leistungen/regenrinnen',
     loadComponent: () => import('./features/services/components/regenrinnen/regenrinnen.component')
       .then(m => m.RegenrinnenComponent)
+  },
+  {
+    path: 'leistungen/dachreparatur/:city',
+    loadComponent: () => import('./features/services/components/dachreparatur/dachreparatur.component')
+      .then(m => m.DachreparaturComponent)
   },
   {
     path: 'leistungen/dachreparatur',
@@ -33,9 +53,19 @@ export const routes: Routes = [
       .then(m => m.DachreparaturComponent)
   },
   {
+    path: 'leistungen/flachdachpruefung/:city',
+    loadComponent: () => import('./features/services/components/flachdach/flachdach.component')
+      .then(m => m.FlachdachComponent)
+  },
+  {
     path: 'leistungen/flachdachpruefung',
     loadComponent: () => import('./features/services/components/flachdach/flachdach.component')
       .then(m => m.FlachdachComponent)
+  },
+  {
+    path: 'leistungen/photovoltaik/:city',
+    loadComponent: () => import('./features/services/components/photovoltaik/photovoltaik.component')
+      .then(m => m.PhotovoltaikComponent)
   },
   {
     path: 'leistungen/photovoltaik',
@@ -43,21 +73,25 @@ export const routes: Routes = [
       .then(m => m.PhotovoltaikComponent)
   },
   {
+    path: 'leistungen/pv-indach/:city',
+    loadComponent: () => import('./features/services/components/pvindach/pvindach.component')
+      .then(m => m.PvindachComponent)
+  },
+  {
     path: 'leistungen/pv-indach',
     loadComponent: () => import('./features/services/components/pvindach/pvindach.component')
       .then(m => m.PvindachComponent)
+  },
+  {
+    path: 'leistungen/hallenbeleuchtung/:city',
+    loadComponent: () => import('./features/services/components/hallenbeleuchtung/hallenbeleuchtung.component')
+      .then(m => m.HallenbeleuchtungComponent)
   },
   {
     path: 'leistungen/hallenbeleuchtung',
     loadComponent: () => import('./features/services/components/hallenbeleuchtung/hallenbeleuchtung.component')
       .then(m => m.HallenbeleuchtungComponent)
   },
-  {
-    path: 'leistungen/:service/:city',
-    loadComponent: () =>
-      import('./features/city-service/city-service.component').then(m => m.CityServiceComponent)
-  },
-
   {
     path: 'ueber-uns',
     loadComponent: () => import('./features/about/about.component')

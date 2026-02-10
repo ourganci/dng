@@ -1,45 +1,40 @@
-<!-- src/app/features/services/components/dachsanierung/dachsanierung.component.html -->
-
+<!-- dachreparatur.component.html -->
 <div class="service-detail-page">
-
-    <!-- Hero Section mit Bild -->
-    <!-- <section class="service-hero">
-        <div class="hero-image-bg" style="background-image: url('assets/images/services/dachsanierung.jpg')"></div>
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1>Dachsanierung vom Fachbetrieb</h1>
-        </div>
-    </section> -->
 
     <!-- Intro Section -->
     <section class="service-intro">
         <div class="container">
             <div class="section-header">
-                <h2>Dachreparatur und Wartung</h2>
-                <h2 class="subtitle">Schnell, sicher, zuverlässig </h2>
+                <h2>{{ titleWithCity }}</h2>
+                <h2 class="subtitle">{{ subtitleWithCity }}</h2>
             </div>
 
             <div class="story-grid">
                 <div class="story-content">
                     <p>
-                        Ob Sturmschaden, undichte Stelle oder defekter Ziegel
+                        <strong>Ob Sturmschaden, undichte Stelle oder defekter Ziegel</strong>
                     </p>
                     <p>
-                        Ein beschädigtes Dach duldet keinen
-                        Aufschub. Als erfahrener Dachdeckerbetrieb in Nahe Glan sind wir schnell für Sie vor Ort. Wir
-                        bieten sofortige Dachreparaturen, langfristige Wartungsverträge und bei Bedarf auch einen
+                        Ein beschädigtes Dach duldet keinen Aufschub. 
+                        Als erfahrener Dachdeckerbetrieb 
+                        @if (city) {
+                            sind wir in {{ city.name }} und der Region {{ city.region }} schnell für Sie vor Ort.
+                        } @else {
+                            in Nahe Glan sind wir schnell für Sie vor Ort.
+                        }
+                        Wir bieten sofortige Dachreparaturen, langfristige Wartungsverträge und bei Bedarf auch einen
                         Notdienst.
                     </p>
                 </div>
                 <div class="story-image">
-                    <img src="assets/images/services/dachsanierung_detail1.jpg" alt="Dachsanierung Detail"
+                    <img src="assets/images/services/dachsanierung_detail1.jpg" alt="Dachreparatur Detail"
                         loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Ursachen und typische Schäden -->
+    <!-- Unsere Leistungen -->
     <section class="service-what-you-get">
         <div class="container">
             <div class="section-header">
@@ -61,7 +56,7 @@
                     </ul>
                 </div>
                 <div class="story-image">
-                    <img src="assets/images/services/dachsanierung/dachsanierung_1.jpeg" alt="Dachsanierung"
+                    <img src="assets/images/services/dachsanierung/dachsanierung_1.jpeg" alt="Dachreparatur"
                         loading="lazy">
                 </div>
             </div>
@@ -85,16 +80,16 @@
             <div class="story-grid">
                 <div class="story-content">
                     <strong>
-                        <p>Notdienst – schnell Hilfe bei Schäden </p>
+                        <p>Notdienst – schnelle Hilfe bei Schäden</p>
                     </strong>
                     <ul class="bullet-list">
-                        <li>Einsatzbereit bei akuten Schäden (z. B. Wassereintritt)</li>
+                        <li>Einsatzbereit bei akuten Schäden (z. B. Wassereintritt)</li>
                         <li>Notabdichtung zur Schadensbegrenzung</li>
                         <li>Sofortige Absicherung bei Gefahr im Verzug</li>
                         <li>Hotline / Bereitschaftsdienst auf Anfrage möglich</li>
                     </ul>
                 </div>
-                                <div class="story-image">
+                <div class="story-image">
                     <img src="assets/images/services/dachsanierung/schaden.webp" alt="Schaden"
                         loading="lazy">
                 </div>
@@ -131,13 +126,18 @@
         </div>
     </section>
 
-
     <!-- CTA Section -->
     <section class="service-cta">
         <div class="container">
             <div class="cta-box">
-                <h2>Interesse an einer Dachsanierung?</h2>
-                <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot.</p>
+                <h2>
+                    @if (city) {
+                        Brauchen Sie eine Dachreparatur in {{ city.name }}?
+                    } @else {
+                        Brauchen Sie eine Dachreparatur?
+                    }
+                </h2>
+                <p>Kontaktieren Sie uns für eine schnelle Vor-Ort-Besichtigung und ein unverbindliches Angebot.</p>
                 <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
             </div>
         </div>
