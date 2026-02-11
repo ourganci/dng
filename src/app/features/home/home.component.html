@@ -1,24 +1,54 @@
 <!-- src/app/features/home/home.component.html -->
 <div class="home-page">
-  <section class="hero">
-    <div class="hero-image"></div>
-    <div class="container">
-      <h1>Dachdecker für Nahe-Glan, Bad Kreuznach & Umgebung</h1>
-      <h2>Dachsanierung, Flachdach & Photovoltaik vom regionalen Fachbetrieb</h2>
-      <h2>Ihr Dach. Unsere Mission.</h2>
-
-
-      <p class="intro">
-        Wir sind Ihr zuverlässiger Dachdeckerfachbetrieb für Nahe-Glan und das gesamte
-        Umkreisgebiet in Bad Kreuznach, Kaiserslautern,
-        Bingen, Ingelheim, Mainz, Alzey und Wörrstadt.
-        Ob Dachsanierung, Flachdach, Photovoltaik oder Dachfenster:
-        Wir kümmern uns fachgerecht um Ihr Dach.
+<section class="hero">
+  <div class="hero-image"></div>
+  <!-- <div class="hero-overlay"></div> -->
+  <div class="container">
+    <div class="hero-content">
+      <!-- Badge (optional, modern) -->
+      <!-- <span class="hero-badge">Meisterbetrieb seit 2010</span> -->
+      
+      <!-- Hauptüberschrift - kurz & knackig -->
+      <h1>Ihr Dachdecker für Nahe-Glan & Umgebung</h1>
+      
+      <!-- Subline - nur das Wichtigste -->
+      <p class="hero-subline">
+        Dachsanierung, Photovoltaik & Reparaturen vom regionalen Fachbetrieb in Bad Kreuznach, Mainz und Kaiserslautern
       </p>
 
-      <app-cta-button text="Jetzt unverbindlich beraten lassen!" link="/kontakt" />
+      <!-- CTA Buttons -->
+      <div class="hero-actions">
+        <app-cta-button 
+          text="Kostenlose Beratung" 
+          link="/kontakt" 
+         />
+        <a href="tel:+4967123456789" class="btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          Direkt anrufen
+        </a>
+      </div>
+
+      <!-- Trust-Elemente (optional) -->
+      <!-- <div class="hero-trust">
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>50+ Projekte</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>15 Jahre Erfahrung</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Regional verwurzelt</span>
+        </div>
+      </div> -->
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Services Showcase (NEU) -->
   <section class="services-showcase">

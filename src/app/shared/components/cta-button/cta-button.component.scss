@@ -1,7 +1,9 @@
 // src/app/shared/components/cta-button/cta-button.component.scss
 
 .cta-button {
-  display: inline-block;
+  display: inline-flex; // ← Geändert von inline-block zu inline-flex
+  align-items: center; // ← NEU: Vertikale Zentrierung
+  justify-content: center; // ← NEU: Horizontale Zentrierung
   padding: 1rem 2rem;
   background-color: var(--primary-yellow);
   color: var(--text-dark);
@@ -15,6 +17,7 @@
   border: 3px solid var(--primary-yellow);
   position: relative;
   overflow: hidden;
+  vertical-align: top; // ← NEU: Verhindert Baseline-Whitespace
 
   // Animierter Hover-Effekt
   &::before {
