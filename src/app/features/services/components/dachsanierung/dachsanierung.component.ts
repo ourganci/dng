@@ -1,11 +1,12 @@
+// src/app/features/services/components/dachsanierung/dachsanierung.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Meta, Title } from '@angular/platform-browser';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 import { CITY_CONFIG } from '../../../city/city.config';
+import { SERVICE_CONFIG } from '../../services.config';
+import { SeoService } from '../../../../core/services/seo.service';
 
 interface City { name: string; region: string; localHook: string; solarHours: number; }
-
 
 @Component({
   selector: 'app-dachsanierung',
@@ -21,9 +22,13 @@ export class DachsanierungComponent implements OnInit {
   cityKey?: string;
 
   // Service-Informationen
+  serviceKey = 'dachsanierung'; // Key passend zur SERVICE_CONFIG
   serviceName = 'Dachsanierung';
 
-  constructor(private titleService: Title, private metaService: Meta, private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private seoService: SeoService
+  ) { }
 
   faqs = [
     {
@@ -48,26 +53,47 @@ export class DachsanierungComponent implements OnInit {
     },
     {
       question: 'Für wen ist eine Dachsanierung sinnvoll?',
-      answer: `
-        Eine Dachsanierung ist sinnvoll für:
-        - Privathaushalte (Eigentümer & Bauherren)
-        - Hausverwaltungen & Immobiliengesellschaften
-        - Bauträger & Sanierungsfirmen
-      `,
+      answer: `Eine Dachsanierung ist sinnvoll für: Privathaushalte, Hausverwaltungen und Bauträger, die Wert auf Energieeffizienz und Werterhalt legen.`,
       isOpen: false
     }
   ];
 
   ngOnInit(): void {
-    // City-Parameter auslesen (falls vorhanden)
+    // City-Parameter auslesen
     this.cityKey = this.route.snapshot.paramMap.get('city') || undefined;
 
-    if (this.cityKey) {
+    if (this.cityKey && CITY_CONFIG[this.cityKey]) {
       this.city = CITY_CONFIG[this.cityKey];
     }
 
-    // SEO dynamisch setzen
-    this.setSeoTags();
+    // SEO zentral über den SeoService setzen
+    this.applySeo();
+  }
+
+  private applySeo(): void {
+    const service = SERVICE_CONFIG[this.serviceKey];
+    const cityName = this.city ? this.city.name : 'Nahe-Glan';
+    const regionName = this.city ? this.city.region : 'der Region';
+
+    // Aufbau der URL für den Canonical Link
+    const baseUrl = 'https://www.dng-nahe-glan.de/leistungen/dachsanierung';
+    const canonicalUrl = this.cityKey ? `${baseUrl}/${this.cityKey}` : baseUrl;
+
+    // Dynamische Texte basierend auf City-Status
+    const seoTitle = this.city 
+      ? `Dachsanierung ${this.city.name} – Dach neu decken & dämmen | DNG`
+      : 'Dachsanierung Nahe Glan – Dach neu decken & dämmen | DNG GmbH';
+
+    const seoDesc = this.city
+      ? `Professionelle Dachsanierung in ${this.city.name}. Energetische Dämmung & Neueindeckung im Raum ${this.city.region}. Jetzt KfW-Förderung nutzen & Angebot erhalten!`
+      : `Ihre Experten für Dachsanierung, Dämmung und Neueindeckung in Nahe Glan, Bad Kreuznach & Mainz. KfW-Förderung möglich. Jetzt beraten lassen!`;
+
+    this.seoService.updateMetaTags({
+      title: seoTitle,
+      description: seoDesc,
+      url: canonicalUrl,
+      keywords: `Dachsanierung ${cityName}, Dach dämmen ${cityName}, Neueindeckung ${regionName}, Dachdecker ${cityName}, energetische Sanierung`
+    });
   }
 
   // Helper-Methods für Template
@@ -83,66 +109,6 @@ export class DachsanierungComponent implements OnInit {
       : 'Dach neu decken & dämmen';
   }
 
-  private setSeoTags(): void {
-    if (this.city) {
-      // SEO mit Stadt
-      this.titleService.setTitle(
-        `${this.serviceName} ${this.city.name} – Dach neu decken & dämmen | DNG GmbH`
-      );
-
-      this.metaService.updateTag({
-        name: 'description',
-        content: `Professionelle ${this.serviceName} in ${this.city.name}. Energetische Dämmung und Neueindeckung im Raum ${this.city.region}. KfW-Förderung möglich.`
-      });
-
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: `${this.serviceName} ${this.city.name} – KfW-Förderung möglich | DNG GmbH`
-      });
-
-      this.metaService.updateTag({
-        property: 'og:description',
-        content: `Professionelle ${this.serviceName} in ${this.city.name}. KfW-Förderung möglich. Energieeffizient dämmen, neu decken & Heizkosten sparen.`
-      });
-    } else {
-      // SEO ohne Stadt (Original)
-      this.titleService.setTitle(
-        'Dachsanierung Nahe Glan – Dach neu decken & dämmen | DNG GmbH'
-      );
-
-      this.metaService.updateTag({
-        name: 'description',
-        content: 'Professionelle Dachsanierung, energetische Dämmung und Neueindeckung in Nahe Glan, Bad Kreuznach Mainz, Kaiserslautern und Kirn. KfW-Förderung möglich.'
-      });
-
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: 'Dachsanierung vom Fachbetrieb – KfW-Förderung möglich | DNG GmbH'
-      });
-
-      this.metaService.updateTag({
-        property: 'og:description',
-        content: 'Professionelle Dachsanierung vom Fachbetrieb in Nahe Glan. KfW-Förderung möglich. Energieeffizient dämmen, neu decken & Heizkosten sparen. Jetzt Angebot erhalten!'
-      });
-    }
-
-    // Diese bleiben immer gleich
-    this.metaService.updateTag({
-      name: 'keywords',
-      content: 'Dachsanierung Nahe Glan, Dachsanierung Bad Kreuznach, ...' // deine Keywords
-    });
-
-    this.metaService.updateTag({
-      property: 'og:type',
-      content: 'website'
-    });
-
-    this.metaService.updateTag({
-      name: 'twitter:card',
-      content: 'summary_large_image'
-    });
-  }
-
   toggleFaq(index: number): void {
     this.faqs[index].isOpen = !this.faqs[index].isOpen;
   }
@@ -156,5 +122,4 @@ export class DachsanierungComponent implements OnInit {
       closing: `Von der ersten Bestandsaufnahme in ${this.city.name} bis zur fachgerechten Ausführung erhalten Sie bei uns alles aus einer Hand.`
     };
   }
-
 }

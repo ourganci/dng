@@ -1,9 +1,10 @@
 // dachreparatur.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 import { CITY_CONFIG } from '../../../city/city.config';
+import { SERVICE_CONFIG } from '../../services.config';
+import { SeoService } from '../../../../core/services/seo.service';
 
 interface City { name: string; region: string; localHook: string; solarHours: number; }
 
@@ -21,6 +22,7 @@ export class DachreparaturComponent implements OnInit {
   cityKey?: string;
 
   // Service-Informationen
+  serviceKey = 'dachreparatur'; // Key passend zur SERVICE_CONFIG
   serviceName = 'Dachreparatur';
 
   faqs = [
@@ -52,21 +54,46 @@ export class DachreparaturComponent implements OnInit {
   ];
 
   constructor(
-    private titleService: Title,
-    private metaService: Meta,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private seoService: SeoService
   ) { }
 
   ngOnInit(): void {
-    // City-Parameter auslesen (falls vorhanden)
+    // City-Parameter auslesen
     this.cityKey = this.route.snapshot.paramMap.get('city') || undefined;
 
-    if (this.cityKey) {
+    if (this.cityKey && CITY_CONFIG[this.cityKey]) {
       this.city = CITY_CONFIG[this.cityKey];
     }
 
-    // SEO dynamisch setzen
-    this.setSeoTags();
+    // SEO zentral über den SeoService setzen
+    this.applySeo();
+  }
+
+  private applySeo(): void {
+    const service = SERVICE_CONFIG[this.serviceKey];
+    const cityName = this.city ? this.city.name : 'Nahe-Glan';
+    const regionName = this.city ? this.city.region : 'der Region';
+
+    // Aufbau der URL für den Canonical Link
+    const baseUrl = 'https://www.dng-nahe-glan.de/leistungen/dachreparatur';
+    const canonicalUrl = this.cityKey ? `${baseUrl}/${this.cityKey}` : baseUrl;
+
+    // Dynamische Texte basierend auf City-Status
+    const seoTitle = this.city 
+      ? `Dachreparatur ${this.city.name} – Schnelle Hilfe & Notdienst | DNG`
+      : 'Dachreparatur & Wartung – Notdienst verfügbar | DNG GmbH';
+
+    const seoDesc = this.city
+      ? `Schnelle Dachreparatur in ${this.city.name}. Notdienst bei Sturmschäden & Undichtigkeiten. Ihr zuverlässiger Dachdecker im Raum ${this.city.region}. Jetzt anrufen!`
+      : `Professionelle Dachreparatur bei Sturmschäden & undichten Stellen. Schneller Notdienst und Wartungsverträge in Nahe-Glan. Jetzt Kontakt aufnehmen!`;
+
+    this.seoService.updateMetaTags({
+      title: seoTitle,
+      description: seoDesc,
+      url: canonicalUrl,
+      keywords: `Dachreparatur ${cityName}, Sturmschaden ${cityName}, Dachdecker Notdienst ${regionName}, Dach undicht ${cityName}, Dachwartung`
+    });
   }
 
   // Helper-Methods für Template
@@ -82,64 +109,12 @@ export class DachreparaturComponent implements OnInit {
       : 'Schnell, sicher, zuverlässig';
   }
 
-  private setSeoTags(): void {
-    if (this.city) {
-      // SEO mit Stadt
-      this.titleService.setTitle(
-        `${this.serviceName} ${this.city.name} – Schnelle Hilfe & Notdienst | DNG`
-      );
-
-      this.metaService.updateTag({
-        name: 'description',
-        content: `Schnelle ${this.serviceName} in ${this.city.name}. Notdienst bei Sturmschäden. Wartungsverträge verfügbar. Ihr Dachdecker im Raum ${this.city.region}.`
-      });
-
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: `${this.serviceName} ${this.city.name} – Notdienst verfügbar | DNG GmbH`
-      });
-    } else {
-      // SEO ohne Stadt (Original)
-      this.titleService.setTitle(
-        'Dachreparatur & Wartung – Notdienst verfügbar | DNG GmbH'
-      );
-
-      this.metaService.updateTag({
-        name: 'description',
-        content: 'Schnelle Dachreparatur bei Sturmschäden, undichten Stellen oder defekten Ziegeln. Notdienst und Wartungsverträge verfügbar. Jetzt Kontakt aufnehmen!'
-      });
-
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: 'Dachreparatur vom Fachbetrieb – Notdienst | DNG GmbH'
-      });
-    }
-
-    // Diese bleiben immer gleich
-    this.metaService.updateTag({
-      property: 'og:description',
-      content: 'Professionelle Dachreparatur und Wartung. Schneller Notdienst bei Schäden. Wartungsverträge verfügbar.'
-    });
-
-    this.metaService.updateTag({
-      property: 'og:type',
-      content: 'website'
-    });
-
-    this.metaService.updateTag({
-      name: 'twitter:card',
-      content: 'summary_large_image'
-    });
-  }
-
   toggleFaq(index: number): void {
     this.faqs[index].isOpen = !this.faqs[index].isOpen;
   }
 
   get regionalTextParts(): any {
-    if (!this.city) {
-      return null; // Wichtig: null triggert das @else im Template
-    }
+    if (!this.city) return null;
 
     return {
       intro: `Ob Sturmschaden oder defekter Ziegel – wir wissen, dass es bei Dachschäden auf Schnelligkeit ankommt.`,

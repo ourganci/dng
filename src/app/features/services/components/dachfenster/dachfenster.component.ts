@@ -1,9 +1,10 @@
 // dachfenster.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 import { CITY_CONFIG } from '../../../city/city.config';
+import { SERVICE_CONFIG } from '../../services.config'; // Wichtig: Import der Service-Config
+import { SeoService } from '../../../../core/services/seo.service';
 
 interface City { name: string; region: string; localHook?: string; solarHours?: number; }
 
@@ -21,10 +22,10 @@ export class DachfensterComponent implements OnInit {
   cityKey?: string;
 
   // Service-Informationen
+  serviceKey = 'dachfenster'; // Key passend zur SERVICE_CONFIG
   serviceName = 'Dachfenster';
 
   openCard: number | null = null;
-
   currentSlide = 0;
 
   images = [
@@ -38,7 +39,6 @@ export class DachfensterComponent implements OnInit {
     { src: 'assets/images/services/Dach-Kueche-4.webp', alt: 'Dachküche', caption: 'Optionaler Text', title: 'Moderne Dachküche' },
     { src: 'assets/images/services/Dach-Wohnen-7.webp', alt: 'Dachwohnraum', caption: 'Optionaler Text', title: 'Moderner Dachwohnraum' }
   ];
-
 
   faqs = [
     {
@@ -69,21 +69,53 @@ export class DachfensterComponent implements OnInit {
   ];
 
   constructor(
-    private titleService: Title,
-    private metaService: Meta,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private seoService: SeoService
   ) { }
 
   ngOnInit(): void {
-    // City-Parameter auslesen (falls vorhanden)
+    // City-Parameter auslesen
     this.cityKey = this.route.snapshot.paramMap.get('city') || undefined;
 
-    if (this.cityKey) {
+    if (this.cityKey && CITY_CONFIG[this.cityKey]) {
       this.city = CITY_CONFIG[this.cityKey];
+
+      // Stadt-spezifische FAQ hinzufügen
+      this.faqs.push({
+        question: `Sind Sie auch in ${this.city.name} tätig?`,
+        answer: `Ja, als regionaler Fachbetrieb führen wir den Dachfenster-Einbau in ${this.city.name} und der gesamten Region ${this.city.region} fachgerecht aus.`,
+        isOpen: false
+      });
     }
 
-    // SEO dynamisch setzen
-    this.setSeoTags();
+    // SEO zentral über den SeoService setzen
+    this.applySeo();
+  }
+
+  private applySeo(): void {
+    const service = SERVICE_CONFIG[this.serviceKey];
+    const cityName = this.city ? this.city.name : 'Nahe-Glan';
+    const regionName = this.city ? this.city.region : 'der Region';
+
+    // Aufbau der URL für den Canonical Link
+    const baseUrl = 'https://www.dng-nahe-glan.de/leistungen/dachfenster';
+    const canonicalUrl = this.cityKey ? `${baseUrl}/${this.cityKey}` : baseUrl;
+
+    // Dynamische Texte basierend auf City-Status
+    const seoTitle = this.city 
+      ? `Dachfenster ${this.city.name} – Einbau & Modernisierung | DNG`
+      : 'Dachfenster Einbau & Modernisierung – Velux-Partner | DNG GmbH';
+
+    const seoDesc = this.city
+      ? `Professioneller Dachfenster-Einbau in ${this.city.name}. Velux-Partner. Mehr Licht & Wohnkomfort im Raum ${this.city.region}. Jetzt Termin vereinbaren!`
+      : `Professioneller Dachfenster-Einbau von Velux & anderen Herstellern. Mehr Licht, Luft & Komfort. Jetzt Beratung in der Region Nahe-Glan anfordern!`;
+
+    this.seoService.updateMetaTags({
+      title: seoTitle,
+      description: seoDesc,
+      url: canonicalUrl,
+      keywords: `Dachfenster ${cityName}, Velux ${cityName}, Dachfenster Einbau ${regionName}, Dachgaube ${cityName}, Dachfenster Kosten`
+    });
   }
 
   // Helper-Methods für Template
@@ -97,56 +129,6 @@ export class DachfensterComponent implements OnInit {
     return this.city
       ? `Mehr Licht und Lebensqualität im Raum ${this.city.region}`
       : 'Mehr Licht, mehr Raum, mehr Lebensqualität';
-  }
-
-  private setSeoTags(): void {
-    if (this.city) {
-      // SEO mit Stadt
-      this.titleService.setTitle(
-        `${this.serviceName} ${this.city.name} – Einbau & Modernisierung | DNG GmbH`
-      );
-
-      this.metaService.updateTag({
-        name: 'description',
-        content: `Professioneller ${this.serviceName}-Einbau in ${this.city.name}. Velux-Partner. Mehr Licht & Wohnkomfort im Raum ${this.city.region}. Förderfähig bis 20%.`
-      });
-
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: `${this.serviceName} ${this.city.name} – Velux-Partner | DNG GmbH`
-      });
-    } else {
-      // SEO ohne Stadt (Original)
-      this.titleService.setTitle(
-        'Dachfenster Einbau & Modernisierung – Velux-Partner | DNG GmbH'
-      );
-
-      this.metaService.updateTag({
-        name: 'description',
-        content: 'Professioneller Dachfenster-Einbau von Velux & anderen Herstellern. Mehr Licht, Luft & Komfort. Förderfähig bis 20%. Jetzt beraten lassen!'
-      });
-
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: 'Dachfenster vom Fachbetrieb – Velux-Partner | DNG GmbH'
-      });
-    }
-
-    // Diese bleiben immer gleich
-    this.metaService.updateTag({
-      property: 'og:description',
-      content: 'Professioneller Dachfenster-Einbau und Modernisierung. Velux-Qualität, individuelle Beratung, förderfähig.'
-    });
-
-    this.metaService.updateTag({
-      property: 'og:type',
-      content: 'website'
-    });
-
-    this.metaService.updateTag({
-      name: 'twitter:card',
-      content: 'summary_large_image'
-    });
   }
 
   toggleFaq(index: number): void {
@@ -170,11 +152,11 @@ export class DachfensterComponent implements OnInit {
   }
 
   get regionalTextDachfenster(): any {
-  if (!this.city) return null;
+    if (!this.city) return null;
 
-  return {
-    intro: `Gerade in ${this.city.name} nutzen viele Hausbesitzer die Chance, durch moderne Dachfenster ungenutzten Dachraum in lichtdurchfluteten Wohnraum zu verwandeln.`,
-    service: `Wir kennen die architektonischen Besonderheiten in der Region ${this.city.region} und sorgen dafür, dass sich Ihre neuen Fenster harmonisch in das Gesamtbild Ihres Hauses einfügen – inklusive perfektem Wärme- und Sonnenschutz.`
-  };
-}
+    return {
+      intro: `Gerade in ${this.city.name} nutzen viele Hausbesitzer die Chance, durch moderne Dachfenster ungenutzten Dachraum in lichtdurchfluteten Wohnraum zu verwandeln.`,
+      service: `Wir kennen die architektonischen Besonderheiten in der Region ${this.city.region} und sorgen dafür, dass sich Ihre neuen Fenster harmonisch in das Gesamtbild Ihres Hauses einfügen – inklusive perfektem Wärme- und Sonnenschutz.`
+    };
+  }
 }

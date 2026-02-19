@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core'; // Inject hinzugefügt
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common'; // DOCUMENT importieren
 import { CtaButtonComponent } from '../../shared/components/cta-button/cta-button.component';
 import { CITY_CONFIG } from '../city/city.config';
 import { SERVICE_CONFIG } from '../services/services.config';
-
-interface City { name: string; region: string; }
-interface Service { name: string; description: string; }
 
 @Component({
   selector: 'app-city-service',
@@ -17,15 +15,17 @@ interface Service { name: string; description: string; }
 })
 export class CityServiceComponent implements OnInit {
 
-  city?: City;
-  service?: Service;
+  city?: any; // Typisierung ggf. an deine CITY_CONFIG anpassen
+  service?: any;
   serviceKey?: string;
+  cityKey?: string;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private title: Title,
-    private meta: Meta
+    private meta: Meta,
+    @Inject(DOCUMENT) private dom: Document // Den DOM-Zugriff injizieren
   ) { }
 
   ngOnInit(): void {
@@ -39,7 +39,9 @@ export class CityServiceComponent implements OnInit {
 
     const city = CITY_CONFIG[cityKey];
     const service = SERVICE_CONFIG[serviceKey];
+    
     this.serviceKey = serviceKey; 
+    this.cityKey = cityKey;
 
     if (!city || !service) {
       this.router.navigate(['/404']);
@@ -49,18 +51,39 @@ export class CityServiceComponent implements OnInit {
     this.city = city;
     this.service = service;
 
-    // SEO
-    this.title.setTitle(`${service.name} in ${city.name} | Dachdecker DNG`);
+    this.updateSeoTags(service, city, serviceKey, cityKey);
+  }
+
+  private updateSeoTags(service: any, city: any, serviceKey: string, cityKey: string): void {
+    // 1. Title Tag
+    this.title.setTitle(`${service.name} in ${city.name} | Ihr Partner DNG`);
+
+    // 2. Meta Description (Sachlich & einladend)
     this.meta.updateTag({
       name: 'description',
-      content: `${service.name} in ${city.name}. Ihr Dachdecker für ${service.description}.`
+      content: `Professionelle ${service.name} in ${city.name}. Ihr Meisterbetrieb für ${city.region}. Jetzt kostenlose Beratung anfordern!`
     });
+
+    // 3. Canonical Link (Die wichtigste Zeile für Google)
+    this.setCanonicalUrl(`https://www.dng-nahe-glan.de/leistungen/${serviceKey}/${cityKey}`);
+  }
+
+  private setCanonicalUrl(url: string): void {
+    // Prüfen, ob bereits ein Canonical-Link existiert
+    let link: HTMLLinkElement | null = this.dom.querySelector('link[rel="canonical"]');
+    
+    if (!link) {
+      // Falls nicht, erstellen
+      link = this.dom.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      this.dom.head.appendChild(link);
+    }
+    
+    // URL setzen oder aktualisieren
+    link.setAttribute('href', url);
   }
 
   serviceKeyFromName(name: string): string {
-    // Name in lowercase + Bindestrich ersetzen, falls nötig
-    // z.B. "Dachsanierung" → "dachsanierung"
     return name.toLowerCase().replace(/\s+/g, '-');
   }
-
 }

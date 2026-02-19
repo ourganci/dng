@@ -1,9 +1,10 @@
 // pvindach.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 import { CITY_CONFIG } from '../../../city/city.config';
+import { SERVICE_CONFIG } from '../../services.config';
+import { SeoService } from '../../../../core/services/seo.service';
 
 interface City { name: string; region: string; }
 
@@ -21,6 +22,7 @@ export class PvindachComponent implements OnInit {
   cityKey?: string;
 
   // Service-Informationen
+  serviceKey = 'pv-indach'; // Key passend zur SERVICE_CONFIG
   serviceName = 'Indach-Photovoltaik';
 
   faqs = [
@@ -36,46 +38,69 @@ export class PvindachComponent implements OnInit {
     },
     {
       question: 'Gibt es spezielle Fördermöglichkeiten für PV Indach-Anlagen?',
-      answer: 'PV Indach-Anlagen profitieren von denselben steuerlichen Vorteilen (0% USt, keine Einkommensteuer bis 30 kWp) und KfW-Förderungen für Speichersysteme wie herkömmliche PV-Anlagen. Wir beraten Sie individuell zu allen Optionen.',
+      answer: 'PV Indach-Anlagen profitieren von denselben steuerlichen Vorteilen (0% USt, keine Einkommensteuer bis 30 kWp) und KfW-Förderungen für Speichersysteme wie herkömmliche PV-Anlagen.',
       isOpen: false
     },
     {
-      question: 'Ist eine PV Indach-Anlage besonders gut mit einer Dachsanierung oder einem Neubau kombinierbar?',
-      answer: 'Absolut! Die PV Indach-Lösung ist ideal für Dachsanierungen und Neubauten, da die Module direkt die Dachhaut ersetzen. Dies spart Kosten und sorgt für eine ästhetisch ansprechende Integration. Als Dachdecker- und Elektrofachbetrieb koordinieren wir beides optimal.',
+      question: 'Ist eine PV Indach-Anlage gut mit einer Dachsanierung kombinierbar?',
+      answer: 'Absolut! Die PV Indach-Lösung ist ideal für Dachsanierungen und Neubauten, da die Module direkt die Dachhaut ersetzen. Dies spart Kosten und sorgt für eine ästhetisch ansprechende Integration.',
       isOpen: false
     }
   ];
 
   constructor(
-    private titleService: Title,
-    private metaService: Meta,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private seoService: SeoService
   ) { }
 
   ngOnInit(): void {
-    // City-Parameter auslesen (falls vorhanden)
+    // City-Parameter auslesen
     this.cityKey = this.route.snapshot.paramMap.get('city') || undefined;
     
-    if (this.cityKey) {
+    if (this.cityKey && CITY_CONFIG[this.cityKey]) {
       this.city = CITY_CONFIG[this.cityKey];
       
-      // Stadt-spezifische FAQ hinzufügen
       this.faqs.push({
         question: `Sind Sie auch in ${this.city.name} tätig?`,
-        answer: `Ja, wir installieren PV Indach-Anlagen in ${this.city.name} und der gesamten Region ${this.city.region}. Als Dachdecker- und Elektrofachbetrieb bieten wir persönliche Vor-Ort-Beratung und fachgerechte Montage.`,
+        answer: `Ja, wir installieren PV Indach-Anlagen in ${this.city.name} und der gesamten Region ${this.city.region}. Als Dachdecker- und Elektrofachbetrieb bieten wir persönliche Vor-Ort-Beratung.`,
         isOpen: false
       });
     } else {
-      // Allgemeine Regions-FAQ
       this.faqs.push({
         question: 'In welchen Regionen sind Sie tätig?',
-        answer: 'Als regional verwurzelter Fachbetrieb sind wir im Umkreis von ca. 50 km rund um Nahe-Glan für Sie im Einsatz. Wir realisieren PV Indach-Projekte in den Großräumen Mainz, Kaiserslautern und Bad Kreuznach sowie in allen umliegenden Gemeinden.',
+        answer: 'Wir sind im Umkreis von ca. 50 km rund um Nahe-Glan für Sie im Einsatz, inklusive der Großräume Mainz, Kaiserslautern und Bad Kreuznach.',
         isOpen: false
       });
     }
 
-    // SEO dynamisch setzen
-    this.setSeoTags();
+    // SEO zentral über den SeoService setzen
+    this.applySeo();
+  }
+
+  private applySeo(): void {
+    const service = SERVICE_CONFIG[this.serviceKey];
+    const cityName = this.city ? this.city.name : 'Nahe-Glan';
+    const regionName = this.city ? this.city.region : 'der Region';
+
+    // Aufbau der URL für den Canonical Link
+    const baseUrl = 'https://www.dng-nahe-glan.de/leistungen/pv-indach';
+    const canonicalUrl = this.cityKey ? `${baseUrl}/${this.cityKey}` : baseUrl;
+
+    // Dynamische Texte basierend auf City-Status
+    const seoTitle = this.city 
+      ? `PV Indach ${this.city.name} – Ästhetische Solarlösung | DNG`
+      : 'PV Indach-Lösungen Nahe Glan – Ästhetische Solarenergie | DNG';
+
+    const seoDesc = this.city
+      ? `PV Indach-Lösung in ${this.city.name}: GSE In-Roof System vom Fachbetrieb. Ästhetisch integriert, sturmsicher & förderfähig. Jetzt Beratung im Raum ${this.city.region} vereinbaren!`
+      : `Entdecken Sie unsere PV Indach-Lösungen! Ästhetisch integrierte Photovoltaik-Anlagen (GSE System) für Neubau & Sanierung in der Region Nahe-Glan. Jetzt informieren!`;
+
+    this.seoService.updateMetaTags({
+      title: seoTitle,
+      description: seoDesc,
+      url: canonicalUrl,
+      keywords: `Indach Photovoltaik ${cityName}, PV Indach ${cityName}, GSE In-Roof System ${regionName}, ästhetische PV Anlage, Solardachziegel, dachintegrierte Photovoltaik`
+    });
   }
 
   // Helper-Methods für Template
@@ -89,71 +114,6 @@ export class PvindachComponent implements OnInit {
     return this.city
       ? `Dach und Solarenergie in einem System im Raum ${this.city.region}`
       : 'Dach und Solarenergie in einem System';
-  }
-
-  private setSeoTags(): void {
-    if (this.city) {
-      // SEO mit Stadt
-      this.titleService.setTitle(
-        `PV Indach ${this.city.name} – Ästhetische Solarlösung | DNG`
-      );
-
-      this.metaService.updateTag({
-        name: 'description',
-        content: `PV Indach-Lösung in ${this.city.name}: GSE In-Roof System vom Dachdecker & Elektriker. Ästhetisch integriert, sturmsicher, förderfähig. Ideal für Neubau & Sanierung im Raum ${this.city.region}.`
-      });
-
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: `PV Indach ${this.city.name} – GSE System | DNG GmbH`
-      });
-
-      this.metaService.updateTag({
-        property: 'og:description',
-        content: `Indach-Photovoltaik in ${this.city.name}: Solarmodule als Dacheindeckung. Ästhetisch, effizient, langlebig. Komplettlösung vom Fachbetrieb. Jetzt beraten lassen!`
-      });
-    } else {
-      // SEO ohne Stadt (Original)
-      this.titleService.setTitle(
-        'PV Indach-Lösungen Nahe Glan – Ästhetische Solarenergie | DNG'
-      );
-
-      this.metaService.updateTag({
-        name: 'description',
-        content: 'Entdecken Sie unsere PV Indach-Lösungen! Wir planen und installieren ästhetisch integrierte Photovoltaik-Anlagen, die sich nahtlos in Ihr Dach einfügen – für nachhaltige Energiegewinnung und eine moderne Optik.'
-      });
-
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: 'PV Indach-Lösungen Nahe Glan – Ästhetische Solarenergie | DNG'
-      });
-
-      this.metaService.updateTag({
-        property: 'og:description',
-        content: 'Entdecken Sie unsere PV Indach-Lösungen! Wir planen und installieren ästhetisch integrierte Photovoltaik-Anlagen, die sich nahtlos in Ihr Dach einfügen – für nachhaltige Energiegewinnung und eine moderne Optik.'
-      });
-    }
-
-    // Keywords bleiben umfangreich (bereits gut optimiert)
-    this.metaService.updateTag({
-      name: 'keywords',
-      content:
-        'Indach Photovoltaik, PV Indach, Indach PV Anlage, dachintegrierte Photovoltaik, BIPV, Solardach, ' +
-        'ästhetische PV-Anlage, Solardachziegel, GSE In-Roof System, Indach Montagesystem, ' +
-        'Indach vs Aufdach, Indach Photovoltaik Kosten, Indach PV Neubau, Dachsanierung mit Photovoltaik, ' +
-        'Indach PV Nahe Glan, Indach Photovoltaik Bad Kreuznach, Indach PV Mainz, Indach PV Kaiserslautern'
-    });
-
-    // Diese bleiben immer gleich
-    this.metaService.updateTag({
-      property: 'og:type',
-      content: 'website'
-    });
-
-    this.metaService.updateTag({
-      name: 'twitter:card',
-      content: 'summary_large_image'
-    });
   }
 
   toggleFaq(index: number): void {

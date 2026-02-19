@@ -1,9 +1,10 @@
-// flachdach.component.ts
+// src/app/features/services/components/flachdach/flachdach.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 import { CITY_CONFIG } from '../../../city/city.config';
+import { SERVICE_CONFIG } from '../../services.config';
+import { SeoService } from '../../../../core/services/seo.service';
 
 interface City { name: string; region: string; }
 
@@ -21,8 +22,8 @@ export class FlachdachComponent implements OnInit {
   cityKey?: string;
 
   // Service-Informationen
+  serviceKey = 'flachdachpruefung'; // Key passend zur SERVICE_CONFIG & Route
   serviceName = 'Flachdachdichtheitsprüfung';
-
 
   faqs = [
     {
@@ -43,21 +44,46 @@ export class FlachdachComponent implements OnInit {
   ];
 
   constructor(
-    private titleService: Title,
-    private metaService: Meta,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private seoService: SeoService
   ) { }
 
   ngOnInit(): void {
-    // City-Parameter auslesen (falls vorhanden)
+    // City-Parameter auslesen
     this.cityKey = this.route.snapshot.paramMap.get('city') || undefined;
 
-    if (this.cityKey) {
+    if (this.cityKey && CITY_CONFIG[this.cityKey]) {
       this.city = CITY_CONFIG[this.cityKey];
     }
 
-    // SEO dynamisch setzen
-    this.setSeoTags();
+    // SEO zentral über den SeoService setzen
+    this.applySeo();
+  }
+
+  private applySeo(): void {
+    const service = SERVICE_CONFIG[this.serviceKey];
+    const cityName = this.city ? this.city.name : 'Nahe-Glan';
+    const regionName = this.city ? this.city.region : 'der Region';
+
+    // Aufbau der URL für den Canonical Link (passend zum Pfad 'flachdachpruefung')
+    const baseUrl = 'https://www.dng-nahe-glan.de/leistungen/flachdachpruefung';
+    const canonicalUrl = this.cityKey ? `${baseUrl}/${this.cityKey}` : baseUrl;
+
+    // Dynamische Texte basierend auf City-Status
+    const seoTitle = this.city 
+      ? `${this.serviceName} ${this.city.name} – Rauch & Dampf | DNG`
+      : 'Flachdachdichtheitsprüfung Nahe Glan – Rauch & Dampf | DNG';
+
+    const seoDesc = this.city
+      ? `Professionelle ${this.serviceName} in ${this.city.name}. Zerstörungsfreie Leckortung (Rauch- & Dampftest) im Raum ${this.city.region}. Jetzt Termin vereinbaren!`
+      : `Professionelle Flachdachdichtheitsprüfung nach DIN in Mainz, Kaiserslautern & Nahe-Glan. Schnelle Leckortung für Gewerbe & Privat. Jetzt prüfen lassen!`;
+
+    this.seoService.updateMetaTags({
+      title: seoTitle,
+      description: seoDesc,
+      url: canonicalUrl,
+      keywords: `Flachdachdichtheitsprüfung ${cityName}, Leckortung ${cityName}, Rauchtest Flachdach ${regionName}, Flachdach prüfen, Industriehalle undicht`
+    });
   }
 
   // Helper-Methods für Template
@@ -71,65 +97,6 @@ export class FlachdachComponent implements OnInit {
     return this.city
       ? `Rauch- und Dampftest im Raum ${this.city.region}`
       : 'Mit Rauch- und Dampftest';
-  }
-
-  private setSeoTags(): void {
-    if (this.city) {
-      // SEO mit Stadt
-      this.titleService.setTitle(
-        `${this.serviceName} ${this.city.name} – Rauch & Dampf | DNG`
-      );
-
-      this.metaService.updateTag({
-        name: 'description',
-        content: `Professionelle ${this.serviceName} in ${this.city.name} (Rauch- & Dampftest) nach DIN. Schnelle Leckortung im Raum ${this.city.region}. Jetzt prüfen lassen!`
-      });
-
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: `${this.serviceName} ${this.city.name} – DIN-gerecht | DNG GmbH`
-      });
-    } else {
-      // SEO ohne Stadt (Original)
-      this.titleService.setTitle(
-        'Flachdachdichtheitsprüfung Nahe Glan – Rauch & Dampf | DNG'
-      );
-
-      this.metaService.updateTag({
-        name: 'description',
-        content: 'Professionelle Flachdachdichtheitsprüfung (Rauch- & Dampftest) nach DIN in Mainz, Kaiserslautern & Nahe Glan. Schnelle Leckortung. Jetzt prüfen lassen!'
-      });
-
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: 'Flachdachdichtheitsprüfung mit Rauch- & Dampftest | DNG GmbH'
-      });
-    }
-
-    // Keywords bleiben gleich (da sehr umfangreich und regional schon enthalten)
-    this.metaService.updateTag({
-      name: 'keywords',
-      content:
-        'Flachdachdichtheitsprüfung Nahe Glan, Flachdach Dichtheitsprüfung, Rauchtest Flachdach, Dampftest Flachdach, ' +
-        'Flachdach prüfen Bad Kreuznach, Flachdach prüfen Mainz, Flachdach prüfen Kaiserslautern, Leckortung, ' +
-        'undichtes Flachdach finden, Flachdach Gewerbe prüfen, Industriehalle Flachdach'
-    });
-
-    // Diese bleiben immer gleich
-    this.metaService.updateTag({
-      property: 'og:description',
-      content: 'Professionelle Flachdachdichtheitsprüfung mit Rauch- & Dampftest nach DIN. Für Gewerbe, Hallen & Garagen. Schnelle Leckortung + Prüfprotokoll. Jetzt prüfen lassen!'
-    });
-
-    this.metaService.updateTag({
-      property: 'og:type',
-      content: 'website'
-    });
-
-    this.metaService.updateTag({
-      name: 'twitter:card',
-      content: 'summary_large_image'
-    });
   }
 
   toggleFaq(index: number): void {

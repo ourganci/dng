@@ -1,9 +1,10 @@
-// photovoltaik.component.ts
+// src/app/features/services/components/photovoltaik/photovoltaik.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 import { CITY_CONFIG } from '../../../city/city.config';
+import { SERVICE_CONFIG } from '../../services.config'; // Wichtig: Import der Service-Config
+import { SeoService } from '../../../../core/services/seo.service';
 
 interface City { name: string; region: string; localHook: string; solarHours: number; }
 
@@ -21,6 +22,7 @@ export class PhotovoltaikComponent implements OnInit {
   cityKey?: string;
 
   // Service-Informationen
+  serviceKey = 'photovoltaik'; // Key passend zur SERVICE_CONFIG
   serviceName = 'Photovoltaik';
 
   faqs = [
@@ -47,16 +49,15 @@ export class PhotovoltaikComponent implements OnInit {
   ];
 
   constructor(
-    private titleService: Title,
-    private metaService: Meta,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private seoService: SeoService
   ) { }
 
   ngOnInit(): void {
-    // City-Parameter auslesen (falls vorhanden)
+    // City-Parameter auslesen
     this.cityKey = this.route.snapshot.paramMap.get('city') || undefined;
 
-    if (this.cityKey) {
+    if (this.cityKey && CITY_CONFIG[this.cityKey]) {
       this.city = CITY_CONFIG[this.cityKey];
 
       // Stadt-spezifische FAQ hinzufügen
@@ -69,13 +70,39 @@ export class PhotovoltaikComponent implements OnInit {
       // Allgemeine Regions-FAQ
       this.faqs.push({
         question: 'In welchen Regionen sind Sie tätig?',
-        answer: 'Als regional verwurzelter Fachbetrieb sind wir im Umkreis von ca. 50 km rund um Nahe-Glan für Sie im Einsatz. Wir realisieren Photovoltaik-Projekte in den Großräumen Mainz, Kaiserslautern und Bad Kreuznach sowie in Ingelheim, Bingen, Alzey und Idar-Oberstein. Auch in Gemeinden wie Kirn, Meisenheim, Wörrstadt und Rockenhausen sind wir Ihr persönlicher Ansprechpartner.',
+        answer: 'Als regional verwurzelter Fachbetrieb sind wir im Umkreis von ca. 50 km rund um Nahe-Glan für Sie im Einsatz. Wir realisieren Photovoltaik-Projekte in den Großräumen Mainz, Kaiserslautern und Bad Kreuznach sowie in Ingelheim, Bingen, Alzey und Idar-Oberstein.',
         isOpen: false
       });
     }
 
-    // SEO dynamisch setzen
-    this.setSeoTags();
+    // SEO zentral über den SeoService setzen
+    this.applySeo();
+  }
+
+  private applySeo(): void {
+    const service = SERVICE_CONFIG[this.serviceKey];
+    const cityName = this.city ? this.city.name : 'Nahe-Glan';
+    const regionName = this.city ? this.city.region : 'der Region';
+
+    // Aufbau der URL für den Canonical Link
+    const baseUrl = 'https://www.dng-nahe-glan.de/leistungen/photovoltaik';
+    const canonicalUrl = this.cityKey ? `${baseUrl}/${this.cityKey}` : baseUrl;
+
+    // Dynamische Texte basierend auf City-Status
+    const seoTitle = this.city 
+      ? `PV-Anlage ${this.city.name} – Komplettlösung mit Speicher & Wallbox | DNG`
+      : 'PV-Anlagen Nahe Glan – Komplettlösung mit Speicher | DNG GmbH';
+
+    const seoDesc = this.city
+      ? `PV-Anlage in ${this.city.name} vom Dachdecker & Elektriker aus einer Hand. Inkl. Speicher, Wallbox & Netzanmeldung. Persönliche Beratung im Raum ${this.city.region}!`
+      : `PV-Anlage vom Dachdecker & Elektriker aus einer Hand. Inkl. Speicher, Wallbox & Netzanmeldung. Jetzt Beratung in der Region Nahe-Glan anfordern!`;
+
+    this.seoService.updateMetaTags({
+      title: seoTitle,
+      description: seoDesc,
+      url: canonicalUrl,
+      keywords: `Photovoltaik ${cityName}, Solaranlage ${cityName}, PV-Speicher ${regionName}, PV-Anlage Meisenheim, Photovoltaik Bad Kreuznach, DNG Photovoltaik`
+    });
   }
 
   // Helper-Methods für Template
@@ -98,76 +125,10 @@ export class PhotovoltaikComponent implements OnInit {
             Direkt aus unserer Region für Ihr Zuhause.`;
     }
 
-    // Hier wird es individuell:
     const intro = `${this.city.name}, als ${this.city.localHook}, bietet hervorragende Bedingungen für den Ausbau von Solarenergie.`;
     const sunFact = `Mit ca. ${this.city.solarHours} Sonnenstunden im Jahr gehört die Region ${this.city.region} zu den sonnigsten Standorten für Ihre neue PV-Anlage.`;
     const closing = `Von der ersten Planung direkt vor Ort bis zur Montage begleiten wir Sie in ${this.city.name} als erfahrener Partner bei der Energiewende.`;
     return `${intro} ${sunFact} ${closing}`;
-  }
-
-  private setSeoTags(): void {
-    if (this.city) {
-      // SEO mit Stadt - Hochoptimiert
-      this.titleService.setTitle(
-        `PV-Anlage ${this.city.name} – Komplettlösung mit Speicher & Wallbox | DNG`
-      );
-
-      this.metaService.updateTag({
-        name: 'description',
-        content: `PV-Anlage in ${this.city.name} vom Dachdecker & Elektriker aus einer Hand. Inkl. Speicher, Wallbox, Indach & Netzanmeldung. KfW-Förderung möglich. Persönliche Beratung im Raum ${this.city.region}!`
-      });
-
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: `PV-Anlage ${this.city.name} – Speicher & Wallbox inklusive | DNG GmbH`
-      });
-
-      this.metaService.updateTag({
-        property: 'og:description',
-        content: `Photovoltaik-Komplettlösung in ${this.city.name}. Dachdecker + Elektriker = alles aus einer Hand. Inkl. Speicher, Wallbox, Förderberatung. Jetzt Vor-Ort-Termin vereinbaren!`
-      });
-    } else {
-      // SEO ohne Stadt (Original - bereits optimiert)
-      this.titleService.setTitle(
-        'PV-Anlagen Nahe Glan – Komplettlösung mit Speicher | DNG GmbH'
-      );
-
-      this.metaService.updateTag({
-        name: 'description',
-        content: 'PV-Anlage vom Dachdecker & Elektriker aus einer Hand. Inkl. Speicher, Wallbox, Indach & Netzanmeldung. KfW-Förderung möglich. Jetzt Beratung in Nahe Glan!'
-      });
-
-      this.metaService.updateTag({
-        property: 'og:title',
-        content: 'PV-Anlage mit Speicher & Wallbox – Alles aus einer Hand | DNG GmbH'
-      });
-
-      this.metaService.updateTag({
-        property: 'og:description',
-        content: 'PV-Anlage vom Dachdecker & Elektriker aus einer Hand. Inkl. Speicher, Wallbox, Indach & Netzanmeldung. KfW-Förderung möglich. Jetzt Beratung in Nahe Glan!'
-      });
-    }
-
-    // Keywords bleiben umfangreich (bereits sehr gut optimiert)
-    this.metaService.updateTag({
-      name: 'keywords',
-      content:
-        'PV-Anlage Nahe Glan, Photovoltaik Nahe Glan, Solaranlage Bad Kreuznach, PV-Anlage Mainz, Photovoltaik Kaiserslautern, ' +
-        'Stromspeicher, Wallbox installieren, PV Indach, KfW-Förderung Photovoltaik, Solaranlage Komplettlösung, ' +
-        'PV-Anlage vom Dachdecker, eigene Monteure, ohne Subunternehmer, PV mit Dachsanierung kombinieren, ' +
-        'Netzanmeldung PV, Marktstammdatenregister, Eigenverbrauch maximieren, Notstrom Solar'
-    });
-
-    // Diese bleiben immer gleich
-    this.metaService.updateTag({
-      property: 'og:type',
-      content: 'website'
-    });
-
-    this.metaService.updateTag({
-      name: 'twitter:card',
-      content: 'summary_large_image'
-    });
   }
 
   toggleFaq(index: number): void {
