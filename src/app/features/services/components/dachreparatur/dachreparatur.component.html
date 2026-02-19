@@ -5,29 +5,50 @@
     <section class="service-intro">
         <div class="container">
             <div class="section-header">
-                <h2>{{ titleWithCity }}</h2>
+                <h1>{{ titleWithCity }}</h1>
                 <h2 class="subtitle">{{ subtitleWithCity }}</h2>
             </div>
 
             <div class="story-grid">
                 <div class="story-content">
+                    @if (regionalTextParts) {
+                    <p>{{ regionalTextParts.intro }}</p>
+                    <p><strong>{{ regionalTextParts.location }}</strong></p>
+                    <p>{{ regionalTextParts.action }}</p>
+                    } @else {
                     <p>
-                        <strong>Ob Sturmschaden, undichte Stelle oder defekter Ziegel</strong>
+                        <strong>Ob Sturmschaden, undichte Stelle oder defekter Ziegel:</strong>
                     </p>
                     <p>
-                        Ein beschädigtes Dach duldet keinen Aufschub. 
-                        Als erfahrener Dachdeckerbetrieb 
-                        @if (city) {
-                            sind wir in {{ city.name }} und der Region {{ city.region }} schnell für Sie vor Ort.
-                        } @else {
-                            in Nahe Glan sind wir schnell für Sie vor Ort.
-                        }
-                        Wir bieten sofortige Dachreparaturen, langfristige Wartungsverträge und bei Bedarf auch einen
-                        Notdienst.
+                        Ein beschädigtes Dach duldet keinen Aufschub. Als Ihr erfahrener Dachdecker-Fachbetrieb
+                        für die Region Nahe-Glan sind wir bei Notfällen schnell vor Ort und sichern Ihr Zuhause
+                        professionell ab.
                     </p>
+                    <p>
+                        Wir bieten sofortige Dachreparaturen, langfristige Wartungsverträge und eine fachgerechte
+                        Schadensaufnahme direkt vor Ort.
+                    </p>
+                    }
+
+                    <p>
+                        <strong>Alles aus einer Hand. Regional. Persönlich. Zuverlässig.</strong>
+                    </p>
+
+                    @if (city) {
+                    <div class="local-trust-badge"
+                        style="background: #fff4f4; border: 1px solid #e31e24; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                        <h4 style="color: #e31e24; margin-top: 0;">Regionaler Vor-Ort-Service</h4>
+                        <p style="margin-bottom: 0;">
+                            Schnelle Hilfe für <strong>{{ city.name }}</strong> und die gesamte Region <strong>{{
+                                city.region }}</strong>.
+                            Wir kennen die regionalen Anforderungen und sorgen für ein sicheres Dach über Ihrem Kopf.
+                        </p>
+                    </div>
+                    }
                 </div>
                 <div class="story-image">
-                    <img src="assets/images/services/dachsanierung_detail1.jpg" alt="Dachreparatur Detail"
+                    <img src="assets/images/services/dachsanierung_detail1.jpg"
+                        [alt]="city ? 'Dachreparatur Fachbetrieb in ' + city.name : 'Dachreparatur Fachbetrieb Region Nahe-Glan'"
                         loading="lazy">
                 </div>
             </div>
@@ -73,8 +94,7 @@
                     </ul>
                 </div>
                 <div class="story-image">
-                    <img src="assets/images/services/dachsanierung/rinne.webp" alt="Dachrinnen"
-                        loading="lazy">
+                    <img src="assets/images/services/dachsanierung/rinne.webp" alt="Dachrinnen" loading="lazy">
                 </div>
             </div>
             <div class="story-grid">
@@ -90,8 +110,7 @@
                     </ul>
                 </div>
                 <div class="story-image">
-                    <img src="assets/images/services/dachsanierung/schaden.webp" alt="Schaden"
-                        loading="lazy">
+                    <img src="assets/images/services/dachsanierung/schaden.webp" alt="Schaden" loading="lazy">
                 </div>
             </div>
         </div>
@@ -132,9 +151,9 @@
             <div class="cta-box">
                 <h2>
                     @if (city) {
-                        Brauchen Sie eine Dachreparatur in {{ city.name }}?
+                    Brauchen Sie eine Dachreparatur in {{ city.name }}?
                     } @else {
-                        Brauchen Sie eine Dachreparatur?
+                    Brauchen Sie eine Dachreparatur?
                     }
                 </h2>
                 <p>Kontaktieren Sie uns für eine schnelle Vor-Ort-Besichtigung und ein unverbindliches Angebot.</p>

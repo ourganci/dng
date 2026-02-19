@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 import { CITY_CONFIG } from '../../../city/city.config';
 
-interface City { name: string; region: string; }
+interface City { name: string; region: string; localHook: string; solarHours: number; }
 
 @Component({
   selector: 'app-dachreparatur',
@@ -60,7 +60,7 @@ export class DachreparaturComponent implements OnInit {
   ngOnInit(): void {
     // City-Parameter auslesen (falls vorhanden)
     this.cityKey = this.route.snapshot.paramMap.get('city') || undefined;
-    
+
     if (this.cityKey) {
       this.city = CITY_CONFIG[this.cityKey];
     }
@@ -71,7 +71,7 @@ export class DachreparaturComponent implements OnInit {
 
   // Helper-Methods für Template
   get titleWithCity(): string {
-    return this.city 
+    return this.city
       ? `${this.serviceName} in ${this.city.name}`
       : `${this.serviceName} und Wartung`;
   }
@@ -86,7 +86,7 @@ export class DachreparaturComponent implements OnInit {
     if (this.city) {
       // SEO mit Stadt
       this.titleService.setTitle(
-        `${this.serviceName} ${this.city.name} – Notdienst & Wartung | DNG GmbH`
+        `${this.serviceName} ${this.city.name} – Schnelle Hilfe & Notdienst | DNG`
       );
 
       this.metaService.updateTag({
@@ -134,5 +134,17 @@ export class DachreparaturComponent implements OnInit {
 
   toggleFaq(index: number): void {
     this.faqs[index].isOpen = !this.faqs[index].isOpen;
+  }
+
+  get regionalTextParts(): any {
+    if (!this.city) {
+      return null; // Wichtig: null triggert das @else im Template
+    }
+
+    return {
+      intro: `Ob Sturmschaden oder defekter Ziegel – wir wissen, dass es bei Dachschäden auf Schnelligkeit ankommt.`,
+      location: `Da ${this.city.name} fest zu unserem Kern-Einsatzgebiet gehört, sind wir in der gesamten Region ${this.city.region} kurzfristig für Sie einsatzbereit.`,
+      action: `Wir begutachten den Schaden direkt vor Ort und sorgen mit fachgerechten Sofortmaßnahmen dafür, dass Ihr Zuhause in ${this.city.name} schnell wieder sicher und trocken ist.`
+    };
   }
 }
