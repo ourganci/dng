@@ -3,73 +3,74 @@
 
     <!-- Intro Section -->
     <section class="service-intro">
-        <div class="container">
-            <div class="section-header">
-                <h2>{{ titleWithCity }}</h2>
-                <h2 class="subtitle">{{ subtitleWithCity }}</h2>
-            </div>
+    <div class="container">
+        <div class="section-header">
+            <h1>{{ titleWithCity }}</h1>
+            <h2 class="subtitle">{{ subtitleWithCity }}</h2>
+        </div>
 
-            <div class="story-grid">
-                <div class="story-content">
+        <div class="story-grid">
+            <div class="story-content">
+                <p>
+                    <strong>Undichte Flachdächer führen schnell zu erheblichen Schäden an der Bausubstanz.</strong>
+                </p>
+                
+                @if (regionalTextFlachdach) {
+                    <p>{{ regionalTextFlachdach.intro }}</p>
+                    <p><strong>{{ regionalTextFlachdach.detail }}</strong></p>
+                    <p>{{ regionalTextFlachdach.benefit }}</p>
+                } @else {
                     <p>
-                        <strong>Undichte Flachdächer führen schnell zu erheblichen Schäden an der Bausubstanz.</strong>
+                        Ganz gleich ob bei Industriehallen, Wohngebäuden oder Garagen: Wir bieten Ihnen professionelle 
+                        <strong>Dichtheitsprüfungen für Flachdächer</strong> mittels Rauch- oder Dampferzeugung. 
+                        Unsere zerstörungsfreien Verfahren sparen Zeit und hohe Sanierungskosten.
                     </p>
-                    <p>
-                        Ganz gleich ob bei Industriehallen, Wohngebäuden oder Garagen.
-                    </p>
-                    <p>
-                        Als erfahrene Dachdeckerfirma 
-                        @if (city) {
-                            in {{ city.name }} und der Region {{ city.region }}
-                        } @else {
-                            aus Nahe Glan
-                        }
-                        bieten wir Ihnen professionelle <strong>Dichtheitsprüfungen für Flachdächer</strong> 
-                        mittels <strong>Rauch- oder Dampferzeugung</strong>.
-                    </p>
-                    <p>Schnell. Zuverlässig. Dokumentiert.</p>
+                }
+                <p><strong>Schnell. Zuverlässig. Dokumentiert.</strong></p>
+            </div>
+            <div class="story-image">
+                <img src="assets/images/services/flachdach/flachdachpruefung.webp" 
+                     [alt]="city ? 'Flachdach Leckortung in ' + city.name : 'Flachdachprüfung mittels Rauchgas'" 
+                     loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="service-importance">
+    <div class="importance-grid">
+        <div class="importance-image">
+            <img src="assets/images/services/flachdach/rauchgas_wide_s.webp" 
+                 [alt]="'Leckortung am Flachdach durch Rauchgaserzeugung'" 
+                 loading="lazy">
+        </div>
+
+        <div class="importance-content">
+            <div class="content-wrapper">
+                <div class="section-header">
+                    <h2>Verfahren & Vorteile</h2>
+                    <p class="subtitle">Präzise Ortung ohne Dachöffnung</p>
                 </div>
-                <div class="story-image">
-                    <img src="assets/images/services/flachdach/flachdachpruefung.webp" alt="Flachdachprüfung"
-                        loading="lazy">
+                <div class="importance-highlights">
+                    <div class="highlight-item">
+                        <h3>Rauchgasprüfung</h3>
+                        <p>Sichtbare Leckagen bei Bitumen- oder Folienabdichtungen. Ideal für die Lokalisierung kleinster Risse.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h3>Dampferzeugung</h3>
+                        <p>Spezialverfahren für komplizierte Dachaufbauten und zur Visualisierung von Luftströmungen.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <h3>Prüfprotokoll</h3>
+                        <p>Gerichtsfeste Dokumentation mit Fotos für Versicherungen und Immobilieneigentümer.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section class="service-importance">
-        <div class="importance-grid">
-            <!-- Bild-Bereich (Links) -->
-            <div class="importance-image">
-                <img src="assets/images/services/flachdach/rauchgas_wide_s.webp" alt="Rauchgasprüfung" loading="lazy">
-            </div>
-
-            <!-- Content-Bereich (Rechts) - Dunkler Hintergrund -->
-            <div class="importance-content">
-                <div class="content-wrapper">
-                    <!-- Section Header innerhalb des Content-Bereichs -->
-                    <div class="section-header">
-                        <h2>Verfahren & Vorteile</h2>
-                        <h2 class="subtitle"></h2>
-                    </div>
-                    <div class="importance-highlights">
-                        <div class="highlight-item">
-                            <h3>Rauchgasprüfung</h3>
-                            <p>Sichtbar gemachte Leckagen bei Flachdächern mit Bitumen- oder Folienabdichtungen.</p>
-                        </div>
-                        <div class="highlight-item">
-                            <h3>Dampferzeugung</h3>
-                            <p>Auch für komplizierte Dachaufbauten geeignet.</p>
-                        </div>
-                        <div class="highlight-item">
-                            <h3>Dokumentation</h3>
-                            <p>Umfassende Dokumentation mit Fotos & Prüfprotokoll.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
     <section class="service-faqs">
         <div class="container">

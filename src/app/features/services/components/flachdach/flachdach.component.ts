@@ -23,25 +23,21 @@ export class FlachdachComponent implements OnInit {
   // Service-Informationen
   serviceName = 'Flachdachdichtheitsprüfung';
 
+
   faqs = [
     {
-      question: 'Welche Prüfverfahren gibt es?',
-      answer: 'Wir nutzen Rauchgas-Verfahren, Dampferzeugungs-Verfahren und Rauchimpuls-Verfahren. Die Wahl hängt vom Dachaufbau, der Größe und den baulichen Gegebenheiten ab.',
+      question: 'Wann ist eine Flachdachprüfung sinnvoll und für wen?',
+      answer: 'Eine Prüfung ist ratsam bei unklaren Feuchtigkeitsschäden, nach schweren Unwettern oder zur Abnahme vor Ablauf der Gewährleistung. Wir prüfen alles vom privaten Balkon und Garagendach bis hin zu großen Industriehallen, Gewerbeobjekten und Tiefgaragen.',
       isOpen: false
     },
     {
-      question: 'Wie lange dauert eine Flachdachprüfung?',
-      answer: 'Je nach Dachgröße zwischen 2-6 Stunden. Bei sehr großen Hallen kann die Prüfung auch einen ganzen Tag dauern.',
+      question: 'Welche Verfahren werden genutzt und entstehen dabei Schäden?',
+      answer: 'Wir setzen auf zerstörungsfreie Methoden wie das Rauchgas-, Dampferzeugungs- oder Impulsstromverfahren. Dabei wird ein Gemisch unter die Abdichtung gepumpt, um Leckagen punktgenau sichtbar zu machen. Das Dach muss nicht großflächig geöffnet werden; lediglich kleine Anschlussöffnungen werden fachgerecht erstellt und sofort wieder verschlossen.',
       isOpen: false
     },
     {
-      question: 'Für wen ist die Prüfung relevant?',
-      answer: 'Ideal für Gewerbegebäude, Lagerhallen, Industriebauten, Tiefgaragen, Balkone und alle Flachdach-Konstruktionen. Besonders wichtig vor Ablauf der Gewährleistung oder bei Verdacht auf Undichtigkeiten.',
-      isOpen: false
-    },
-    {
-      question: 'Wird die Prüfung dokumentiert?',
-      answer: 'Ja, Sie erhalten ein ausführliches Prüfprotokoll mit Fotos, Markierungen der undichten Stellen und Handlungsempfehlungen.',
+      question: 'Wie lange dauert die Prüfung und was erhalte ich als Ergebnis?',
+      answer: 'Je nach Objektgröße dauert die Prüfung zwischen 2 und 6 Stunden, bei Industriehallen ggf. einen Arbeitstag. Als Ergebnis erhalten Sie ein umfassendes, bebildertes Prüfprotokoll, das als gerichtsfester Nachweis für Versicherungen oder zur gezielten Reparaturplanung dient.',
       isOpen: false
     }
   ];
@@ -55,7 +51,7 @@ export class FlachdachComponent implements OnInit {
   ngOnInit(): void {
     // City-Parameter auslesen (falls vorhanden)
     this.cityKey = this.route.snapshot.paramMap.get('city') || undefined;
-    
+
     if (this.cityKey) {
       this.city = CITY_CONFIG[this.cityKey];
     }
@@ -66,7 +62,7 @@ export class FlachdachComponent implements OnInit {
 
   // Helper-Methods für Template
   get titleWithCity(): string {
-    return this.city 
+    return this.city
       ? `${this.serviceName} in ${this.city.name}`
       : this.serviceName;
   }
@@ -138,5 +134,15 @@ export class FlachdachComponent implements OnInit {
 
   toggleFaq(index: number): void {
     this.faqs[index].isOpen = !this.faqs[index].isOpen;
+  }
+
+  get regionalTextFlachdach(): any {
+    if (!this.city) return null;
+
+    return {
+      intro: `Undichte Flachdächer führen in ${this.city.name} oft zu schleichenden Schäden, die erst spät bemerkt werden.`,
+      detail: `Unsere Spezialisten für die Region ${this.city.region} nutzen modernste Technik, um Leckagen punktgenau zu lokalisieren, bevor eine teure Gesamtsanierung notwendig wird.`,
+      benefit: `Dank Rauchgas- und Dampfverfahren finden wir selbst kleinste Undichtigkeiten an Industriehallen, Garagen oder Wohngebäuden direkt vor Ort in ${this.city.name}.`
+    };
   }
 }

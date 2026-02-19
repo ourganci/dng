@@ -26,22 +26,22 @@ export class RegenrinnenComponent implements OnInit {
   faqs = [
     {
       question: 'Wie oft sollten Regenrinnen gereinigt werden?',
-      answer: 'Mindestens zweimal jährlich – idealerweise im Frühjahr und Herbst. Bei vielen Bäumen in der Nähe empfehlen wir häufigere Kontrollen.',
+      answer: 'Wir empfehlen eine Reinigung mindestens zweimal jährlich – idealerweise im Frühjahr und nach dem Laubfall im Herbst. Bei Immobilien mit hohem Baumbestand sind häufigere Kontrollen ratsam, um Verstopfungen und Überlaufen zu verhindern.',
       isOpen: false
     },
     {
-      question: 'Was kostet eine Rinnenreinigung?',
-      answer: 'Die Kosten hängen von der Länge und Zugänglichkeit der Rinnen ab. In der Regel liegen die Kosten bei 2-5€ pro laufendem Meter. Kontaktieren Sie uns für ein genaues Angebot.',
+      question: 'Was kostet eine professionelle Rinnenreinigung?',
+      answer: 'Die Kosten richten sich nach der Gesamtlänge, dem Verschmutzungsgrad und der Erreichbarkeit der Rinnen. Als regionaler Fachbetrieb bieten wir faire Konditionen an. Kontaktieren Sie uns für ein unverbindliches Angebot für Ihr Objekt.',
       isOpen: false
     },
     {
-      question: 'Welches Material ist am besten für Regenrinnen?',
-      answer: 'Kupfer ist sehr langlebig (50+ Jahre), aber teurer. Zink ist robust und preiswert. Aluminium ist leicht und korrosionsbeständig. Kunststoff ist kostengünstig, aber weniger langlebig. Wir beraten Sie gerne.',
+      question: 'Welches Material ist am besten für Regenrinnen geeignet?',
+      answer: 'Kupfer bietet die höchste Langlebigkeit (50+ Jahre), ist aber kostspieliger. Zink ist der robuste Standard für viele Wohnhäuser. Aluminium überzeugt durch Korrosionsbeständigkeit und Farbauswahl, während Kunststoff eine preiswerte, aber kurzlebigere Option darstellt.',
       isOpen: false
     },
     {
-      question: 'Lohnt sich ein Laubschutz?',
-      answer: 'Ja, besonders bei vielen Bäumen in der Nähe. Ein Laubschutzgitter reduziert den Reinigungsaufwand erheblich und verhindert Verstopfungen.',
+      question: 'Lohnt sich die Nachrüstung eines Laubschutzes?',
+      answer: 'Definitiv. Ein professionell montiertes Laubschutzgitter verhindert, dass grober Schmutz in die Rinne und das Fallrohr gelangt. Das reduziert den Reinigungsaufwand erheblich und schützt langfristig vor teuren Verstopfungen im Kanalsystem.',
       isOpen: false
     }
   ];
