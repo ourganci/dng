@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 import { CITY_CONFIG } from '../../../city/city.config';
 
-interface City { name: string; region: string; }
+interface City { name: string; region: string; localHook: string; solarHours: number; }
 
 @Component({
   selector: 'app-photovoltaik',
@@ -55,10 +55,10 @@ export class PhotovoltaikComponent implements OnInit {
   ngOnInit(): void {
     // City-Parameter auslesen (falls vorhanden)
     this.cityKey = this.route.snapshot.paramMap.get('city') || undefined;
-    
+
     if (this.cityKey) {
       this.city = CITY_CONFIG[this.cityKey];
-      
+
       // Stadt-spezifische FAQ hinzufügen
       this.faqs.push({
         question: `Sind Sie auch in ${this.city.name} tätig?`,
@@ -80,7 +80,7 @@ export class PhotovoltaikComponent implements OnInit {
 
   // Helper-Methods für Template
   get titleWithCity(): string {
-    return this.city 
+    return this.city
       ? `${this.serviceName} & Solaranlagen in ${this.city.name}`
       : `${this.serviceName} & Solaranlagen`;
   }
@@ -92,13 +92,17 @@ export class PhotovoltaikComponent implements OnInit {
   }
 
   get regionalText(): string {
-    if (this.city) {
-      return `Von der ersten Planung in ${this.city.name} bis zur fachgerechten Montage in der Region ${this.city.region} 
-              erhalten Sie bei uns nachhaltige Solarlösungen aus einer Hand. Direkt aus unserer Region für Ihr Zuhause.`;
-    }
-    return `Von der ersten Planung in Bad Kreuznach bis zur fachgerechten Montage in Ingelheim, 
+    if (!this.city) {
+      return `Von der ersten Planung in Bad Kreuznach bis zur fachgerechten Montage in Ingelheim, 
             Mainz oder Kaiserslautern erhalten Sie bei uns nachhaltige Solarlösungen aus einer Hand. 
             Direkt aus unserer Region für Ihr Zuhause.`;
+    }
+
+    // Hier wird es individuell:
+    const intro = `${this.city.name}, als ${this.city.localHook}, bietet hervorragende Bedingungen für den Ausbau von Solarenergie.`;
+    const sunFact = `Mit ca. ${this.city.solarHours} Sonnenstunden im Jahr gehört die Region ${this.city.region} zu den sonnigsten Standorten für Ihre neue PV-Anlage.`;
+    const closing = `Von der ersten Planung direkt vor Ort bis zur Montage begleiten wir Sie in ${this.city.name} als erfahrener Partner bei der Energiewende.`;
+    return `${intro} ${sunFact} ${closing}`;
   }
 
   private setSeoTags(): void {

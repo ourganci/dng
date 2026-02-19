@@ -54,7 +54,8 @@ const STATIC_PAGES = [
   'ueber-uns',
   'kontakt',
   'impressum',
-  'datenschutz'
+  'datenschutz',
+  'agb'
 ];
 
 function generateSitemap() {
