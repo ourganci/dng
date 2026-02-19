@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 import { CITY_CONFIG } from '../../../city/city.config';
 
-interface City { name: string; region: string; }
+interface City { name: string; region: string; localHook?: string; solarHours?: number; }
 
 @Component({
   selector: 'app-dachfenster',
@@ -168,4 +168,13 @@ export class DachfensterComponent implements OnInit {
   goToSlide(i: number): void {
     this.currentSlide = i;
   }
+
+  get regionalTextDachfenster(): any {
+  if (!this.city) return null;
+
+  return {
+    intro: `Gerade in ${this.city.name} nutzen viele Hausbesitzer die Chance, durch moderne Dachfenster ungenutzten Dachraum in lichtdurchfluteten Wohnraum zu verwandeln.`,
+    service: `Wir kennen die architektonischen Besonderheiten in der Region ${this.city.region} und sorgen dafür, dass sich Ihre neuen Fenster harmonisch in das Gesamtbild Ihres Hauses einfügen – inklusive perfektem Wärme- und Sonnenschutz.`
+  };
+}
 }
