@@ -13,24 +13,38 @@
             <div class="story-grid">
                 <div class="story-content">
                     <p>
-                        <strong>Ihr Dach ist in die Jahre gekommen?</strong>
+                        <strong>Ihr Dach ist in die Jahre gekommen?</strong><br>
+                        Feuchtigkeit, Wärmeverluste oder lockere Ziegel sind deutliche Anzeichen für Sanierungsbedarf.
+                    </p>
+
+                    @if (regionalTextSanierung) {
+                    <p>{{ regionalTextSanierung.intro }}</p>
+                    <p><strong>{{ regionalTextSanierung.main }}</strong></p>
+                    <p>{{ regionalTextSanierung.closing }}</p>
+                    } @else {
+                    <p>
+                        Als erfahrener Meisterbetrieb sind wir im gesamten Raum <strong>Mainz, Bingen, Bad Kreuznach bis
+                            nach Kaiserslautern</strong> für Sie unterwegs.
+                        In diesem Einzugsgebiet realisieren wir fachgerechte Dachsanierungen, die Ästhetik mit moderner
+                        Dämmtechnik vereinen.
                     </p>
                     <p>
-                        Feuchtigkeit, Wärmeverluste oder lockere Ziegel sind erste
-                        Anzeichen für Sanierungsbedarf.
+                        Ob Einfamilienhaus oder Gewerbeobjekt: Wir sorgen dafür, dass Ihr Dach energetisch auf dem
+                        neuesten Stand ist und den Wert Ihrer Immobilie langfristig steigert.
                     </p>
-                    <p>
-                        Als erfahrener Dachdeckerbetrieb aus Nahe-Glan 
-                        @if (city) {
-                            bieten wir Ihnen in {{ city.name }} und der Region {{ city.region }}
-                            fachgerechte Dachsanierungen für Wohnhäuser, Gewerbeobjekte und Mehrfamilienhäuser.
-                        } @else {
-                            sind wir im gesamten regionalen Umfeld für Sie unterwegs.
-                            Von Mainz über Bingen und Bad Kreuznach bis hin nach Kaiserslautern und Zweibrücken. 
-                            In diesem rund 75 Kilometer umfassenden Einzugsgebiet bieten wir Ihnen fachgerechte Dachsanierungen 
-                            für Wohnhäuser, Gewerbeobjekte und Mehrfamilienhäuser.
-                        }
-                    </p>
+                    }
+
+                    <p><strong>Alles aus einer Hand. Regional. Persönlich. Zuverlässig.</strong></p>
+
+                    @if (city) {
+                    <div class="local-trust-badge"
+                        style="background: #f4f7ff; border: 1px solid #1e40af; padding: 12px; border-radius: 8px; margin: 15px 0;">
+                        <p style="margin-bottom: 0;">
+                            <strong>Sanierungs-Check {{ city.name }}:</strong> Wir beraten Sie vor Ort auch zu aktuellen
+                            Fördermöglichkeiten für die Region {{ city.region }}.
+                        </p>
+                    </div>
+                    }
                 </div>
                 <div class="story-image">
                     <img src="assets/images/services/dachsanierung_detail1.jpg" alt="Dachsanierung Detail"
@@ -78,47 +92,54 @@
     <section class="service-what-you-get">
         <div class="container">
             <div class="section-header">
-                <h2>Vorteile einer professionellen Dachsanierung</h2>
-                <h2 class="subtitle">Früh erkennen, gezielt sanieren</h2>
+                <h2>Ihre Vorteile bei der Dachsanierung @if(city){ in {{ city.name }} }</h2>
+                <p class="subtitle">Nachhaltiger Schutz und Wertsteigerung für Ihr Zuhause</p>
             </div>
+
             <div class="service-cards-grid">
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="assets/images/services/dachsanierung/card1.webp" alt="Bestandsaufnahme & Beratung">
+                        <img src="assets/images/services/dachsanierung/card1.webp"
+                            [alt]="'Wertsteigerung durch Dachsanierung' + (city ? ' in ' + city.name : '')"
+                            loading="lazy">
                     </div>
                     <div class="card-content">
                         <h3>Wertsteigerung</h3>
-                        <p>Erhöht Marktwert & Wohnqualität</p>
+                        <p>Erhöht Marktwert & Wohnqualität Ihrer Immobilie nachhaltig.</p>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="assets/images/services/dachsanierung/card2.webp" alt="Lichtplanung & Berechnung">
+                        <img src="assets/images/services/dachsanierung/card2.webp"
+                            [alt]="'Energetische Dachdämmung nach GEG' + (city ? ' im Raum ' + city.region : '')"
+                            loading="lazy">
                     </div>
                     <div class="card-content">
                         <h3>Energieeffizienz</h3>
-                        <p>Spart Heizkosten durch neue Dämmung (z. B. nach GEG)</p>
+                        <p>Bis zu 30% Heizkosten sparen durch moderne Dämmung nach GEG.</p>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="assets/images/services/dachsanierung/card3.webp" alt="LED-Lösungen">
+                        <img src="assets/images/services/dachsanierung/card3.webp"
+                            [alt]="'Dachabdichtung und Witterungsschutz'" loading="lazy">
                     </div>
                     <div class="card-content">
                         <h3>Dichtigkeit & Schutz</h3>
-                        <p>Verhindert teure Folgeschäden durch Feuchtigkeit</p>
+                        <p>Sicherer Schutz vor Witterung und teuren Feuchtigkeitsschäden.</p>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="assets/images/services/dachsanierung/card4.webp" alt="Montage & Installation">
+                        <img src="assets/images/services/dachsanierung/card4.webp"
+                            [alt]="'Förderung für Dachsanierung' + (city ? ' in ' + city.name : '')" loading="lazy">
                     </div>
                     <div class="card-content">
                         <h3>Förderfähig</h3>
-                        <p>KfW-Zuschüsse & steuerliche Vorteile möglich</p>
+                        <p>Profitieren Sie von KfW-Zuschüssen & steuerlichen Boni.</p>
                     </div>
                 </div>
             </div>
@@ -208,9 +229,9 @@
             <div class="cta-box">
                 <h2>
                     @if (city) {
-                        Interesse an einer Dachsanierung in {{ city.name }}?
+                    Interesse an einer Dachsanierung in {{ city.name }}?
                     } @else {
-                        Interesse an einer Dachsanierung?
+                    Interesse an einer Dachsanierung?
                     }
                 </h2>
                 <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot.</p>

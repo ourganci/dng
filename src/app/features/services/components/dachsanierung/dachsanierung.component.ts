@@ -4,7 +4,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 import { CITY_CONFIG } from '../../../city/city.config';
 
-interface City { name: string; region: string; }
+interface City { name: string; region: string; localHook: string; solarHours: number; }
 
 
 @Component({
@@ -58,10 +58,10 @@ export class DachsanierungComponent implements OnInit {
     }
   ];
 
-ngOnInit(): void {
+  ngOnInit(): void {
     // City-Parameter auslesen (falls vorhanden)
     this.cityKey = this.route.snapshot.paramMap.get('city') || undefined;
-    
+
     if (this.cityKey) {
       this.city = CITY_CONFIG[this.cityKey];
     }
@@ -72,7 +72,7 @@ ngOnInit(): void {
 
   // Helper-Methods für Template
   get titleWithCity(): string {
-    return this.city 
+    return this.city
       ? `${this.serviceName} in ${this.city.name}`
       : this.serviceName;
   }
@@ -143,10 +143,18 @@ ngOnInit(): void {
     });
   }
 
-
-
   toggleFaq(index: number): void {
     this.faqs[index].isOpen = !this.faqs[index].isOpen;
+  }
+
+  get regionalTextSanierung(): any {
+    if (!this.city) return null;
+
+    return {
+      intro: `Eine hochwertige Dachsanierung sichert den Werterhalt Ihrer Immobilie in ${this.city.name} nachhaltig ab.`,
+      main: `Wir unterstützen Sie in der gesamten Region ${this.city.region} dabei, Wärmeverluste zu stoppen und die Optik Ihres Hauses aufzuwerten. Dabei setzen wir auf langlebige Materialien, die exakt auf ihre Anforderungen abgestimmt sind.`,
+      closing: `Von der ersten Bestandsaufnahme in ${this.city.name} bis zur fachgerechten Ausführung erhalten Sie bei uns alles aus einer Hand.`
+    };
   }
 
 }
