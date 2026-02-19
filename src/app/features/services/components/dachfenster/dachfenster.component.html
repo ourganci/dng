@@ -189,6 +189,10 @@ xml
                         <div class="header-right">
                             <span class="funding-badge">15–20 % Zuschuss</span>
                             <span class="funding-icon" [class.rotated]="openCard === 0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
                             </span>
                         </div>
                     </button>
@@ -213,104 +217,112 @@ xml
                         <div class="header-right">
                             <span class="funding-badge">Direkt von der Steuer absetzen</span>
                             <span class="funding-icon" [class.rotated]="openCard === 1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
                             </span>
                         </div>
-                </button>
+                    </button>
 
-                @if (openCard === 1) {
-                <div class="funding-content">
-                    <p>Die unbürokratische Lösung: Sie ziehen 20 % der Kosten direkt von Ihrer Steuerschuld ab –
-                        verteilt auf drei Jahre.</p>
-                    <ul class="bullet-list">
-                        <li>Kein Energieberater zwingend erforderlich (aber Fachunternehmererklärung nötig)</li>
-                        <li>Gilt für selbstgenutztes Wohneigentum, das älter als 10 Jahre ist</li>
-                        <li>Maximale Steuerermäßigung: <strong>40.000 €</strong></li>
-                    </ul>
-                </div>
-                }
-            </div>
-
-            <div class="funding-card" [class.active]="openCard === 2">
-                <button type="button" class="funding-header" (click)="toggleCard(2)"
-                    [attr.aria-expanded]="openCard === 2">
-                    <h3>Zuschuss für Sonnenschutz & Automatisierung</h3>
-                    <div class="header-right">
-                        <span class="funding-badge">Sommerlicher Wärmeschutz</span>
-                        <span class="funding-icon" [class.rotated]="openCard === 2">
-                        </span>
+                    @if (openCard === 1) {
+                    <div class="funding-content">
+                        <p>Die unbürokratische Lösung: Sie ziehen 20 % der Kosten direkt von Ihrer Steuerschuld ab –
+                            verteilt auf drei Jahre.</p>
+                        <ul class="bullet-list">
+                            <li>Kein Energieberater zwingend erforderlich (aber Fachunternehmererklärung nötig)</li>
+                            <li>Gilt für selbstgenutztes Wohneigentum, das älter als 10 Jahre ist</li>
+                            <li>Maximale Steuerermäßigung: <strong>40.000 €</strong></li>
+                        </ul>
                     </div>
-                </button>
+                    }
+                </div>
 
-                @if (openCard === 2) {
-                <div class="funding-content">
-                    <p>Auch die Nachrüstung von automatisierten Rollläden und Markisen wird als "sommerlicher
-                        Wärmeschutz" gefördert.</p>
-                    <ul class="bullet-list">
-                        <li>Voraussetzung: Intelligente Steuerung (z. B. nach Sonnenstand)</li>
-                        <li>Reduziert die Aufheizung der Räume ohne Klimaanlage</li>
-                        <li>Ideal kombinierbar mit Velux Solar-Lösungen</li>
-                    </ul>
+                <div class="funding-card" [class.active]="openCard === 2">
+                    <button type="button" class="funding-header" (click)="toggleCard(2)"
+                        [attr.aria-expanded]="openCard === 2">
+                        <h3>Zuschuss für Sonnenschutz & Automatisierung</h3>
+                        <div class="header-right">
+                            <span class="funding-badge">Sommerlicher Wärmeschutz</span>
+                            <span class="funding-icon" [class.rotated]="openCard === 2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </span>
+                        </div>
+                    </button>
+
+                    @if (openCard === 2) {
+                    <div class="funding-content">
+                        <p>Auch die Nachrüstung von automatisierten Rollläden und Markisen wird als "sommerlicher
+                            Wärmeschutz" gefördert.</p>
+                        <ul class="bullet-list">
+                            <li>Voraussetzung: Intelligente Steuerung (z. B. nach Sonnenstand)</li>
+                            <li>Reduziert die Aufheizung der Räume ohne Klimaanlage</li>
+                            <li>Ideal kombinierbar mit Velux Solar-Lösungen</li>
+                        </ul>
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <div class="funding-cta"
+                style="background: #eef2f3; padding: 20px; border-radius: 8px; border-left: 5px solid #0056b3;">
+                <p>
+                    <strong>Ihr lokaler Förderservice @if(city){ in {{ city.name }} }:</strong>
+                    Wir stellen Ihnen die notwendigen Fachunternehmererklärungen aus und helfen Ihnen, die richtigen
+                    Unterlagen einzureichen.
+                    <strong>Sprechen Sie uns an, bevor Sie starten!</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="service-faqs">
+        <div class="container">
+            <h2>Häufig gestellte Fragen</h2>
+
+            <div class="faq-list">
+                @for (faq of faqs; track $index) {
+                <div class="faq-item" [class.active]="faq.isOpen">
+                    <button type="button" class="faq-question" (click)="toggleFaq($index)"
+                        [attr.aria-expanded]="faq.isOpen" [attr.aria-controls]="'faq-answer-' + $index">
+                        <span class="question-text">{{ faq.question }}</span>
+                        <span class="faq-icon" [class.rotated]="faq.isOpen">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </button>
+
+                    @if (faq.isOpen) {
+                    <div class="faq-answer" [id]="'faq-answer-' + $index">
+                        <p>{{ faq.answer }}</p>
+                    </div>
+                    }
                 </div>
                 }
             </div>
         </div>
+    </section>
 
-        <div class="funding-cta"
-            style="background: #eef2f3; padding: 20px; border-radius: 8px; border-left: 5px solid #0056b3;">
-            <p>
-                <strong>Ihr lokaler Förderservice @if(city){ in {{ city.name }} }:</strong>
-                Wir stellen Ihnen die notwendigen Fachunternehmererklärungen aus und helfen Ihnen, die richtigen
-                Unterlagen einzureichen.
-                <strong>Sprechen Sie uns an, bevor Sie starten!</strong>
-            </p>
-        </div>
-</div>
-</section>
-
-<!-- FAQ -->
-<section class="service-faqs">
-    <div class="container">
-        <h2>Häufig gestellte Fragen</h2>
-
-        <div class="faq-list">
-            @for (faq of faqs; track $index) {
-            <div class="faq-item" [class.active]="faq.isOpen">
-                <button type="button" class="faq-question" (click)="toggleFaq($index)" [attr.aria-expanded]="faq.isOpen"
-                    [attr.aria-controls]="'faq-answer-' + $index">
-                    <span class="question-text">{{ faq.question }}</span>
-                    <span class="faq-icon" [class.rotated]="faq.isOpen">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </span>
-                </button>
-
-                @if (faq.isOpen) {
-                <div class="faq-answer" [id]="'faq-answer-' + $index">
-                    <p>{{ faq.answer }}</p>
-                </div>
-                }
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>
+                    @if (city) {
+                    Interesse an neuen Dachfenstern in {{ city.name }}?
+                    } @else {
+                    Interesse an neuen Dachfenstern?
+                    }
+                </h2>
+                <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot.</p>
+                <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
             </div>
-            }
         </div>
-    </div>
-</section>
-
-<!-- CTA Section -->
-<section class="service-cta">
-    <div class="container">
-        <div class="cta-box">
-            <h2>
-                @if (city) {
-                Interesse an neuen Dachfenstern in {{ city.name }}?
-                } @else {
-                Interesse an neuen Dachfenstern?
-                }
-            </h2>
-            <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot.</p>
-            <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
-        </div>
-    </div>
-</section>
+    </section>
 </div>
