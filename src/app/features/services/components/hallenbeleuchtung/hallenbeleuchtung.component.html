@@ -4,29 +4,29 @@
     <section class="service-intro">
         <div class="container">
             <div class="section-header">
-                <h2>{{ titleWithCity }}</h2>
-                <h2 class="subtitle">{{ subtitleWithCity }}</h2>
+                <h1>{{ titleWithCity }}</h1>
+                <p class="subtitle">{{ subtitleWithCity }}</p>
             </div>
             <div class="story-grid">
                 <div class="story-content">
                     <p>
-                        <strong>Gutes Licht ist Sicherheit, Produktivität und Wohlbefinden.</strong>
+                        <strong>Intelligentes Licht steigert Sicherheit, Produktivität und Wohlbefinden.</strong>
                     </p>
                     <p>
+                        Effiziente LED-Systeme reduzieren Ihre Betriebskosten massiv.
                         @if (city) {
-                            In {{ city.name }} und der Region {{ city.region }} planen und installieren wir
+                        In <strong>{{ city.name }}</strong> und der Region <strong>{{ city.region }}</strong>
                         } @else {
-                            Wir planen und installieren
+                        Wir
                         }
-                        LED-Hallenbeleuchtungen für Industrie, Handwerk, Logistik, Landwirtschaft und Sport
-                        von der Lichtberechnung bis zur Montage.
+                        planen und installieren wir maßgeschneiderte LED-Lösungen für Industrie, Logistik und Handwerk – von
+                        der präzisen Lichtberechnung bis zur fachgerechten Montage.
                     </p>
-                    <p>Auf Wunsch inklusive Steuerung (Präsenz/Tageslicht),
-                        Not- & Sicherheitsbeleuchtung sowie Wartung.
-                    </p>
+                    <p>Auf Wunsch inklusive sensorgesteuerter Tageslichtregelung und zertifizierter Notbeleuchtung.</p>
                 </div>
                 <div class="story-image">
-                    <img src="assets/images/services/hallenbeleuchtung/parking.webp" alt="LED Hallenbeleuchtung">
+                    <img src="assets/images/services/hallenbeleuchtung/parking.webp"
+                        [alt]="'LED Hallenbeleuchtung Industrie' + (city ? ' in ' + city.name + ' und ' + city.region : '')" loading="lazy">
                 </div>
             </div>
         </div>
@@ -41,128 +41,81 @@
             <div class="service-cards-grid">
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="assets/images/services/hallenbeleuchtung/card1.webp" alt="Bestandsaufnahme & Beratung">
+                        <img src="assets/images/services/hallenbeleuchtung/card1.webp" [alt]="'Lichtberatung vor Ort'">
                     </div>
                     <div class="card-content">
-                        <h3>Bestandsaufnahme & Beratung vor Ort</h3>
-                        <p>Wir analysieren Ihre Halle und erstellen ein maßgeschneidertes Beleuchtungskonzept.</p>
+                        <h3>Vor-Ort-Beratung</h3>
+                        <p>Detaillierte Bestandsaufnahme Ihrer Halle @if(city){ in {{ city.name }} } für ein effizientes
+                            Sanierungskonzept.</p>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="assets/images/services/hallenbeleuchtung/card2.webp" alt="Lichtplanung & Berechnung">
+                        <img src="assets/images/services/hallenbeleuchtung/card2.webp" [alt]="'Lichtplanung DIN'">
                     </div>
                     <div class="card-content">
-                        <h3>Lichtplanung & -berechnung</h3>
-                        <p>Professionelle Lichtberechnung nach DIN EN 12464-1 für optimale Ausleuchtung.</p>
+                        <h3>Normgerechte Planung</h3>
+                        <p>Lichtberechnung nach DIN EN 12464-1 für optimale Helligkeit und Blendbegrenzung am
+                            Arbeitsplatz.</p>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="assets/images/services/hallenbeleuchtung/card3.jpg" alt="LED-Lösungen">
+                        <img src="assets/images/services/hallenbeleuchtung/card3.jpg" [alt]="'LED Lichtsysteme'">
                     </div>
                     <div class="card-content">
-                        <h3>LED-Lösungen</h3>
-                        <p>Hallentiefstrahler, Lichtbandsysteme, Feuchtraumwannenleuchten, Flächen- und Akzentlicht.</p>
+                        <h3>Moderne LED-Systeme</h3>
+                        <p>Hallentiefstrahler, Lichtbandsysteme und Feuchtraumleuchten höchster Effizienzklassen.</p>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="assets/images/services/hallenbeleuchtung/card4.jpg" alt="Montage & Installation">
+                        <img src="assets/images/services/hallenbeleuchtung/card4.jpg"
+                            [alt]="'Montage Hallenbeleuchtung'">
                     </div>
                     <div class="card-content">
-                        <h3>Montage & elektrische Installation</h3>
-                        <p>Alles aus einer Hand – von der Montage bis zur elektrischen Installation und Inbetriebnahme.</p>
+                        <h3>Fachmontage</h3>
+                        <p>Alles aus einer Hand: Von der Installation in großer Höhe bis zur fertigen
+                            Inbetriebnahme@if(city){ in {{ city.region }}}.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-<section class="service-process">
+    <section class="service-process">
         <div class="container">
-
             <div class="section-header">
-                <h2>Wo wir Hallenbeleuchtung realisieren</h2>
+                <h2>Einsatzbereiche</h2>
+                <p class="subtitle">Maßgeschneiderte Beleuchtung für jedes Gewerk</p>
             </div>
             <div class="story-grid">
                 <div class="story-image">
-                    <img src="assets/images/services/hallenbeleuchtung/hallenbeleuchtung-intro.webp" alt="Hallenbeleuchtung"
-                        loading="lazy">
+                    <img src="assets/images/services/hallenbeleuchtung/hallenbeleuchtung-intro.webp"
+                        alt="Gewerbliche Hallenbeleuchtung" loading="lazy">
                 </div>
                 <div class="story-content">
                     <div class="process-list">
                         <div class="process-item">
-                            <div class="item-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" />
-                                </svg>
-                            </div>
                             <div class="item-content">
-                                <h3>Industrie & Produktion</h3>
-                                <p>Maschinenarbeitsplätze, Montagebereiche</p>
+                                <h3>Industrie & Logistik</h3>
+                                <p>Optimale Ausleuchtung für Maschinenplätze, Hochregallager und Rampenzonen.</p>
                             </div>
                         </div>
-
                         <div class="process-item">
-                            <div class="item-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                                </svg>
-                            </div>
                             <div class="item-content">
-                                <h3>Logistik & Lager</h3>
-                                <p>Gänge/Regalzonen, Kommissionierung, Rampen</p>
+                                <h3>Handwerk & Werkstatt</h3>
+                                <p>Flimmerfreies Licht für präzises Arbeiten in Kfz-, Metall- oder Holzbetrieben.</p>
                             </div>
                         </div>
-
                         <div class="process-item">
-                            <div class="item-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                                </svg>
-                            </div>
                             <div class="item-content">
-                                <h3>Werkstatt & Handwerk</h3>
-                                <p>Kfz/Metall/Holz, Prüfplätze</p>
-                            </div>
-                        </div>
-
-                        <div class="process-item">
-                            <div class="item-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10" />
-                                </svg>
-                            </div>
-                            <div class="item-content">
-                                <h3>Sport- & Mehrzweckhallen</h3>
-                                <p>Reit- & Tennishallen</p>
-                            </div>
-                        </div>
-
-                        <div class="process-item">
-                            <div class="item-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                                </svg>
-                            </div>
-                            <div class="item-content">
-                                <h3>Landwirtschaftliche Hallen</h3>
-                                <p>Waschhallen, Kühlbereiche, Parkhäuser & Technikräume</p>
+                                <h3>Sport & Landwirtschaft</h3>
+                                <p>Robuste Lösungen für Reithallen, Tennishallen oder landwirtschaftliche Nutzbauten.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -175,38 +128,31 @@
     <section class="service-benefits">
         <div class="benefits-grid">
             <div class="benefits-image">
-                <img src="assets/images/services/hallenbeleuchtung/bulps.jpg" alt="LED Hallenbeleuchtung Vorteile"
+                <img src="assets/images/services/hallenbeleuchtung/bulps.jpg" alt="Vorteile LED Umrüstung"
                     class="benefits-img">
             </div>
             <div class="benefits-content">
                 <div class="content-wrapper">
                     <div class="section-header">
-                        <h2>Warum LED-Umrüstung mit DNG?</h2>
+                        <h2>Vorteile der LED-Umrüstung</h2>
                     </div>
                     <div class="benefits-highlights">
                         <div class="highlight-item">
-                            <h3>Bis zu 60–75 % weniger Energieverbrauch</h3>
-                            <p>Gegenüber konventionellen Systemen</p>
+                            <h3>Bis zu 75 % Ersparnis</h3>
+                            <p>Massive Reduktion der Energiekosten durch hocheffiziente LED-Technik.</p>
                         </div>
                         <div class="highlight-item">
-                            <h3>Gleichmäßige, flimmerfreie Ausleuchtung</h3>
-                            <p>Besseres Arbeiten, weniger Fehler</p>
+                            <h3>Wartungsfrei</h3>
+                            <p>Lange Lebensdauer (bis 100.000h) minimiert teure Leuchtmittelwechsel in großer Höhe.</p>
                         </div>
                         <div class="highlight-item">
-                            <h3>Längere Lebensdauer</h3>
-                            <p>Typ. 50.000–100.000 h L80/B10 → weniger Wartung</p>
-                        </div>
-                        <div class="highlight-item">
-                            <h3>Sicherheit & Normkonformität</h3>
-                            <p>Z. B. Beleuchtungsstärke, Blendbegrenzung, Notlicht</p>
-                        </div>
-                        <div class="highlight-item">
-                            <h3>Steuerungsintelligenz</h3>
-                            <p>Licht nur, wenn es gebraucht wird (Präsenz/Tageslicht)</p>
+                            <h3>Sensor-Intelligenz</h3>
+                            <p>Präsenzmelder und Tageslichtsteuerung nutzen Energie nur dort, wo sie gebraucht wird.</p>
                         </div>
                         <div class="highlight-item">
                             <h3>Schnelle Amortisation</h3>
-                            <p>Durch Energie- und Wartungseinsparungen</p>
+                            <p>Die Investition rechnet sich @if(city){ in {{ city.name }} } oft bereits nach 2–3 Jahren.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -250,9 +196,9 @@
             <div class="cta-box">
                 <h2>
                     @if (city) {
-                        Bereit für moderne LED-Hallenbeleuchtung in {{ city.name }}?
+                    Bereit für moderne LED-Hallenbeleuchtung in {{ city.name }}?
                     } @else {
-                        Bereit für moderne LED-Hallenbeleuchtung?
+                    Bereit für moderne LED-Hallenbeleuchtung?
                     }
                 </h2>
                 <p>Lassen Sie uns Ihre Halle optimal ausleuchten – effizient, sicher und langlebig.</p>

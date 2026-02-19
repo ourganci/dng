@@ -4,172 +4,126 @@
     <section class="service-intro">
         <div class="container">
             <div class="section-header">
-                <h2>{{ titleWithCity }}</h2>
-                <h2 class="subtitle">{{ subtitleWithCity }}</h2>
+                <h1>{{ titleWithCity }}</h1>
+                <p class="subtitle">{{ subtitleWithCity }}</p>
             </div>
             <div class="story-grid">
                 <div class="story-content">
-                    <p>Bei dieser innovativen Photovoltaik-Lösung werden die Solardachplatten direkt als Dacheindeckung
-                        verlegt und ersetzen konventionelle Ziegel oder Schieferplatten vollständig. Aufgesetzte
-                        Photovoltaik-Module auf der Dachfläche entfallen damit vollständig – das System vereint
-                        <strong>Witterungsschutz und Stromerzeugung</strong> in einer einzigen Konstruktion.
+                    <p>
+                        <strong>Indach-PV ist die eleganteste Verbindung von Schutz und Energie.</strong>
                     </p>
+                    <p>
+                        Statt Module auf Schienen zu montieren, werden die Solarpaneele direkt als Dacheindeckung
+                        verlegt.
+                        Sie ersetzen Ziegel oder Schiefer vollständig und bilden eine wetterfeste, homogene Einheit.
+                    </p>
+                    <p>Schnell. Ästhetisch. Wertsteigernd.</p>
                 </div>
                 <div class="story-image">
-                    <img src="assets/images/services/indach/PV-1-korr.webp" alt="Photovoltaik Indach-Photovoltaik" loading="lazy">
+                    <img src="assets/images/services/indach/PV-1-korr.webp"
+                        [alt]="'PV Indach Montage' + (city ? ' in ' + city.name : '')" loading="lazy">
                 </div>
             </div>
-            <div class="story-grid">
+
+            <div class="story-grid" style="margin-top: 3rem;">
                 <div class="story-content">
-                    <h4>Das GSE IN-ROOF SYSTEM™ – Qualität aus Europa</h4>
+                    <h3>GSE IN-ROOF SYSTEM™</h3>
                     <p>
                         @if (city) {
-                            In {{ city.name }} und der Region {{ city.region }} setzen wir auf
+                        Für unsere Kunden in {{ city.name }} setzen wir auf das patentierte GSE System.
                         } @else {
-                            Wir setzen auf
+                        Wir setzen auf das zertifizierte GSE IN-ROOF SYSTEM™ – Qualität aus Europa.
                         }
-                        das patentierte Indachsystem von GSE Integration – eine in Frankreich entwickelte und
-                        zertifizierte Lösung mit 15 Jahren Garantie. Das GSE IN-ROOF SYSTEM™ ersetzt Schieferplatten,
-                        Ziegel oder Betonsteine und ermöglicht eine optimale visuelle Integration der Photovoltaikmodule in die
-                        Dachstruktur.
+                        Diese Lösung ist kompatibel mit Dachfenstern von VELUX oder ROTO und bietet 15 Jahre Garantie.
                     </p>
-                    <p>Das System ist universell einsetzbar für nahezu alle gängigen Solarmodule und kann sowohl im
-                        Hoch- als auch im Querformat installiert werden. Besonders praktisch: Das GSE IN-ROOF SYSTEM™ ist
-                        vollständig kompatibel mit Dachfenstern führender Hersteller wie VELUX, ROTO und FAKRO.</p>
+                    <p>Ideal für anspruchsvolle Architektur und denkmalgeschützte Nähe, da die Photovoltaikmodule
+                        optisch mit der Dachstruktur verschmelzen.</p>
                 </div>
                 <div class="story-image">
-                    <img src="assets/images/services/indach/indach2_m.webp" alt="Photovoltaik Indach-Photovoltaik" loading="lazy">
+                    <img src="assets/images/services/indach/indach2_m.webp"
+                        [alt]="'Ästhetische PV-Integration GSE System'" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Service Cards bleiben gleich -->
     <section class="service-what-you-get">
         <div class="container">
             <div class="section-header">
-                <h2>Von der Planung bis zur Inbetriebnahme</h2>
-                <h2 class="subtitle">Unser Komplettservice für Ihre PV Indach-Anlage</h2>
+                <h2>PV-Indach Komplettservice</h2>
+                <p class="subtitle">Alles aus einer Hand in der Region {{ city?.region || 'Nahe-Glan' }}</p>
             </div>
             <div class="service-cards-grid">
-                <!-- Cards bleiben unverändert -->
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="assets/images/services/photovoltaik/card1.jpg" alt="Bestandsaufnahme & Beratung">
+                        <img src="assets/images/services/photovoltaik/card1.jpg" [alt]="'PV Planung'">
                     </div>
                     <div class="card-content">
-                        <h3>Beratung & Planung</h3>
-                        <p>Wirtschaftlichkeitsberechnung, Ertragsprognose und persönliche Empfehlung zu Speicher & Wallbox –
-                        individuell auf Ihre Gegebenheiten zugeschnitten.</p>
+                        <h3>Planung & Ertrag</h3>
+                        <p>Individuelle Ertragsprognose und Design-Check für Ihr Dach@if(city){ in {{ city.name }}}.</p>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="assets/images/services/photovoltaik/card2.webp" alt="Lichtplanung & Berechnung">
+                        <img src="assets/images/services/photovoltaik/card2.webp" [alt]="'PV Indach Montage'">
                     </div>
                     <div class="card-content">
-                        <h3>Schlüsselfertige Montage</h3>
-                        <p>Installation durch unser eigenes Dachdecker- und Elektrikerteam. Fachgerechte Einbindung ins
-                        Dach, auch Indachanlagen, inklusive Dokumentation.</p>
+                        <h3>Eigene Montage</h3>
+                        <p>Zertifizierter Verbau durch unsere Dachdecker – inklusive voller Gewährleistung.</p>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="assets/images/services/photovoltaik/card3.webp" alt="LED-Lösungen">
+                        <img src="assets/images/services/photovoltaik/card3.webp" [alt]="'PV Anmeldung'">
                     </div>
                     <div class="card-content">
-                        <h3>Anmeldung & Administration</h3>
-                        <p>Netzprüfung und Anmeldung beim Energieversorger – wir
-                        übernehmen alle behördlichen Schritte.</p>
+                        <h3>Netz & Behörden</h3>
+                        <p>Wir übernehmen die komplette Anmeldung beim Netzbetreiber und Marktstammdatenregister.</p>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="card-image">
-                        <img src="assets/images/services/photovoltaik/card4.jpg" alt="Montage & Installation">
+                        <img src="assets/images/services/photovoltaik/card4.jpg" [alt]="'Solar Speicher'">
                     </div>
                     <div class="card-content">
-                        <h3>Speicher & Notstrom</h3>
-                        <p>Maßgeschneiderte Solarspeicher für maximale Eigennutzung. Auf Wunsch mit Notstromlösungen für
-                        Gewerbe oder sensible Stromabnehmer.</p>
+                        <h3>Speicher & Backup</h3>
+                        <p>Moderne Speichersysteme für maximale Autarkie@if(city){ im Raum {{ city.name }}}.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-<section class="service-process">
+    <section class="service-process">
         <div class="container">
             <div class="section-header">
-                <h2>Ihre Vorteile auf einen Blick</h2>
-                <h2 class="subtitle">Ästhetik, Effizienz und Langlebigkeit vereint</h2>
+                <h2>Vorteile auf einen Blick</h2>
             </div>
-
             <div class="story-grid">
                 <div class="story-image">
-                    <img src="assets/images/services/photovoltaik/check.jpg" alt="Solaranlagen Prüfung" loading="lazy">
+                    <img src="assets/images/services/photovoltaik/check.jpg" alt="Indach Prüfung" loading="lazy">
                 </div>
                 <div class="story-content">
                     <div class="process-list">
                         <div class="process-item">
-                            <div class="item-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                                </svg>
-                            </div>
                             <div class="item-content">
-                                <h3>Maximale Energieeffizienz</h3>
-                                <p>Optimierte Luftzirkulation verhindert Überhitzung der Module und maximiert den
-                                    Stromertrag.</p>
+                                <h3>Höchste Ästhetik</h3>
+                                <p>Homogene Optik ohne störende Aufbauten – das Kraftwerk wird zum Dach.</p>
                             </div>
                         </div>
-
                         <div class="process-item">
-                            <div class="item-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2">
-                                    <path
-                                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
-                                    </path>
-                                </svg>
-                            </div>
                             <div class="item-content">
-                                <h3>Hochwertige Architektur</h3>
-                                <p>Elegante Integration in die Dachfläche ohne störende Aufbauten, für eine homogene
-                                    Optik wie aus einem Guss.</p>
+                                <h3>Sturmsicher</h3>
+                                <p>Minimale Windangriffsfläche durch bündigen Verbau mit der Dacheindeckung.</p>
                             </div>
                         </div>
-
                         <div class="process-item">
-                            <div class="item-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 11l3 3L22 4"></path>
-                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                                </svg>
-                            </div>
                             <div class="item-content">
-                                <h3>Sturmsicher und robust</h3>
-                                <p>Gleichmäßige Lastverteilung, minimale Windangriffsfläche und höchste Stabilität auch
-                                    bei extremen Wetterbedingungen.</p>
-                            </div>
-                        </div>
-
-                        <div class="process-item">
-                            <div class="item-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 11l3 3L22 4"></path>
-                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                                </svg>
-                            </div>
-                            <div class="item-content">
-                                <h3>Begehbar und bruchsicher</h3>
-                                <p>Hochresistente Konstruktion aus reflexionsarmem Solarglas, hagelfest und langlebig.
-                                </p>
+                                <h3>Gewichtsersparnis</h3>
+                                <p>Entlastung der Dachstatik, da schwere Ziegel durch leichte Module ersetzt werden.</p>
                             </div>
                         </div>
                     </div>
@@ -180,47 +134,34 @@
 
     <section class="service-benefits">
         <div class="benefits-grid">
-            <!-- Bild-Bereich (Links) -->
             <div class="benefits-image">
-                <img src="assets/images/services/photovoltaik/bulp_m.webp" alt="Vorteile Photovoltaik" class="benefits-img">
+                <img src="assets/images/services/photovoltaik/bulp_m.webp" alt="Vorteile DNG" class="benefits-img">
             </div>
-
-            <!-- Content-Bereich (Rechts) - Dunkler Hintergrund -->
             <div class="benefits-content">
                 <div class="content-wrapper">
-                    <!-- Section Header innerhalb des Content-Bereichs -->
                     <div class="section-header">
-                        <h2>Warum DNG?</h2>
-                        <h2 class="subtitle">Ihr regionaler Partner für Komplettlösungen</h2>
+                        <h2>Warum DNG@if(city){ in {{ city.name }} }?</h2>
+                        <p class="subtitle">Ihr Partner für Solartechnik & Dachhandwerk</p>
                     </div>
-
                     <div class="benefits-highlights">
-
                         <div class="highlight-item">
-                            <h3>Persönliche Vor-Ort-Beratung & Planung</h3>
-                            <p>Maßgeschneiderte Lösungen für Ihr Haus und Ihren Energiebedarf</p>
+                            <h3>Beratung vor Ort</h3>
+                            <p>Planung direkt bei Ihnen @if(city){ in {{ city.name }} } durch unsere PV-Experten.</p>
                         </div>
-
                         <div class="highlight-item">
-                            <h3>Eigene Monteure & Elektriker</h3>
-                            <p>Kein Subunternehmen – alles aus einer Hand</p>
+                            <h3>Eigene Teams</h3>
+                            <p>Alles aus einer Hand: Dachdecker und Elektriker arbeiten Hand in Hand.</p>
                         </div>
-
                         <div class="highlight-item">
-                            <h3>Schnelle Umsetzung & regionale Nähe</h3>
-                            <p>Kurze Wege, persönlicher Service, verlässliche Termine</p>
-                        </div>
-
-                        <div class="highlight-item">
-                            <h3>Perfekt integrierbar</h3>
-                            <p>Ideal für Neubau, Dachsanierung oder Dachneueindeckung – alles optimal abgestimmt und aus
-                                einer Hand.</p>
+                            <h3>Regionale Nähe</h3>
+                            <p>Kurze Wege @if(city){ im Raum {{ city.region }} } für schnellen Service und Wartung.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- FAQ -->
     <section class="service-faqs">
@@ -257,9 +198,9 @@
             <div class="cta-box">
                 <h2>
                     @if (city) {
-                        Interesse an einer PV Indach-Lösung in {{ city.name }}?
+                    Interesse an einer PV Indach-Lösung in {{ city.name }}?
                     } @else {
-                        Interesse an einer PV Indach-Lösung?
+                    Interesse an einer PV Indach-Lösung?
                     }
                 </h2>
                 <p>Kontaktieren Sie uns für eine kostenlose Vor-Ort-Beratung und ein unverbindliches Angebot.</p>
