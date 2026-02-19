@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CtaButtonComponent } from '../../../../shared/components/cta-button/cta-button.component';
 import { CITY_CONFIG } from '../../../city/city.config';
 
-interface City { name: string; region: string; }
+interface City { name: string; region: string; localHook: string; solarHours: number; }
 
 @Component({
   selector: 'app-regenrinnen',
@@ -55,7 +55,7 @@ export class RegenrinnenComponent implements OnInit {
   ngOnInit(): void {
     // City-Parameter auslesen (falls vorhanden)
     this.cityKey = this.route.snapshot.paramMap.get('city') || undefined;
-    
+
     if (this.cityKey) {
       this.city = CITY_CONFIG[this.cityKey];
     }
@@ -66,7 +66,7 @@ export class RegenrinnenComponent implements OnInit {
 
   // Helper-Methods für Template
   get titleWithCity(): string {
-    return this.city 
+    return this.city
       ? `${this.serviceName} in ${this.city.name}`
       : `${this.serviceName}- und Fensterarbeiten`;
   }
@@ -138,5 +138,15 @@ export class RegenrinnenComponent implements OnInit {
 
   toggleFaq(index: number): void {
     this.faqs[index].isOpen = !this.faqs[index].isOpen;
+  }
+
+  get regionalTextRegenrinne(): any {
+    if (!this.city) return null;
+
+    return {
+      intro: `Eine funktionierende Dachentwässerung ist der wichtigste Schutz für die Fassade Ihres Hauses in ${this.city.name}. Als ${this.city.localHook} sind Gebäude hier oft wechselnden Witterungsverhältnissen ausgesetzt.`,
+      detail: `In der gesamten Region ${this.city.region} sorgen wir dafür, dass Regenwasser sicher abgeleitet wird – bevor Feuchtigkeit die Bausubstanz angreifen kann.`,
+      service: `Ob Reinigung, Reparatur oder komplette Erneuerung: Wir sind in ${this.city.name} schnell vor Ort, um Ihr Dach winterfest und sicher zu machen.`
+    };
   }
 }

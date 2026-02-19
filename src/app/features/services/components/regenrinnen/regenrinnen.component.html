@@ -5,28 +5,33 @@
     <section class="service-intro">
         <div class="container">
             <div class="section-header">
-                <h2>{{ titleWithCity }}</h2>
+                <h1>{{ titleWithCity }}</h1>
                 <h2 class="subtitle">{{ subtitleWithCity }}</h2>
             </div>
 
             <div class="story-grid">
                 <div class="story-content">
                     <p>
-                        <strong>Regenrinnen und Dachfenster sind essenzielle Bestandteile der Dachentwässerung und Wohnqualität.</strong>
+                        <strong>Regenrinnen und Dachfenster sind essenzielle Bestandteile der Dachentwässerung und
+                            Wohnqualität.</strong>
                     </p>
                     <p>
-                        Besonders bei älteren Gebäuden. 
+                        Besonders bei älteren Gebäuden ist eine funktionierende Entwässerung entscheidend für den Schutz
+                        der Bausubstanz.
                         @if (city) {
-                            In {{ city.name }} und der Region {{ city.region }}
+                        In <strong>{{ city.name }}</strong> und der gesamten Region <strong>{{ city.region }}</strong>
                         } @else {
-                            Wir
+                        Wir
                         }
-                        kümmern wir uns um die fachgerechte Wartung, Reparatur und
-                        Erneuerung Ihrer Dachentwässerung und Fenster im Dachbereich. Schnell. Gründlich. Zuverlässig.
+                        kümmern uns um die fachgerechte Wartung, Reparatur und Erneuerung Ihrer Dachentwässerung sowie
+                        Fenster im Dachbereich.
+                        Schnell. Gründlich. Zuverlässig.
                     </p>
                 </div>
                 <div class="story-image">
-                    <img src="assets/images/services/regenrinnen/regenrinne.webp" alt="Regenrinne" loading="lazy">
+                    <img src="assets/images/services/regenrinnen/regenrinne.webp"
+                        [alt]="city ? 'Regenrinnen-Service in ' + city.name : 'Fachgerechte Regenrinnenmontage'"
+                        loading="lazy">
                 </div>
             </div>
         </div>
@@ -37,28 +42,26 @@
         <div class="container">
             <div class="section-header">
                 <h2>Unsere Leistungen</h2>
-                <h2 class="subtitle"></h2>
             </div>
             <div class="story-grid">
                 <div class="story-content">
-                    <p><strong>Regenrinnen</strong></p>
+                    <p><strong>Dachentwässerung</strong></p>
                     <ul class="bullet-list">
-                        <li>Reinigung von verstopften Regenrinnen</li>
-                        <li>Reparatur undichter oder verbogener Rinnen</li>
-                        <li>Austausch alter Dachrinnen (Zink, Kupfer, Kunststoff, Alu)</li>
-                        <li>Montage von Laubschutzsystemen</li>
-                        <li>Kontrolle der Fallrohre & Regenwasserableitung</li>
+                        <li>Reinigung von verstopften Regenrinnen & Fallrohren</li>
+                        <li>Reparatur undichter Lötstellen oder verbogener Rinnen</li>
+                        <li>Austausch alter Dachrinnen (Zink, Kupfer, Aluminium)</li>
+                        <li>Montage von effektiven Laubschutzsystemen</li>
                     </ul>
-                    <p><strong>Dachfenster</strong></p>
+                    <p><strong>Dachfenster-Service</strong></p>
                     <ul class="bullet-list">
-                        <li>Sanierung von alten Holz- oder Kunststofffenstern im Dachbereich</li>
-                        <li>Abdichtung von Fensteranschlüssen (z.B. Traufe, Gauben)</li>
-                        <li>Instandsetzung bei Undichtigkeiten oder Wärmeverlust</li>
-                        <li>Kombination mit Dachsanierung oder Fenstertausch</li>
+                        <li>Instandsetzung von Holz- oder Kunststofffenstern</li>
+                        <li>Fachgerechte Abdichtung von Fensteranschlüssen</li>
+                        <li>Behebung von Undichtigkeiten und Wärmeverlusten</li>
                     </ul>
                 </div>
                 <div class="story-image">
-                    <img src="assets/images/services/dachsanierung/dachsanierung_1.jpeg" alt="Dachentwässerung"
+                    <img src="assets/images/services/dachsanierung/dachsanierung_1.jpeg"
+                        [alt]="city ? 'Dachentwässerung und Wartung in ' + city.name : 'Dachentwässerung vom Fachbetrieb'"
                         loading="lazy">
                 </div>
             </div>
@@ -137,9 +140,9 @@
             <div class="cta-box">
                 <h2>
                     @if (city) {
-                        Regenrinnen-Service in {{ city.name }} gesucht?
+                    Regenrinnen-Service in {{ city.name }} gesucht?
                     } @else {
-                        Regenrinnen-Service gesucht?
+                    Regenrinnen-Service gesucht?
                     }
                 </h2>
                 <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot.</p>
