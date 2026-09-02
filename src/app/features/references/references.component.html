@@ -1,95 +1,72 @@
-<!-- src/app/features/references/references.component.html -->
-
-<div class="references-page">
-
-  <!-- Projects Section -->
-  <section class="projects-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Unsere Projekte</h2>
-        <p class="subtitle">Vorher-Nachher Einblicke in unsere Arbeit</p>
+<main class="references-page">
+  <header class="references-hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Ausgewählte Arbeiten</p>
+        <h1>Projekte, die für sich sprechen.</h1>
+        <p class="hero-lead">Ein ehrlicher Einblick in unsere Arbeit: Photovoltaik-Lösungen auf unterschiedlichen Dachformen – geplant und umgesetzt in der Region.</p>
+        <a routerLink="/kontakt" class="hero-link">Eigenes Projekt anfragen <span aria-hidden="true">→</span></a>
       </div>
+      <button class="hero-image" type="button" (click)="openImage(images[0])" aria-label="Projekt Geschäftsstelle Volksbank Otterbach vergrößern">
+        <img [src]="images[0].src" [alt]="images[0].alt" fetchpriority="high">
+        <span class="image-chip">Lauterecken</span>
+      </button>
+    </div>
+  </header>
 
-      <div class="section-carousel">
-        <div id="carouselExampleCaptions" class="carousel slide carousel-fade">
-          <div class="carousel-indicators">
-            @for (img of images; track $index) {
-            <button type="button" data-bs-target="#carouselExampleCaptions" [attr.data-bs-slide-to]="$index"
-              [class.active]="$index === 0" [attr.aria-current]="$index === 0 ? 'true' : null"
-              [attr.aria-label]="img.alt">
-            </button>
+  <section class="project-intro" aria-labelledby="project-heading">
+    <div class="container intro-grid">
+      <div>
+        <p class="eyebrow">Referenzen</p>
+        <h2 id="project-heading">Ein Dach. Eine passende Lösung.</h2>
+      </div>
+      <p class="intro-text">Jede Dachfläche bringt eigene Anforderungen mit. Die folgenden Aufnahmen zeigen realisierte Anlagen auf Wohn- und Geschäftsgebäuden.</p>
+    </div>
+  </section>
+
+  <section class="projects-section" aria-label="Projektgalerie">
+    <div class="container project-list">
+      @for (project of projects; track project.title; let index = $index) {
+        <article class="project-card" [class.project-card--reverse]="index % 2 === 1">
+          <div class="project-gallery" [class.project-gallery--single]="project.images.length === 1">
+            @for (image of project.images; track image.src) {
+              <button type="button" class="project-image" (click)="openImage(image)" [attr.aria-label]="image.alt + ' vergrößern'">
+                <img [src]="image.src" [alt]="image.alt" loading="lazy">
+                <span class="zoom-label" aria-hidden="true">Ansehen <span>↗</span></span>
+              </button>
             }
           </div>
-
-          <div class="carousel-inner">
-            @for (img of images; track $index) {
-            <div class="carousel-item" [class.active]="$index === 0">
-              <img [src]="img.src" class="d-block w-100" [alt]="img.alt">
-              @if (img.caption || img.title) {
-              <div class="carousel-caption d-none d-md-block">
-                @if (img.title) { <h5>{{ img.title }}</h5> }
-                @if (img.caption) { <p>{{ img.caption }}</p> }
-              </div>
-              }
-            </div>
-            }
+          <div class="project-copy">
+            <div class="project-number" aria-hidden="true">{{ projectNumber(index) }}</div>
+            <p class="project-location">{{ project.location }}</p>
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <ul class="project-facts" aria-label="Projektdetails">
+              @for (fact of project.facts; track fact) { <li>{{ fact }}</li> }
+            </ul>
           </div>
+        </article>
+      }
+    </div>
+  </section>
 
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
+  <section class="references-cta">
+    <div class="container cta-grid">
+      <div><p class="eyebrow">Ihr Vorhaben</p><h2>Was können wir auf Ihrem Dach möglich machen?</h2></div>
+      <div class="cta-copy">
+        <p>Schildern Sie uns kurz Ihr Projekt. Wir melden uns persönlich und besprechen die nächsten Schritte.</p>
+        <a routerLink="/kontakt" class="cta-button">Beratung anfragen <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
 
-  <div class="projects-grid">
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Kundenstimmen</h2>
-          <p class="subtitle">Das sagen unsere zufriedenen Kunden</p>
-        </div>
-
-        <div class="testimonials-grid">
-          @for (testimonial of testimonials; track testimonial.name) {
-          <div class="testimonial-card">
-            <div class="testimonial-rating">
-              @for (star of getRatingStars(testimonial.rating); track $index) {
-              <span>{{ star }}</span>
-              }
-            </div>
-            <p class="testimonial-text">"{{ testimonial.text }}"</p>
-            <div class="testimonial-author">
-              <strong>{{ testimonial.name }}</strong>
-              <span>{{ testimonial.location }} • {{ testimonial.date }}</span>
-            </div>
-          </div>
-          }
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="references-cta">
-      <div class="container">
-        <h2>Werden Sie Teil unserer Erfolgsgeschichte</h2>
-        <p>
-          Lassen Sie uns auch Ihr Dachprojekt verwirklichen. Wir freuen uns auf Ihre Anfrage!
-        </p>
-        <a routerLink="/kontakt" class="cta-button">
-          Jetzt Beratungstermin vereinbaren
-        </a>
-      </div>
-    </section>
-
-  </div>
+  @if (selectedImage) {
+    <div class="lightbox" role="dialog" aria-modal="true" aria-label="Vergrößerte Projektaufnahme" (click)="closeImage()" (keydown.escape)="closeImage()">
+      <button type="button" class="lightbox-close" (click)="closeImage()" aria-label="Bildansicht schließen">×</button>
+      <figure (click)="$event.stopPropagation()">
+        <img [src]="selectedImage.src" [alt]="selectedImage.alt">
+        <figcaption><strong>{{ selectedImage.title }}</strong><span>{{ selectedImage.caption }}</span></figcaption>
+      </figure>
+    </div>
+  }
+</main>

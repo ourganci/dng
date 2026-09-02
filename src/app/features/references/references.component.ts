@@ -1,106 +1,65 @@
-// src/app/features/references/references.component.ts
-
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../core/services/seo.service';
+
+interface ReferenceImage {
+  src: string;
+  alt: string;
+  title: string;
+  caption: string;
+}
+
+interface ReferenceProject {
+  title: string;
+  location: string;
+  description: string;
+  facts: string[];
+  images: ReferenceImage[];
+}
 
 @Component({
   selector: 'app-references',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   templateUrl: './references.component.html',
   styleUrl: './references.component.scss'
 })
 export class ReferencesComponent implements OnInit {
   private seoService = inject(SeoService);
 
-  projects = [
-    {
-      title: 'Dachsanierung Einfamilienhaus',
-      location: 'Bad Kreuznach',
-      year: '2024',
-      service: 'Komplettsanierung',
-      imageBefore: 'assets/images/references/dach11.jpg',
-      imageAfter: 'assets/images/references/dach12.jpg',
-      description: 'Vollständige Sanierung eines Einfamilienhauses mit energetischer Dämmung und neuer Eindeckung.'
-    },
-    {
-      title: 'PV-Anlage Installation',
-      location: 'Nahe Glan',
-      year: '2024',
-      service: 'Photovoltaik-Montage',
-      imageBefore: 'assets/images/references/dach-21.jpg',
-      imageAfter: 'assets/images/references/dach-22.jpg',
-      description: 'Installation einer modernen PV-Anlage auf einem Flachdach mit 40 kWp Leistung.'
-    },
-    {
-      title: 'Dachfenster-Einbau',
-      location: 'Kirn',
-      year: '2023',
-      service: 'Fenstertausch',
-      imageBefore: 'assets/images/references/dach-31.jpg',
-      imageAfter: 'assets/images/references/dach-32.jpg',
-      description: 'Austausch von 6 veralteten Dachfenstern gegen moderne, energieeffiziente Modelle.'
-    },
-    {
-      title: 'Regenrinnen-Erneuerung',
-      location: 'Bad Sobernheim',
-      year: '2023',
-      service: 'Regenrinnen',
-      imageBefore: 'assets/images/references/dach-41.jpg',
-      imageAfter: 'assets/images/references/dach-42.jpg',
-      description: 'Kompletterneuerung der Dachentwässerung an einem Mehrfamilienhaus mit Zinkrinnen.'
-    }
+  readonly images: ReferenceImage[] = [
+    { src: '/assets/images/references/r1.webp', alt: 'Photovoltaikanlage auf der Geschäftsstelle Volksbank Otterbach', title: 'Geschäftsstelle Volksbank Otterbach', caption: 'PV-Anlage in Lauterecken' },
+    { src: '/assets/images/references/r2.webp', alt: 'Weitere Ansicht der Photovoltaikanlage der Volksbank Otterbach', title: 'Geschäftsstelle Volksbank Otterbach', caption: 'PV-Anlage in Lauterecken' },
+    { src: '/assets/images/references/r3.webp', alt: 'Photovoltaikanlage auf einem Wohnhaus in Dintesheim', title: 'PV-Anlage Dintesheim', caption: '36 Glas-Glas-Module und 10-kWh-Speicher' },
+    { src: '/assets/images/references/r4.webp', alt: 'Photovoltaikanlage auf einem Wohnhaus in Eisenberg', title: 'PV-Anlage Eisenberg', caption: '15 Glas-Glas-Module und 10-kWh-Speicher' },
+    { src: '/assets/images/references/r5.webp', alt: 'Photovoltaikanlage auf einem Wohnhaus in Rehborn', title: 'PV-Anlage Rehborn', caption: '26 Glas-Glas-Module und 10-kWh-Speicher' },
+    { src: '/assets/images/references/r6.webp', alt: 'Detailansicht der Photovoltaikanlage in Rehborn', title: 'PV-Anlage Rehborn', caption: '26 Glas-Glas-Module und 10-kWh-Speicher' },
+    { src: '/assets/images/references/r7.webp', alt: 'Photovoltaikanlage mit Speicher und Wallbox in Rehborn', title: 'PV-Anlage Rehborn', caption: '32 Glas-Glas-Module, 10-kWh-Speicher und Wallbox' },
+    { src: '/assets/images/references/r8.webp', alt: 'Wallbox der Photovoltaikanlage in Rehborn', title: 'PV-Anlage Rehborn', caption: 'System mit Speicher und Wallbox' },
+    { src: '/assets/images/references/r9.webp', alt: 'Dreiseitig installierte Photovoltaikanlage in Gau-Bickelheim', title: 'PV-Anlage Gau-Bickelheim', caption: '30 Glas-Glas-Module und 10-kWh-Speicher' }
   ];
 
-  testimonials = [
-    {
-      name: 'Familie Müller',
-      location: 'Bad Kreuznach',
-      rating: 5,
-      text: 'Hervorragende Arbeit! Das Team war pünktlich, professionell und hat unser Dach perfekt saniert. Wir sind sehr zufrieden!',
-      date: 'März 2024'
-    },
-    {
-      name: 'Herr Schmidt',
-      location: 'Nahe Glan',
-      rating: 5,
-      text: 'Von der Beratung bis zur Ausführung alles top. Die PV-Anlage läuft einwandfrei und produziert wie versprochen Strom.',
-      date: 'Januar 2024'
-    },
-    {
-      name: 'Frau Weber',
-      location: 'Kirn',
-      rating: 5,
-      text: 'Sehr zufrieden mit den neuen Dachfenstern. Endlich mehr Licht im Dachgeschoss. Schnelle und saubere Arbeit!',
-      date: 'Oktober 2023'
-    }
+  readonly projects: ReferenceProject[] = [
+    { title: 'Geschäftsstelle Volksbank Otterbach', location: 'Lauterecken', description: 'Photovoltaik auf einer großflächigen Gewerbeimmobilie. Die Anlage nutzt die vorhandenen Dachflächen für eine unauffällige, gleichmäßige Modulbelegung.', facts: ['Photovoltaik', 'Gewerbeobjekt'], images: [this.images[0], this.images[1]] },
+    { title: 'PV-Anlage Dintesheim', location: 'Dintesheim', description: 'Eine kompakte Anlage auf dem geneigten Dach eines Wohnhauses – kombiniert mit einem Speicher für eine bessere Nutzung des selbst erzeugten Stroms.', facts: ['36 Glas-Glas-Module', '10-kWh-Speicher'], images: [this.images[2]] },
+    { title: 'PV-Anlage Eisenberg', location: 'Eisenberg', description: 'Die Modulfläche wurde passend zur verfügbaren Dachgeometrie angeordnet und als geschlossenes, ruhiges Feld umgesetzt.', facts: ['15 Glas-Glas-Module', '10-kWh-Speicher'], images: [this.images[3]] },
+    { title: 'PV-Anlage Rehborn', location: 'Rehborn', description: 'Zwei Ansichten einer Anlage auf einem Wohngebäude. Die Belegung fügt sich klar in die bestehende Dachfläche ein.', facts: ['26 Glas-Glas-Module', '10-kWh-Speicher'], images: [this.images[4], this.images[5]] },
+    { title: 'PV-System mit Wallbox', location: 'Rehborn', description: 'Photovoltaikanlage, Stromspeicher und Wallbox als abgestimmtes Gesamtsystem für Stromerzeugung, Speicherung und Elektromobilität.', facts: ['32 Glas-Glas-Module', '10-kWh-Speicher', 'Wallbox'], images: [this.images[6], this.images[7]] },
+    { title: 'Dreiseitige Installation', location: 'Gau-Bickelheim', description: 'Drei geeignete Dachseiten wurden in die Planung einbezogen, um die vorhandene Fläche umfassend für die Stromerzeugung zu nutzen.', facts: ['30 Glas-Glas-Module', '10-kWh-Speicher'], images: [this.images[8]] }
   ];
 
-
-  images = [
-    { src: '/assets/images/references/r1.webp', alt: 'PV Anlage Volksbank Otterbach', title: 'Geschäftsstelle Volksbank Otterbach', caption: 'PV-Anlage Lauterecken' },
-    { src: '/assets/images/references/r2.webp', alt: 'PV Anlage Volksbank Otterbach', title: 'Geschäftsstelle Volksbank Otterbach', caption: 'PV-Anlage Lauterecken' },
-    { src: '/assets/images/references/r3.webp', alt: 'PV Anlage Dintesheim', title: 'PV Anlage Dintesheim', caption: '36 Module Glas-Glas - 10kWh Speicher', },
-    { src: '/assets/images/references/r4.webp', alt: 'PV Anlage Eisenberg', title: ' PV Anlage Eisenberg', caption: '15 Module Glas-Glas - 10kWh Speicher' },
-    { src: '/assets/images/references/r5.webp', alt: 'PV Anlage Rehborn', title: 'PV Anlage Rehborn', caption: '26 Module Glas-Glas - 10kWh Speicher' },
-    { src: '/assets/images/references/r6.webp', alt: 'PV Anlage Rehborn', title: 'PV Anlage Rehborn', caption: '26 Module Glas-Glas - 10kWh Speicher' },
-    { src: '/assets/images/references/r7.webp', alt: 'PV Anlage Rehborn', title: 'PV Anlage Rehborn', caption: '32 Module Glas-Glas - 10kWh Speicher und Wallbox' },
-    { src: '/assets/images/references/r8.webp', alt: 'PV Anlage Rehborn Wallbox', title: 'PV Anlage Rehborn', caption: '32 Module Glas-Glas - 10kWh Speicher und Wallbox' },
-    { src: '/assets/images/references/r9.webp', alt: 'PV Anlage Gau-Bickelheim', title: 'PV Anlage Gau-Bickelheim', caption: '3-seitige Installation mit 30 Modulen Glas-Glas - 10kWh Speicher' },
-  ];
+  selectedImage?: ReferenceImage;
 
   ngOnInit(): void {
     this.seoService.updateMetaTags({
-      title: 'Referenzen – Unsere Projekte | DNG GmbH Dachdeckerei',
-      description: 'Überzeugen Sie sich von unserer Arbeit. Sehen Sie Beispiele unserer Dachprojekte im Raum Nahe Glan, Bad Kreuznach und Kirn.',
-      keywords: 'Dachdecker Referenzen, Projekte, Vorher Nachher, Kundenstimmen',
+      title: 'Referenzen – Photovoltaik-Projekte | DNG GmbH',
+      description: 'Ausgewählte Photovoltaik-Projekte der DNG GmbH in Lauterecken, Dintesheim, Eisenberg, Rehborn und Gau-Bickelheim.',
+      keywords: 'DNG Referenzen, Photovoltaik Projekte, PV-Anlagen Nahe Glan',
       url: 'https://www.dng-nahe-glan.de/referenzen'
     });
   }
 
-  getRatingStars(rating: number): string[] {
-    return Array(rating).fill('⭐');
-  }
+  openImage(image: ReferenceImage): void { this.selectedImage = image; }
+  closeImage(): void { this.selectedImage = undefined; }
+  projectNumber(index: number): string { return String(index + 1).padStart(2, '0'); }
 }
