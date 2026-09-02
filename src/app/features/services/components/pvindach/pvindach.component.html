@@ -7,6 +7,9 @@
                 <h1>{{ titleWithCity }}</h1>
                 <p class="subtitle">{{ subtitleWithCity }}</p>
             </div>
+
+            <app-breadcrumb [items]="breadcrumbs" />
+
             <div class="story-grid">
                 <div class="story-content">
                     <p>
@@ -18,6 +21,14 @@
                         Sie ersetzen Ziegel oder Schiefer vollständig und bilden eine wetterfeste, homogene Einheit.
                     </p>
                     <p>Schnell. Ästhetisch. Wertsteigernd.</p>
+
+                    @if (regionalTextPvIndach) {
+                    <div class="local-trust-badge">
+                        <p>{{ regionalTextPvIndach.intro }}</p>
+                        <p>{{ regionalTextPvIndach.detail }}</p>
+                        <p>{{ regionalTextPvIndach.closing }}</p>
+                    </div>
+                    }
                 </div>
                 <div class="story-image">
                     <img src="assets/images/services/indach/PV-1-korr.webp"

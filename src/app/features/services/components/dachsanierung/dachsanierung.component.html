@@ -1,243 +1,250 @@
-<!-- src/app/features/services/components/dachsanierung/dachsanierung.component.html -->
-
 <div class="service-detail-page">
 
-    <!-- Intro Section -->
-    <section class="service-intro">
-        <div class="container">
-            <div class="section-header">
-                <h1>{{ titleWithCity }}</h1>
-                <h2 class="subtitle">{{ subtitleWithCity }}</h2>
-            </div>
+  <section class="service-intro">
+    <div class="container">
+      <div class="section-header">
+        <h1>{{ titleWithCity }}</h1>
+        <p class="subtitle">{{ subtitleWithCity }}</p>
+      </div>
 
-            <div class="story-grid">
-                <div class="story-content">
-                    <p>
-                        <strong>Ihr Dach ist in die Jahre gekommen?</strong><br>
-                        Feuchtigkeit, Wärmeverluste oder lockere Ziegel sind deutliche Anzeichen für Sanierungsbedarf.
-                    </p>
+      <app-breadcrumb [items]="breadcrumbs" />
 
-                    @if (regionalTextSanierung) {
-                    <p>{{ regionalTextSanierung.intro }}</p>
-                    <p><strong>{{ regionalTextSanierung.main }}</strong></p>
-                    <p>{{ regionalTextSanierung.closing }}</p>
-                    } @else {
-                    <p>
-                        Als erfahrener Meisterbetrieb sind wir im gesamten Raum <strong>Mainz, Bingen, Bad Kreuznach bis
-                            nach Kaiserslautern</strong> für Sie unterwegs.
-                        In diesem Einzugsgebiet realisieren wir fachgerechte Dachsanierungen, die Ästhetik mit moderner
-                        Dämmtechnik vereinen.
-                    </p>
-                    <p>
-                        Ob Einfamilienhaus oder Gewerbeobjekt: Wir sorgen dafür, dass Ihr Dach energetisch auf dem
-                        neuesten Stand ist und den Wert Ihrer Immobilie langfristig steigert.
-                    </p>
-                    }
+      <div class="story-grid">
+        <div class="story-content">
+          <p>
+            <strong>Ihr Dach ist in die Jahre gekommen?</strong><br>
+            Feuchtigkeit, W&auml;rmeverluste oder lockere Ziegel sind deutliche Anzeichen f&uuml;r Sanierungsbedarf.
+          </p>
 
-                    <p><strong>Alles aus einer Hand. Regional. Persönlich. Zuverlässig.</strong></p>
+          @if (regionalTextSanierung) {
+            <p>{{ regionalTextSanierung.intro }}</p>
 
-                    @if (city) {
-                    <div class="local-trust-badge"
-                        style="background: #f4f7ff; border: 1px solid #1e40af; padding: 12px; border-radius: 8px; margin: 15px 0;">
-                        <p style="margin-bottom: 0;">
-                            <strong>Sanierungs-Check {{ city.name }}:</strong> Wir beraten Sie vor Ort auch zu aktuellen
-                            Fördermöglichkeiten für die Region {{ city.region }}.
-                        </p>
-                    </div>
-                    }
-                </div>
-                <div class="story-image">
-                    <img src="assets/images/services/dachsanierung_detail1.jpg" alt="Dachsanierung Detail"
-                        loading="lazy">
-                </div>
-            </div>
+            @if (regionalTextSanierung.houseTypes) {
+              <p>{{ regionalTextSanierung.houseTypes }}</p>
+            }
+
+            @if (regionalTextSanierung.localFact) {
+              <div class="local-trust-badge">
+                <p><strong>{{ regionalTextSanierung.localFact }}</strong></p>
+              </div>
+            }
+
+            @if (regionalTextSanierung.distanceNote) {
+              <p>{{ regionalTextSanierung.distanceNote }}</p>
+            }
+
+            <p><strong>{{ regionalTextSanierung.main }}</strong></p>
+            <p>{{ regionalTextSanierung.closing }}</p>
+
+            @if (city) {
+              <div class="local-trust-badge">
+                <p>
+                  <strong>Sanierungs-Check {{ city.name }}:</strong> Wir beraten Sie vor Ort auch zu aktuellen
+                  F&ouml;rderm&ouml;glichkeiten f&uuml;r die Region {{ city.region }}.
+                </p>
+              </div>
+            }
+          } @else {
+            <p>
+              Als erfahrener Meisterbetrieb sind wir im gesamten Raum <strong>Mainz, Bingen, Bad Kreuznach bis
+                nach Kaiserslautern</strong> f&uuml;r Sie unterwegs.
+              In diesem Einzugsgebiet realisieren wir fachgerechte Dachsanierungen, die &Auml;sthetik mit moderner
+              D&auml;mmtechnik vereinen.
+            </p>
+            <p>
+              Ob Einfamilienhaus oder Gewerbeobjekt: Wir sorgen daf&uuml;r, dass Ihr Dach energetisch auf dem
+              neuesten Stand ist und den Wert Ihrer Immobilie langfristig steigert.
+            </p>
+          }
+
+          <p><strong>Alles aus einer Hand. Regional. Pers&ouml;nlich. Zuverl&auml;ssig.</strong></p>
         </div>
-    </section>
-
-    <!-- Ursachen und typische Schäden -->
-    <section class="service-reasons">
-        <div class="container">
-            <div class="section-header">
-                <h2>Ursachen und typische Schäden am Dach</h2>
-                <h2 class="subtitle">Früh erkennen, gezielt sanieren</h2>
-            </div>
-
-            <div class="story-grid">
-                <div class="story-content">
-                    <p>
-                        Ein beschädigtes Dach beeinträchtigt nicht nur die Optik, sondern vor allem die Sicherheit und
-                        Energieeffizienz Ihres Gebäudes.
-                        Häufige Anzeichen für einen Sanierungsbedarf:
-                    </p>
-                    <ul class="bullet-list">
-                        <li>Moos- oder Algenbefall, brüchige Ziegel</li>
-                        <li>Undichtigkeiten &amp; Wassereintritt</li>
-                        <li>Hoher Wärmeverlust durch mangelnde Dämmung</li>
-                        <li>Schäden nach Sturm oder Hagel</li>
-                        <li>Korrosion an Dachrinnen und Blechen</li>
-                    </ul>
-                    <div class="service-highlight">
-                        <p><strong>Je früher Sie handeln, desto günstiger die Sanierung.</strong></p>
-                    </div>
-                </div>
-                <div class="story-image">
-                    <img src="assets/images/services/dachsanierung/dachsanierung_1.jpeg" alt="Dachsanierung"
-                        loading="lazy">
-                </div>
-            </div>
+        <div class="story-image">
+          <img src="assets/images/services/dachsanierung_detail1.jpg" alt="Dachsanierung Nahe Glan">
         </div>
-    </section>
+      </div>
 
-    <!-- Unsere Leistungen Section -->
-    <section class="service-what-you-get">
-        <div class="container">
-            <div class="section-header">
-                <h2>Ihre Vorteile bei der Dachsanierung @if(city){ in {{ city.name }} }</h2>
-                <p class="subtitle">Nachhaltiger Schutz und Wertsteigerung für Ihr Zuhause</p>
-            </div>
-
-            <div class="service-cards-grid">
-                <div class="service-card">
-                    <div class="card-image">
-                        <img src="assets/images/services/dachsanierung/card1.webp"
-                            [alt]="'Wertsteigerung durch Dachsanierung' + (city ? ' in ' + city.name : '')"
-                            loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <h3>Wertsteigerung</h3>
-                        <p>Erhöht Marktwert & Wohnqualität Ihrer Immobilie nachhaltig.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="card-image">
-                        <img src="assets/images/services/dachsanierung/card2.webp"
-                            [alt]="'Energetische Dachdämmung nach GEG' + (city ? ' im Raum ' + city.region : '')"
-                            loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <h3>Energieeffizienz</h3>
-                        <p>Bis zu 30% Heizkosten sparen durch moderne Dämmung nach GEG.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="card-image">
-                        <img src="assets/images/services/dachsanierung/card3.webp"
-                            [alt]="'Dachabdichtung und Witterungsschutz'" loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <h3>Dichtigkeit & Schutz</h3>
-                        <p>Sicherer Schutz vor Witterung und teuren Feuchtigkeitsschäden.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="card-image">
-                        <img src="assets/images/services/dachsanierung/card4.webp"
-                            [alt]="'Förderung für Dachsanierung' + (city ? ' in ' + city.name : '')" loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <h3>Förderfähig</h3>
-                        <p>Profitieren Sie von KfW-Zuschüssen & steuerlichen Boni.</p>
-                    </div>
-                </div>
-            </div>
+      <!-- Interne Verlinkung: benachbarte Tier-A-Staedte -->
+      @if (nearbyCities.length > 0) {
+        <div class="nearby-cities">
+          <p class="nearby-label">Dachsanierung auch verf&uuml;gbar in:</p>
+          <div class="nearby-list">
+            @for (nearby of nearbyCities; track nearby.key) {
+              <a [routerLink]="'/leistungen/dachsanierung/' + nearby.key" class="nearby-link">
+                {{ nearby.name }}
+              </a>
+            }
+          </div>
         </div>
-    </section>
+      }
+    </div>
+  </section>
 
-    <!-- Ablauf Section -->
-    <section class="service-process">
-        <div class="container">
-            <div class="section-header">
-                <h2>So läuft es ab</h2>
-                <h2 class="subtitle">Schritt für Schritt zu Ihrer Lösung</h2>
-            </div>
-
-            <div class="process-grid">
-                <div class="process-item">
-                    <div class="step-number">1</div>
-                    <div class="step-text">
-                        <p>Vor-Ort-Besichtigung &amp; Beratung.</p>
-                        <p>Wir begutachten den Zustand Ihres Daches und klären mögliche Maßnahmen.</p>
-                    </div>
-                </div>
-                <div class="process-item">
-                    <div class="step-number">2</div>
-                    <div class="step-text">
-                        <p>Individuelles Angebot und Planung.</p>
-                        <p>Auf Wunsch mit verschiedenen Materialoptionen.</p>
-                    </div>
-                </div>
-                <div class="process-item">
-                    <div class="step-number">3</div>
-                    <div class="step-text">
-                        <p>Rückbau und Entsorgung</p>
-                        <p>Fachgerechte Entfernung alter Eindeckung inkl. umweltfreundlicher Entsorgung.</p>
-                    </div>
-                </div>
-                <div class="process-item">
-                    <div class="step-number">4</div>
-                    <div class="step-text">
-                        <p>Neueindeckung und Dämmung</p>
-                        <p>Ziegel, Dachsteine, Schiefer oder Metall passend zum Hausstil und Budget.</p>
-                    </div>
-                </div>
-                <div class="process-item">
-                    <div class="step-number">5</div>
-                    <div class="step-text">
-                        <p>Abschlusskontrolle und Abnahme</p>
-                        <p>Inklusive Übergabeprotokoll und Fotodokumentation.</p>
-                    </div>
-                </div>
-            </div>
+  <section class="service-reasons">
+    <div class="container">
+      <div class="section-header">
+        <h2>Ursachen und typische Sch&auml;den am Dach</h2>
+        <h2 class="subtitle">Fr&uuml;h erkennen, gezielt sanieren</h2>
+      </div>
+      <div class="story-grid">
+        <div class="story-content">
+          <p>
+            Ein besch&auml;digtes Dach beeintr&auml;chtigt nicht nur die Optik, sondern vor allem die Sicherheit und
+            Energieeffizienz Ihres Geb&auml;udes.
+            H&auml;ufige Anzeichen f&uuml;r einen Sanierungsbedarf:
+          </p>
+          <ul class="bullet-list">
+            <li>Moos- oder Algenbefall, br&uuml;chige Ziegel</li>
+            <li>Undichtigkeiten &amp; Wassereintritt</li>
+            <li>Hoher W&auml;rmeverlust durch mangelnde D&auml;mmung</li>
+            <li>Sch&auml;den nach Sturm oder Hagel</li>
+            <li>Korrosion an Dachrinnen und Blechen</li>
+          </ul>
+          <div class="service-highlight">
+            <p><strong>Je fr&uuml;her Sie handeln, desto g&uuml;nstiger die Sanierung.</strong></p>
+          </div>
         </div>
-    </section>
-
-    <section class="service-faqs">
-        <div class="container">
-            <h2>Häufig gestellte Fragen</h2>
-
-            <div class="faq-list">
-                @for (faq of faqs; track $index) {
-                <div class="faq-item" [class.active]="faq.isOpen">
-                    <button type="button" class="faq-question" (click)="toggleFaq($index)"
-                        [attr.aria-expanded]="faq.isOpen" [attr.aria-controls]="'faq-answer-' + $index">
-                        <span class="question-text">{{ faq.question }}</span>
-                        <span class="faq-icon" [class.rotated]="faq.isOpen">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </span>
-                    </button>
-
-                    @if (faq.isOpen) {
-                    <div class="faq-answer" [id]="'faq-answer-' + $index">
-                        <p>{{ faq.answer }}</p>
-                    </div>
-                    }
-                </div>
-                }
-            </div>
+        <div class="story-image">
+          <img src="assets/images/services/dachsanierung/dachsanierung_1.jpeg" alt="Dachsanierung Sch&auml;den">
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- CTA Section -->
-    <section class="service-cta">
-        <div class="container">
-            <div class="cta-box">
-                <h2>
-                    @if (city) {
-                    Interesse an einer Dachsanierung in {{ city.name }}?
-                    } @else {
-                    Interesse an einer Dachsanierung?
-                    }
-                </h2>
-                <p>Kontaktieren Sie uns für eine kostenlose Beratung und ein unverbindliches Angebot.</p>
-                <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
-            </div>
+  <section class="service-what-you-get">
+    <div class="container">
+      <div class="section-header">
+        <h2>Ihre Vorteile bei der Dachsanierung @if(city){ in {{ city.name }} }</h2>
+        <p class="subtitle">Nachhaltiger Schutz und Wertsteigerung f&uuml;r Ihr Zuhause</p>
+      </div>
+      <div class="service-cards-grid">
+        <div class="service-card">
+          <div class="card-image">
+            <img src="assets/images/services/dachsanierung/card1.webp" alt="Wertsteigerung durch Dachsanierung">
+          </div>
+          <div class="card-content">
+            <h3>Wertsteigerung</h3>
+            <p>Erh&ouml;ht Marktwert &amp; Wohnqualit&auml;t Ihrer Immobilie nachhaltig.</p>
+          </div>
         </div>
-    </section>
+        <div class="service-card">
+          <div class="card-image">
+            <img src="assets/images/services/dachsanierung/card2.webp" alt="Energieeffizienz durch D&auml;mmung">
+          </div>
+          <div class="card-content">
+            <h3>Energieeffizienz</h3>
+            <p>Bis zu 30% Heizkosten sparen durch moderne D&auml;mmung nach GEG.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="card-image">
+            <img src="assets/images/services/dachsanierung/card3.webp" alt="Dichtigkeit und Schutz">
+          </div>
+          <div class="card-content">
+            <h3>Dichtigkeit &amp; Schutz</h3>
+            <p>Sicherer Schutz vor Witterung und teuren Feuchtigkeitssch&auml;den.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="card-image">
+            <img src="assets/images/services/dachsanierung/card4.webp" alt="KfW F&ouml;rderung Dachsanierung">
+          </div>
+          <div class="card-content">
+            <h3>F&ouml;rderf&auml;hig</h3>
+            <p>Profitieren Sie von KfW-Zusch&uuml;ssen &amp; steuerlichen Boni.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-process">
+    <div class="container">
+      <div class="section-header">
+        <h2>So l&auml;uft es ab</h2>
+        <h2 class="subtitle">Schritt f&uuml;r Schritt zu Ihrer L&ouml;sung</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-item">
+          <div class="step-number">1</div>
+          <div class="step-text">
+            <p>Vor-Ort-Besichtigung &amp; Beratung.</p>
+            <p>Wir begutachten den Zustand Ihres Daches und kl&auml;ren m&ouml;gliche Ma&szlig;nahmen.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="step-number">2</div>
+          <div class="step-text">
+            <p>Individuelles Angebot und Planung.</p>
+            <p>Auf Wunsch mit verschiedenen Materialoptionen.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="step-number">3</div>
+          <div class="step-text">
+            <p>R&uuml;ckbau und Entsorgung</p>
+            <p>Fachgerechte Entfernung alter Eindeckung inkl. umweltfreundlicher Entsorgung.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="step-number">4</div>
+          <div class="step-text">
+            <p>Neueindeckung und D&auml;mmung</p>
+            <p>Ziegel, Dachsteine, Schiefer oder Metall passend zum Hausstil und Budget.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="step-number">5</div>
+          <div class="step-text">
+            <p>Abschlusskontrolle und Abnahme</p>
+            <p>Inklusive &Uuml;bergabeprotokoll und Fotodokumentation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-faqs">
+    <div class="container">
+      <h2>H&auml;ufig gestellte Fragen</h2>
+      <div class="faq-list">
+        @for (faq of faqs; track $index) {
+          <div class="faq-item">
+            <button type="button" class="faq-question" (click)="toggleFaq($index)"
+              [attr.aria-expanded]="faq.isOpen" [attr.aria-controls]="'faq-answer-' + $index">
+              <span class="question-text">{{ faq.question }}</span>
+              <span class="faq-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            @if (faq.isOpen) {
+              <div class="faq-answer">
+                <p>{{ faq.answer }}</p>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="cta-box">
+        <h2>
+          @if (city) {
+            Interesse an einer Dachsanierung in {{ city.name }}?
+          } @else {
+            Interesse an einer Dachsanierung?
+          }
+        </h2>
+        <p>Kontaktieren Sie uns f&uuml;r eine kostenlose Beratung und ein unverbindliches Angebot.</p>
+        <app-cta-button text="Jetzt Kontakt aufnehmen" link="/kontakt" />
+      </div>
+    </div>
+  </section>
 
 </div>

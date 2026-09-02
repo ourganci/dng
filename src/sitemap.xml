@@ -1,140 +1,281 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Hauptseiten -->
+
   <url>
-    <loc>https://dng-nahe-glan.de/</loc>
+    <loc>https://www.dng-nahe-glan.de/</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
   <url>
-    <loc>https://dng-nahe-glan.de/leistungen</loc>
+    <loc>https://www.dng-nahe-glan.de/leistungen</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
-  <!-- Service-Seiten -->
   <url>
-    <loc>https://dng-nahe-glan.de/leistungen/dachsanierung</loc>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachsanierung</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
-    <loc>https://dng-nahe-glan.de/leistungen/dachfenster</loc>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachfenster</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
-    <loc>https://dng-nahe-glan.de/leistungen/dachreparaturen</loc>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachreparatur</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
-    <loc>https://dng-nahe-glan.de/leistungen/regenrinnen</loc>
+    <loc>https://www.dng-nahe-glan.de/leistungen/regenrinnen</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
-    <loc>https://dng-nahe-glan.de/leistungen/flachdachpruefung</loc>
+    <loc>https://www.dng-nahe-glan.de/leistungen/flachdachpruefung</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
-    <loc>https://dng-nahe-glan.de/leistungen/photovoltaik</loc>
+    <loc>https://www.dng-nahe-glan.de/leistungen/photovoltaik</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
-    <loc>https://dng-nahe-glan.de/leistungen/hallenbeleuchtung</loc>
+    <loc>https://www.dng-nahe-glan.de/leistungen/pv-indach</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- Weitere Hauptseiten -->
   <url>
-    <loc>https://dng-nahe-glan.de/ueber-uns</loc>
+    <loc>https://www.dng-nahe-glan.de/leistungen/hallenbeleuchtung</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-  
   <url>
-    <loc>https://dng-nahe-glan.de/referenzen</loc>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachsanierung/bad-kreuznach</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://dng-nahe-glan.de/ratgeber</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
-    <loc>https://dng-nahe-glan.de/kontakt</loc>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachsanierung/mainz</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachsanierung/kaiserslautern</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachsanierung/bingen</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachsanierung/kirn</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachsanierung/idar-oberstein</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachsanierung/koblenz</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachsanierung/wiesbaden</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachfenster/bad-kreuznach</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachfenster/mainz</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachfenster/wiesbaden</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachfenster/bingen</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachreparatur/bad-kreuznach</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachreparatur/mainz</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachreparatur/kirn</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/dachreparatur/idar-oberstein</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/regenrinnen/bad-kreuznach</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/regenrinnen/mainz</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/regenrinnen/bingen</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/flachdachpruefung/mainz</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/flachdachpruefung/kaiserslautern</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/flachdachpruefung/bad-kreuznach</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/photovoltaik/bad-kreuznach</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/photovoltaik/mainz</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/photovoltaik/wiesbaden</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/photovoltaik/kaiserslautern</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/photovoltaik/bingen</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/pv-indach/mainz</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/pv-indach/wiesbaden</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/pv-indach/bad-kreuznach</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/hallenbeleuchtung/mainz</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/hallenbeleuchtung/kaiserslautern</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/leistungen/hallenbeleuchtung/bad-kreuznach</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/ueber-uns</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/referenzen</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.dng-nahe-glan.de/kontakt</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- Rechtliches -->
-  <url>
-    <loc>https://dng-nahe-glan.de/impressum</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
-  <url>
-    <loc>https://dng-nahe-glan.de/datenschutz</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
-  <!-- Blog-Artikel (Beispiele) -->
-  <!-- <url>
-    <loc>https://dng-nahe-glan.de/ratgeber/dach-im-winter-vorbereiten</loc>
-    <lastmod>2024-10-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://dng-nahe-glan.de/ratgeber/photovoltaik-lohnt-sich</loc>
-    <lastmod>2024-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://dng-nahe-glan.de/ratgeber/dachfenster-austauschen-wann</loc>
-    <lastmod>2024-08-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://dng-nahe-glan.de/ratgeber/flachdach-wartung-wichtig</loc>
-    <lastmod>2024-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url> -->
+
 </urlset>

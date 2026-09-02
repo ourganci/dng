@@ -47,7 +47,8 @@ export interface ServiceOverview {
   title: string;
   description: string;
   icon: string;
-  hasImage: boolean; // ← NEU
+  hasImage: boolean;
+  imageSrc?: string;
   topCities?: string[];
 }
 
@@ -642,7 +643,10 @@ export class ServiceDataService {
       description: service.description,
       icon: service.icon,
       hasImage: this.servicesWithImages.has(service.id),
-      topCities: this.getTopCitiesForService(service.id) // ← Dynamisch!
+      imageSrc: this.servicesWithImages.has(service.id)
+        ? `assets/images/services/${service.id}.jpg`
+        : undefined,
+      topCities: this.getTopCitiesForService(service.id)
     }));
   }
 

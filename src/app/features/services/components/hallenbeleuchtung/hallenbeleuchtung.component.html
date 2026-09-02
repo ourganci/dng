@@ -7,6 +7,9 @@
                 <h1>{{ titleWithCity }}</h1>
                 <p class="subtitle">{{ subtitleWithCity }}</p>
             </div>
+
+            <app-breadcrumb [items]="breadcrumbs" />
+
             <div class="story-grid">
                 <div class="story-content">
                     <p>
@@ -23,6 +26,14 @@
                         der präzisen Lichtberechnung bis zur fachgerechten Montage.
                     </p>
                     <p>Auf Wunsch inklusive sensorgesteuerter Tageslichtregelung und zertifizierter Notbeleuchtung.</p>
+
+                    @if (regionalTextHalle) {
+                    <div class="local-trust-badge">
+                        <p>{{ regionalTextHalle.intro }}</p>
+                        <p>{{ regionalTextHalle.detail }}</p>
+                        <p>{{ regionalTextHalle.closing }}</p>
+                    </div>
+                    }
                 </div>
                 <div class="story-image">
                     <img src="assets/images/services/hallenbeleuchtung/parking.webp"

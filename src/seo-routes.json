@@ -1,0 +1,28 @@
+{
+  "staticPaths": [
+    "", "leistungen", "ueber-uns", "referenzen", "kontakt"
+  ],
+  "servicePaths": [
+    "dachsanierung", "dachfenster", "dachreparatur", "regenrinnen",
+    "flachdachpruefung", "photovoltaik", "pv-indach", "hallenbeleuchtung"
+  ],
+  "cityPages": [
+    ["dachsanierung", "bad-kreuznach"], ["dachsanierung", "mainz"],
+    ["dachsanierung", "kaiserslautern"], ["dachsanierung", "bingen"],
+    ["dachsanierung", "kirn"], ["dachsanierung", "idar-oberstein"],
+    ["dachsanierung", "koblenz"], ["dachsanierung", "wiesbaden"],
+    ["dachfenster", "bad-kreuznach"], ["dachfenster", "mainz"],
+    ["dachfenster", "wiesbaden"], ["dachfenster", "bingen"],
+    ["dachreparatur", "bad-kreuznach"], ["dachreparatur", "mainz"],
+    ["dachreparatur", "kirn"], ["dachreparatur", "idar-oberstein"],
+    ["regenrinnen", "bad-kreuznach"], ["regenrinnen", "mainz"],
+    ["regenrinnen", "bingen"], ["flachdachpruefung", "mainz"],
+    ["flachdachpruefung", "kaiserslautern"], ["flachdachpruefung", "bad-kreuznach"],
+    ["photovoltaik", "bad-kreuznach"], ["photovoltaik", "mainz"],
+    ["photovoltaik", "wiesbaden"], ["photovoltaik", "kaiserslautern"],
+    ["photovoltaik", "bingen"], ["pv-indach", "mainz"],
+    ["pv-indach", "wiesbaden"], ["pv-indach", "bad-kreuznach"],
+    ["hallenbeleuchtung", "mainz"], ["hallenbeleuchtung", "kaiserslautern"],
+    ["hallenbeleuchtung", "bad-kreuznach"]
+  ]
+}

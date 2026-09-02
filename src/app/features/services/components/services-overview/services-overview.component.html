@@ -1,21 +1,20 @@
-<!-- Leistungen Übersichtsseite mit Cards -->
 <div class="services-page">
-  <!-- Services Grid -->
+
   <section class="services-section">
     <div class="container">
+      <h1 class="visually-hidden">Unsere Leistungen</h1>
       <div class="section-header">
         <h2>Unsere Leistungen</h2>
-        <h2 class="subtitle">Professionelle Dachdecker-Services für Ihr Zuhause</h2>
+        <p class="subtitle">Professionelle Dachdecker-Services für Ihr Zuhause</p>
       </div>
 
       <div class="services-grid">
         @for (service of services; track service.id) {
         <div class="service-card">
-          <!-- Bild-Bereich -->
+
           <div class="card-image">
             @if (service.hasImage) {
-            <img [src]="'assets/images/services/' + service.id + '.jpg'" [alt]="service.title" class="service-img"
-              loading="lazy">
+            <img [src]="service.imageSrc" [alt]="service.title" class="service-img">
             } @else {
             <div class="image-placeholder">
               <span class="icon">{{ service.icon }}</span>
@@ -23,14 +22,12 @@
             }
           </div>
 
-          <!-- Text-Bereich -->
           <div class="card-content">
             <h3>{{ service.title }}</h3>
             <p>{{ service.description }}</p>
 
-            <!-- Button-Container (optional, macht es expliziter) -->
             <div class="button-area">
-              <a [routerLink]="['/leistungen', service.id]" class="btn-details">
+              <a [routerLink]="'/leistungen/' + service.id" class="btn-details">
                 Mehr erfahren
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2">
@@ -44,8 +41,7 @@
                 <span class="city-label">Auch verfügbar in:</span>
                 <div class="city-list">
                   @for (cityKey of service.topCities; track cityKey) {
-                  <a [routerLink]="['/leistungen', service.id, cityKey]"
-                    [title]="service.title + ' in ' + getCityName(cityKey)" class="city-link">
+                  <a [routerLink]="'/leistungen/' + service.id + '/' + cityKey" class="city-link">
                     {{ getCityName(cityKey) }}
                   </a>
                   }
@@ -59,7 +55,6 @@
         }
       </div>
 
-      <!-- CTA -->
       <div class="cta-section">
         <h2>Sie haben Fragen zu unseren Leistungen?</h2>
         <p>Kontaktieren Sie uns für eine kostenlose und unverbindliche Beratung.</p>

@@ -6,8 +6,10 @@
         <div class="container">
             <div class="section-header">
                 <h1>{{ titleWithCity }}</h1>
-                <h2 class="subtitle">{{ subtitleWithCity }}</h2>
+                <p class="subtitle">{{ subtitleWithCity }}</p>
             </div>
+
+            <app-breadcrumb [items]="breadcrumbs" />
 
             <div class="story-grid">
                 <div class="story-content">

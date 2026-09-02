@@ -1,105 +1,75 @@
-<!-- src/app/features/home/home.component.html -->
 <div class="home-page">
-<section class="hero">
-  <div class="hero-image"></div>
-  <!-- <div class="hero-overlay"></div> -->
-  <div class="container">
-    <div class="hero-content">
-      <!-- Badge (optional, modern) -->
-      <!-- <span class="hero-badge">Meisterbetrieb seit 2010</span> -->
-      
-      <!-- Hauptüberschrift - kurz & knackig -->
-      <h1>Ihr Dachdecker für Nahe-Glan & Umgebung</h1>
-      
-      <!-- Subline - nur das Wichtigste -->
-      <p class="hero-subline">
-        Dachsanierung, Photovoltaik & Reparaturen vom regionalen Fachbetrieb in Bad Kreuznach, Mainz und Kaiserslautern
-      </p>
 
-      <!-- CTA Buttons -->
-      <div class="hero-actions">
-        <app-cta-button 
-          text="Kostenlose Beratung" 
-          link="/kontakt" 
-         />
-        <a href="tel:+4967123456789" class="btn-secondary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-          Direkt anrufen
-        </a>
+  <section class="hero">
+    <div class="hero-image"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1>Ihr Dachdecker für Nahe-Glan &amp; Umgebung</h1>
+        <p class="hero-subline">
+          Dachsanierung, Photovoltaik &amp; Reparaturen vom regionalen Fachbetrieb in Bad Kreuznach, Mainz und Kaiserslautern
+        </p>
+        <div class="hero-actions">
+          <app-cta-button text="Kostenlose Beratung" link="/kontakt" />
+          <a href="tel:+4967531237119" class="btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            Direkt anrufen
+          </a>
+        </div>
       </div>
-
-      <!-- Trust-Elemente (optional) -->
-      <!-- <div class="hero-trust">
-        <div class="trust-item">
-          <span class="trust-icon">✓</span>
-          <span>50+ Projekte</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-icon">✓</span>
-          <span>15 Jahre Erfahrung</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-icon">✓</span>
-          <span>Regional verwurzelt</span>
-        </div>
-      </div> -->
     </div>
-  </div>
-</section>
+  </section>
 
-
-  <!-- Services Showcase (NEU) -->
   <section class="services-showcase">
     <div class="container">
       <div class="section-header-ss">
         <h2>Unsere Leistungen</h2>
-        <h2 class="subtitle">Professionelle Dachdecker-Services für Ihr Zuhause</h2>
+        <p class="subtitle">Professionelle Dachdecker-Services für Ihr Zuhause</p>
       </div>
-    </div>
 
-    @for (service of services; track service.id; let i = $index) {
-    <div class="showcase-item" [class.reverse]="i % 2 === 1">
-      <!-- Bild-Container -->
-      <div class="showcase-image-wrapper">
-        <!-- ⭐ Nutze service.hasImage direkt statt hasImage()-Methode -->
-        @if (service.hasImage) {
-        <img [src]="'assets/images/services/' + service.id + '.jpg'" [alt]="service.title + ' vom Dachdecker in Nahe-Glan und Umgebung'"
-          class="showcase-img">
-        <div class="image-overlay"></div>
-        } @else {
-        <div class="image-placeholder">
-          <span class="icon">{{ service.icon }}</span>
+      <div class="services-grid">
+        @for (service of services; track service.id) {
+        <div class="service-card">
+
+          <div class="card-image">
+            @if (service.hasImage) {
+            <img [src]="service.imageSrc" [alt]="service.title" class="service-img">
+            } @else {
+            <div class="image-placeholder">
+              <span class="icon">{{ service.icon }}</span>
+            </div>
+            }
+          </div>
+
+          <div class="card-content">
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+            <a [routerLink]="'/leistungen/' + service.id" class="btn-details">
+              Mehr erfahren
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
+
         </div>
         }
       </div>
 
-      <div class="showcase-content">
-        <h3>{{ service.title }}</h3>
-        <p>{{ service.description }}</p>
-        <a [routerLink]="['/leistungen', service.id]" class="btn-learn-more">
-          Mehr erfahren →
-        </a>
+      <div class="showcase-cta">
+        <app-cta-button text="Alle Leistungen ansehen" link="/leistungen" />
       </div>
     </div>
-    }
-
-    <!-- <div class="showcase-cta">
-      <h3>Interesse an unseren Leistungen?</h3>
-      <p>Kontaktieren Sie uns für ein kostenloses Beratungsgespräch</p>
-      <app-cta-button text="Alle Leistungen ansehen" link="/leistungen" />
-    </div> -->
-
   </section>
 
-
-  <!-- How We Work Section - Minimalistisch -->
   <section class="how-we-work">
     <div class="container">
       <div class="section-header-hww">
         <h2>So arbeiten wir</h2>
-        <h2 class="subtitle">Schritt für Schritt zu Ihrem perfekten Dach</h2>
+        <p class="subtitle">Schritt für Schritt zu Ihrem perfekten Dach</p>
       </div>
 
       <ul class="steps-list">
@@ -140,8 +110,7 @@
           </svg>
           <div class="step-content">
             <h3>Vorbereitung und Materialauswahl</h3>
-            <p>Gemeinsam wählen wir die passenden Materialien aus, die höchsten Ansprüchen genügen und perfekt zu Ihrem
-              Projekt passen.</p>
+            <p>Gemeinsam wählen wir die passenden Materialien aus, die höchsten Ansprüchen genügen und perfekt zu Ihrem Projekt passen.</p>
           </div>
         </li>
 
@@ -150,13 +119,11 @@
             fill="none" stroke="currentColor" stroke-width="2">
             <path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9" />
             <path d="M17.64 15 22 10.64" />
-            <path
-              d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91" />
+            <path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91" />
           </svg>
           <div class="step-content">
             <h3>Umsetzung und Qualitätssicherung</h3>
-            <p>Unser Team führt die Arbeiten fachgerecht aus und sorgt dafür, dass alle Schritte den Qualitätsstandards
-              entsprechen.</p>
+            <p>Unser Team führt die Arbeiten fachgerecht aus und sorgt dafür, dass alle Schritte den Qualitätsstandards entsprechen.</p>
           </div>
         </li>
 
@@ -167,8 +134,7 @@
           </svg>
           <div class="step-content">
             <h3>Abnahme und Nachbetreuung</h3>
-            <p>Nach Abschluss der Arbeiten stehen wir Ihnen weiterhin zur Verfügung und garantieren eine langanhaltende
-              Qualität.</p>
+            <p>Nach Abschluss der Arbeiten stehen wir Ihnen weiterhin zur Verfügung und garantieren eine langanhaltende Qualität.</p>
           </div>
         </li>
       </ul>
@@ -179,53 +145,41 @@
     </div>
   </section>
 
-  <!-- Trust/Why Choose Us Section - Minimalistisch -->
   <section class="why-choose-us">
     <div class="why-grid">
-      <!-- Bild-Bereich (Links) -->
       <div class="why-image">
-        <img src="assets/images/why-us-new.jpeg" alt="Dachdeckerfachbetrieb DNG für Bad Krueznach, Ingelheim und Mainz" class="why-img">
-        <!-- Platzhalter komplett entfernt -->
+        <img src="assets/images/why-us-new.jpeg" alt="DNG GmbH Dachdeckerfachbetrieb" class="why-img">
       </div>
-
-      <!-- Text-Bereich (Rechts) -->
       <div class="why-content">
         <div class="content-wrapper">
           <h2>Warum DNG?</h2>
-
           <p class="intro">
             DNG ist Ihr erfahrener Dachdeckerfachbetrieb für
             Bad Kreuznach, Bingen, Ingelheim und Mainz und das gesamte Rhein-Nahe-Gebiet.
             Seit vielen Jahren stehen wir für saubere Arbeit,
             langlebige Lösungen und persönliche Beratung rund ums Dach.
           </p>
-
           <div class="trust-points">
             <div class="trust-point">
               <h3>Regionaler Dachdecker</h3>
               <p>
-                Einsatzgebiet bis 70 km rund um Nahe-Glan –
+                Einsatzgebiet bis 70 km rund um Nahe-Glan &ndash;
                 inklusive Mainz, Bingen, Ingelheim, Alzey und Wörrstadt
               </p>
-
             </div>
-
             <div class="trust-point">
               <h3>Kostenlose Beratung</h3>
               <p>Unverbindliches Angebot und transparente Kostenplanung</p>
             </div>
-
             <div class="trust-point">
               <h3>Fachbetrieb</h3>
               <p>Erfahrene Dachdecker mit Qualitätsgarantie</p>
             </div>
-
             <div class="trust-point">
-              <h3>Versichert & Zertifiziert</h3>
+              <h3>Versichert &amp; Zertifiziert</h3>
               <p>Vollversichert mit umfangreichen Gewährleistungen</p>
             </div>
           </div>
-
           <app-cta-button text="Mehr über uns" link="/ueber-uns" />
         </div>
       </div>
@@ -245,18 +199,4 @@
     </div>
   </section>
 
-  <!-- <section class="services-overview">
-    <div class="container">
-      <h2>Unsere Leistungen</h2>
-      <div class="services-grid">
-        @for (service of services; track service.id) {
-          <a [routerLink]="['/leistungen', service.id]" class="service-card">
-            <span class="service-icon">{{ service.icon }}</span>
-            <h3>{{ service.title }}</h3>
-            <p>{{ service.description }}</p>
-          </a>
-        }
-      </div>
-    </div>
-  </section> -->
 </div>

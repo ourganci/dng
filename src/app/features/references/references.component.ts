@@ -44,13 +44,13 @@ export class ReferencesComponent implements OnInit {
       description: 'Austausch von 6 veralteten Dachfenstern gegen moderne, energieeffiziente Modelle.'
     },
     {
-      title: 'Dachfenster-Einbau',
-      location: 'Kirn',
+      title: 'Regenrinnen-Erneuerung',
+      location: 'Bad Sobernheim',
       year: '2023',
-      service: 'Fenstertausch',
+      service: 'Regenrinnen',
       imageBefore: 'assets/images/references/dach-41.jpg',
       imageAfter: 'assets/images/references/dach-42.jpg',
-      description: 'Austausch von 6 veralteten Dachfenstern gegen moderne, energieeffiziente Modelle.'
+      description: 'Kompletterneuerung der Dachentwässerung an einem Mehrfamilienhaus mit Zinkrinnen.'
     }
   ];
 

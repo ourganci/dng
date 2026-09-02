@@ -1,20 +1,17 @@
 <div class="contact-page">
 
-  <!-- Header Section -->
   <section class="contact-header">
     <div class="container">
       <div class="section-header">
         <h1>Kontakt</h1>
-        <h2 class="subtitle">Wir beraten Sie gerne kostenlos und unverbindlich</h2>
+        <p class="subtitle">Wir beraten Sie gerne kostenlos und unverbindlich</p>
       </div>
     </div>
   </section>
 
-  <!-- ZEILE 1: Kontaktinformationen (LINKS) + Bild (RECHTS) -->
   <div class="contact-info-row">
     <div class="contact-row-grid">
 
-      <!-- LINKS: Kontaktinformationen -->
       <div class="contact-info-wrapper">
         <div class="contact-info">
           <h3>Kontaktinformationen</h3>
@@ -44,9 +41,9 @@
             <div>
               <h4>Öffnungszeiten</h4>
               <p>
-                Mo - Fr: {{ companyData.openingHoursSpecification[0].opens }} - {{
-                companyData.openingHoursSpecification[0].closes }} Uhr<br>
-                Sa & So: Geschlossen
+                Mo - Fr: {{ companyData.openingHoursSpecification[0].opens }} -
+                {{ companyData.openingHoursSpecification[0].closes }} Uhr<br>
+                Sa &amp; So: Geschlossen
               </p>
             </div>
           </div>
@@ -60,7 +57,7 @@
             </svg>
             <div>
               <h4>Telefon</h4>
-              <p><a href="tel:{{ companyData.telephone }}">{{ companyData.telephone }}</a></p>
+              <p><a [href]="'tel:' + companyData.telephone">{{ companyData.telephone }}</a></p>
             </div>
           </div>
 
@@ -73,7 +70,7 @@
             </svg>
             <div>
               <h4>Mobil</h4>
-              <p><a href="tel:{{ companyData.mobile }}">{{ companyData.mobile }}</a></p>
+              <p><a [href]="'tel:' + companyData.mobile">{{ companyData.mobile }}</a></p>
             </div>
           </div>
 
@@ -85,13 +82,12 @@
             </svg>
             <div>
               <h4>E-Mail</h4>
-              <p><a href="mailto:{{ companyData.email }}">{{ companyData.email }}</a></p>
+              <p><a [href]="'mailto:' + companyData.email">{{ companyData.email }}</a></p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- RECHTS: Karte anstelle des Bildes -->
       <div class="contact-map-small">
         <div class="map-container">
           <iframe
@@ -104,11 +100,9 @@
     </div>
   </div>
 
-  <!-- ZEILE 2: Kontaktformular (LINKS) + Karte (RECHTS) -->
   <div class="contact-form-row">
     <div class="contact-row-grid">
 
-      <!-- LINKS: Kontaktformular -->
       <div class="contact-form-section">
         <h3>Beratungsgespräch vereinbaren</h3>
 
@@ -122,7 +116,6 @@
         @if (!submitSuccess()) {
         <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
 
-          <!-- Firstname -->
           <div class="form-group">
             <label for="firstname">Vorname *</label>
             <input type="text" id="firstname" formControlName="firstname"
@@ -130,122 +123,74 @@
               placeholder="Ihr Vorname">
             @if (f['firstname'].invalid && (f['firstname'].touched || submitted())) {
             <div class="error-message">
-              @if (f['firstname'].errors?.['required']) {
-              <span>Vorname ist erforderlich</span>
-              }
-              @if (f['firstname'].errors?.['minlength']) {
-              <span>Mindestens 2 Zeichen</span>
-              }
+              @if (f['firstname'].errors?.['required']) { <span>Vorname ist erforderlich</span> }
+              @if (f['firstname'].errors?.['minlength']) { <span>Mindestens 2 Zeichen</span> }
             </div>
             }
           </div>
 
-          <!-- Nachname -->
           <div class="form-group">
             <label for="name">Nachname *</label>
             <input type="text" id="name" formControlName="name"
               [class.invalid]="f['name'].invalid && (f['name'].touched || submitted())"
-              placeholder="Ihr vollständiger Name">
+              placeholder="Ihr Nachname">
             @if (f['name'].invalid && (f['name'].touched || submitted())) {
             <div class="error-message">
-              @if (f['name'].errors?.['required']) {
-              <span>Name ist erforderlich</span>
-              }
-              @if (f['name'].errors?.['minlength']) {
-              <span>Mindestens 2 Zeichen</span>
-              }
+              @if (f['name'].errors?.['required']) { <span>Nachname ist erforderlich</span> }
+              @if (f['name'].errors?.['minlength']) { <span>Mindestens 2 Zeichen</span> }
             </div>
             }
           </div>
 
-          <!-- Straße -->
           <div class="form-group">
-            <label for="street">Straße & Hausnummer *</label>
+            <label for="street">Straße &amp; Hausnummer</label>
             <input type="text" id="street" formControlName="street"
-              [class.invalid]="f['street'].invalid && (f['street'].touched || submitted())"
-              placeholder="Ihre Straße & Hausnummer">
-            @if (f['street'].invalid && (f['street'].touched || submitted())) {
-            <div class="error-message">
-              @if (f['street'].errors?.['required']) {
-              <span>Straße & Hausnummer ist erforderlich</span>
-              }
-              @if (f['street'].errors?.['minlength']) {
-              <span>Mindestens 2 Zeichen</span>
-              }
-            </div>
-            }
+              placeholder="Ihre Straße &amp; Hausnummer (optional)">
           </div>
 
-          <!-- PLZ -->
           <div class="form-group">
-            <label for="postalcode">Postleitzahl *</label>
+            <label for="postalcode">Postleitzahl</label>
             <input type="text" id="postalcode" formControlName="postalcode"
               [class.invalid]="f['postalcode'].invalid && (f['postalcode'].touched || submitted())"
-              placeholder="Ihre Postleitzahl">
+              placeholder="Ihre Postleitzahl (optional)">
             @if (f['postalcode'].invalid && (f['postalcode'].touched || submitted())) {
             <div class="error-message">
-              @if (f['postalcode'].errors?.['required']) {
-              <span>Postleitzahl ist erforderlich</span>
-              }
-              @if (f['postalcode'].errors?.['minlength']) {
-              <span>Mindestens 5 Zeichen</span>
-              }
+              @if (f['postalcode'].errors?.['pattern']) { <span>Bitte gültige Postleitzahl eingeben</span> }
             </div>
             }
           </div>
 
-          <!-- Ort -->
           <div class="form-group">
-            <label for="city">Ort *</label>
-            <input type="text" id="city" formControlName="city"
-              [class.invalid]="f['city'].invalid && (f['city'].touched || submitted())" placeholder="Ihr Ort">
-            @if (f['city'].invalid && (f['city'].touched || submitted())) {
-            <div class="error-message">
-              @if (f['city'].errors?.['required']) {
-              <span>Ort ist erforderlich</span>
-              }
-              @if (f['city'].errors?.['minlength']) {
-              <span>Mindestens 5 Zeichen</span>
-              }
-            </div>
-            }
+            <label for="city">Ort</label>
+            <input type="text" id="city" formControlName="city" placeholder="Ihr Ort (optional)">
           </div>
 
-          <!-- E-Mail -->
           <div class="form-group">
             <label for="email">E-Mail *</label>
             <input type="email" id="email" formControlName="email"
-              [class.invalid]="f['email'].invalid && (f['email'].touched || submitted())" placeholder="ihre@email.de">
+              [class.invalid]="f['email'].invalid && (f['email'].touched || submitted())"
+              placeholder="ihre@email.de">
             @if (f['email'].invalid && (f['email'].touched || submitted())) {
             <div class="error-message">
-              @if (f['email'].errors?.['required']) {
-              <span>E-Mail ist erforderlich</span>
-              }
-              @if (f['email'].errors?.['email']) {
-              <span>Ungültige E-Mail-Adresse</span>
-              }
+              @if (f['email'].errors?.['required']) { <span>E-Mail ist erforderlich</span> }
+              @if (f['email'].errors?.['email']) { <span>Ungültige E-Mail-Adresse</span> }
             </div>
             }
           </div>
 
-          <!-- Telefon -->
           <div class="form-group">
             <label for="phone">Telefon *</label>
             <input type="tel" id="phone" formControlName="phone"
-              [class.invalid]="f['phone'].invalid && (f['phone'].touched || submitted())" placeholder="+49 XXX XXXXXXX">
+              [class.invalid]="f['phone'].invalid && (f['phone'].touched || submitted())"
+              placeholder="+49 XXX XXXXXXX">
             @if (f['phone'].invalid && (f['phone'].touched || submitted())) {
             <div class="error-message">
-              @if (f['phone'].errors?.['required']) {
-              <span>Telefonnummer ist erforderlich</span>
-              }
-              @if (f['phone'].errors?.['pattern']) {
-              <span>Ungültige Telefonnummer</span>
-              }
+              @if (f['phone'].errors?.['required']) { <span>Telefonnummer ist erforderlich</span> }
+              @if (f['phone'].errors?.['pattern']) { <span>Ungültige Telefonnummer</span> }
             </div>
             }
           </div>
 
-          <!-- Service -->
           <div class="form-group">
             <label for="service">Gewünschte Leistung *</label>
             <select id="service" formControlName="service"
@@ -260,37 +205,30 @@
             }
           </div>
 
-          <!-- Nachricht -->
           <div class="form-group">
             <label for="message">Ihre Nachricht *</label>
             <textarea id="message" formControlName="message"
-              [class.invalid]="f['message'].invalid && (f['message'].touched || submitted())" rows="4" maxlength="5000"
+              [class.invalid]="f['message'].invalid && (f['message'].touched || submitted())"
+              rows="4" maxlength="5000"
               placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
             <div class="form-group-footer">
               @if (f['message'].invalid && (f['message'].touched || submitted())) {
               <div class="error-message">
-                @if (f['message'].errors?.['required']) {
-                <span>Nachricht ist erforderlich</span>
-                }
-                @if (f['message'].errors?.['minlength']) {
-                <span>Mindestens 10 Zeichen</span>
-                }
-                @if (f['message'].errors?.['maxlength']) {
-                <span>Maximal 5000 Zeichen erlaubt</span>
-                }
+                @if (f['message'].errors?.['required']) { <span>Nachricht ist erforderlich</span> }
+                @if (f['message'].errors?.['minlength']) { <span>Mindestens 10 Zeichen</span> }
+                @if (f['message'].errors?.['maxlength']) { <span>Maximal 5000 Zeichen erlaubt</span> }
               </div>
               }
               <div class="char-counter">{{ f['message'].value?.length || 0 }} / 5000</div>
             </div>
           </div>
 
-          <!-- Datenschutz -->
-          <div class="form-group checkbox-group">
+          <div class="form-group">
             <label>
               <input type="checkbox" formControlName="privacy"
                 [class.invalid]="f['privacy'].invalid && (f['privacy'].touched || submitted())">
               <span>
-                Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>
+                Ich habe die <a routerLink="/datenschutz">Datenschutzerklärung</a>
                 gelesen und stimme der Verarbeitung meiner Daten zu. *
               </span>
             </label>
@@ -309,40 +247,17 @@
             }
           </button>
 
-
         </form>
         }
         <p class="required-note">* Pflichtfelder</p>
         <p class="data-protection-note">Wir erheben, verarbeiten und nutzen die von Ihnen angegebenen
-          personen­bezogenen Daten nur zum Zwecke der Abwicklung der Kontakt­anfrage.</p>
+          personenbezogenen Daten nur zum Zwecke der Abwicklung der Kontaktanfrage.</p>
       </div>
 
-      <!-- RECHTS: Kompakte Karte (anstatt großer Map weiter unten) -->
-      <!-- <div class="contact-map-small">
-        <div class="map-container">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2580.124739394455!2d7.697342412282279!3d49.70395764071195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479601687d543743%3A0xda8abca8ba93b408!2sHauptstra%C3%9Fe%2024%2C%2067829%20Callbach!5e0!3m2!1sde!2sde!4v1761428514850!5m2!1sde!2sde"
-            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div> -->
-      <!-- RECHTS: Bild -->
       <div class="contact-image-section">
-        <img src="assets/images/contact/contact_1024_compact.webp" alt="DNG GmbH Kontakt">
+        <img src="assets/images/contact/contact_1024_compact.webp" alt="DNG GmbH Dachdeckerfachbetrieb">
       </div>
     </div>
   </div>
 
-  <!-- ZEILE 3: (untere volle Map entfernt, benefits-section entfernt) -->
-
-  <!-- ZEILE 4: Social Media (optional) -->
-  <!-- <div class="container">
-      <section class="social-media-section">
-        <h3>Folgen Sie uns auf</h3>
-        <div class="social-icons">
-          ... (dein originaler Social-Block bleibt hier, auskommentiert) ...
-        </div>
-      </section>
-    </div> -->
 </div>

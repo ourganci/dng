@@ -3,12 +3,13 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CtaButtonComponent } from '../../shared/components/cta-button/cta-button.component';
 import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, CtaButtonComponent],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })

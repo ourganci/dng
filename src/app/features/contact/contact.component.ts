@@ -1,6 +1,7 @@
 // src/app/features/contact/contact.component.ts
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { SeoService } from '../../core/services/seo.service';
 import { SchemaMarkupService } from '../../core/services/schema-markup.service';
 import { ServiceDataService } from '../../core/services/service-data.service';
@@ -8,7 +9,7 @@ import { first } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
@@ -41,9 +42,9 @@ export class ContactComponent implements OnInit {
     this.contactForm = this.fb.group({
       firstname: ['', [Validators.required, Validators.minLength(2)]],
       name: ['', [Validators.required, Validators.minLength(2)]],
-      street: ['', [Validators.required, Validators.minLength(2)]],
-      postalcode: ['', [Validators.required, Validators.pattern(/^[0-9]{5}$/)]],
-      city: ['', [Validators.required, Validators.minLength(2)]],
+      street: ['', [Validators.minLength(2)]],
+      postalcode: ['', [Validators.pattern(/^[0-9]{4,5}$/)]],
+      city: ['', [Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern(/^[0-9\s\-\+\(\)]+$/)]],
       service: ['', Validators.required],

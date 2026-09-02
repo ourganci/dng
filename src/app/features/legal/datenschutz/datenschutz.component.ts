@@ -15,8 +15,8 @@ export class DatenschutzComponent implements OnInit {
     this.seoService.updateMetaTags({
       title: 'Datenschutzerklärung – DNG GmbH',
       description: 'Datenschutzerklärung der DNG GmbH gemäß DSGVO.',
-      keywords: 'Datenschutz, DSGVO, Datenschutzerklärung',
       url: 'https://www.dng-nahe-glan.de/datenschutz'
     });
+    this.seoService.setNoIndex();
   }
 }

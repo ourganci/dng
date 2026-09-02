@@ -1,14 +1,13 @@
-# src/robots.txt
+# robots.txt – dng-nahe-glan.de
 
-# Alle Robots erlauben
 User-agent: *
 Allow: /
 
-# Bestimmte Bereiche ausschließen (optional)
+# Rechtliche Seiten: kein SEO-Wert, Crawl-Budget schonen
+Disallow: /impressum
+Disallow: /datenschutz
+Disallow: /agb
 Disallow: /404
 
-# Sitemap-Referenz
+# Sitemap
 Sitemap: https://www.dng-nahe-glan.de/sitemap.xml
-
-# Crawl-Delay (optional, nur bei Bedarf)
-# Crawl-delay: 10
