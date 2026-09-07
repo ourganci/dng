@@ -28,15 +28,15 @@ export class ReferencesComponent implements OnInit {
   private seoService = inject(SeoService);
 
   readonly images: ReferenceImage[] = [
-    { src: '/assets/images/references/r1.webp', alt: 'Photovoltaikanlage auf der Geschäftsstelle Volksbank Otterbach', title: 'Geschäftsstelle Volksbank Otterbach', caption: 'PV-Anlage in Lauterecken' },
-    { src: '/assets/images/references/r2.webp', alt: 'Weitere Ansicht der Photovoltaikanlage der Volksbank Otterbach', title: 'Geschäftsstelle Volksbank Otterbach', caption: 'PV-Anlage in Lauterecken' },
-    { src: '/assets/images/references/r3.webp', alt: 'Photovoltaikanlage auf einem Wohnhaus in Dintesheim', title: 'PV-Anlage Dintesheim', caption: '36 Glas-Glas-Module und 10-kWh-Speicher' },
-    { src: '/assets/images/references/r4.webp', alt: 'Photovoltaikanlage auf einem Wohnhaus in Eisenberg', title: 'PV-Anlage Eisenberg', caption: '15 Glas-Glas-Module und 10-kWh-Speicher' },
-    { src: '/assets/images/references/r5.webp', alt: 'Photovoltaikanlage auf einem Wohnhaus in Rehborn', title: 'PV-Anlage Rehborn', caption: '26 Glas-Glas-Module und 10-kWh-Speicher' },
-    { src: '/assets/images/references/r6.webp', alt: 'Detailansicht der Photovoltaikanlage in Rehborn', title: 'PV-Anlage Rehborn', caption: '26 Glas-Glas-Module und 10-kWh-Speicher' },
-    { src: '/assets/images/references/r7.webp', alt: 'Photovoltaikanlage mit Speicher und Wallbox in Rehborn', title: 'PV-Anlage Rehborn', caption: '32 Glas-Glas-Module, 10-kWh-Speicher und Wallbox' },
-    { src: '/assets/images/references/r8.webp', alt: 'Wallbox der Photovoltaikanlage in Rehborn', title: 'PV-Anlage Rehborn', caption: 'System mit Speicher und Wallbox' },
-    { src: '/assets/images/references/r9.webp', alt: 'Dreiseitig installierte Photovoltaikanlage in Gau-Bickelheim', title: 'PV-Anlage Gau-Bickelheim', caption: '30 Glas-Glas-Module und 10-kWh-Speicher' }
+    { src: 'assets/images/references/r1.webp', alt: 'Photovoltaikanlage auf der Geschäftsstelle Volksbank Otterbach', title: 'Geschäftsstelle Volksbank Otterbach', caption: 'PV-Anlage in Lauterecken' },
+    { src: 'assets/images/references/r2.webp', alt: 'Weitere Ansicht der Photovoltaikanlage der Volksbank Otterbach', title: 'Geschäftsstelle Volksbank Otterbach', caption: 'PV-Anlage in Lauterecken' },
+    { src: 'assets/images/references/r3.webp', alt: 'Photovoltaikanlage auf einem Wohnhaus in Dintesheim', title: 'PV-Anlage Dintesheim', caption: '36 Glas-Glas-Module und 10-kWh-Speicher' },
+    { src: 'assets/images/references/r4.webp', alt: 'Photovoltaikanlage auf einem Wohnhaus in Eisenberg', title: 'PV-Anlage Eisenberg', caption: '15 Glas-Glas-Module und 10-kWh-Speicher' },
+    { src: 'assets/images/references/r5.webp', alt: 'Photovoltaikanlage auf einem Wohnhaus in Rehborn', title: 'PV-Anlage Rehborn', caption: '26 Glas-Glas-Module und 10-kWh-Speicher' },
+    { src: 'assets/images/references/r6.webp', alt: 'Detailansicht der Photovoltaikanlage in Rehborn', title: 'PV-Anlage Rehborn', caption: '26 Glas-Glas-Module und 10-kWh-Speicher' },
+    { src: 'assets/images/references/r7.webp', alt: 'Photovoltaikanlage mit Speicher und Wallbox in Rehborn', title: 'PV-Anlage Rehborn', caption: '32 Glas-Glas-Module, 10-kWh-Speicher und Wallbox' },
+    { src: 'assets/images/references/r8.webp', alt: 'Wallbox der Photovoltaikanlage in Rehborn', title: 'PV-Anlage Rehborn', caption: 'System mit Speicher und Wallbox' },
+    { src: 'assets/images/references/r9.webp', alt: 'Dreiseitig installierte Photovoltaikanlage in Gau-Bickelheim', title: 'PV-Anlage Gau-Bickelheim', caption: '30 Glas-Glas-Module und 10-kWh-Speicher' }
   ];
 
   readonly projects: ReferenceProject[] = [
